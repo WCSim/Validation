@@ -3,7 +3,7 @@
 cd $ValidationPath/Compare
 g++ compareroot.cpp -o compareroot `root-config --libs --cflags`
 cd ../
-git clone https://github.com/wcsimtravis/WCSim.git -b gh-pages ./Webpage
+git clone https://github.com/WCSim/Validation.git -b gh-pages ./Webpage
 cd /root/HyperK/WCSim
 
 echo showing travis commit
@@ -250,7 +250,7 @@ git commit -a -m'Travis update'
 #git push
 #> /dev/null 2>/dev/null
 
-git push https://brichards64:$GitHubToken@github.com/wcsimtravis/WCSim  
+git push https://brichards64:$GitHubToken@github.com/WCSim/Validation  
 #> /dev/null 2>/dev/null
 
 
