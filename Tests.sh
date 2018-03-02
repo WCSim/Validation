@@ -249,7 +249,7 @@ git add --all
 git commit -a -m'Travis update'
 #git push
 #> /dev/null 2>/dev/null
-
+echo " test of token!!!!!!!!!!!!!!!!!!!!!!!!!! $GitHubToken  " $GitHubToken
 git push https://brichards64:$GitHubToken@github.com/WCSim/Validation gh-pages  
 #> /dev/null 2>/dev/null
 
