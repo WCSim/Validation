@@ -250,6 +250,11 @@ git commit -a -m'Travis update'
 #git push
 #> /dev/null 2>/dev/null
 echo " test of token!!!!!!!!!!!!!!!!!!!!!!!!!! ${GitHubToken}  " ${GitHubToken}
+echo ${TRAVIS_COMMIT}
+echo ${GitHubToken}
+echo ${TRAVIS_COMMIT_MESSAGE}
+echo ${ValidationPath}
+
 git push https://brichards64:$GitHubToken@github.com/WCSim/Validation gh-pages  
 #> /dev/null 2>/dev/null
 
