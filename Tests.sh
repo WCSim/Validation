@@ -137,7 +137,7 @@ do
             if [ $test == "BuildTest"  ]
             then
 		
-		/usr/bin/time -p --output=timetest $var1 > $ValidationPath/Webpage/${TRAVIS_COMMIT}/"log"$1
+		/usr/bin/time -p --output=timetest $var1 |& tee $ValidationPath/Webpage/${TRAVIS_COMMIT}/"log"$1
 		ret=${?} 
 		time=`more timetest |grep sys |  cut -f2 -d' '`
 		
@@ -151,7 +151,7 @@ do
 		
 		
 		cp $ValidationPath/Webpage/results.html $ValidationPath/Webpage/results.html.old
-		head -1000000 $ValidationPath/Webpage/results.html.old | sed s:${TRAVIS_COMMIT}"Pass"$1:$pass: | sed s:${TRAVIS_COMMIT}"Text"$i:$time: | sed s:${TRAVIS_COMMIT}"Link"$1:${TRAVIS_COMMIT}/log$1: |& tee $ValidationPath/Webpage/results.html.new
+		head -1000000 $ValidationPath/Webpage/results.html.old | sed s:${TRAVIS_COMMIT}"Pass"$1:$pass: | sed s:${TRAVIS_COMMIT}"Text"$i:$time: | sed s:${TRAVIS_COMMIT}"Link"$1:${TRAVIS_COMMIT}/log$1: > $ValidationPath/Webpage/results.html.new
 		
 	    fi	
 #############################################################
