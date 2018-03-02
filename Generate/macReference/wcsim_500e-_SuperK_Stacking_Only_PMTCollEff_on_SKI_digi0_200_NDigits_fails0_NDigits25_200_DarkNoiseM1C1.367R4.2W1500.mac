@@ -1,0 +1,31 @@
+/run/verbose 0 
+/tracking/verbose 0 
+/hits/verbose 0 
+/mygen/generator normal 
+/gun/particle e-
+/gun/energy 500 MeV 
+/gun/direction 1 0 0
+/gun/position 0 0 0
+/WCSim/PMTQEMethod Stacking_Only
+/WCSim/PMTCollEff on
+/DAQ/Digitizer SKI
+/DAQ/Trigger NDigits
+/DAQ/DigitizerOpt/DeadTime 0
+/DAQ/DigitizerOpt/IntegrationWindow 200
+/DAQ/TriggerSaveFailures/Mode 0
+/DAQ/TriggerSaveFailures/TriggerTime 200
+/DAQ/TriggerSaveFailures/PreTriggerWindow -400
+/DAQ/TriggerSaveFailures/PostTriggerWindow +950
+/DAQ/TriggerNDigits/Threshold 25
+/DAQ/TriggerNDigits/Window 200
+/DAQ/TriggerNDigits/AdjustForNoise true
+/DAQ/TriggerNDigits/PreTriggerWindow -400
+/DAQ/TriggerNDigits/PostTriggerWindow +950
+/DAQ/Construct 
+/DarkRate/SetDarkRate 4.2
+/DarkRate/SetConvert 1.367
+/DarkRate/SetDarkMode 1
+/DarkRate/SetDarkWindow 1500
+/WCSimIO/RootFile wcsim_500e-_SuperK_Stacking_Only_PMTCollEff_on_SKI_digi0_200_NDigits_fails0_NDigits25_200_DarkNoiseM1C1.367R4.2W1500.root
+/WCSim/SavePi0 false
+/run/beamOn 1000
