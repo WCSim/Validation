@@ -255,7 +255,7 @@ echo ${GitHubToken}
 echo ${TRAVIS_COMMIT_MESSAGE}
 echo ${ValidationPath}
 
-git push https://brichards64:$GitHubToken@github.com/WCSim/Validation gh-pages  
+git push https://brichards64:${GitHubToken}@github.com/WCSim/Validation.git gh-pages  
 #> /dev/null 2>/dev/null
 
 
