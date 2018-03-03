@@ -8,8 +8,10 @@ cd /root/HyperK/WCSim
 
 echo showing travis commit
 echo ${TRAVIS_COMMIT}
+echo showing travis pull request
+echo ${TRAVIS_PULL_REQUEST}
 echo showing travis pull request SHA
-echo ${TRAVIS_PULL_REQUES_SHA}
+echo ${TRAVIS_PULL_REQUEST_SHA}
 echo showing travis pull request slug
 echo ${TRAVIS_PULL_REQUEST_SLUG}
 
