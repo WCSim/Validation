@@ -149,7 +149,7 @@ do
 		
 		/usr/bin/time -p --output=timetest $var1 |& tee $ValidationPath/Webpage/${TRAVIS_COMMIT}/"log"$1
 		ret=${?} 
-		time=`more timetest |grep sys |  cut -f2 -d' '`
+		time=`more timetest |grep user |  cut -f2 -d' '`
 		
 		if [ ! -e $var2 ]
 		then
@@ -203,7 +203,7 @@ do
                     time="Failed"
                     ret=1
 		else
-		    time=`more timetest |grep sys |  cut -f2 -d' '`
+		    time=`more timetest |grep user |  cut -f2 -d' '`
 		    
 		    $ValidationPath/Compare/compareroot $ValidationPath/Webpage/${TRAVIS_COMMIT}/$1 "analysed_"$name".root" $var3
 		    
