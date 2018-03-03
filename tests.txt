@@ -10,7 +10,7 @@
 #
 #
 Build_Test BuildTest /root/Validation/build.sh /root/HyperK/WCSim/exe/bin/Linux-g++/WCSim
-Execution_Test PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/simple_test.mac /root/Validation/Compare/Reference/analysed_simple_test.root
+Execution_Test PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/Execution_Test.mac /root/Validation/Compare/Reference/analysed_Execution_Test.root
 #10e PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/10e.mac /root/Validation/Compare/Reference/analysed_10e.root
 #100e PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/100e.mac /root/Validation/Compare/Reference/analysed_100e.root
 #500e PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/500e.mac /root/Validation/Compare/Reference/analysed_500e.root

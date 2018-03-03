@@ -150,7 +150,7 @@
 
 ## change the name of the output root file, default = wcsim.root
 
-/WCSimIO/RootFile simple_test.root
+/WCSimIO/RootFile Execution_Test.root
 
 ## set a timer running on WCSimRunAction
 #/WCSimIO/Timer false
