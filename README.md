@@ -11,7 +11,7 @@ Then tests have passed (logs files or physics output can be retrived form the te
 Then test have failed (For physics tests validation plots can be accessed from the link with. Incorrect plots will be shown with the text "Error!!!" and the stars indication the expected value and the lines the submission results.)
 
 *** If feilds have text similar to "uwr89yh32hrhh3903heText2": 
-Then those tests are not yet complete please wiat for output
+Then those tests are not yet complete please wait for output
 
 
 For any questions contact Dr. Benjamin Richards (b.richards@qmul.ac.uk)  
