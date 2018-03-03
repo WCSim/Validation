@@ -24,6 +24,8 @@ then
     if [ "$TRAVIS_PULL_REQUEST" != "false" ]
     then=
 	TRAVIS_COMMIT_MESSAGE=" Pull Request #${TRAVIS_PULL_REQUEST}"
+    fi
+    
     cp $ValidationPath/Webpage/results.html $ValidationPath/Webpage/results.html.old
     echo "
             <tr>
