@@ -22,7 +22,7 @@ ret=0
 if [ $1 -eq 1 ]
 then	    
     if [ "$TRAVIS_PULL_REQUEST" != "false" ]
-    then=
+    then
 	TRAVIS_COMMIT_MESSAGE=" Pull Request #${TRAVIS_PULL_REQUEST}"
     fi
     
