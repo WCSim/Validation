@@ -82,6 +82,7 @@ ofstream title;
 		same*= leaf->GetValue(j)==leaf2->GetValue(j);
 	      }
 	    }
+	    else same=false;
 	  }
 	}
 	else same=false;
