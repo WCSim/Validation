@@ -84,6 +84,7 @@ ofstream title;
 	    }
 	  }
 	}
+	else same=false;
 	char buff2[256];
 	if (!same){
 	  sprintf(buff2,"%s Error!!!",obj->GetName());
