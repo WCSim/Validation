@@ -90,6 +90,7 @@
 #/DarkRate/SetConvert 1.126 #For Box and Line PMTs
 
 # Select which time window(s) to add dark noise to
+/DarkRate/SetDetectorElement tank
 #/DarkRate/SetDarkMode 0 to add dark noise to a time window starting at
 #/DarkRate/SetDarkLow to /DarkRate/SetDarkHigh [time in ns]
 #/DarkRate/SetDarkMode 1 adds dark noise hits to a window of
