@@ -1,4 +1,4 @@
-# Run 100 500 MeV e- in SuperK
+# Run 100 100 MeV pi0 in SuperK
 
 /run/verbose 0
 /tracking/verbose 0
@@ -38,13 +38,13 @@
 
 #Particle gun options
 /mygen/generator gun
-/gun/particle e-
-/gun/energy 500 MeV
+/gun/particle pi0
+/gun/energy 100 MeV
 /gun/direction 1 0 0 
 /gun/position 0 0 0  
 
 #Output options
-/WCSimIO/RootFile 500e.root
+/WCSimIO/RootFile 100pi.root
 
 /WCSimIO/Timer true
 

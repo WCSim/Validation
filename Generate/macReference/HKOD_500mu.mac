@@ -1,11 +1,12 @@
-# Run 100 500 MeV e- in SuperK
+# Macro to run 100 500 MeV mu- in HyperKWithOD
 
 /run/verbose 0
 /tracking/verbose 0
 /hits/verbose 0
 
 #Geometry options
-/WCSim/WCgeom SuperK
+/WCSim/WCgeom HyperKWithOD
+/WCSim/Construct
 
 /WCSim/PMTQEMethod     Stacking_Only
 
@@ -36,15 +37,21 @@
 /DarkRate/SetDarkMode 1
 /DarkRate/SetDarkWindow 4000
 
+/DarkRate/SetDetectorElement OD
+/DarkRate/SetDarkRate 2.4 kHz
+/DarkRate/SetConvert 1.367  #For Normal PMT
+/DarkRate/SetDarkMode 1
+/DarkRate/SetDarkWindow 4000
+
 #Particle gun options
 /mygen/generator gun
-/gun/particle e-
+/gun/particle mu-
 /gun/energy 500 MeV
 /gun/direction 1 0 0 
 /gun/position 0 0 0  
 
 #Output options
-/WCSimIO/RootFile 500e.root
+/WCSimIO/RootFile HKOD_500mu.root
 
 /WCSimIO/Timer true
 
