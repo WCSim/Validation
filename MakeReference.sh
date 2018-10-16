@@ -1,5 +1,9 @@
 #! /bin/bash
 
+#If you're in docker, run with:
+# cd $WCSIMDIR
+# ./MakeReference.sh
+#
 #If you're not in docker, setup WCSim and then run with:
 # ./MakeReference.sh $PWD `which WCSim`
 
