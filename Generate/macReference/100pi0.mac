@@ -44,7 +44,7 @@
 /gun/position 0 0 0  
 
 #Output options
-/WCSimIO/RootFile 100pi.root
+/WCSimIO/RootFile 100pi0.root
 
 /WCSimIO/Timer true
 
