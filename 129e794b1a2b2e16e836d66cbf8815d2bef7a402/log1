@@ -1,0 +1,168 @@
+Cleaning up ...
+Making dependency for file WCSim.cc ...
+Making dependency for file src/WCSimWCTrigger.cc ...
+Making dependency for file src/WCSimWCSD.cc ...
+Making dependency for file src/WCSimWCPMT.cc ...
+Making dependency for file src/WCSimWCHit.cc ...
+Making dependency for file src/WCSimWCDigitizer.cc ...
+Making dependency for file src/WCSimWCDigi.cc ...
+Making dependency for file src/WCSimWCDAQMessenger.cc ...
+Making dependency for file src/WCSimWCAddDarkNoise.cc ...
+Making dependency for file src/WCSimVisManager.cc ...
+Making dependency for file src/WCSimTuningParameters.cc ...
+Making dependency for file src/WCSimTuningMessenger.cc ...
+Making dependency for file src/WCSimTrajectory.cc ...
+Making dependency for file src/WCSimTrackingAction.cc ...
+Making dependency for file src/WCSimTrackInformation.cc ...
+Making dependency for file src/WCSimSteppingAction.cc ...
+Making dependency for file src/WCSimStackingAction.cc ...
+Making dependency for file src/WCSimRunActionMessenger.cc ...
+Making dependency for file src/WCSimRunAction.cc ...
+Making dependency for file src/WCSimRootTools.cc ...
+Making dependency for file src/WCSimRootOptions.cc ...
+Making dependency for file src/WCSimRootGeom.cc ...
+Making dependency for file src/WCSimRootEvent.cc ...
+Making dependency for file src/WCSimRandomMessenger.cc ...
+Making dependency for file src/WCSimPrimaryGeneratorMessenger.cc ...
+Making dependency for file src/WCSimPrimaryGeneratorAction.cc ...
+Making dependency for file src/WCSimPmtInfo.cc ...
+Making dependency for file src/WCSimPhysicsListFactoryMessenger.cc ...
+Making dependency for file src/WCSimPhysicsListFactory.cc ...
+Making dependency for file src/WCSimPMTQE.cc ...
+Making dependency for file src/WCSimPMTObject.cc ...
+Making dependency for file src/WCSimEventAction.cc ...
+Making dependency for file src/WCSimEnumerations.cc ...
+Making dependency for file src/WCSimDetectorMessenger.cc ...
+Making dependency for file src/WCSimDetectorConstruction.cc ...
+Making dependency for file src/WCSimDetectorConfigs.cc ...
+Making dependency for file src/WCSimDarkRateMessenger.cc ...
+Making dependency for file src/WCSimConstructPMT.cc ...
+Making dependency for file src/WCSimConstructMaterials.cc ...
+Making dependency for file src/WCSimConstructGeometryTables.cc ...
+Making dependency for file src/WCSimConstructEggShapedHyperK.cc ...
+Making dependency for file src/WCSimConstructCylinder.cc ...
+rootcint  -f ./src/WCSimRootDict.cc -c -I./include -I/root/HyperK/root/include WCSimRootEvent.hh WCSimRootGeom.hh  WCSimPmtInfo.hh WCSimEnumerations.hh WCSimRootOptions.hh WCSimRootTools.hh WCSimRootLinkDef.hh
+Making dependency for file src/WCSimRootDict.cc ...
+Compiling WCSimConstructCylinder.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructCylinder.cc:2:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+src/WCSimConstructCylinder.cc: In member function 'G4LogicalVolume* WCSimDetectorConstruction::ConstructCylinder()':
+src/WCSimConstructCylinder.cc:398: warning: unused variable 'physiWCExtraTower'
+src/WCSimConstructCylinder.cc:470: warning: unused variable 'WaterBSTowerCellSurface'
+src/WCSimConstructCylinder.cc:578: warning: unused variable 'WaterTyTVSurfaceBot'
+src/WCSimConstructCylinder.cc:594: warning: unused variable 'WaterTyTVSurfaceTop'
+src/WCSimConstructCylinder.cc:625: warning: unused variable 'WaterTyTVSurfaceSide'
+src/WCSimConstructCylinder.cc:687: warning: unused variable 'physiCapPMT'
+src/WCSimConstructCylinder.cc:726: warning: unused variable 'physiWCBarrelPMT'
+src/WCSimConstructCylinder.cc:748: warning: declaration of 'WCPMTRotation' shadows a previous local
+src/WCSimConstructCylinder.cc:713: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:754: warning: declaration of 'horizontalSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:717: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:755: warning: declaration of 'verticalSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:718: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:765: warning: unused variable 'physiWCBarrelPMT'
+src/WCSimConstructCylinder.cc:956: warning: statement has no effect
+src/WCSimConstructCylinder.cc:964: warning: unused variable 'physiWCBarrelPMT'
+src/WCSimConstructCylinder.cc:1024: warning: declaration of 'WCPMTRotation' shadows a previous local
+src/WCSimConstructCylinder.cc:713: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1030: warning: declaration of 'horizontalODSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:953: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1031: warning: declaration of 'verticalODSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:954: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1042: warning: unused variable 'physiWCBarrelPMT'
+src/WCSimConstructCylinder.cc:1013: warning: unused variable 'physiWCTowerODTyvek'
+src/WCSimConstructCylinder.cc:1087: warning: unused variable 'physiTopCapPMT'
+src/WCSimConstructCylinder.cc:1097: warning: unused variable 'physiBottomCapPMT'
+src/WCSimConstructCylinder.cc:846: warning: unused variable 'WaterTyTopCapSurfaceBot'
+src/WCSimConstructCylinder.cc:863: warning: unused variable 'WaterTyBottomCapSurfaceBot'
+src/WCSimConstructCylinder.cc:912: warning: unused variable 'WaterTyBarrelCellSurfaceBot'
+src/WCSimConstructCylinder.cc:198: warning: unused variable 'physiWCBarrelAnnulus'
+src/WCSimConstructCylinder.cc:229: warning: unused variable 'physiWCBarrelRing'
+src/WCSimConstructCylinder.cc:329: warning: unused variable 'WaterBSBarrelCellSurface'
+src/WCSimConstructCylinder.cc:365: warning: unused variable 'logicWCExtraBorderCell'
+src/WCSimConstructCylinder.cc:1132: warning: unused variable 'physiTopCapAssembly'
+src/WCSimConstructCylinder.cc:1140: warning: unused variable 'physiBottomCapAssembly'
+src/WCSimConstructCylinder.cc: In member function 'G4LogicalVolume* WCSimDetectorConstruction::ConstructCaps(G4int)':
+src/WCSimConstructCylinder.cc:1243: warning: declaration of 'tmpVisAtt' shadows a previous local
+src/WCSimConstructCylinder.cc:1170: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1248: warning: declaration of 'tmpVisAtt' shadows a previous local
+src/WCSimConstructCylinder.cc:1170: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1259: warning: declaration of 'tmpVisAtt' shadows a previous local
+src/WCSimConstructCylinder.cc:1170: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1339: warning: unused variable 'WaterBSExtraBorderCellSurface'
+src/WCSimConstructCylinder.cc:1524: warning: declaration of 'WCCapBlackSheetVisAtt' shadows a previous local
+src/WCSimConstructCylinder.cc:1518: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1535: warning: declaration of 'WCCapBlackSheetVisAtt' shadows a previous local
+src/WCSimConstructCylinder.cc:1518: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1579: warning: unused variable 'physiCapPMT'
+src/WCSimConstructCylinder.cc:1614: warning: unused variable 'physiWCBarrelBorderPMT'
+src/WCSimConstructCylinder.cc:1637: warning: declaration of 'WCPMTRotation' shadows a previous local
+src/WCSimConstructCylinder.cc:1601: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1643: warning: declaration of 'horizontalSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:1605: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1644: warning: declaration of 'verticalSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:1606: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1654: warning: unused variable 'physiWCBarrelBorderPMT'
+src/WCSimConstructCylinder.cc:1723: warning: unused variable 'physiWCBarrelPMT'
+src/WCSimConstructCylinder.cc:1747: warning: declaration of 'WaterTyBarrelBorderCellSurfaceBot' shadows a previous local
+src/WCSimConstructCylinder.cc:1695: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1753: warning: declaration of 'WCPMTRotation' shadows a previous local
+src/WCSimConstructCylinder.cc:1601: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1759: warning: declaration of 'horizontalODSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:1713: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1760: warning: declaration of 'verticalODSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:1714: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1771: warning: unused variable 'physiWCBarrelPMT'
+src/WCSimConstructCylinder.cc:1747: warning: unused variable 'WaterTyBarrelBorderCellSurfaceBot'
+src/WCSimConstructCylinder.cc:1695: warning: unused variable 'WaterTyBarrelBorderCellSurfaceBot'
+src/WCSimConstructCylinder.cc:1198: warning: unused variable 'physiWCBarrelBorderRing'
+src/WCSimConstructCylinder.cc:1280: warning: unused variable 'WaterBSBarrelBorderCellSurface'
+src/WCSimConstructCylinder.cc:1288: warning: unused variable 'logicWCExtraTowerCell'
+src/WCSimConstructCylinder.cc:1513: warning: unused variable 'WaterBSBottomCapSurface'
+src/WCSimConstructCylinder.cc:1518: warning: unused variable 'WCCapBlackSheetVisAtt'
+Compiling WCSimConstructEggShapedHyperK.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructEggShapedHyperK.cc:2:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+Compiling WCSimConstructGeometryTables.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructGeometryTables.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+Compiling WCSimConstructMaterials.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructMaterials.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+src/WCSimConstructMaterials.cc: In member function 'void WCSimDetectorConstruction::ConstructMaterials()':
+src/WCSimConstructMaterials.cc:29: warning: unused variable 'Vacuum'
+src/WCSimConstructMaterials.cc:278: warning: unused variable 'PPCKOV'
+src/WCSimConstructMaterials.cc:496: warning: unused variable 'MIE_water'
+src/WCSimConstructMaterials.cc:528: warning: unused variable 'MIE_water_const'
+src/WCSimConstructMaterials.cc:694: warning: unused variable 'MIE_air'
+src/WCSimConstructMaterials.cc:706: warning: unused variable 'MIE_air_const'
+Compiling WCSimConstructPMT.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructPMT.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+Compiling WCSimDarkRateMessenger.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimWCAddDarkNoise.hh:5,
+                 from src/WCSimDarkRateMessenger.cc:2:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+In file included from include/WCSimWCAddDarkNoise.hh:7,
+                 from src/WCSimDarkRateMessenger.cc:2:
+include/WCSimWCDigi.hh: In member function 'void WCSimWCDigi::AddDigiCompositionInfo(std::vector<int, std::allocator<int> >&)':
+include/WCSimWCDigi.hh:99: error: 'class std::map<int, std::vector<int, std::allocator<int> >, std::less<int>, std::allocator<std::pair<const int, std::vector<int, std::allocator<int> > > > >' has no member named 'emplace'
+include/WCSimWCDigi.hh: In member function 'std::_Rb_tree_const_iterator<std::pair<const int, float> > WCSimWCDigi::GetTimeMapBegin()':
+include/WCSimWCDigi.hh:127: error: 'class std::map<int, float, std::less<int>, std::allocator<std::pair<const int, float> > >' has no member named 'cbegin'
+include/WCSimWCDigi.hh: In member function 'std::_Rb_tree_const_iterator<std::pair<const int, float> > WCSimWCDigi::GetTimeMapEnd()':
+include/WCSimWCDigi.hh:128: error: 'class std::map<int, float, std::less<int>, std::allocator<std::pair<const int, float> > >' has no member named 'cend'
+/root/HyperK/Geant4-10.1.3-Linux/include/Geant4/CLHEP/Units/PhysicalConstants.h: At global scope:
+/root/HyperK/Geant4-10.1.3-Linux/include/Geant4/CLHEP/Units/PhysicalConstants.h:71: warning: 'CLHEP::electron_charge' defined but not used
+make: *** [/root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimDarkRateMessenger.o] Error 1
