@@ -1,0 +1,393 @@
+Cleaning up ...
+Making dependency for file WCSim.cc ...
+Making dependency for file src/WCSimWCTrigger.cc ...
+Making dependency for file src/WCSimWCSD.cc ...
+Making dependency for file src/WCSimWCPMT.cc ...
+Making dependency for file src/WCSimWCHit.cc ...
+Making dependency for file src/WCSimWCDigitizer.cc ...
+Making dependency for file src/WCSimWCDigi.cc ...
+Making dependency for file src/WCSimWCDAQMessenger.cc ...
+Making dependency for file src/WCSimWCAddDarkNoise.cc ...
+Making dependency for file src/WCSimVisManager.cc ...
+Making dependency for file src/WCSimTuningParameters.cc ...
+Making dependency for file src/WCSimTuningMessenger.cc ...
+Making dependency for file src/WCSimTrajectory.cc ...
+Making dependency for file src/WCSimTrackingAction.cc ...
+Making dependency for file src/WCSimTrackInformation.cc ...
+Making dependency for file src/WCSimSteppingAction.cc ...
+Making dependency for file src/WCSimStackingAction.cc ...
+Making dependency for file src/WCSimRunActionMessenger.cc ...
+Making dependency for file src/WCSimRunAction.cc ...
+Making dependency for file src/WCSimRootTools.cc ...
+Making dependency for file src/WCSimRootOptions.cc ...
+Making dependency for file src/WCSimRootGeom.cc ...
+Making dependency for file src/WCSimRootEvent.cc ...
+Making dependency for file src/WCSimRandomMessenger.cc ...
+Making dependency for file src/WCSimPrimaryGeneratorMessenger.cc ...
+Making dependency for file src/WCSimPrimaryGeneratorAction.cc ...
+Making dependency for file src/WCSimPmtInfo.cc ...
+Making dependency for file src/WCSimPhysicsListFactoryMessenger.cc ...
+Making dependency for file src/WCSimPhysicsListFactory.cc ...
+Making dependency for file src/WCSimPMTQE.cc ...
+Making dependency for file src/WCSimPMTObject.cc ...
+Making dependency for file src/WCSimLC.cc ...
+Making dependency for file src/WCSimEventAction.cc ...
+Making dependency for file src/WCSimEnumerations.cc ...
+Making dependency for file src/WCSimDetectorMessenger.cc ...
+Making dependency for file src/WCSimDetectorConstruction.cc ...
+Making dependency for file src/WCSimDetectorConfigs.cc ...
+Making dependency for file src/WCSimDarkRateMessenger.cc ...
+Making dependency for file src/WCSimConstructPMT.cc ...
+Making dependency for file src/WCSimConstructMaterials.cc ...
+Making dependency for file src/WCSimConstructGeometryTables.cc ...
+Making dependency for file src/WCSimConstructEggShapedHyperK.cc ...
+Making dependency for file src/WCSimConstructCylinder.cc ...
+rootcint  -f ./src/WCSimRootDict.cc -c -I./include -I/root/HyperK/root/include WCSimRootEvent.hh WCSimRootGeom.hh  WCSimPmtInfo.hh WCSimEnumerations.hh WCSimRootOptions.hh WCSimRootTools.hh WCSimRootLinkDef.hh
+Making dependency for file src/WCSimRootDict.cc ...
+Compiling WCSimConstructCylinder.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructCylinder.cc:2:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+src/WCSimConstructCylinder.cc: In member function 'G4LogicalVolume* WCSimDetectorConstruction::ConstructCylinder()':
+src/WCSimConstructCylinder.cc:398: warning: unused variable 'physiWCExtraTower'
+src/WCSimConstructCylinder.cc:470: warning: unused variable 'WaterBSTowerCellSurface'
+src/WCSimConstructCylinder.cc:578: warning: unused variable 'WaterTyTVSurfaceBot'
+src/WCSimConstructCylinder.cc:594: warning: unused variable 'WaterTyTVSurfaceTop'
+src/WCSimConstructCylinder.cc:625: warning: unused variable 'WaterTyTVSurfaceSide'
+src/WCSimConstructCylinder.cc:687: warning: unused variable 'physiCapPMT'
+src/WCSimConstructCylinder.cc:726: warning: unused variable 'physiWCBarrelPMT'
+src/WCSimConstructCylinder.cc:748: warning: declaration of 'WCPMTRotation' shadows a previous local
+src/WCSimConstructCylinder.cc:713: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:754: warning: declaration of 'horizontalSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:717: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:755: warning: declaration of 'verticalSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:718: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:765: warning: unused variable 'physiWCBarrelPMT'
+src/WCSimConstructCylinder.cc:956: warning: statement has no effect
+src/WCSimConstructCylinder.cc:964: warning: unused variable 'physiWCBarrelPMT'
+src/WCSimConstructCylinder.cc:1024: warning: declaration of 'WCPMTRotation' shadows a previous local
+src/WCSimConstructCylinder.cc:713: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1030: warning: declaration of 'horizontalODSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:953: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1031: warning: declaration of 'verticalODSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:954: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1042: warning: unused variable 'physiWCBarrelPMT'
+src/WCSimConstructCylinder.cc:1013: warning: unused variable 'physiWCTowerODTyvek'
+src/WCSimConstructCylinder.cc:1087: warning: unused variable 'physiTopCapPMT'
+src/WCSimConstructCylinder.cc:1097: warning: unused variable 'physiBottomCapPMT'
+src/WCSimConstructCylinder.cc:846: warning: unused variable 'WaterTyTopCapSurfaceBot'
+src/WCSimConstructCylinder.cc:863: warning: unused variable 'WaterTyBottomCapSurfaceBot'
+src/WCSimConstructCylinder.cc:912: warning: unused variable 'WaterTyBarrelCellSurfaceBot'
+src/WCSimConstructCylinder.cc:198: warning: unused variable 'physiWCBarrelAnnulus'
+src/WCSimConstructCylinder.cc:229: warning: unused variable 'physiWCBarrelRing'
+src/WCSimConstructCylinder.cc:329: warning: unused variable 'WaterBSBarrelCellSurface'
+src/WCSimConstructCylinder.cc:365: warning: unused variable 'logicWCExtraBorderCell'
+src/WCSimConstructCylinder.cc:1132: warning: unused variable 'physiTopCapAssembly'
+src/WCSimConstructCylinder.cc:1140: warning: unused variable 'physiBottomCapAssembly'
+src/WCSimConstructCylinder.cc: In member function 'G4LogicalVolume* WCSimDetectorConstruction::ConstructCaps(G4int)':
+src/WCSimConstructCylinder.cc:1243: warning: declaration of 'tmpVisAtt' shadows a previous local
+src/WCSimConstructCylinder.cc:1170: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1248: warning: declaration of 'tmpVisAtt' shadows a previous local
+src/WCSimConstructCylinder.cc:1170: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1259: warning: declaration of 'tmpVisAtt' shadows a previous local
+src/WCSimConstructCylinder.cc:1170: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1339: warning: unused variable 'WaterBSExtraBorderCellSurface'
+src/WCSimConstructCylinder.cc:1524: warning: declaration of 'WCCapBlackSheetVisAtt' shadows a previous local
+src/WCSimConstructCylinder.cc:1518: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1535: warning: declaration of 'WCCapBlackSheetVisAtt' shadows a previous local
+src/WCSimConstructCylinder.cc:1518: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1579: warning: unused variable 'physiCapPMT'
+src/WCSimConstructCylinder.cc:1614: warning: unused variable 'physiWCBarrelBorderPMT'
+src/WCSimConstructCylinder.cc:1637: warning: declaration of 'WCPMTRotation' shadows a previous local
+src/WCSimConstructCylinder.cc:1601: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1643: warning: declaration of 'horizontalSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:1605: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1644: warning: declaration of 'verticalSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:1606: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1654: warning: unused variable 'physiWCBarrelBorderPMT'
+src/WCSimConstructCylinder.cc:1723: warning: unused variable 'physiWCBarrelPMT'
+src/WCSimConstructCylinder.cc:1747: warning: declaration of 'WaterTyBarrelBorderCellSurfaceBot' shadows a previous local
+src/WCSimConstructCylinder.cc:1695: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1753: warning: declaration of 'WCPMTRotation' shadows a previous local
+src/WCSimConstructCylinder.cc:1601: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1759: warning: declaration of 'horizontalODSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:1713: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1760: warning: declaration of 'verticalODSpacing' shadows a previous local
+src/WCSimConstructCylinder.cc:1714: warning: shadowed declaration is here
+src/WCSimConstructCylinder.cc:1771: warning: unused variable 'physiWCBarrelPMT'
+src/WCSimConstructCylinder.cc:1747: warning: unused variable 'WaterTyBarrelBorderCellSurfaceBot'
+src/WCSimConstructCylinder.cc:1695: warning: unused variable 'WaterTyBarrelBorderCellSurfaceBot'
+src/WCSimConstructCylinder.cc:1198: warning: unused variable 'physiWCBarrelBorderRing'
+src/WCSimConstructCylinder.cc:1280: warning: unused variable 'WaterBSBarrelBorderCellSurface'
+src/WCSimConstructCylinder.cc:1288: warning: unused variable 'logicWCExtraTowerCell'
+src/WCSimConstructCylinder.cc:1513: warning: unused variable 'WaterBSBottomCapSurface'
+src/WCSimConstructCylinder.cc:1518: warning: unused variable 'WCCapBlackSheetVisAtt'
+Compiling WCSimConstructEggShapedHyperK.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructEggShapedHyperK.cc:2:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+Compiling WCSimConstructGeometryTables.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructGeometryTables.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+Compiling WCSimConstructMaterials.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructMaterials.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+src/WCSimConstructMaterials.cc: In member function 'void WCSimDetectorConstruction::ConstructMaterials()':
+src/WCSimConstructMaterials.cc:29: warning: unused variable 'Vacuum'
+src/WCSimConstructMaterials.cc:278: warning: unused variable 'PPCKOV'
+src/WCSimConstructMaterials.cc:496: warning: unused variable 'MIE_water'
+src/WCSimConstructMaterials.cc:528: warning: unused variable 'MIE_water_const'
+src/WCSimConstructMaterials.cc:694: warning: unused variable 'MIE_air'
+src/WCSimConstructMaterials.cc:706: warning: unused variable 'MIE_air_const'
+Compiling WCSimConstructPMT.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructPMT.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+src/WCSimConstructPMT.cc: In member function 'G4LogicalVolume* WCSimDetectorConstruction::ConstructPMT(G4String, G4String, G4String)':
+src/WCSimConstructPMT.cc:202: warning: unused variable 'physiLightCone'
+Compiling WCSimDarkRateMessenger.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimWCAddDarkNoise.hh:5,
+                 from src/WCSimDarkRateMessenger.cc:2:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+Compiling WCSimDetectorConfigs.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimDetectorConfigs.cc:2:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+Compiling WCSimDetectorConstruction.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimDetectorConstruction.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+Compiling WCSimDetectorMessenger.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimDetectorMessenger.cc:3:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+Compiling WCSimEnumerations.cc ...
+Compiling WCSimEventAction.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimEventAction.hh:10,
+                 from src/WCSimEventAction.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+In file included from src/WCSimEventAction.cc:2:
+/root/HyperK/Geant4-10.1.3-Linux/include/Geant4/G4VTrajectory.hh:91: warning: 'virtual void G4VTrajectory::DrawTrajectory() const' was hidden
+include/WCSimTrajectory.hh:78: warning:   by 'virtual void WCSimTrajectory::DrawTrajectory(G4int) const'
+src/WCSimEventAction.cc: In member function 'virtual void WCSimEventAction::BeginOfEventAction(const G4Event*)':
+src/WCSimEventAction.cc:176: warning: unused variable 'DMman'
+src/WCSimEventAction.cc: In member function 'void WCSimEventAction::FillRootEvent(G4int, const ntupleStruct&, G4TrajectoryContainer*, WCSimWCDigitsCollection*, WCSimWCTriggeredDigitsCollection*, G4String)':
+src/WCSimEventAction.cc:795: warning: declaration of 'jhfNtuple' shadows a global declaration
+include/jhfNtuple.h:54: warning: shadowed declaration is here
+src/WCSimEventAction.cc:1071: warning: unused variable 'hit_time_smear'
+src/WCSimEventAction.cc:1203: warning: unused variable 'tree'
+include/WCSimRunAction.hh: In member function 'WCSimRootEvent* WCSimRunAction::GetRootEvent(G4String)':
+include/WCSimRunAction.hh:45: warning: control reaches end of non-void function
+include/WCSimRunAction.hh: In member function 'TBranch* WCSimRunAction::GetBranch(G4String)':
+include/WCSimRunAction.hh:37: warning: control reaches end of non-void function
+include/jhfNtuple.h: At global scope:
+include/jhfNtuple.h:56: warning: 'ntDesc' defined but not used
+Compiling WCSimLC.cc ...
+Compiling WCSimPMTObject.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimWCPMT.hh:5,
+                 from src/WCSimPMTObject.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+Compiling WCSimPMTQE.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimPMTQE.cc:2:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+Compiling WCSimPhysicsListFactory.cc ...
+Compiling WCSimPhysicsListFactoryMessenger.cc ...
+Compiling WCSimPmtInfo.cc ...
+Compiling WCSimPrimaryGeneratorAction.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimPrimaryGeneratorAction.cc:2:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+src/WCSimPrimaryGeneratorAction.cc: In function 'float atof(const std::string&)':
+src/WCSimPrimaryGeneratorAction.cc:37: warning: declaration of 's' shadows a global declaration
+/root/HyperK/Geant4-10.1.3-Linux/include/Geant4/CLHEP/Units/SystemOfUnits.h:141: warning: shadowed declaration is here
+src/WCSimPrimaryGeneratorAction.cc: In function 'int atoi(const std::string&)':
+src/WCSimPrimaryGeneratorAction.cc:38: warning: declaration of 's' shadows a global declaration
+/root/HyperK/Geant4-10.1.3-Linux/include/Geant4/CLHEP/Units/SystemOfUnits.h:141: warning: shadowed declaration is here
+src/WCSimPrimaryGeneratorAction.cc: In constructor 'WCSimPrimaryGeneratorAction::WCSimPrimaryGeneratorAction(WCSimDetectorConstruction*)':
+src/WCSimPrimaryGeneratorAction.cc:66: warning: unused variable 'ionTable'
+src/WCSimPrimaryGeneratorAction.cc: In member function 'virtual void WCSimPrimaryGeneratorAction::GeneratePrimaries(G4Event*)':
+src/WCSimPrimaryGeneratorAction.cc:198: warning: declaration of 'energy' shadows a member of 'this'
+src/WCSimPrimaryGeneratorAction.cc:279: warning: declaration of 'm' shadows a global declaration
+/root/HyperK/Geant4-10.1.3-Linux/include/Geant4/CLHEP/Units/SystemOfUnits.h:101: warning: shadowed declaration is here
+src/WCSimPrimaryGeneratorAction.cc:345: warning: declaration of 'm' shadows a global declaration
+/root/HyperK/Geant4-10.1.3-Linux/include/Geant4/CLHEP/Units/SystemOfUnits.h:101: warning: shadowed declaration is here
+include/jhfNtuple.h: At global scope:
+include/jhfNtuple.h:56: warning: 'ntDesc' defined but not used
+Compiling WCSimPrimaryGeneratorMessenger.cc ...
+include/jhfNtuple.h:56: warning: 'ntDesc' defined but not used
+Compiling WCSimRandomMessenger.cc ...
+Compiling WCSimRootDict.cc ...
+include/jhfNtuple.h:56: warning: 'ntDesc' defined but not used
+Compiling WCSimRootEvent.cc ...
+src/WCSimRootEvent.cc: In member function 'WCSimRootTrigger& WCSimRootTrigger::operator=(const WCSimRootTrigger&)':
+src/WCSimRootEvent.cc:197: warning: no return statement in function returning non-void
+src/WCSimRootEvent.cc: In member function 'WCSimRootCherenkovHit* WCSimRootTrigger::AddCherenkovHit(Int_t, std::vector<float, std::allocator<float> >, std::vector<int, std::allocator<int> >)':
+src/WCSimRootEvent.cc:432: warning: unused variable 'cherenkovhittime'
+src/WCSimRootEvent.cc: In member function 'WCSimRootEvent& WCSimRootEvent::operator=(const WCSimRootEvent&)':
+src/WCSimRootEvent.cc:550: warning: no return statement in function returning non-void
+include/jhfNtuple.h: At global scope:
+include/jhfNtuple.h:56: warning: 'ntDesc' defined but not used
+Compiling WCSimRootGeom.cc ...
+src/WCSimRootGeom.cc: In member function 'void WCSimRootGeom::SetPMT(Int_t, Int_t, Int_t, Float_t*, Float_t*, bool)':
+src/WCSimRootGeom.cc:88: warning: unused variable 'jPMT'
+Compiling WCSimRootOptions.cc ...
+Compiling WCSimRootTools.cc ...
+Compiling WCSimRunAction.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimRunAction.hh:14,
+                 from src/WCSimRunAction.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+src/WCSimRunAction.cc: In member function 'virtual void WCSimRunAction::BeginOfRunAction(const G4Run*)':
+src/WCSimRunAction.cc:95: warning: unused variable 'geoBranch'
+include/jhfNtuple.h: At global scope:
+include/jhfNtuple.h:56: warning: 'ntDesc' defined but not used
+Compiling WCSimRunActionMessenger.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimRunAction.hh:14,
+                 from src/WCSimRunActionMessenger.cc:3:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+include/jhfNtuple.h:56: warning: 'ntDesc' defined but not used
+Compiling WCSimStackingAction.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimStackingAction.hh:6,
+                 from src/WCSimStackingAction.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+src/WCSimStackingAction.cc: In member function 'virtual G4ClassificationOfNewTrack WCSimStackingAction::ClassifyNewTrack(const G4Track*)':
+src/WCSimStackingAction.cc:44: warning: declaration of 'photonWavelength' shadows a previous local
+src/WCSimStackingAction.cc:34: warning: shadowed declaration is here
+src/WCSimStackingAction.cc:47: warning: declaration of 'ratio' shadows a previous local
+src/WCSimStackingAction.cc:35: warning: shadowed declaration is here
+src/WCSimStackingAction.cc:51: warning: declaration of 'wavelengthQE' shadows a previous local
+src/WCSimStackingAction.cc:36: warning: shadowed declaration is here
+Compiling WCSimSteppingAction.cc ...
+src/WCSimSteppingAction.cc: In member function 'virtual void WCSimSteppingAction::UserSteppingAction(const G4Step*)':
+src/WCSimSteppingAction.cc:24: warning: unused variable 'volume'
+src/WCSimSteppingAction.cc:27: warning: unused variable 'SDman'
+src/WCSimSteppingAction.cc:28: warning: unused variable 'HCE'
+Compiling WCSimTrackInformation.cc ...
+Compiling WCSimTrackingAction.cc ...
+In file included from src/WCSimTrackingAction.cc:2:
+/root/HyperK/Geant4-10.1.3-Linux/include/Geant4/G4VTrajectory.hh:91: warning: 'virtual void G4VTrajectory::DrawTrajectory() const' was hidden
+include/WCSimTrajectory.hh:78: warning:   by 'virtual void WCSimTrajectory::DrawTrajectory(G4int) const'
+Compiling WCSimTrajectory.cc ...
+In file included from src/WCSimTrajectory.cc:1:
+/root/HyperK/Geant4-10.1.3-Linux/include/Geant4/G4VTrajectory.hh:91: warning: 'virtual void G4VTrajectory::DrawTrajectory() const' was hidden
+include/WCSimTrajectory.hh:78: warning:   by 'virtual void WCSimTrajectory::DrawTrajectory(G4int) const'
+src/WCSimTrajectory.cc:96: warning: unused parameter 'i_mode'
+src/WCSimTrajectory.cc: In member function 'virtual std::vector<G4AttValue, std::allocator<G4AttValue> >* WCSimTrajectory::CreateAttValues() const':
+src/WCSimTrajectory.cc:140: warning: declaration of 's' shadows a global declaration
+/root/HyperK/Geant4-10.1.3-Linux/include/Geant4/CLHEP/Units/SystemOfUnits.h:141: warning: shadowed declaration is here
+Compiling WCSimTuningMessenger.cc ...
+Compiling WCSimTuningParameters.cc ...
+Compiling WCSimVisManager.cc ...
+Compiling WCSimWCAddDarkNoise.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimWCAddDarkNoise.hh:5,
+                 from src/WCSimWCAddDarkNoise.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+src/WCSimWCAddDarkNoise.cc: In constructor 'WCSimWCAddDarkNoise::WCSimWCAddDarkNoise(G4String, WCSimDetectorConstruction*, G4String)':
+src/WCSimWCAddDarkNoise.cc:39: warning: declaration of 'detectorElement' shadows a member of 'this'
+src/WCSimWCAddDarkNoise.cc: In member function 'void WCSimWCAddDarkNoise::AddDarkNoise()':
+src/WCSimWCAddDarkNoise.cc:156: warning: unused variable 'windowfordarknoise'
+Compiling WCSimWCDAQMessenger.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimEventAction.hh:10,
+                 from src/WCSimWCDAQMessenger.cc:2:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+Compiling WCSimWCDigi.cc ...
+Compiling WCSimWCDigitizer.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimWCDigitizer.hh:7,
+                 from src/WCSimWCDigitizer.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+src/WCSimWCDigitizer.cc: In constructor 'WCSimWCDigitizerBase::WCSimWCDigitizerBase(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, DigitizerType_t, G4String)':
+src/WCSimWCDigitizer.cc:27: warning: declaration of 'detectorElement' shadows a member of 'this'
+include/WCSimWCDigitizer.hh:66: warning: 'WCSimWCDigitizerBase::DigitizerType' will be initialized after
+include/WCSimWCDigitizer.hh:60: warning:   'G4String WCSimWCDigitizerBase::DigitizerClassName'
+src/WCSimWCDigitizer.cc:23: warning:   when initialized here
+src/WCSimWCDigitizer.cc: In member function 'bool WCSimWCDigitizerBase::AddNewDigit(int, int, float, float, std::vector<int, std::allocator<int> >)':
+src/WCSimWCDigitizer.cc:117: warning: declaration of 'peSmeared' shadows a member of 'this'
+src/WCSimWCDigitizer.cc: In constructor 'WCSimWCDigitizerSKI::WCSimWCDigitizerSKI(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCDigitizer.cc:192: warning: declaration of 'detectorElement' shadows a member of 'this'
+src/WCSimWCDigitizer.cc:192: warning: declaration of 'myDetector' shadows a member of 'this'
+Compiling WCSimWCHit.cc ...
+Compiling WCSimWCPMT.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimWCPMT.hh:5,
+                 from src/WCSimWCPMT.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+src/WCSimWCPMT.cc: In constructor 'WCSimWCPMT::WCSimWCPMT(G4String, WCSimDetectorConstruction*, G4String)':
+src/WCSimWCPMT.cc:31: warning: declaration of 'detectorElement' shadows a member of 'this'
+src/WCSimWCPMT.cc:31: warning: declaration of 'myDetector' shadows a member of 'this'
+src/WCSimWCPMT.cc: In member function 'void WCSimWCPMT::MakePeCorrection(WCSimWCHitsCollection*)':
+src/WCSimWCPMT.cc:172: warning: declaration of 'peSmeared' shadows a member of 'this'
+src/WCSimWCPMT.cc:144: warning: unused variable 'PMT'
+Compiling WCSimWCSD.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimWCSD.hh:6,
+                 from src/WCSimWCSD.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+src/WCSimWCSD.cc: In constructor 'WCSimWCSD::WCSimWCSD(G4String, G4String, WCSimDetectorConstruction*, G4String)':
+src/WCSimWCSD.cc:23: warning: declaration of 'detectorElement' shadows a member of 'this'
+Compiling WCSimWCTrigger.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimWCTrigger.hh:7,
+                 from src/WCSimWCTrigger.cc:1:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+src/WCSimWCTrigger.cc: In constructor 'WCSimWCTriggerBase::WCSimWCTriggerBase(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCTrigger.cc:41: warning: declaration of 'detectorElement' shadows a member of 'this'
+include/WCSimWCTrigger.hh:173: warning: 'WCSimWCTriggerBase::triggerClassName' will be initialized after
+include/WCSimWCTrigger.hh:147: warning:   'G4String WCSimWCTriggerBase::detectorElement'
+src/WCSimWCTrigger.cc:38: warning:   when initialized here
+src/WCSimWCTrigger.cc: At global scope:
+src/WCSimWCTrigger.cc:465: warning: unused parameter 'test'
+src/WCSimWCTrigger.cc: In constructor 'WCSimWCTriggerNDigits::WCSimWCTriggerNDigits(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCTrigger.cc:570: warning: declaration of 'detectorElement' shadows a member of 'this'
+src/WCSimWCTrigger.cc:570: warning: declaration of 'myDetector' shadows a member of 'this'
+src/WCSimWCTrigger.cc: In constructor 'WCSimWCTriggerNoTrigger::WCSimWCTriggerNoTrigger(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCTrigger.cc:595: warning: declaration of 'detectorElement' shadows a member of 'this'
+src/WCSimWCTrigger.cc:595: warning: declaration of 'myDetector' shadows a member of 'this'
+src/WCSimWCTrigger.cc: In constructor 'WCSimWCTriggerNDigits2::WCSimWCTriggerNDigits2(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCTrigger.cc:621: warning: declaration of 'detectorElement' shadows a member of 'this'
+src/WCSimWCTrigger.cc:621: warning: declaration of 'myDetector' shadows a member of 'this'
+Creating shared library /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/libWCSim.so ...
+Compiling WCSim.cc ...
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/hash_map:60,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from WCSim.cc:6:
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+include/jhfNtuple.h:56: warning: 'ntDesc' defined but not used
+Using global libraries ...
+Linking WCSim
+... Done!
+g++ -shared -O /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootEvent.o /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootGeom.o /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimPmtInfo.o /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimEnumerations.o /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootOptions.o /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootTools.o /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootDict.o  -o libWCSimRoot.so -L/root/HyperK/root/lib -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic
+rm -f libWCSim.a
+ar clq libWCSim.a /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootEvent.o /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootGeom.o /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimPmtInfo.o /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimEnumerations.o /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootOptions.o /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootTools.o /root/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootDict.o  
