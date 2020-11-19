@@ -3,7 +3,7 @@
 cd $ValidationPath/Compare
 g++ compareroot.cpp -o compareroot `root-config --libs --cflags`
 cd ../
-git clone https://github.com/jerenner/Validation.git -b gh-pages ./Webpage
+git clone https://github.com/WCSim/Validation.git -b gh-pages ./Webpage
 cd /opt/HyperK/WCSim
 
 echo showing travis commit
@@ -255,15 +255,12 @@ head -100000000 footer.html >>index.html
 
 rm results.html.old
 
-git config --global user.email "josh.e.renner@gmail.com"
-git config --global user.name "jerenner"
-
 git add --all
 git commit -a -m'Travis update'
 #git push
 #> /dev/null 2>/dev/null
 
-git push https://jerenner:${GitHubToken}@github.com/jerenner/Validation.git gh-pages
+git push https://WCSimWeb:${GitHubToken}@github.com/WCSim/Validation.git gh-pages
 #> /dev/null 2>/dev/null
 
 
