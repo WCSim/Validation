@@ -9,14 +9,14 @@
 # Name PhysicsValidation generate_script generate_script_arg reference_file
 #
 #
-Build_Test BuildTest /root/Validation/build.sh /root/HyperK/WCSim/exe/bin/Linux-g++/WCSim
-Execution_Test PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/Execution_Test.mac /root/Validation/Compare/Reference/analysed_Execution_Test.root
-10e PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/10e.mac /root/Validation/Compare/Reference/analysed_10e.root
-100e PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/100e.mac /root/Validation/Compare/Reference/analysed_100e.root
-500e PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/500e.mac /root/Validation/Compare/Reference/analysed_500e.root
-200mu PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/200mu.mac /root/Validation/Compare/Reference/analysed_200mu.root
-800mu PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/800mu.mac /root/Validation/Compare/Reference/analysed_800mu.root
-100pi PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/100pi.mac /root/Validation/Compare/Reference/analysed_100pi.root
-##emtest PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/emtest.mac /root/Validation/Compare/Reference/analysed_emtest.root
+Build_Test BuildTest /opt/Validation/build.sh /opt/HyperK/WCSim/exe/bin/Linux-g++/WCSim
+Execution_Test PhysicsValidation /opt/Validation/Generate/Generate.sh /opt/Validation/Generate/macReference/Execution_Test.mac /opt/Validation/Compare/Reference/analysed_Execution_Test.root
+10e PhysicsValidation /opt/Validation/Generate/Generate.sh /opt/Validation/Generate/macReference/10e.mac /opt/Validation/Compare/Reference/analysed_10e.root
+100e PhysicsValidation /opt/Validation/Generate/Generate.sh /opt/Validation/Generate/macReference/100e.mac /opt/Validation/Compare/Reference/analysed_100e.root
+500e PhysicsValidation /opt/Validation/Generate/Generate.sh /opt/Validation/Generate/macReference/500e.mac /opt/Validation/Compare/Reference/analysed_500e.root
+200mu PhysicsValidation /opt/Validation/Generate/Generate.sh /opt/Validation/Generate/macReference/200mu.mac /opt/Validation/Compare/Reference/analysed_200mu.root
+800mu PhysicsValidation /opt/Validation/Generate/Generate.sh /opt/Validation/Generate/macReference/800mu.mac /opt/Validation/Compare/Reference/analysed_800mu.root
+100pi PhysicsValidation /opt/Validation/Generate/Generate.sh /opt/Validation/Generate/macReference/100pi.mac /opt/Validation/Compare/Reference/analysed_100pi.root
+##emtest PhysicsValidation /opt/Validation/Generate/Generate.sh /opt/Validation/Generate/macReference/emtest.mac /opt/Validation/Compare/Reference/analysed_emtest.root
 ##
-##100e PhysicsValidation /root/Validation/Generate/Generate.sh /root/Validation/Generate/macReference/wcsim_100e-_SuperK_Stacking_Only_PMTCollEff_on_SKI_digi0_200_NDigits_fails0_NDigits25_200_DarkNoiseM1C1.367R4.2W1500.mac /root/Validation/Compare/Reference/analysed_wcsim_100e-_SuperK_Stacking_Only_PMTCollEff_on_SKI_digi0_200_NDigits_fails0_NDigits25_200_DarkNoiseM1C1.367R4.2W1500.root
+##100e PhysicsValidation /opt/Validation/Generate/Generate.sh /opt/Validation/Generate/macReference/wcsim_100e-_SuperK_Stacking_Only_PMTCollEff_on_SKI_digi0_200_NDigits_fails0_NDigits25_200_DarkNoiseM1C1.367R4.2W1500.mac /opt/Validation/Compare/Reference/analysed_wcsim_100e-_SuperK_Stacking_Only_PMTCollEff_on_SKI_digi0_200_NDigits_fails0_NDigits25_200_DarkNoiseM1C1.367R4.2W1500.root
