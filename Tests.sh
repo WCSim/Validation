@@ -255,6 +255,10 @@ head -100000000 footer.html >>index.html
 
 rm results.html.old
 
+#add a default user, otherwise git complains
+git config user.name "Travis CI"
+git config user.email "wcsim@wcsim.wcsim"
+
 git add --all
 git commit -a -m'Travis update'
 #git push
