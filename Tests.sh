@@ -154,9 +154,10 @@ do
 		if [ ! -e $var2 ]
 		then
                     pass=#FF0000
-
+                    ret=1
 		else
                     pass=#00FF00
+                    ret=0
 		fi
 
 
