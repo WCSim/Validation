@@ -34,7 +34,7 @@ TString create_filename(const char * prefix, TString& filename_string)
 }
 
 // Simple example of reading a generated Root file
-int daq_readfile(char *filename=NULL, bool verbose=false, Long64_t max_nevents = 999999999999, int max_ntriggers = -1, bool create_pdfs = false, bool hists_per_event = false)
+int daq_readfile(const char *filename=NULL, bool verbose=false, Long64_t max_nevents = 999999999999, int max_ntriggers = -1, bool create_pdfs = false, bool hists_per_event = false)
 {
 #if !defined(__MAKECINT__)
   // Load the library with class dictionary info
@@ -68,7 +68,7 @@ int daq_readfile(char *filename=NULL, bool verbose=false, Long64_t max_nevents =
   
   // Get the number of events
   Long64_t nevent = tree->GetEntries();
-  printf("nevent %d\n",nevent);
+  printf("nevent %lld\n",nevent);
   nevent = TMath::Min(nevent, max_nevents); //cut the loop earlier
  
   // Create a WCSimRootEvent to put stuff from the tree in
@@ -275,7 +275,7 @@ int daq_readfile(char *filename=NULL, bool verbose=false, Long64_t max_nevents =
     const double vtx2 = wcsimrootevent->GetVtx(2);
     if(verbose){
       printf("********************************************************");
-      printf("Evt, date %d %d\n", wcsimrootevent->GetHeader()->GetEvtNum(),
+      printf("Evt, date %d %ld\n", wcsimrootevent->GetHeader()->GetEvtNum(),
 	     wcsimrootevent->GetHeader()->GetDate());
       printf("Mode %d\n", wcsimrootevent->GetMode());
       printf("Number of subevents %d\n",
@@ -488,64 +488,31 @@ int daq_readfile(char *filename=NULL, bool verbose=false, Long64_t max_nevents =
     	WCSimRootCherenkovDigiHit *wcsimrootcherenkovdigihit = 
     	  dynamic_cast<WCSimRootCherenkovDigiHit*>(element);
 	
-	//find out whether this is due to noise, a real photon, or both
-	int tube_id = wcsimrootcherenkovdigihit->GetTubeId();
-	int timeArrayIndex = -1;
-	int peForTube      = -1;
-	//loop through the WCSimRootCherenkovHit array to find the entry for this tube ID
-	for(int ipmt = 0; ipmt < ncherenkovhits; ipmt++) {
-	  if(verbose)
-	    cout << "Getting hit " << ipmt << " of " << ncherenkovhits << endl;
-	  TObject *Hit = (wcsimroottrigger0->GetCherenkovHits())->At(ipmt);
-	  WCSimRootCherenkovHit *wcsimrootcherenkovhit =
-	    dynamic_cast<WCSimRootCherenkovHit*>(Hit);
-	  int tubeNumber     = wcsimrootcherenkovhit->GetTubeID();
-	  if(tube_id == tubeNumber) {
-	    timeArrayIndex = wcsimrootcherenkovhit->GetTotalPe(0);
-	    peForTube      = wcsimrootcherenkovhit->GetTotalPe(1);
-	    break;
-	  }
-	}//ipmt
+	std::vector<int> rawhit_ids=wcsimrootcherenkovdigihit->GetPhotonIds();
+	if(verbose)
+	  cout << rawhit_ids.size() << " rawhits made up this digit" << endl;
+
+	// loop over photons within the digit
+	int rawhit_id=0;
 	int n_noise_hits = 0, n_photon_hits = 0, n_unknown_hits = 0;
-	if(timeArrayIndex == -1) {
+	for(auto therawhitid : rawhit_ids){
+	  WCSimRootCherenkovHitTime *wcsimrootcherenkovhittime =
+	    dynamic_cast<WCSimRootCherenkovHitTime*>(timeArray->At(therawhitid));
+	  //now look in the WCSimRootCherenkovHitTime array to count the number of photon / dark noise hits
+	  const double hittime  = wcsimrootcherenkovhittime->GetTruetime();
+	  const int    parentid = wcsimrootcherenkovhittime->GetParentID();
 	  if(verbose)
-	    cout << "No PMT hits found for digit " << idigipmt << " with tube ID " << tube_id << endl;
-	}
-	else {
-	  if(verbose)
-	    cout << peForTube << " PMT hits found for digit " << idigipmt << " with tube ID " << tube_id << endl;
-	  //loop over the rawhits ids of hits that made up the digit
-	  vector<int> rawhit_ids = wcsimrootcherenkovdigihit->GetPhotonIds();
-	  if(verbose)
-	    cout << rawhit_ids.size() << " rawhits made up this digit" << endl;
-	  for(unsigned int irawhit = 0; irawhit < rawhit_ids.size(); irawhit++) {
-	    int this_rawhit = rawhit_ids[irawhit];
-	    if(verbose)
-	      cout << "Attempting to look for rawhit " << this_rawhit+1 << " in WCSimRootCherenkovHitTime array...";
-	    if(this_rawhit >= peForTube) {
-	      //if(verbose)
-	      cerr << " There are only " << peForTube << " rawhits in this PMT" << endl;
-	      continue;
-	    }
-	    //now look in the WCSimRootCherenkovHitTime array to count the number of photon / dark noise hits
-	    TObject *Hit = (wcsimroottrigger0->GetCherenkovHitTimes())->At(timeArrayIndex + this_rawhit);
-	    WCSimRootCherenkovHitTime *wcsimrootcherenkovhittime =
-	      dynamic_cast<WCSimRootCherenkovHitTime*>(Hit);
-	    const double hittime  = wcsimrootcherenkovhittime->GetTruetime();
-	    const int    parentid = wcsimrootcherenkovhittime->GetParentID();
-	    if(verbose)
-	      cout << " hit time " << hittime << " " << parentid << endl;
-	    if(parentid == -1) {
-	      n_noise_hits++;
-	    }
-	    else if(parentid < 0) {
-	      n_unknown_hits++;
-	    }
-	    else {
-	      n_photon_hits++;
-	    }
-	  }//irawhit
-	}//hits in this PMT found
+	    cout << " hit time " << hittime << " " << parentid << endl;
+	  if(parentid == -1) {
+	    n_noise_hits++;
+	  }
+	  else if(parentid < 0) {
+	    n_unknown_hits++;
+	  }
+	  else {
+	    n_photon_hits++;
+	  }
+	}//therawhitid //loop over rawhit_ids
 	if(hists_per_event) {
 	  hSevent_hittime[ev]->SetTitle(TString::Format("Raw hit time, event %d, %s;Hit time (ns);Entries", ev, WCSimEnumerations::EnumAsString(trigger_type).c_str()));
 	  hSevent_digittime[ev]->SetTitle(TString::Format("Digit time, event %d, %s;Digit time (ns);Entries", ev, WCSimEnumerations::EnumAsString(trigger_type).c_str()));
