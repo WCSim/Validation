@@ -8,14 +8,14 @@ if [ ! -d "${ValidationPath}/Webpage" ]; then
 fi
 cd /opt/HyperK/WCSim
 
+if [[ ! -z ${TRAVIS_PULL_REQUEST} ]]; then
+    TRAVIS_PULL_REQUEST=false
+fi
+
 echo showing travis commit
 echo ${TRAVIS_COMMIT}
 echo showing travis pull request
 echo ${TRAVIS_PULL_REQUEST}
-
-if [[ ! -z ${TRAVIS_PULL_REQUEST} ]]; then
-    TRAVIS_PULL_REQUEST=false
-fi
 
 ret=0
 
