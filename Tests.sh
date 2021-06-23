@@ -8,7 +8,7 @@ if [ ! -d "${ValidationPath}/Webpage" ]; then
 fi
 cd /opt/HyperK/WCSim
 
-if [[ ! -z ${TRAVIS_PULL_REQUEST} ]]; then
+if [[ -z ${TRAVIS_PULL_REQUEST} ]]; then
     TRAVIS_PULL_REQUEST=false
 fi
 
