@@ -3,7 +3,9 @@
 cd $ValidationPath/Compare
 g++ compareroot.cpp -o compareroot `root-config --libs --cflags`
 cd ../
-git clone https://github.com/WCSim/Validation.git -b gh-pages ./Webpage
+if [ ! -d "${ValidationPath}/Webpage" ]; then
+    git clone https://github.com/WCSim/Validation.git -b gh-pages ./Webpage
+fi
 cd /opt/HyperK/WCSim
 
 echo showing travis commit
