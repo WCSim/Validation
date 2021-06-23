@@ -147,7 +147,7 @@ do
             if [ $test == "BuildTest"  ]
             then
 
-		/usr/bin/time -p --output=timetest $var1 |& tee $ValidationPath/Webpage/${TRAVIS_COMMIT}/"log"$1
+		time -p --output=timetest $var1 |& tee $ValidationPath/Webpage/${TRAVIS_COMMIT}/"log"$1
 		ret=${?}
 		time=`more timetest |grep user |  cut -f2 -d' '`
 
@@ -196,7 +196,7 @@ do
 	    if [ $test == "PhysicsValidation" ]
             then
 
-		/usr/bin/time -p --output=timetest $var1 $var2
+		time -p --output=timetest $var1 $var2
 
 		if [ $? -ne 0 ]
                 then
