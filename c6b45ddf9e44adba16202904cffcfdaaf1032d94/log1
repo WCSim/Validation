@@ -25,7 +25,7 @@ Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Making dependency for file src/WCSimTrajectory.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-Making dependency for file src/WCSimLC.cc ...
+Making dependency for file src/WCSimConstructMaterials.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Making dependency for file src/WCSimRootOptions.cc ...
@@ -46,6 +46,9 @@ Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Making dependency for file src/WCSimConstructGeometryTables.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructCylinder.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Making dependency for file src/WCSimEnumerations.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
@@ -64,7 +67,7 @@ Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Making dependency for file src/WCSimWCAddDarkNoise.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-Making dependency for file src/WCSimConstructCylinder.cc ...
+Making dependency for file src/WCSimRootGeom.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Making dependency for file src/WCSimPMTQE.cc ...
@@ -100,9 +103,6 @@ Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Making dependency for file src/WCSimWCDAQMessenger.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-Making dependency for file src/WCSimRootGeom.cc ...
-fatal: Not a git repository (or any parent up to mount point /__w)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Making dependency for file src/WCSimWCTrigger.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
@@ -113,9 +113,6 @@ Making dependency for file src/WCSimTrackInformation.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Making dependency for file src/WCSimConstructPMT.cc ...
-fatal: Not a git repository (or any parent up to mount point /__w)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-Making dependency for file src/WCSimConstructMaterials.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Making dependency for file src/WCSimConstructEggShapedHyperK.cc ...
@@ -130,6 +127,9 @@ Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Making dependency for file src/WCSimPhysicsListFactoryMessenger.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimLC.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Making dependency for file src/WCSimRootTools.cc ...
 rootcint  -f ./src/WCSimRootDict.cc -c -I./include -I/opt/HyperK/root/include WCSimRootEvent.hh WCSimRootGeom.hh  WCSimPmtInfo.hh WCSimEnumerations.hh WCSimRootOptions.hh WCSimRootTools.hh WCSimRootLinkDef.hh
 warning: Please remove the deprecated flag -c.
@@ -139,6 +139,9 @@ Making dependency for file src/WCSimRootDict.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Compiling WCSimRootTools.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimLC.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Compiling WCSimPhysicsListFactoryMessenger.cc ...
@@ -151,40 +154,6 @@ Compiling WCSimRunActionMessenger.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Compiling WCSimConstructEggShapedHyperK.cc ...
-fatal: Not a git repository (or any parent up to mount point /__w)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-Compiling WCSimConstructMaterials.cc ...
-src/WCSimConstructMaterials.cc: In member function 'void WCSimDetectorConstruction::ConstructMaterials()':
-src/WCSimConstructMaterials.cc:29:15: warning: unused variable 'Vacuum' [-Wunused-variable]
-   G4Material* Vacuum = 
-               ^
-src/WCSimConstructMaterials.cc:278:12: warning: unused variable 'PPCKOV' [-Wunused-variable]
-   G4double PPCKOV[NUMENTRIES] =
-            ^
-src/WCSimConstructMaterials.cc:496:13: warning: unused variable 'MIE_water' [-Wunused-variable]
-    G4double MIE_water[NUMENTRIES_water] = {
-             ^
-src/WCSimConstructMaterials.cc:528:13: warning: unused variable 'MIE_water_const' [-Wunused-variable]
-    G4double MIE_water_const[3]={0.4,0.,1};// gforward, gbackward, forward backward ratio
-             ^
-src/WCSimConstructMaterials.cc:694:13: warning: unused variable 'MIE_air' [-Wunused-variable]
-    G4double MIE_air[NUMENTRIES_water] =
-             ^
-src/WCSimConstructMaterials.cc:706:13: warning: unused variable 'MIE_air_const' [-Wunused-variable]
-    G4double MIE_air_const[3]={0.99,0.99,0.8};// gforward, gbackward, forward backward ratio
-             ^
-src/WCSimConstructMaterials.cc:810:12: warning: unused variable 'RINDEX_tyvek' [-Wunused-variable]
-   G4double RINDEX_tyvek[NUM] =
-            ^
-src/WCSimConstructMaterials.cc:812:13: warning: unused variable 'TySPECULARLOBECONSTANT' [-Wunused-variable]
-    G4double TySPECULARLOBECONSTANT[NUM] =
-             ^
-src/WCSimConstructMaterials.cc:814:13: warning: unused variable 'TySPECULARSPIKECONSTANT' [-Wunused-variable]
-    G4double TySPECULARSPIKECONSTANT[NUM] =
-             ^
-src/WCSimConstructMaterials.cc:816:13: warning: unused variable 'TyBACKSCATTERCONSTANT' [-Wunused-variable]
-    G4double TyBACKSCATTERCONSTANT[NUM] =
-             ^
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Compiling WCSimConstructPMT.cc ...
@@ -244,17 +213,6 @@ src/WCSimWCTrigger.cc:635:37: warning: declaration of 'detectorElement' shadows 
              G4String detectorElement)
                                      ^
 src/WCSimWCTrigger.cc:635:37: warning: declaration of 'myDetector' shadows a member of 'this' [-Wshadow]
-fatal: Not a git repository (or any parent up to mount point /__w)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-Compiling WCSimRootGeom.cc ...
-src/WCSimRootGeom.cc: In copy constructor 'WCSimRootPMT::WCSimRootPMT(const WCSimRootPMT&)':
-src/WCSimRootGeom.cc:79:1: warning: base class 'class TObject' should be explicitly initialized in the copy constructor [-Wextra]
- WCSimRootPMT::WCSimRootPMT(const WCSimRootPMT & in)
- ^
-src/WCSimRootGeom.cc: In member function 'void WCSimRootGeom::SetPMT(Int_t, Int_t, Int_t, Double_t*, Double_t*, bool)':
-src/WCSimRootGeom.cc:111:19: warning: unused variable 'jPMT' [-Wunused-variable]
-     WCSimRootPMT *jPMT = new(pmtArray[i]) WCSimRootPMT(tubeno, cyl_loc, rot, pos);
-                   ^
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Compiling WCSimWCDAQMessenger.cc ...
@@ -372,6 +330,70 @@ Compiling WCSimTuningMessenger.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Compiling WCSimPMTQE.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootGeom.cc ...
+src/WCSimRootGeom.cc: In copy constructor 'WCSimRootPMT::WCSimRootPMT(const WCSimRootPMT&)':
+src/WCSimRootGeom.cc:79:1: warning: base class 'class TObject' should be explicitly initialized in the copy constructor [-Wextra]
+ WCSimRootPMT::WCSimRootPMT(const WCSimRootPMT & in)
+ ^
+src/WCSimRootGeom.cc: In member function 'void WCSimRootGeom::SetPMT(Int_t, Int_t, Int_t, Double_t*, Double_t*, bool)':
+src/WCSimRootGeom.cc:111:19: warning: unused variable 'jPMT' [-Wunused-variable]
+     WCSimRootPMT *jPMT = new(pmtArray[i]) WCSimRootPMT(tubeno, cyl_loc, rot, pos);
+                   ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCAddDarkNoise.cc ...
+src/WCSimWCAddDarkNoise.cc: In constructor 'WCSimWCAddDarkNoise::WCSimWCAddDarkNoise(G4String, WCSimDetectorConstruction*, G4String)':
+src/WCSimWCAddDarkNoise.cc:39:66: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+                                          G4String detectorElement)
+                                                                  ^
+src/WCSimWCAddDarkNoise.cc: In member function 'void WCSimWCAddDarkNoise::AddDarkNoise()':
+src/WCSimWCAddDarkNoise.cc:156:9: warning: unused variable 'windowfordarknoise' [-Wunused-variable]
+     int windowfordarknoise=0;
+         ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCSD.cc ...
+src/WCSimWCSD.cc: In constructor 'WCSimWCSD::WCSimWCSD(G4String, G4String, WCSimDetectorConstruction*, G4String)':
+src/WCSimWCSD.cc:23:46: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+                      G4String detectorElement)
+                                              ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimDetectorConfigs.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCDigitizer.cc ...
+src/WCSimWCDigitizer.cc: In constructor 'WCSimWCDigitizerBase::WCSimWCDigitizerBase(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, DigitizerType_t, G4String)':
+src/WCSimWCDigitizer.cc:26:38: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+              G4String detectorElement)
+                                      ^
+In file included from src/WCSimWCDigitizer.cc:1:0:
+include/WCSimWCDigitizer.hh:70:19: warning: 'WCSimWCDigitizerBase::DigitizerType' will be initialized after [-Wreorder]
+   DigitizerType_t DigitizerType; ///< Enumeration to say which digitizer we've constructed
+                   ^
+include/WCSimWCDigitizer.hh:64:12: warning:   'G4String WCSimWCDigitizerBase::DigitizerClassName' [-Wreorder]
+   G4String DigitizerClassName;    ///< Name of the digitizer class being run
+            ^
+src/WCSimWCDigitizer.cc:22:1: warning:   when initialized here [-Wreorder]
+ WCSimWCDigitizerBase::WCSimWCDigitizerBase(G4String name,
+ ^
+src/WCSimWCDigitizer.cc: In member function 'bool WCSimWCDigitizerBase::AddNewDigit(int, int, double, double, std::vector<int>)':
+src/WCSimWCDigitizer.cc:116:124: warning: declaration of 'peSmeared' shadows a member of 'this' [-Wshadow]
+ bool WCSimWCDigitizerBase::AddNewDigit(int tube, int gate, double digihittime, double peSmeared, std::vector<int> digi_comp)
+                                                                                                                            ^
+src/WCSimWCDigitizer.cc: In constructor 'WCSimWCDigitizerSKI::WCSimWCDigitizerSKI(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCDigitizer.cc:191:66: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+                                          G4String detectorElement)
+                                                                  ^
+src/WCSimWCDigitizer.cc:191:66: warning: declaration of 'myDetector' shadows a member of 'this' [-Wshadow]
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimGenerator_Radioactivity.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimEnumerations.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Compiling WCSimConstructCylinder.cc ...
@@ -619,59 +641,6 @@ src/WCSimConstructCylinder.cc:1583:21: warning: unused variable 'WCCapBlackSheet
                      ^
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-Compiling WCSimWCAddDarkNoise.cc ...
-src/WCSimWCAddDarkNoise.cc: In constructor 'WCSimWCAddDarkNoise::WCSimWCAddDarkNoise(G4String, WCSimDetectorConstruction*, G4String)':
-src/WCSimWCAddDarkNoise.cc:39:66: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
-                                          G4String detectorElement)
-                                                                  ^
-src/WCSimWCAddDarkNoise.cc: In member function 'void WCSimWCAddDarkNoise::AddDarkNoise()':
-src/WCSimWCAddDarkNoise.cc:156:9: warning: unused variable 'windowfordarknoise' [-Wunused-variable]
-     int windowfordarknoise=0;
-         ^
-fatal: Not a git repository (or any parent up to mount point /__w)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-Compiling WCSimWCSD.cc ...
-src/WCSimWCSD.cc: In constructor 'WCSimWCSD::WCSimWCSD(G4String, G4String, WCSimDetectorConstruction*, G4String)':
-src/WCSimWCSD.cc:23:46: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
-                      G4String detectorElement)
-                                              ^
-fatal: Not a git repository (or any parent up to mount point /__w)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-Compiling WCSimDetectorConfigs.cc ...
-fatal: Not a git repository (or any parent up to mount point /__w)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-Compiling WCSimWCDigitizer.cc ...
-src/WCSimWCDigitizer.cc: In constructor 'WCSimWCDigitizerBase::WCSimWCDigitizerBase(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, DigitizerType_t, G4String)':
-src/WCSimWCDigitizer.cc:26:38: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
-              G4String detectorElement)
-                                      ^
-In file included from src/WCSimWCDigitizer.cc:1:0:
-include/WCSimWCDigitizer.hh:70:19: warning: 'WCSimWCDigitizerBase::DigitizerType' will be initialized after [-Wreorder]
-   DigitizerType_t DigitizerType; ///< Enumeration to say which digitizer we've constructed
-                   ^
-include/WCSimWCDigitizer.hh:64:12: warning:   'G4String WCSimWCDigitizerBase::DigitizerClassName' [-Wreorder]
-   G4String DigitizerClassName;    ///< Name of the digitizer class being run
-            ^
-src/WCSimWCDigitizer.cc:22:1: warning:   when initialized here [-Wreorder]
- WCSimWCDigitizerBase::WCSimWCDigitizerBase(G4String name,
- ^
-src/WCSimWCDigitizer.cc: In member function 'bool WCSimWCDigitizerBase::AddNewDigit(int, int, double, double, std::vector<int>)':
-src/WCSimWCDigitizer.cc:116:124: warning: declaration of 'peSmeared' shadows a member of 'this' [-Wshadow]
- bool WCSimWCDigitizerBase::AddNewDigit(int tube, int gate, double digihittime, double peSmeared, std::vector<int> digi_comp)
-                                                                                                                            ^
-src/WCSimWCDigitizer.cc: In constructor 'WCSimWCDigitizerSKI::WCSimWCDigitizerSKI(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
-src/WCSimWCDigitizer.cc:191:66: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
-                                          G4String detectorElement)
-                                                                  ^
-src/WCSimWCDigitizer.cc:191:66: warning: declaration of 'myDetector' shadows a member of 'this' [-Wshadow]
-fatal: Not a git repository (or any parent up to mount point /__w)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-Compiling WCSimGenerator_Radioactivity.cc ...
-fatal: Not a git repository (or any parent up to mount point /__w)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-Compiling WCSimEnumerations.cc ...
-fatal: Not a git repository (or any parent up to mount point /__w)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Compiling WCSimConstructGeometryTables.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
@@ -690,7 +659,38 @@ Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Compiling WCSimRootOptions.cc ...
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-Compiling WCSimLC.cc ...
+Compiling WCSimConstructMaterials.cc ...
+src/WCSimConstructMaterials.cc: In member function 'void WCSimDetectorConstruction::ConstructMaterials()':
+src/WCSimConstructMaterials.cc:29:15: warning: unused variable 'Vacuum' [-Wunused-variable]
+   G4Material* Vacuum = 
+               ^
+src/WCSimConstructMaterials.cc:278:12: warning: unused variable 'PPCKOV' [-Wunused-variable]
+   G4double PPCKOV[NUMENTRIES] =
+            ^
+src/WCSimConstructMaterials.cc:496:13: warning: unused variable 'MIE_water' [-Wunused-variable]
+    G4double MIE_water[NUMENTRIES_water] = {
+             ^
+src/WCSimConstructMaterials.cc:528:13: warning: unused variable 'MIE_water_const' [-Wunused-variable]
+    G4double MIE_water_const[3]={0.4,0.,1};// gforward, gbackward, forward backward ratio
+             ^
+src/WCSimConstructMaterials.cc:694:13: warning: unused variable 'MIE_air' [-Wunused-variable]
+    G4double MIE_air[NUMENTRIES_water] =
+             ^
+src/WCSimConstructMaterials.cc:706:13: warning: unused variable 'MIE_air_const' [-Wunused-variable]
+    G4double MIE_air_const[3]={0.99,0.99,0.8};// gforward, gbackward, forward backward ratio
+             ^
+src/WCSimConstructMaterials.cc:810:12: warning: unused variable 'RINDEX_tyvek' [-Wunused-variable]
+   G4double RINDEX_tyvek[NUM] =
+            ^
+src/WCSimConstructMaterials.cc:812:13: warning: unused variable 'TySPECULARLOBECONSTANT' [-Wunused-variable]
+    G4double TySPECULARLOBECONSTANT[NUM] =
+             ^
+src/WCSimConstructMaterials.cc:814:13: warning: unused variable 'TySPECULARSPIKECONSTANT' [-Wunused-variable]
+    G4double TySPECULARSPIKECONSTANT[NUM] =
+             ^
+src/WCSimConstructMaterials.cc:816:13: warning: unused variable 'TyBACKSCATTERCONSTANT' [-Wunused-variable]
+    G4double TyBACKSCATTERCONSTANT[NUM] =
+             ^
 fatal: Not a git repository (or any parent up to mount point /__w)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 Compiling WCSimRootDict.cc ...
