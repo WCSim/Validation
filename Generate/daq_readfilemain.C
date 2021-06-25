@@ -36,6 +36,7 @@ TString create_filename(const char * prefix, TString& filename_string)
 // Simple example of reading a generated Root file
 int daq_readfile(const char *filename=NULL, bool verbose=false, Long64_t max_nevents = 999999999999, int max_ntriggers = -1, bool create_pdfs = false, bool hists_per_event = false)
 {
+  gROOT->SetBatch(1);
 #if !defined(__MAKECINT__)
   // Load the library with class dictionary info
   // (create with "gmake shared")
