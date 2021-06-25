@@ -34,18 +34,19 @@ git clone git@github.com:WCSim/Validation.git #cloning from WCSim ensures you're
 cd Validation/
 git remote add me git@github.com:$GITHUBUSERNAME/Validation.git #this is where you'll push to
 #Build the Validation tools
+export LD_LIBRARY_PATH=$WCSIMDIR:$LD_LIBRARY_PATH
 make
 #Make a new branch
 git checkout -b update_reference
 #Update the reference plots
 ./MakeReference.sh
 #Commit the new `.root` files
-git add Compare/Reference/analysed_*root
+git add Compare/Reference/analysed_*root Compare/Reference/WCSimSHA
 git ci #write why the reference plots have changed e.g. link to WCSim/WCSim PR number
 #Push to your repo
 git push me update_reference
 ```
-Then finally, visit https://github.com/WCSim/Validation to submit a PR
+Then finally, visit https://github.com/WCSim/Validation (or follow the link from the last command above) to submit a PR
 
 ----
 For any questions contact Dr. Benjamin Richards (b.richards@qmul.ac.uk), Dr. Tom Dealtry (t.dealtry@lancaster.ac.uk), or use the issues feature on this repository
