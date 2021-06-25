@@ -14,31 +14,31 @@ int main(int argc,char *argv[]){
   char buff[256];
   
 
-ofstream index;
-ofstream content;
-ofstream menu;
-ofstream title;
+  ofstream index;
+  ofstream content;
+  ofstream menu;
+  ofstream title;
 
- sprintf(buff,"%s/index.html",argv[1]);
- index.open(buff);
- sprintf(buff,"%s/content.html",argv[1]);
- content.open(buff);
- sprintf(buff,"%s/menu.html",argv[1]);
- menu.open(buff);
- sprintf(buff,"%s/title.html",argv[1]);
- title.open(buff);
+  sprintf(buff,"%s/index.html",argv[1]);
+  index.open(buff);
+  sprintf(buff,"%s/content.html",argv[1]);
+  content.open(buff);
+  sprintf(buff,"%s/menu.html",argv[1]);
+  menu.open(buff);
+  sprintf(buff,"%s/title.html",argv[1]);
+  title.open(buff);
 
 
- index<<"<!doctype html><html><head><title>Index Page</title></head><frameset rows=\"8%,*\"><frame name=\"title\" src=\"title.html\"scrolling=\"no\" noresize><frameset cols=\"18%,*\"><frame name=\"menu\" src=\"menu.html\"scrolling=\"auto\" noresize><frame name=\"content\" src=\"content.html\"scrolling=\"yes\" noresize></frameset><body></body></html>" ;
- index.close();
+  index<<"<!doctype html><html><head><title>Index Page</title></head><frameset rows=\"8%,*\"><frame name=\"title\" src=\"title.html\"scrolling=\"no\" noresize><frameset cols=\"18%,*\"><frame name=\"menu\" src=\"menu.html\"scrolling=\"auto\" noresize><frame name=\"content\" src=\"content.html\"scrolling=\"yes\" noresize></frameset><body></body></html>" ;
+  index.close();
 
- menu<<"<!doctype html><html><head><base target=\"content\"></head><body>";
+  menu<<"<!doctype html><html><head><base target=\"content\"></head><body>";
 
- title<<"<!doctype html><html><head></head><body><H1><b><u>"<<argv[2]<<" Plots</u></b></H1></body></html>";
- title.close();
+  title<<"<!doctype html><html><head></head><body><H1><b><u>"<<argv[2]<<" Plots</u></b></H1></body></html>";
+  title.close();
 
- content<<"<!doctype html><html><head></head><body><H1><------Click a link in the menu on the left to see the plot.</H1></body></html>";
- content.close();
+  content<<"<!doctype html><html><head></head><body><H1><------Click a link in the menu on the left to see the plot.</H1></body></html>";
+  content.close();
  
   bool fullsame=true;
   sprintf(buff,"%s/Plots.root",argv[1]);
