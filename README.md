@@ -28,6 +28,8 @@ Then you'll want to run these commands
 #Make sure WCSim is up-to-date
 cd $WCSIMDIR
 git pull origin develop
+make clean
+make
 #Get the Validation package
 cd /opt/HyperK/
 git clone git@github.com:WCSim/Validation.git #cloning from WCSim ensures you're up-to-date without conflicts
