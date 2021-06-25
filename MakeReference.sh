@@ -2,6 +2,8 @@
 
 cd $WCSIMDIR
 echo 'Creating reference WCSim output from '$PWD
+#Save the WCSim sha
+git rev-list HEAD -1 > /opt/HyperK/Validation/Compare/Reference/WCSimSHA
 
 #Run WCSim
 for mac in `ls /opt/HyperK/Validation/Generate/macReference/*.mac`
@@ -13,6 +15,9 @@ done
 #Get the relevant histograms from WCSim
 for file in `ls *.root`
 do
+    if [[ $file == analysed_* ]]; then
+	continue
+    fi
     echo $file
     /opt/HyperK/Validation/Generate/daq_readfilemain $file
 done
