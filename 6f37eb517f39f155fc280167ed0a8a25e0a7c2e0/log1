@@ -1,0 +1,340 @@
+Cleaning up ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file WCSim.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCHit.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootEvent.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCPMT.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCDigitizer.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTuningParameters.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTrajectory.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWLSProperties.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimLC.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootOptions.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCDigi.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimDetectorMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRandomMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimDarkRateMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimVisManager.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimSteppingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructGeometryTables.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructCylinder.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimEnumerations.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimGenerator_Radioactivity.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimDetectorConfigs.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCSD.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimDetectorConstruction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCAddDarkNoise.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTuningMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPMTQE.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRunAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPrimaryGeneratorAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPhysicsListFactory.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimStackingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPMTObject.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTrackingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimEventAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPrimaryGeneratorMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCDAQMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootGeom.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCTrigger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTrackInformation.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructPMT.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructMaterials.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructEggShapedHyperK.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRunActionMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPmtInfo.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPhysicsListFactoryMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootTools.cc ...
+rootcint  -f ./src/WCSimRootDict.cc -c -I./include -I/opt/HyperK/root/include WCSimRootEvent.hh WCSimRootGeom.hh  WCSimPmtInfo.hh WCSimEnumerations.hh WCSimRootOptions.hh WCSimRootTools.hh WCSimRootLinkDef.hh
+warning: Please remove the deprecated flag -c.
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootDict.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootTools.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPhysicsListFactoryMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPmtInfo.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRunActionMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimEventAction.cc ...
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4TrajectoryContainer.hh:46:0,
+                 from include/WCSimEventAction.hh:11,
+                 from src/WCSimEventAction.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4VTrajectory.hh:91:17: warning: 'virtual void G4VTrajectory::DrawTrajectory() const' was hidden [-Woverloaded-virtual]
+    virtual void DrawTrajectory() const;
+                 ^
+In file included from src/WCSimEventAction.cc:2:0:
+include/WCSimTrajectory.hh:78:17: warning:   by 'virtual void WCSimTrajectory::DrawTrajectory(G4int) const' [-Woverloaded-virtual]
+    virtual void DrawTrajectory(G4int i_mode=0) const;
+                 ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructEggShapedHyperK.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructMaterials.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructPMT.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTrackInformation.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCTrigger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootGeom.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCDAQMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPrimaryGeneratorMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTrackingAction.cc ...
+In file included from include/WCSimTrajectory.hh:6:0,
+                 from src/WCSimTrackingAction.cc:2:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4VTrajectory.hh:91:17: warning: 'virtual void G4VTrajectory::DrawTrajectory() const' was hidden [-Woverloaded-virtual]
+    virtual void DrawTrajectory() const;
+                 ^
+In file included from src/WCSimTrackingAction.cc:2:0:
+include/WCSimTrajectory.hh:78:17: warning:   by 'virtual void WCSimTrajectory::DrawTrajectory(G4int) const' [-Woverloaded-virtual]
+    virtual void DrawTrajectory(G4int i_mode=0) const;
+                 ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPMTObject.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimStackingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPhysicsListFactory.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPrimaryGeneratorAction.cc ...
+src/WCSimPrimaryGeneratorAction.cc: In constructor 'WCSimPrimaryGeneratorAction::WCSimPrimaryGeneratorAction(WCSimDetectorConstruction*)':
+src/WCSimPrimaryGeneratorAction.cc:122:12: warning: variable 'cosThetaMean' set but not used [-Wunused-but-set-variable]
+     double cosThetaMean, cosThetaMin, cosThetaMax;
+            ^
+src/WCSimPrimaryGeneratorAction.cc:122:26: warning: variable 'cosThetaMin' set but not used [-Wunused-but-set-variable]
+     double cosThetaMean, cosThetaMin, cosThetaMax;
+                          ^
+src/WCSimPrimaryGeneratorAction.cc:122:39: warning: variable 'cosThetaMax' set but not used [-Wunused-but-set-variable]
+     double cosThetaMean, cosThetaMin, cosThetaMax;
+                                       ^
+src/WCSimPrimaryGeneratorAction.cc:123:12: warning: variable 'phiMean' set but not used [-Wunused-but-set-variable]
+     double phiMean, phiMin, phiMax;
+            ^
+src/WCSimPrimaryGeneratorAction.cc:123:21: warning: variable 'phiMin' set but not used [-Wunused-but-set-variable]
+     double phiMean, phiMin, phiMax;
+                     ^
+src/WCSimPrimaryGeneratorAction.cc:123:29: warning: variable 'phiMax' set but not used [-Wunused-but-set-variable]
+     double phiMean, phiMin, phiMax;
+                             ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRunAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPMTQE.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTuningMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCAddDarkNoise.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimDetectorConstruction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCSD.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimDetectorConfigs.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimGenerator_Radioactivity.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimEnumerations.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructCylinder.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructGeometryTables.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimSteppingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimVisManager.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimDarkRateMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRandomMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimDetectorMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCDigi.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootOptions.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimLC.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWLSProperties.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootDict.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTrajectory.cc ...
+In file included from include/WCSimTrajectory.hh:6:0,
+                 from src/WCSimTrajectory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4VTrajectory.hh:91:17: warning: 'virtual void G4VTrajectory::DrawTrajectory() const' was hidden [-Woverloaded-virtual]
+    virtual void DrawTrajectory() const;
+                 ^
+In file included from src/WCSimTrajectory.cc:1:0:
+include/WCSimTrajectory.hh:78:17: warning:   by 'virtual void WCSimTrajectory::DrawTrajectory(G4int) const' [-Woverloaded-virtual]
+    virtual void DrawTrajectory(G4int i_mode=0) const;
+                 ^
+src/WCSimTrajectory.cc:96:6: warning: unused parameter 'i_mode' [-Wunused-parameter]
+ void WCSimTrajectory::DrawTrajectory(G4int i_mode) const
+      ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTuningParameters.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCDigitizer.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCPMT.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootEvent.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCHit.cc ...
+Creating shared library /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/libWCSim.so ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSim.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Using global libraries ...
+Linking WCSim
+... Done!
+g++ -shared -O /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootEvent.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootGeom.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimPmtInfo.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimEnumerations.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootOptions.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootTools.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootDict.o  -o libWCSimRoot.so -L/opt/HyperK/root/lib -lCore -lImt -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lROOTVecOps -lTree -lTreePlayer -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -lMultiProc -lROOTDataFrame -pthread -lm -ldl -rdynamic
+rm -f libWCSim.a
+ar clq libWCSim.a /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootEvent.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootGeom.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimPmtInfo.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimEnumerations.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootOptions.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootTools.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootDict.o  
+cp -f ./src/WCSimRootDict_rdict.pcm .
+cp -f ./src/WCSimRootDict_rdict.pcm /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/
