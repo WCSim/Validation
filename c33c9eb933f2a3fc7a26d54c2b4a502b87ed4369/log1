@@ -1,0 +1,781 @@
+Cleaning up ...
+Making dependency for file WCSim.cc ...
+Making dependency for file src/WCSimWCHit.cc ...
+Making dependency for file src/WCSimRootEvent.cc ...
+Making dependency for file src/WCSimWCPMT.cc ...
+Making dependency for file src/WCSimWCDigitizer.cc ...
+Making dependency for file src/WCSimDetectorMessenger.cc ...
+Making dependency for file src/WCSimTuningParameters.cc ...
+Making dependency for file src/WCSimTrajectory.cc ...
+Making dependency for file src/WCSimConstructMaterials.cc ...
+Making dependency for file src/WCSimRootOptions.cc ...
+Making dependency for file src/WCSimWCDigi.cc ...
+Making dependency for file src/WCSimRandomMessenger.cc ...
+Making dependency for file src/WCSimDarkRateMessenger.cc ...
+Making dependency for file src/WCSimVisManager.cc ...
+Making dependency for file src/WCSimConstructGeometryTables.cc ...
+Making dependency for file src/WCSimEnumerations.cc ...
+Making dependency for file src/WCSimDetectorConfigs.cc ...
+Making dependency for file src/WCSimWCSD.cc ...
+Making dependency for file src/WCSimDetectorConstruction.cc ...
+Making dependency for file src/WCSimWCAddDarkNoise.cc ...
+Making dependency for file src/WCSimConstructCylinder.cc ...
+Making dependency for file src/WCSimTuningMessenger.cc ...
+Making dependency for file src/WCSimRunAction.cc ...
+Making dependency for file src/WCSimPrimaryGeneratorAction.cc ...
+Making dependency for file src/WCSimPhysicsListFactory.cc ...
+Making dependency for file src/WCSimStackingAction.cc ...
+Making dependency for file src/WCSimPMTObject.cc ...
+Making dependency for file src/WCSimTrackingAction.cc ...
+Making dependency for file src/WCSimPMTQE.cc ...
+Making dependency for file src/WCSimEventAction.cc ...
+Making dependency for file src/WCSimPrimaryGeneratorMessenger.cc ...
+Making dependency for file src/WCSimWCDAQMessenger.cc ...
+Making dependency for file src/WCSimRootGeom.cc ...
+Making dependency for file src/WCSimWCTrigger.cc ...
+Making dependency for file src/WCSimSteppingAction.cc ...
+Making dependency for file src/WCSimTrackInformation.cc ...
+Making dependency for file src/WCSimConstructPMT.cc ...
+Making dependency for file src/WCSimConstructEggShapedHyperK.cc ...
+Making dependency for file src/WCSimRunActionMessenger.cc ...
+Making dependency for file src/WCSimPmtInfo.cc ...
+Making dependency for file src/WCSimPhysicsListFactoryMessenger.cc ...
+rootcint  -f ./src/WCSimRootDict.cc -c -I./include -I/opt/HyperK/root/include WCSimRootEvent.hh WCSimRootGeom.hh  WCSimPmtInfo.hh WCSimEnumerations.hh WCSimRootOptions.hh WCSimRootLinkDef.hh
+warning: Please remove the deprecated flag -c.
+Making dependency for file src/WCSimRootDict.cc ...
+Compiling WCSimPhysicsListFactoryMessenger.cc ...
+Compiling WCSimPmtInfo.cc ...
+Compiling WCSimRunActionMessenger.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimRunAction.hh:14,
+                 from src/WCSimRunActionMessenger.cc:3:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+In file included from include/WCSimRootEvent.hh:15:0,
+                 from include/WCSimRunAction.hh:11,
+                 from src/WCSimRunActionMessenger.cc:3:
+include/jhfNtuple.h:56:20: warning: 'ntDesc' defined but not used [-Wunused-variable]
+ static const char* ntDesc =
+                    ^
+Compiling WCSimConstructEggShapedHyperK.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructEggShapedHyperK.cc:2:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+Compiling WCSimConstructPMT.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructPMT.cc:1:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+Compiling WCSimTrackInformation.cc ...
+Compiling WCSimSteppingAction.cc ...
+src/WCSimSteppingAction.cc: In member function 'virtual void WCSimSteppingAction::UserSteppingAction(const G4Step*)':
+src/WCSimSteppingAction.cc:24:22: warning: unused variable 'volume' [-Wunused-variable]
+   G4VPhysicalVolume* volume  = track->GetVolume();
+                      ^
+src/WCSimSteppingAction.cc:27:16: warning: unused variable 'SDman' [-Wunused-variable]
+   G4SDManager* SDman   = G4SDManager::GetSDMpointer();
+                ^
+src/WCSimSteppingAction.cc:28:20: warning: unused variable 'HCE' [-Wunused-variable]
+   G4HCofThisEvent* HCE = evt->GetHCofThisEvent();
+                    ^
+Compiling WCSimWCTrigger.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimWCTrigger.hh:7,
+                 from src/WCSimWCTrigger.cc:1:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+src/WCSimWCTrigger.cc: In constructor 'WCSimWCTriggerBase::WCSimWCTriggerBase(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCTrigger.cc:41:36: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+            G4String detectorElement)
+                                    ^
+In file included from src/WCSimWCTrigger.cc:1:0:
+include/WCSimWCTrigger.hh:173:12: warning: 'WCSimWCTriggerBase::triggerClassName' will be initialized after [-Wreorder]
+   G4String triggerClassName; ///< Save the name of the trigger class
+            ^
+include/WCSimWCTrigger.hh:147:12: warning:   'G4String WCSimWCTriggerBase::detectorElement' [-Wreorder]
+   G4String detectorElement;
+            ^
+src/WCSimWCTrigger.cc:38:1: warning:   when initialized here [-Wreorder]
+ WCSimWCTriggerBase::WCSimWCTriggerBase(G4String name,
+ ^
+src/WCSimWCTrigger.cc: At global scope:
+src/WCSimWCTrigger.cc:458:6: warning: unused parameter 'test' [-Wunused-parameter]
+ void WCSimWCTriggerBase::AlgNoTrigger(WCSimWCDigitsCollection* WCDCPMT, bool remove_hits, bool test) {
+      ^
+src/WCSimWCTrigger.cc: In constructor 'WCSimWCTriggerNDigits::WCSimWCTriggerNDigits(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCTrigger.cc:563:35: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+           G4String detectorElement)
+                                   ^
+src/WCSimWCTrigger.cc:563:35: warning: declaration of 'myDetector' shadows a member of 'this' [-Wshadow]
+src/WCSimWCTrigger.cc: In constructor 'WCSimWCTriggerNoTrigger::WCSimWCTriggerNoTrigger(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCTrigger.cc:588:32: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+        G4String detectorElement)
+                                ^
+src/WCSimWCTrigger.cc:588:32: warning: declaration of 'myDetector' shadows a member of 'this' [-Wshadow]
+src/WCSimWCTrigger.cc: In constructor 'WCSimWCTriggerNDigits2::WCSimWCTriggerNDigits2(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCTrigger.cc:614:37: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+             G4String detectorElement)
+                                     ^
+src/WCSimWCTrigger.cc:614:37: warning: declaration of 'myDetector' shadows a member of 'this' [-Wshadow]
+Compiling WCSimRootGeom.cc ...
+src/WCSimRootGeom.cc: In member function 'void WCSimRootGeom::SetPMT(Int_t, Int_t, Int_t, Float_t*, Float_t*, bool)':
+src/WCSimRootGeom.cc:63:19: warning: unused variable 'jPMT' [-Wunused-variable]
+     WCSimRootPMT *jPMT = new(pmtArray[i]) WCSimRootPMT(tubeno, cyl_loc, rot, pos);
+                   ^
+Compiling WCSimWCDAQMessenger.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimEventAction.hh:10,
+                 from src/WCSimWCDAQMessenger.cc:2:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+Compiling WCSimPrimaryGeneratorMessenger.cc ...
+In file included from include/WCSimPrimaryGeneratorAction.hh:7:0,
+                 from src/WCSimPrimaryGeneratorMessenger.cc:2:
+include/jhfNtuple.h:56:20: warning: 'ntDesc' defined but not used [-Wunused-variable]
+ static const char* ntDesc =
+                    ^
+Compiling WCSimEventAction.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimEventAction.hh:10,
+                 from src/WCSimEventAction.cc:1:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4TrajectoryContainer.hh:46:0,
+                 from include/WCSimEventAction.hh:11,
+                 from src/WCSimEventAction.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4VTrajectory.hh:91:17: warning: 'virtual void G4VTrajectory::DrawTrajectory() const' was hidden [-Woverloaded-virtual]
+    virtual void DrawTrajectory() const;
+                 ^
+In file included from src/WCSimEventAction.cc:2:0:
+include/WCSimTrajectory.hh:78:17: warning:   by 'virtual void WCSimTrajectory::DrawTrajectory(G4int) const' [-Woverloaded-virtual]
+    virtual void DrawTrajectory(G4int i_mode=0) const;
+                 ^
+src/WCSimEventAction.cc: In member function 'virtual void WCSimEventAction::BeginOfEventAction(const G4Event*)':
+src/WCSimEventAction.cc:180:20: warning: unused variable 'DMman' [-Wunused-variable]
+     G4DigiManager* DMman = G4DigiManager::GetDMpointer();
+                    ^
+src/WCSimEventAction.cc: In member function 'void WCSimEventAction::FillRootEvent(G4int, const ntupleStruct&, G4TrajectoryContainer*, WCSimWCDigitsCollection*, WCSimWCTriggeredDigitsCollection*, G4String)':
+src/WCSimEventAction.cc:794:62: warning: declaration of 'jhfNtuple' shadows a global declaration [-Wshadow]
+                                      G4String detectorElement)
+                                                              ^
+In file included from include/WCSimRootEvent.hh:15:0,
+                 from include/WCSimRunAction.hh:11,
+                 from src/WCSimEventAction.cc:3:
+include/jhfNtuple.h:54:28: warning: shadowed declaration is here [-Wshadow]
+ extern struct ntupleStruct jhfNtuple;
+                            ^
+src/WCSimEventAction.cc:1070:12: warning: unused variable 'hit_time_smear' [-Wunused-variable]
+     double hit_time_smear, hit_time_true;
+            ^
+src/WCSimEventAction.cc:1202:10: warning: unused variable 'tree' [-Wunused-variable]
+   TTree* tree = GetRunAction()->GetTree();
+          ^
+In file included from src/WCSimEventAction.cc:3:0:
+include/WCSimRunAction.hh: In member function 'WCSimRootEvent* WCSimRunAction::GetRootEvent(G4String)':
+include/WCSimRunAction.hh:45:3: warning: control reaches end of non-void function [-Wreturn-type]
+   }
+   ^
+include/WCSimRunAction.hh: In member function 'TBranch* WCSimRunAction::GetBranch(G4String)':
+include/WCSimRunAction.hh:37:3: warning: control reaches end of non-void function [-Wreturn-type]
+   }
+   ^
+In file included from include/WCSimRootEvent.hh:15:0,
+                 from include/WCSimRunAction.hh:11,
+                 from src/WCSimEventAction.cc:3:
+include/jhfNtuple.h: At global scope:
+include/jhfNtuple.h:56:20: warning: 'ntDesc' defined but not used [-Wunused-variable]
+ static const char* ntDesc =
+                    ^
+Compiling WCSimPMTQE.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimPMTQE.cc:2:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+Compiling WCSimTrackingAction.cc ...
+In file included from include/WCSimTrajectory.hh:6:0,
+                 from src/WCSimTrackingAction.cc:2:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4VTrajectory.hh:91:17: warning: 'virtual void G4VTrajectory::DrawTrajectory() const' was hidden [-Woverloaded-virtual]
+    virtual void DrawTrajectory() const;
+                 ^
+In file included from src/WCSimTrackingAction.cc:2:0:
+include/WCSimTrajectory.hh:78:17: warning:   by 'virtual void WCSimTrajectory::DrawTrajectory(G4int) const' [-Woverloaded-virtual]
+    virtual void DrawTrajectory(G4int i_mode=0) const;
+                 ^
+Compiling WCSimPMTObject.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimWCPMT.hh:5,
+                 from src/WCSimPMTObject.cc:1:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+src/WCSimPMTObject.cc: In member function 'virtual G4float* BoxandLine20inchHQE::GetQE()':
+src/WCSimPMTObject.cc:1424:11: warning: narrowing conversion of '(((double)correctionFactor) * 0.0)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+           ^
+src/WCSimPMTObject.cc:1424:35: warning: narrowing conversion of '(((double)correctionFactor) * 8.0000000000000004e-4)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                   ^
+src/WCSimPMTObject.cc:1424:59: warning: narrowing conversion of '(((double)correctionFactor) * 1.255e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                           ^
+src/WCSimPMTObject.cc:1424:85: warning: narrowing conversion of '(((double)correctionFactor) * 2.5496200000000002e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                     ^
+src/WCSimPMTObject.cc:1424:109: warning: narrowing conversion of '(((double)correctionFactor) * 2.9299999999999998e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                                             ^
+src/WCSimPMTObject.cc:1424:133: warning: narrowing conversion of '(((double)correctionFactor) * 3.1269999999999998e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                                                                     ^
+src/WCSimPMTObject.cc:1424:157: warning: narrowing conversion of '(((double)correctionFactor) * 3.13e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                                                                                             ^
+src/WCSimPMTObject.cc:1424:181: warning: narrowing conversion of '(((double)correctionFactor) * 2.994e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                                                                                                                     ^
+src/WCSimPMTObject.cc:1424:205: warning: narrowing conversion of '(((double)correctionFactor) * 2.7910000000000001e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                                                                                                                                             ^
+src/WCSimPMTObject.cc:1424:229: warning: narrowing conversion of '(((double)correctionFactor) * 2.4909999999999999e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                                                                                                                                                                     ^
+src/WCSimPMTObject.cc:1425:12: warning: narrowing conversion of '(((double)correctionFactor) * 2.0699999999999999e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+            ^
+src/WCSimPMTObject.cc:1425:37: warning: narrowing conversion of '(((double)correctionFactor) * 1.7580000000000001e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                     ^
+src/WCSimPMTObject.cc:1425:61: warning: narrowing conversion of '(((double)correctionFactor) * 1.384e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                             ^
+src/WCSimPMTObject.cc:1425:85: warning: narrowing conversion of '(((double)correctionFactor) * 7.7899999999999997e-2)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                     ^
+src/WCSimPMTObject.cc:1425:109: warning: narrowing conversion of '(((double)correctionFactor) * 4.7300000000000002e-2)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                                             ^
+src/WCSimPMTObject.cc:1425:133: warning: narrowing conversion of '(((double)correctionFactor) * 2.8799999999999999e-2)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                                                                     ^
+src/WCSimPMTObject.cc:1425:157: warning: narrowing conversion of '(((double)correctionFactor) * 1.49e-2)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                                                                                             ^
+src/WCSimPMTObject.cc:1425:181: warning: narrowing conversion of '(((double)correctionFactor) * 6.1999999999999998e-3)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                                                                                                                     ^
+src/WCSimPMTObject.cc:1425:205: warning: narrowing conversion of '(((double)correctionFactor) * 2.0000000000000001e-4)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                                                                                                                                             ^
+src/WCSimPMTObject.cc:1425:229: warning: narrowing conversion of '(((double)correctionFactor) * 1.0e-4)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                                                                                                                                                                     ^
+src/WCSimPMTObject.cc: In member function 'virtual G4float* BoxandLine12inchHQE::GetQE()':
+src/WCSimPMTObject.cc:1610:11: warning: narrowing conversion of '(((double)correctionFactor) * 0.0)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+           ^
+src/WCSimPMTObject.cc:1610:35: warning: narrowing conversion of '(((double)correctionFactor) * 8.0000000000000004e-4)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                   ^
+src/WCSimPMTObject.cc:1610:59: warning: narrowing conversion of '(((double)correctionFactor) * 1.255e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                           ^
+src/WCSimPMTObject.cc:1610:85: warning: narrowing conversion of '(((double)correctionFactor) * 2.5496200000000002e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                     ^
+src/WCSimPMTObject.cc:1610:109: warning: narrowing conversion of '(((double)correctionFactor) * 2.9299999999999998e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                                             ^
+src/WCSimPMTObject.cc:1610:133: warning: narrowing conversion of '(((double)correctionFactor) * 3.1269999999999998e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                                                                     ^
+src/WCSimPMTObject.cc:1610:157: warning: narrowing conversion of '(((double)correctionFactor) * 3.13e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                                                                                             ^
+src/WCSimPMTObject.cc:1610:181: warning: narrowing conversion of '(((double)correctionFactor) * 2.994e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                                                                                                                     ^
+src/WCSimPMTObject.cc:1610:205: warning: narrowing conversion of '(((double)correctionFactor) * 2.7910000000000001e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                                                                                                                                             ^
+src/WCSimPMTObject.cc:1610:229: warning: narrowing conversion of '(((double)correctionFactor) * 2.4909999999999999e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+     { 0.00*correctionFactor, .0008*correctionFactor, .1255*correctionFactor, .254962*correctionFactor, .2930*correctionFactor, .3127*correctionFactor, .3130*correctionFactor, .2994*correctionFactor, .2791*correctionFactor, .2491*correctionFactor,
+                                                                                                                                                                                                                                     ^
+src/WCSimPMTObject.cc:1611:12: warning: narrowing conversion of '(((double)correctionFactor) * 2.0699999999999999e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+            ^
+src/WCSimPMTObject.cc:1611:37: warning: narrowing conversion of '(((double)correctionFactor) * 1.7580000000000001e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                     ^
+src/WCSimPMTObject.cc:1611:61: warning: narrowing conversion of '(((double)correctionFactor) * 1.384e-1)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                             ^
+src/WCSimPMTObject.cc:1611:85: warning: narrowing conversion of '(((double)correctionFactor) * 7.7899999999999997e-2)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                     ^
+src/WCSimPMTObject.cc:1611:109: warning: narrowing conversion of '(((double)correctionFactor) * 4.7300000000000002e-2)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                                             ^
+src/WCSimPMTObject.cc:1611:133: warning: narrowing conversion of '(((double)correctionFactor) * 2.8799999999999999e-2)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                                                                     ^
+src/WCSimPMTObject.cc:1611:157: warning: narrowing conversion of '(((double)correctionFactor) * 1.49e-2)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                                                                                             ^
+src/WCSimPMTObject.cc:1611:181: warning: narrowing conversion of '(((double)correctionFactor) * 6.1999999999999998e-3)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                                                                                                                     ^
+src/WCSimPMTObject.cc:1611:205: warning: narrowing conversion of '(((double)correctionFactor) * 2.0000000000000001e-4)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                                                                                                                                             ^
+src/WCSimPMTObject.cc:1611:229: warning: narrowing conversion of '(((double)correctionFactor) * 1.0e-4)' from 'double' to 'G4float {aka float}' inside { } [-Wnarrowing]
+       .2070*correctionFactor,  .1758*correctionFactor, .1384*correctionFactor, .0779*correctionFactor, .0473*correctionFactor, .0288*correctionFactor, .0149*correctionFactor, .0062*correctionFactor, .0002*correctionFactor, .0001*correctionFactor};  
+                                                                                                                                                                                                                                     ^
+Compiling WCSimStackingAction.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimStackingAction.hh:6,
+                 from src/WCSimStackingAction.cc:1:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+src/WCSimStackingAction.cc: In member function 'virtual G4ClassificationOfNewTrack WCSimStackingAction::ClassifyNewTrack(const G4Track*)':
+src/WCSimStackingAction.cc:44:12: warning: declaration of 'photonWavelength' shadows a previous local [-Wshadow]
+    G4float photonWavelength = (2.0*M_PI*197.3)/(aTrack->GetTotalEnergy()/eV);
+            ^
+src/WCSimStackingAction.cc:34:15: warning: shadowed declaration is here [-Wshadow]
+       G4float photonWavelength = (2.0*M_PI*197.3)/(aTrack->GetTotalEnergy()/eV);
+               ^
+src/WCSimStackingAction.cc:47:12: warning: declaration of 'ratio' shadows a previous local [-Wshadow]
+    G4float ratio = 1./(1.0-0.25);
+            ^
+src/WCSimStackingAction.cc:35:15: warning: shadowed declaration is here [-Wshadow]
+       G4float ratio = 1./(1.0-0.25);
+               ^
+src/WCSimStackingAction.cc:51:12: warning: declaration of 'wavelengthQE' shadows a previous local [-Wshadow]
+    G4float wavelengthQE = 0;
+            ^
+src/WCSimStackingAction.cc:36:15: warning: shadowed declaration is here [-Wshadow]
+       G4float wavelengthQE = 0;
+               ^
+Compiling WCSimPhysicsListFactory.cc ...
+Compiling WCSimPrimaryGeneratorAction.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimPrimaryGeneratorAction.cc:2:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+src/WCSimPrimaryGeneratorAction.cc: In function 'float atof(const string&)':
+src/WCSimPrimaryGeneratorAction.cc:37:36: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline float atof( const string& s ) {return std::atof( s.c_str() );}
+                                    ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/RotationX.icc:11,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/RotationX.h:282,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/Rotation.h:29,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Geometry/Transform3D.icc:6,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Geometry/Transform3D.h:818,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4Transform3D.hh:33,
+                 from include/WCSimDetectorConstruction.hh:8,
+                 from src/WCSimPrimaryGeneratorAction.cc:2:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+src/WCSimPrimaryGeneratorAction.cc: In function 'int atoi(const string&)':
+src/WCSimPrimaryGeneratorAction.cc:38:36: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline int   atoi( const string& s ) {return std::atoi( s.c_str() );}
+                                    ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/RotationX.icc:11,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/RotationX.h:282,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/Rotation.h:29,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Geometry/Transform3D.icc:6,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Geometry/Transform3D.h:818,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4Transform3D.hh:33,
+                 from include/WCSimDetectorConstruction.hh:8,
+                 from src/WCSimPrimaryGeneratorAction.cc:2:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+src/WCSimPrimaryGeneratorAction.cc: In constructor 'WCSimPrimaryGeneratorAction::WCSimPrimaryGeneratorAction(WCSimDetectorConstruction*)':
+src/WCSimPrimaryGeneratorAction.cc:66:15: warning: unused variable 'ionTable' [-Wunused-variable]
+   G4IonTable* ionTable = G4IonTable::GetIonTable();
+               ^
+src/WCSimPrimaryGeneratorAction.cc: In member function 'virtual void WCSimPrimaryGeneratorAction::GeneratePrimaries(G4Event*)':
+src/WCSimPrimaryGeneratorAction.cc:198:16: warning: declaration of 'energy' shadows a member of 'this' [-Wshadow]
+       G4double energy = atof(token[2])*MeV;
+                ^
+src/WCSimPrimaryGeneratorAction.cc:276:14: warning: declaration of 'm' shadows a global declaration [-Wshadow]
+     G4double m       =anEvent->GetPrimaryVertex()->GetPrimary()->GetMass();
+              ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/RotationX.icc:11,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/RotationX.h:282,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/Rotation.h:29,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Geometry/Transform3D.icc:6,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Geometry/Transform3D.h:818,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4Transform3D.hh:33,
+                 from include/WCSimDetectorConstruction.hh:8,
+                 from src/WCSimPrimaryGeneratorAction.cc:2:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:101:23: warning: shadowed declaration is here [-Wshadow]
+   static const double m  = meter;                  
+                       ^
+src/WCSimPrimaryGeneratorAction.cc:342:16: warning: declaration of 'm' shadows a global declaration [-Wshadow]
+       G4double m        =anEvent->GetPrimaryVertex()->GetPrimary()->GetMass();
+                ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/RotationX.icc:11,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/RotationX.h:282,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/Rotation.h:29,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Geometry/Transform3D.icc:6,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Geometry/Transform3D.h:818,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4Transform3D.hh:33,
+                 from include/WCSimDetectorConstruction.hh:8,
+                 from src/WCSimPrimaryGeneratorAction.cc:2:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:101:23: warning: shadowed declaration is here [-Wshadow]
+   static const double m  = meter;                  
+                       ^
+In file included from include/WCSimPrimaryGeneratorAction.hh:7:0,
+                 from src/WCSimPrimaryGeneratorAction.cc:1:
+include/jhfNtuple.h: At global scope:
+include/jhfNtuple.h:56:20: warning: 'ntDesc' defined but not used [-Wunused-variable]
+ static const char* ntDesc =
+                    ^
+Compiling WCSimRunAction.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimRunAction.hh:14,
+                 from src/WCSimRunAction.cc:1:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+src/WCSimRunAction.cc: In member function 'virtual void WCSimRunAction::BeginOfRunAction(const G4Run*)':
+src/WCSimRunAction.cc:95:12: warning: unused variable 'geoBranch' [-Wunused-variable]
+   TBranch *geoBranch = geoTree->Branch("wcsimrootgeom", "WCSimRootGeom", &wcsimrootgeom, bufsize,0);
+            ^
+In file included from include/WCSimRootEvent.hh:15:0,
+                 from include/WCSimRunAction.hh:11,
+                 from src/WCSimRunAction.cc:1:
+include/jhfNtuple.h: At global scope:
+include/jhfNtuple.h:56:20: warning: 'ntDesc' defined but not used [-Wunused-variable]
+ static const char* ntDesc =
+                    ^
+Compiling WCSimTuningMessenger.cc ...
+Compiling WCSimConstructCylinder.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructCylinder.cc:2:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+src/WCSimConstructCylinder.cc: In member function 'G4LogicalVolume* WCSimDetectorConstruction::ConstructCylinder()':
+src/WCSimConstructCylinder.cc:398:24: warning: unused variable 'physiWCExtraTower' [-Wunused-variable]
+     G4VPhysicalVolume* physiWCExtraTower = 
+                        ^
+src/WCSimConstructCylinder.cc:470:30: warning: unused variable 'WaterBSTowerCellSurface' [-Wunused-variable]
+     G4LogicalBorderSurface * WaterBSTowerCellSurface 
+                              ^
+src/WCSimConstructCylinder.cc:578:29: warning: unused variable 'WaterTyTVSurfaceBot' [-Wunused-variable]
+    G4LogicalBorderSurface * WaterTyTVSurfaceBot =
+                             ^
+src/WCSimConstructCylinder.cc:594:29: warning: unused variable 'WaterTyTVSurfaceTop' [-Wunused-variable]
+    G4LogicalBorderSurface * WaterTyTVSurfaceTop =
+                             ^
+src/WCSimConstructCylinder.cc:625:29: warning: unused variable 'WaterTyTVSurfaceSide' [-Wunused-variable]
+    G4LogicalBorderSurface * WaterTyTVSurfaceSide =
+                             ^
+src/WCSimConstructCylinder.cc:687:26: warning: unused variable 'physiCapPMT' [-Wunused-variable]
+       G4VPhysicalVolume* physiCapPMT =
+                          ^
+src/WCSimConstructCylinder.cc:726:26: warning: unused variable 'physiWCBarrelPMT' [-Wunused-variable]
+       G4VPhysicalVolume* physiWCBarrelPMT =
+                          ^
+src/WCSimConstructCylinder.cc:748:23: warning: declaration of 'WCPMTRotation' shadows a previous local [-Wshadow]
+     G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                       ^
+src/WCSimConstructCylinder.cc:713:21: warning: shadowed declaration is here [-Wshadow]
+   G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                     ^
+src/WCSimConstructCylinder.cc:754:14: warning: declaration of 'horizontalSpacing' shadows a previous local [-Wshadow]
+     G4double horizontalSpacing   = towerWidth/(WCBarrelNumPMTHorizontal-WCBarrelRingNPhi*WCPMTperCellHorizontal);
+              ^
+src/WCSimConstructCylinder.cc:717:12: warning: shadowed declaration is here [-Wshadow]
+   G4double horizontalSpacing   = barrelCellWidth/WCPMTperCellHorizontal;
+            ^
+src/WCSimConstructCylinder.cc:755:14: warning: declaration of 'verticalSpacing' shadows a previous local [-Wshadow]
+     G4double verticalSpacing     = barrelCellHeight/WCPMTperCellVertical;
+              ^
+src/WCSimConstructCylinder.cc:718:12: warning: shadowed declaration is here [-Wshadow]
+   G4double verticalSpacing     = barrelCellHeight/WCPMTperCellVertical;
+            ^
+src/WCSimConstructCylinder.cc:765:21: warning: unused variable 'physiWCBarrelPMT' [-Wunused-variable]
+  G4VPhysicalVolume* physiWCBarrelPMT =
+                     ^
+src/WCSimConstructCylinder.cc:956:74: warning: statement has no effect [-Wunused-value]
+     if(WCODPMTShift > barrelODCellWidth/2. - WCPMTODRadius) WCODPMTShift == 0.*cm;
+                                                                          ^
+src/WCSimConstructCylinder.cc:964:24: warning: unused variable 'physiWCBarrelPMT' [-Wunused-variable]
+     G4VPhysicalVolume* physiWCBarrelPMT =
+                        ^
+src/WCSimConstructCylinder.cc:1024:22: warning: declaration of 'WCPMTRotation' shadows a previous local [-Wshadow]
+    G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                      ^
+src/WCSimConstructCylinder.cc:713:21: warning: shadowed declaration is here [-Wshadow]
+   G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                     ^
+src/WCSimConstructCylinder.cc:1030:13: warning: declaration of 'horizontalODSpacing' shadows a previous local [-Wshadow]
+    G4double horizontalODSpacing   = towerWidthOD/WCPMTODperCellHorizontal;
+             ^
+src/WCSimConstructCylinder.cc:953:12: warning: shadowed declaration is here [-Wshadow]
+   G4double horizontalODSpacing = barrelODCellWidth/WCPMTODperCellHorizontal;
+            ^
+src/WCSimConstructCylinder.cc:1031:13: warning: declaration of 'verticalODSpacing' shadows a previous local [-Wshadow]
+    G4double verticalODSpacing     = barrelCellHeight*(WCODRadius/WCIDRadius)/WCPMTODperCellVertical;
+             ^
+src/WCSimConstructCylinder.cc:954:12: warning: shadowed declaration is here [-Wshadow]
+   G4double verticalODSpacing   = barrelODCellHeight/WCPMTODperCellVertical;
+            ^
+src/WCSimConstructCylinder.cc:1042:25: warning: unused variable 'physiWCBarrelPMT' [-Wunused-variable]
+      G4VPhysicalVolume* physiWCBarrelPMT =
+                         ^
+src/WCSimConstructCylinder.cc:1013:23: warning: unused variable 'physiWCTowerODTyvek' [-Wunused-variable]
+    G4VPhysicalVolume* physiWCTowerODTyvek =
+                       ^
+src/WCSimConstructCylinder.cc:1087:25: warning: unused variable 'physiTopCapPMT' [-Wunused-variable]
+      G4VPhysicalVolume* physiTopCapPMT =
+                         ^
+src/WCSimConstructCylinder.cc:1097:25: warning: unused variable 'physiBottomCapPMT' [-Wunused-variable]
+      G4VPhysicalVolume* physiBottomCapPMT =
+                         ^
+src/WCSimConstructCylinder.cc:846:28: warning: unused variable 'WaterTyTopCapSurfaceBot' [-Wunused-variable]
+   G4LogicalBorderSurface * WaterTyTopCapSurfaceBot =
+                            ^
+src/WCSimConstructCylinder.cc:863:28: warning: unused variable 'WaterTyBottomCapSurfaceBot' [-Wunused-variable]
+   G4LogicalBorderSurface * WaterTyBottomCapSurfaceBot =
+                            ^
+src/WCSimConstructCylinder.cc:912:28: warning: unused variable 'WaterTyBarrelCellSurfaceBot' [-Wunused-variable]
+   G4LogicalBorderSurface * WaterTyBarrelCellSurfaceBot =
+                            ^
+src/WCSimConstructCylinder.cc:198:22: warning: unused variable 'physiWCBarrelAnnulus' [-Wunused-variable]
+   G4VPhysicalVolume* physiWCBarrelAnnulus = 
+                      ^
+src/WCSimConstructCylinder.cc:229:22: warning: unused variable 'physiWCBarrelRing' [-Wunused-variable]
+   G4VPhysicalVolume* physiWCBarrelRing = 
+                      ^
+src/WCSimConstructCylinder.cc:329:28: warning: unused variable 'WaterBSBarrelCellSurface' [-Wunused-variable]
+   G4LogicalBorderSurface * WaterBSBarrelCellSurface 
+                            ^
+src/WCSimConstructCylinder.cc:365:20: warning: unused variable 'logicWCExtraBorderCell' [-Wunused-variable]
+   G4LogicalVolume* logicWCExtraBorderCell;
+                    ^
+src/WCSimConstructCylinder.cc:1132:22: warning: unused variable 'physiTopCapAssembly' [-Wunused-variable]
+   G4VPhysicalVolume* physiTopCapAssembly =
+                      ^
+src/WCSimConstructCylinder.cc:1140:22: warning: unused variable 'physiBottomCapAssembly' [-Wunused-variable]
+   G4VPhysicalVolume* physiBottomCapAssembly =
+                      ^
+src/WCSimConstructCylinder.cc: In member function 'G4LogicalVolume* WCSimDetectorConstruction::ConstructCaps(G4int)':
+src/WCSimConstructCylinder.cc:1243:26: warning: declaration of 'tmpVisAtt' shadows a previous local [-Wshadow]
+         G4VisAttributes* tmpVisAtt = new G4VisAttributes(G4Colour(1.,0.5,0.5));
+                          ^
+src/WCSimConstructCylinder.cc:1170:20: warning: shadowed declaration is here [-Wshadow]
+   G4VisAttributes* tmpVisAtt = new G4VisAttributes(G4VisAttributes::Invisible);
+                    ^
+src/WCSimConstructCylinder.cc:1248:26: warning: declaration of 'tmpVisAtt' shadows a previous local [-Wshadow]
+         G4VisAttributes* tmpVisAtt = new G4VisAttributes(G4Colour(1.,0.5,0.5));
+                          ^
+src/WCSimConstructCylinder.cc:1170:20: warning: shadowed declaration is here [-Wshadow]
+   G4VisAttributes* tmpVisAtt = new G4VisAttributes(G4VisAttributes::Invisible);
+                    ^
+src/WCSimConstructCylinder.cc:1259:26: warning: declaration of 'tmpVisAtt' shadows a previous local [-Wshadow]
+         G4VisAttributes* tmpVisAtt = new G4VisAttributes(G4Colour(1.,0.5,0.5));
+                          ^
+src/WCSimConstructCylinder.cc:1170:20: warning: shadowed declaration is here [-Wshadow]
+   G4VisAttributes* tmpVisAtt = new G4VisAttributes(G4VisAttributes::Invisible);
+                    ^
+src/WCSimConstructCylinder.cc:1339:30: warning: unused variable 'WaterBSExtraBorderCellSurface' [-Wunused-variable]
+     G4LogicalBorderSurface * WaterBSExtraBorderCellSurface 
+                              ^
+src/WCSimConstructCylinder.cc:1524:21: warning: declaration of 'WCCapBlackSheetVisAtt' shadows a previous local [-Wshadow]
+    G4VisAttributes* WCCapBlackSheetVisAtt 
+                     ^
+src/WCSimConstructCylinder.cc:1518:21: warning: shadowed declaration is here [-Wshadow]
+    G4VisAttributes* WCCapBlackSheetVisAtt 
+                     ^
+src/WCSimConstructCylinder.cc:1535:21: warning: declaration of 'WCCapBlackSheetVisAtt' shadows a previous local [-Wshadow]
+    G4VisAttributes* WCCapBlackSheetVisAtt 
+                     ^
+src/WCSimConstructCylinder.cc:1518:21: warning: shadowed declaration is here [-Wshadow]
+    G4VisAttributes* WCCapBlackSheetVisAtt 
+                     ^
+src/WCSimConstructCylinder.cc:1579:21: warning: unused variable 'physiCapPMT' [-Wunused-variable]
+  G4VPhysicalVolume* physiCapPMT =
+                     ^
+src/WCSimConstructCylinder.cc:1614:25: warning: unused variable 'physiWCBarrelBorderPMT' [-Wunused-variable]
+      G4VPhysicalVolume* physiWCBarrelBorderPMT =
+                         ^
+src/WCSimConstructCylinder.cc:1637:23: warning: declaration of 'WCPMTRotation' shadows a previous local [-Wshadow]
+     G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                       ^
+src/WCSimConstructCylinder.cc:1601:21: warning: shadowed declaration is here [-Wshadow]
+   G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                     ^
+src/WCSimConstructCylinder.cc:1643:14: warning: declaration of 'horizontalSpacing' shadows a previous local [-Wshadow]
+     G4double horizontalSpacing   = towerWidth/(WCBarrelNumPMTHorizontal-WCBarrelRingNPhi*WCPMTperCellHorizontal);
+              ^
+src/WCSimConstructCylinder.cc:1605:12: warning: shadowed declaration is here [-Wshadow]
+   G4double horizontalSpacing   = barrelCellWidth/WCPMTperCellHorizontal;
+            ^
+src/WCSimConstructCylinder.cc:1644:14: warning: declaration of 'verticalSpacing' shadows a previous local [-Wshadow]
+     G4double verticalSpacing     = barrelCellHeight/WCPMTperCellVertical;
+              ^
+src/WCSimConstructCylinder.cc:1606:12: warning: shadowed declaration is here [-Wshadow]
+   G4double verticalSpacing     = barrelCellHeight/WCPMTperCellVertical;
+            ^
+src/WCSimConstructCylinder.cc:1654:21: warning: unused variable 'physiWCBarrelBorderPMT' [-Wunused-variable]
+  G4VPhysicalVolume* physiWCBarrelBorderPMT =
+                     ^
+src/WCSimConstructCylinder.cc:1723:28: warning: unused variable 'physiWCBarrelPMT' [-Wunused-variable]
+         G4VPhysicalVolume* physiWCBarrelPMT =
+                            ^
+src/WCSimConstructCylinder.cc:1747:29: warning: declaration of 'WaterTyBarrelBorderCellSurfaceBot' shadows a previous local [-Wshadow]
+    G4LogicalBorderSurface * WaterTyBarrelBorderCellSurfaceBot =
+                             ^
+src/WCSimConstructCylinder.cc:1695:28: warning: shadowed declaration is here [-Wshadow]
+   G4LogicalBorderSurface * WaterTyBarrelBorderCellSurfaceBot =
+                            ^
+src/WCSimConstructCylinder.cc:1753:22: warning: declaration of 'WCPMTRotation' shadows a previous local [-Wshadow]
+    G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                      ^
+src/WCSimConstructCylinder.cc:1601:21: warning: shadowed declaration is here [-Wshadow]
+   G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                     ^
+src/WCSimConstructCylinder.cc:1759:16: warning: declaration of 'horizontalODSpacing' shadows a previous local [-Wshadow]
+       G4double horizontalODSpacing = towerWidthOD/WCPMTODperCellHorizontal;
+                ^
+src/WCSimConstructCylinder.cc:1713:14: warning: shadowed declaration is here [-Wshadow]
+     G4double horizontalODSpacing = barrelODCellWidth/WCPMTODperCellHorizontal;
+              ^
+src/WCSimConstructCylinder.cc:1760:16: warning: declaration of 'verticalODSpacing' shadows a previous local [-Wshadow]
+       G4double verticalODSpacing   = barrelCellHeight*(WCODRadius/WCIDRadius)/WCPMTODperCellVertical;
+                ^
+src/WCSimConstructCylinder.cc:1714:14: warning: shadowed declaration is here [-Wshadow]
+     G4double verticalODSpacing   = barrelCellHeight * (barrelODCellWidth/barrelCellWidth) / WCPMTODperCellVertical;
+              ^
+src/WCSimConstructCylinder.cc:1771:30: warning: unused variable 'physiWCBarrelPMT' [-Wunused-variable]
+           G4VPhysicalVolume* physiWCBarrelPMT =
+                              ^
+src/WCSimConstructCylinder.cc:1747:29: warning: unused variable 'WaterTyBarrelBorderCellSurfaceBot' [-Wunused-variable]
+    G4LogicalBorderSurface * WaterTyBarrelBorderCellSurfaceBot =
+                             ^
+src/WCSimConstructCylinder.cc:1695:28: warning: unused variable 'WaterTyBarrelBorderCellSurfaceBot' [-Wunused-variable]
+   G4LogicalBorderSurface * WaterTyBarrelBorderCellSurfaceBot =
+                            ^
+src/WCSimConstructCylinder.cc:1198:22: warning: unused variable 'physiWCBarrelBorderRing' [-Wunused-variable]
+   G4VPhysicalVolume* physiWCBarrelBorderRing =
+                      ^
+src/WCSimConstructCylinder.cc:1280:28: warning: unused variable 'WaterBSBarrelBorderCellSurface' [-Wunused-variable]
+   G4LogicalBorderSurface * WaterBSBarrelBorderCellSurface
+                            ^
+src/WCSimConstructCylinder.cc:1288:20: warning: unused variable 'logicWCExtraTowerCell' [-Wunused-variable]
+   G4LogicalVolume* logicWCExtraTowerCell;
+                    ^
+src/WCSimConstructCylinder.cc:1513:29: warning: unused variable 'WaterBSBottomCapSurface' [-Wunused-variable]
+    G4LogicalBorderSurface * WaterBSBottomCapSurface 
+                             ^
+src/WCSimConstructCylinder.cc:1518:21: warning: unused variable 'WCCapBlackSheetVisAtt' [-Wunused-variable]
+    G4VisAttributes* WCCapBlackSheetVisAtt 
+                     ^
+Compiling WCSimWCAddDarkNoise.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimWCAddDarkNoise.hh:5,
+                 from src/WCSimWCAddDarkNoise.cc:1:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+src/WCSimWCAddDarkNoise.cc: In constructor 'WCSimWCAddDarkNoise::WCSimWCAddDarkNoise(G4String, WCSimDetectorConstruction*, G4String)':
+src/WCSimWCAddDarkNoise.cc:39:66: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+                                          G4String detectorElement)
+                                                                  ^
+src/WCSimWCAddDarkNoise.cc: In member function 'void WCSimWCAddDarkNoise::AddDarkNoise()':
+src/WCSimWCAddDarkNoise.cc:156:9: warning: unused variable 'windowfordarknoise' [-Wunused-variable]
+     int windowfordarknoise=0;
+         ^
+Compiling WCSimDetectorConstruction.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimDetectorConstruction.cc:1:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+Compiling WCSimWCSD.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from include/WCSimWCSD.hh:6,
+                 from src/WCSimWCSD.cc:1:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+src/WCSimWCSD.cc: In constructor 'WCSimWCSD::WCSimWCSD(G4String, G4String, WCSimDetectorConstruction*, G4String)':
+src/WCSimWCSD.cc:23:46: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+                      G4String detectorElement)
+                                              ^
+Compiling WCSimDetectorConfigs.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimDetectorConfigs.cc:2:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+Compiling WCSimEnumerations.cc ...
+Compiling WCSimConstructGeometryTables.cc ...
+In file included from /usr/include/c++/4.8.2/ext/hash_map:60:0,
+                 from include/WCSimDetectorConstruction.hh:20,
+                 from src/WCSimConstructGeometryTables.cc:1:
+/usr/include/c++/4.8.2/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+ #warning \
+  ^
+Compiling WCSimVisManager.cc ...
+src/WCSimVisManager.cc: In member function 'virtual void WCSimVisManager::RegisterGraphicsSystems()':
+src/WCSimVisManager.cc:134:58: error: no matching function for call to 'WCSimVisManager::PrintAvailableGraphicsSystems(G4VisManager::Verbosity)'
+     PrintAvailableGraphicsSystems (G4VisManager::warnings);
+                                                          ^
+src/WCSimVisManager.cc:134:58: note: candidate is:
+In file included from include/WCSimVisManager.hh:9:0,
+                 from src/WCSimVisManager.cc:6:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4VisManager.hh:459:8: note: void G4VisManager::PrintAvailableGraphicsSystems() const
+   void PrintAvailableGraphicsSystems   () const;
+        ^
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4VisManager.hh:459:8: note:   candidate expects 0 arguments, 1 provided
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/RotationX.icc:11:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/RotationX.h:282,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Vector/Rotation.h:29,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Geometry/Transform3D.icc:6,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Geometry/Transform3D.h:818,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4Transform3D.hh:33,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4VVisManager.hh:74,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4VisManager.hh:83,
+                 from include/WCSimVisManager.hh:9,
+                 from src/WCSimVisManager.cc:6:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h: At global scope:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:71:21: warning: 'CLHEP::electron_charge' defined but not used [-Wunused-variable]
+ static const double electron_charge = - eplus; // see SystemOfUnits.h
+                     ^
+make: *** [/opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimVisManager.o] Error 1
