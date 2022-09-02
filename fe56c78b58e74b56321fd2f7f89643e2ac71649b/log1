@@ -1,0 +1,970 @@
+Cleaning up ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file WCSim.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCHit.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootEvent.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCPMT.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCDigitizer.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimDetectorMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTuningParameters.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTrajectory.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWLSProperties.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructMaterials.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootOptions.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCDigi.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRandomMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimDarkRateMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimVisManager.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimSteppingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructGeometryTables.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructCylinder.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimEnumerations.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimGenerator_Radioactivity.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimDetectorConfigs.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCSD.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimDetectorConstruction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCAddDarkNoise.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTuningMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPMTQE.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRunAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPrimaryGeneratorAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPhysicsListFactory.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimStackingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPMTObject.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTrackingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimEventAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPrimaryGeneratorMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCDAQMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootGeom.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCTrigger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTrackInformation.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructPMT.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructEggShapedHyperK.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRunActionMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPmtInfo.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPhysicsListFactoryMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimLC.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootTools.cc ...
+rootcint  -f ./src/WCSimRootDict.cc -c -I./include -I/opt/HyperK/root/include WCSimRootEvent.hh WCSimRootGeom.hh  WCSimPmtInfo.hh WCSimEnumerations.hh WCSimRootOptions.hh WCSimRootTools.hh WCSimRootLinkDef.hh
+warning: Please remove the deprecated flag -c.
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootDict.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootTools.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimLC.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPhysicsListFactoryMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPmtInfo.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRunActionMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructEggShapedHyperK.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructPMT.cc ...
+src/WCSimConstructPMT.cc: In member function 'G4LogicalVolume* WCSimDetectorConstruction::ConstructPMT(G4String, G4String, G4String, bool)':
+src/WCSimConstructPMT.cc:232:21: warning: unused variable 'physiLightCone' [-Wunused-variable]
+  G4VPhysicalVolume* physiLightCone =
+                     ^
+src/WCSimConstructPMT.cc: In member function 'G4LogicalVolume* WCSimDetectorConstruction::ConstructPMTAndWLSPlate(G4String, G4String, G4String)':
+src/WCSimConstructPMT.cc:369:44: warning: left operand of comma operator has no effect [-Wunused-value]
+       = new G4VisAttributes(G4Colour((0.0, 1.0, 0.0)));
+                                            ^
+src/WCSimConstructPMT.cc:369:49: warning: right operand of comma operator has no effect [-Wunused-value]
+       = new G4VisAttributes(G4Colour((0.0, 1.0, 0.0)));
+                                                 ^
+src/WCSimConstructPMT.cc:475:24: warning: unused variable 'physiWLSCladding' [-Wunused-variable]
+     G4VPhysicalVolume* physiWLSCladding =
+                        ^
+src/WCSimConstructPMT.cc:463:22: warning: unused variable 'physiWLS' [-Wunused-variable]
+   G4VPhysicalVolume* physiWLS =
+                      ^
+src/WCSimConstructPMT.cc:488:22: warning: unused variable 'physiPMT' [-Wunused-variable]
+   G4VPhysicalVolume* physiPMT =
+                      ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTrackInformation.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCTrigger.cc ...
+src/WCSimWCTrigger.cc: In constructor 'WCSimWCTriggerBase::WCSimWCTriggerBase(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCTrigger.cc:41:36: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+            G4String detectorElement)
+                                    ^
+In file included from src/WCSimWCTrigger.cc:1:0:
+include/WCSimWCTrigger.hh:173:12: warning: 'WCSimWCTriggerBase::triggerClassName' will be initialized after [-Wreorder]
+   G4String triggerClassName; ///< Save the name of the trigger class
+            ^
+include/WCSimWCTrigger.hh:147:12: warning:   'G4String WCSimWCTriggerBase::detectorElement' [-Wreorder]
+   G4String detectorElement;
+            ^
+src/WCSimWCTrigger.cc:38:1: warning:   when initialized here [-Wreorder]
+ WCSimWCTriggerBase::WCSimWCTriggerBase(G4String name,
+ ^
+src/WCSimWCTrigger.cc: At global scope:
+src/WCSimWCTrigger.cc:478:6: warning: unused parameter 'test' [-Wunused-parameter]
+ void WCSimWCTriggerBase::AlgNoTrigger(WCSimWCDigitsCollection* WCDCPMT, bool remove_hits, bool test) {
+      ^
+src/WCSimWCTrigger.cc: In constructor 'WCSimWCTriggerNDigits::WCSimWCTriggerNDigits(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCTrigger.cc:583:35: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+           G4String detectorElement)
+                                   ^
+src/WCSimWCTrigger.cc:583:35: warning: declaration of 'myDetector' shadows a member of 'this' [-Wshadow]
+src/WCSimWCTrigger.cc: In constructor 'WCSimWCTriggerNoTrigger::WCSimWCTriggerNoTrigger(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCTrigger.cc:608:32: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+        G4String detectorElement)
+                                ^
+src/WCSimWCTrigger.cc:608:32: warning: declaration of 'myDetector' shadows a member of 'this' [-Wshadow]
+src/WCSimWCTrigger.cc: In constructor 'WCSimWCTriggerNDigits2::WCSimWCTriggerNDigits2(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCTrigger.cc:635:37: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+             G4String detectorElement)
+                                     ^
+src/WCSimWCTrigger.cc:635:37: warning: declaration of 'myDetector' shadows a member of 'this' [-Wshadow]
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimEventAction.cc ...
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4TrajectoryContainer.hh:46:0,
+                 from include/WCSimEventAction.hh:11,
+                 from src/WCSimEventAction.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4VTrajectory.hh:91:17: warning: 'virtual void G4VTrajectory::DrawTrajectory() const' was hidden [-Woverloaded-virtual]
+    virtual void DrawTrajectory() const;
+                 ^
+In file included from src/WCSimEventAction.cc:2:0:
+include/WCSimTrajectory.hh:78:17: warning:   by 'virtual void WCSimTrajectory::DrawTrajectory(G4int) const' [-Woverloaded-virtual]
+    virtual void DrawTrajectory(G4int i_mode=0) const;
+                 ^
+src/WCSimEventAction.cc: In member function 'virtual void WCSimEventAction::BeginOfEventAction(const G4Event*)':
+src/WCSimEventAction.cc:175:20: warning: unused variable 'DMman' [-Wunused-variable]
+     G4DigiManager* DMman = G4DigiManager::GetDMpointer();
+                    ^
+src/WCSimEventAction.cc: In member function 'virtual void WCSimEventAction::EndOfEventAction(const G4Event*)':
+src/WCSimEventAction.cc:209:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for( Int_t u=0; u<nvtxs; u++ ){
+                     ^
+src/WCSimEventAction.cc:413:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for( Int_t u=0; u<nvtxs; u++ ){
+                      ^
+src/WCSimEventAction.cc:431:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for( Int_t u=0; u<nvtxs; u++ ){
+                      ^
+src/WCSimEventAction.cc:525:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for( Int_t u=0; u<nvtxs; u++ ){
+                     ^
+src/WCSimEventAction.cc: In member function 'void WCSimEventAction::FillRootEvent(G4int, const ntupleStruct&, G4TrajectoryContainer*, WCSimWCDigitsCollection*, WCSimWCTriggeredDigitsCollection*, G4String)':
+src/WCSimEventAction.cc:808:62: warning: declaration of 'jhfNtuple' shadows a global declaration [-Wshadow]
+                                      G4String detectorElement)
+                                                              ^
+In file included from include/WCSimRootEvent.hh:17:0,
+                 from include/WCSimRunAction.hh:11,
+                 from src/WCSimEventAction.cc:3:
+include/jhfNtuple.h:55:28: warning: shadowed declaration is here [-Wshadow]
+ extern struct ntupleStruct jhfNtuple;
+                            ^
+src/WCSimEventAction.cc:1083:12: warning: unused variable 'hit_time_smear' [-Wunused-variable]
+     double hit_time_smear, hit_time_true;
+            ^
+src/WCSimEventAction.cc:1215:10: warning: unused variable 'tree' [-Wunused-variable]
+   TTree* tree = GetRunAction()->GetTree();
+          ^
+In file included from src/WCSimEventAction.cc:3:0:
+include/WCSimRunAction.hh: In member function 'WCSimRootEvent* WCSimRunAction::GetRootEvent(G4String)':
+include/WCSimRunAction.hh:45:3: warning: control reaches end of non-void function [-Wreturn-type]
+   }
+   ^
+include/WCSimRunAction.hh: In member function 'TBranch* WCSimRunAction::GetBranch(G4String)':
+include/WCSimRunAction.hh:37:3: warning: control reaches end of non-void function [-Wreturn-type]
+   }
+   ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCDAQMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPrimaryGeneratorMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTrackingAction.cc ...
+In file included from include/WCSimTrajectory.hh:6:0,
+                 from src/WCSimTrackingAction.cc:2:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4VTrajectory.hh:91:17: warning: 'virtual void G4VTrajectory::DrawTrajectory() const' was hidden [-Woverloaded-virtual]
+    virtual void DrawTrajectory() const;
+                 ^
+In file included from src/WCSimTrackingAction.cc:2:0:
+include/WCSimTrajectory.hh:78:17: warning:   by 'virtual void WCSimTrajectory::DrawTrajectory(G4int) const' [-Woverloaded-virtual]
+    virtual void DrawTrajectory(G4int i_mode=0) const;
+                 ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPMTObject.cc ...
+src/WCSimPMTObject.cc: In member function 'void WCSimBasicPMTObject::DefineQEHist(std::map<double, double>)':
+src/WCSimPMTObject.cc:2045:73: warning: declaration of 'mapQE' shadows a member of 'this' [-Wshadow]
+ void WCSimBasicPMTObject::DefineQEHist(std::map<G4double,G4double> mapQE){
+                                                                         ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimStackingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPhysicsListFactory.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPrimaryGeneratorAction.cc ...
+src/WCSimPrimaryGeneratorAction.cc: In constructor 'WCSimPrimaryGeneratorAction::WCSimPrimaryGeneratorAction(WCSimDetectorConstruction*)':
+src/WCSimPrimaryGeneratorAction.cc:122:12: warning: variable 'cosThetaMean' set but not used [-Wunused-but-set-variable]
+     double cosThetaMean, cosThetaMin, cosThetaMax;
+            ^
+src/WCSimPrimaryGeneratorAction.cc:122:26: warning: variable 'cosThetaMin' set but not used [-Wunused-but-set-variable]
+     double cosThetaMean, cosThetaMin, cosThetaMax;
+                          ^
+src/WCSimPrimaryGeneratorAction.cc:122:39: warning: variable 'cosThetaMax' set but not used [-Wunused-but-set-variable]
+     double cosThetaMean, cosThetaMin, cosThetaMax;
+                                       ^
+src/WCSimPrimaryGeneratorAction.cc:123:12: warning: variable 'phiMean' set but not used [-Wunused-but-set-variable]
+     double phiMean, phiMin, phiMax;
+            ^
+src/WCSimPrimaryGeneratorAction.cc:123:21: warning: variable 'phiMin' set but not used [-Wunused-but-set-variable]
+     double phiMean, phiMin, phiMax;
+                     ^
+src/WCSimPrimaryGeneratorAction.cc:123:29: warning: variable 'phiMax' set but not used [-Wunused-but-set-variable]
+     double phiMean, phiMin, phiMax;
+                             ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRunAction.cc ...
+src/WCSimRunAction.cc: In member function 'virtual void WCSimRunAction::BeginOfRunAction(const G4Run*)':
+src/WCSimRunAction.cc:95:12: warning: unused variable 'geoBranch' [-Wunused-variable]
+   TBranch *geoBranch = geoTree->Branch("wcsimrootgeom", "WCSimRootGeom", &wcsimrootgeom, bufsize,0);
+            ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPMTQE.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTuningMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCAddDarkNoise.cc ...
+src/WCSimWCAddDarkNoise.cc: In constructor 'WCSimWCAddDarkNoise::WCSimWCAddDarkNoise(G4String, WCSimDetectorConstruction*, G4String)':
+src/WCSimWCAddDarkNoise.cc:39:66: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+                                          G4String detectorElement)
+                                                                  ^
+src/WCSimWCAddDarkNoise.cc: In member function 'void WCSimWCAddDarkNoise::AddDarkNoise()':
+src/WCSimWCAddDarkNoise.cc:156:9: warning: unused variable 'windowfordarknoise' [-Wunused-variable]
+     int windowfordarknoise=0;
+         ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimDetectorConstruction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCSD.cc ...
+src/WCSimWCSD.cc: In constructor 'WCSimWCSD::WCSimWCSD(G4String, G4String, WCSimDetectorConstruction*, G4String)':
+src/WCSimWCSD.cc:23:46: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+                      G4String detectorElement)
+                                              ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimDetectorConfigs.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimGenerator_Radioactivity.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimEnumerations.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructCylinder.cc ...
+src/WCSimConstructCylinder.cc: In member function 'G4LogicalVolume* WCSimDetectorConstruction::ConstructCylinder()':
+src/WCSimConstructCylinder.cc:191:24: warning: unused variable 'physiCaveTyvek' [-Wunused-variable]
+     G4VPhysicalVolume *physiCaveTyvek =
+                        ^
+src/WCSimConstructCylinder.cc:200:27: warning: unused variable 'TyvekCaveBarrelSurface' [-Wunused-variable]
+     G4LogicalSkinSurface *TyvekCaveBarrelSurface = new G4LogicalSkinSurface("TyvekCaveBarrelSurface", logicCaveTyvek, OpWaterTySurface);
+                           ^
+src/WCSimConstructCylinder.cc:224:27: warning: unused variable 'TyvekCaveTopSurface' [-Wunused-variable]
+     G4LogicalSkinSurface *TyvekCaveTopSurface = new G4LogicalSkinSurface("TyvekCaveTopSurface", logicCaveCapsTyvek, OpWaterTySurface);
+                           ^
+src/WCSimConstructCylinder.cc:233:24: warning: unused variable 'physiTopCaveTyvek' [-Wunused-variable]
+     G4VPhysicalVolume *physiTopCaveTyvek =
+                        ^
+src/WCSimConstructCylinder.cc:245:24: warning: unused variable 'physiBottomCaveTyvek' [-Wunused-variable]
+     G4VPhysicalVolume *physiBottomCaveTyvek =
+                        ^
+src/WCSimConstructCylinder.cc:492:24: warning: unused variable 'physiWCExtraTower' [-Wunused-variable]
+     G4VPhysicalVolume* physiWCExtraTower = 
+                        ^
+src/WCSimConstructCylinder.cc:564:30: warning: unused variable 'WaterBSTowerCellSurface' [-Wunused-variable]
+     G4LogicalBorderSurface * WaterBSTowerCellSurface 
+                              ^
+src/WCSimConstructCylinder.cc:634:23: warning: unused variable 'physiWCTopVeto' [-Wunused-variable]
+    G4VPhysicalVolume* physiWCTopVeto =
+                       ^
+src/WCSimConstructCylinder.cc:663:23: warning: unused variable 'physiWCTVTyvekBot' [-Wunused-variable]
+    G4VPhysicalVolume* physiWCTVTyvekBot =
+                       ^
+src/WCSimConstructCylinder.cc:672:33: warning: unused variable 'WaterTyTVSurfaceBot' [-Wunused-variable]
+           G4LogicalSkinSurface *WaterTyTVSurfaceBot = new G4LogicalSkinSurface("WaterTyTVSurfaceBot", logicWCTVTyvek, OpWaterTySurface);
+                                 ^
+src/WCSimConstructCylinder.cc:674:23: warning: unused variable 'physiWCTVTyvekTop' [-Wunused-variable]
+    G4VPhysicalVolume* physiWCTVTyvekTop =
+                       ^
+src/WCSimConstructCylinder.cc:701:23: warning: unused variable 'physiWCTVTyvekSide' [-Wunused-variable]
+    G4VPhysicalVolume* physiWCTVTyvekSide =
+                       ^
+src/WCSimConstructCylinder.cc:709:33: warning: unused variable 'WaterTyTVSurfaceSurface' [-Wunused-variable]
+           G4LogicalSkinSurface *WaterTyTVSurfaceSurface = new G4LogicalSkinSurface("WaterTyTVSurfaceSide", logicWCTVTyvekSide, OpWaterTySurface);
+                                 ^
+src/WCSimConstructCylinder.cc:766:26: warning: unused variable 'physiCapPMT' [-Wunused-variable]
+       G4VPhysicalVolume* physiCapPMT =
+                          ^
+src/WCSimConstructCylinder.cc:806:26: warning: unused variable 'physiWCBarrelPMT' [-Wunused-variable]
+       G4VPhysicalVolume* physiWCBarrelPMT =
+                          ^
+src/WCSimConstructCylinder.cc:829:23: warning: declaration of 'WCPMTRotation' shadows a previous local [-Wshadow]
+     G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                       ^
+src/WCSimConstructCylinder.cc:792:21: warning: shadowed declaration is here [-Wshadow]
+   G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                     ^
+src/WCSimConstructCylinder.cc:835:14: warning: declaration of 'horizontalSpacing' shadows a previous local [-Wshadow]
+     G4double horizontalSpacing   = towerWidth/(WCBarrelNumPMTHorizontal-WCBarrelRingNPhi*WCPMTperCellHorizontal);
+              ^
+src/WCSimConstructCylinder.cc:796:12: warning: shadowed declaration is here [-Wshadow]
+   G4double horizontalSpacing   = barrelCellWidth/WCPMTperCellHorizontal;
+            ^
+src/WCSimConstructCylinder.cc:836:14: warning: declaration of 'verticalSpacing' shadows a previous local [-Wshadow]
+     G4double verticalSpacing     = barrelCellHeight/WCPMTperCellVertical;
+              ^
+src/WCSimConstructCylinder.cc:797:12: warning: shadowed declaration is here [-Wshadow]
+   G4double verticalSpacing     = barrelCellHeight/WCPMTperCellVertical;
+            ^
+src/WCSimConstructCylinder.cc:847:21: warning: unused variable 'physiWCBarrelPMT' [-Wunused-variable]
+  G4VPhysicalVolume* physiWCBarrelPMT =
+                     ^
+src/WCSimConstructCylinder.cc:1042:28: warning: unused variable 'physiWCBarrelWLSPlate' [-Wunused-variable]
+         G4VPhysicalVolume* physiWCBarrelWLSPlate =
+                            ^
+src/WCSimConstructCylinder.cc:1107:25: warning: declaration of 'WCPMTRotation' shadows a previous local [-Wshadow]
+       G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                         ^
+src/WCSimConstructCylinder.cc:792:21: warning: shadowed declaration is here [-Wshadow]
+   G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                     ^
+src/WCSimConstructCylinder.cc:1115:16: warning: declaration of 'horizontalODSpacing' shadows a previous local [-Wshadow]
+       G4double horizontalODSpacing   = towerWidthOD/(double)WCPMTODperCellHorizontalExtra;
+                ^
+src/WCSimConstructCylinder.cc:1028:14: warning: shadowed declaration is here [-Wshadow]
+     G4double horizontalODSpacing = barrelODCellWidth/WCPMTODperCellHorizontal;
+              ^
+src/WCSimConstructCylinder.cc:1116:16: warning: declaration of 'verticalODSpacing' shadows a previous local [-Wshadow]
+       G4double verticalODSpacing   = barrelODCellHeight/WCPMTODperCellVertical;
+                ^
+src/WCSimConstructCylinder.cc:1029:14: warning: shadowed declaration is here [-Wshadow]
+     G4double verticalODSpacing   = barrelODCellHeight/WCPMTODperCellVertical;
+              ^
+src/WCSimConstructCylinder.cc:1126:23: warning: unused variable 'physiWCExtraBarrelWLSPlate' [-Wunused-variable]
+    G4VPhysicalVolume* physiWCExtraBarrelWLSPlate =
+                       ^
+src/WCSimConstructCylinder.cc:1087:29: warning: unused variable 'WaterExtraTySurfaceSide' [-Wunused-variable]
+       G4LogicalSkinSurface *WaterExtraTySurfaceSide =
+                             ^
+src/WCSimConstructCylinder.cc:1096:26: warning: unused variable 'physiWCTowerODTyvek' [-Wunused-variable]
+       G4VPhysicalVolume* physiWCTowerODTyvek =
+                          ^
+src/WCSimConstructCylinder.cc:1176:23: warning: unused variable 'physiTopCapWLSPlate' [-Wunused-variable]
+    G4VPhysicalVolume* physiTopCapWLSPlate =
+                       ^
+src/WCSimConstructCylinder.cc:1186:23: warning: unused variable 'physiBottomCapWLSPlate' [-Wunused-variable]
+    G4VPhysicalVolume* physiBottomCapWLSPlate =
+                       ^
+src/WCSimConstructCylinder.cc:913:24: warning: unused variable 'physiWCODTopCapsTyvek' [-Wunused-variable]
+     G4VPhysicalVolume* physiWCODTopCapsTyvek =
+                        ^
+src/WCSimConstructCylinder.cc:922:27: warning: unused variable 'WaterTySurfaceTop' [-Wunused-variable]
+     G4LogicalSkinSurface *WaterTySurfaceTop =
+                           ^
+src/WCSimConstructCylinder.cc:927:24: warning: unused variable 'physiWCODBottomCapsTyvek' [-Wunused-variable]
+     G4VPhysicalVolume* physiWCODBottomCapsTyvek =
+                        ^
+src/WCSimConstructCylinder.cc:972:24: warning: unused variable 'physiWCBarrelCellODTyvek' [-Wunused-variable]
+     G4VPhysicalVolume* physiWCBarrelCellODTyvek =
+                        ^
+src/WCSimConstructCylinder.cc:980:27: warning: unused variable 'WaterTySurfaceSide' [-Wunused-variable]
+     G4LogicalSkinSurface *WaterTySurfaceSide =
+                           ^
+src/WCSimConstructCylinder.cc:164:24: warning: unused variable 'physiWCBarrel' [-Wunused-variable]
+     G4VPhysicalVolume* physiWCBarrel = 
+                        ^
+src/WCSimConstructCylinder.cc:292:22: warning: unused variable 'physiWCBarrelAnnulus' [-Wunused-variable]
+   G4VPhysicalVolume* physiWCBarrelAnnulus = 
+                      ^
+src/WCSimConstructCylinder.cc:323:22: warning: unused variable 'physiWCBarrelRing' [-Wunused-variable]
+   G4VPhysicalVolume* physiWCBarrelRing = 
+                      ^
+src/WCSimConstructCylinder.cc:423:28: warning: unused variable 'WaterBSBarrelCellSurface' [-Wunused-variable]
+   G4LogicalBorderSurface * WaterBSBarrelCellSurface 
+                            ^
+src/WCSimConstructCylinder.cc:459:20: warning: unused variable 'logicWCExtraBorderCell' [-Wunused-variable]
+   G4LogicalVolume* logicWCExtraBorderCell;
+                    ^
+src/WCSimConstructCylinder.cc:1217:22: warning: unused variable 'physiTopCapAssembly' [-Wunused-variable]
+   G4VPhysicalVolume* physiTopCapAssembly =
+                      ^
+src/WCSimConstructCylinder.cc:1225:22: warning: unused variable 'physiBottomCapAssembly' [-Wunused-variable]
+   G4VPhysicalVolume* physiBottomCapAssembly =
+                      ^
+src/WCSimConstructCylinder.cc: In member function 'G4LogicalVolume* WCSimDetectorConstruction::ConstructCaps(G4int)':
+src/WCSimConstructCylinder.cc:1328:26: warning: declaration of 'tmpVisAtt' shadows a previous local [-Wshadow]
+         G4VisAttributes* tmpVisAtt = new G4VisAttributes(G4Colour(1.,0.5,0.5));
+                          ^
+src/WCSimConstructCylinder.cc:1255:20: warning: shadowed declaration is here [-Wshadow]
+   G4VisAttributes* tmpVisAtt = new G4VisAttributes(G4VisAttributes::Invisible);
+                    ^
+src/WCSimConstructCylinder.cc:1333:26: warning: declaration of 'tmpVisAtt' shadows a previous local [-Wshadow]
+         G4VisAttributes* tmpVisAtt = new G4VisAttributes(G4Colour(1.,0.5,0.5));
+                          ^
+src/WCSimConstructCylinder.cc:1255:20: warning: shadowed declaration is here [-Wshadow]
+   G4VisAttributes* tmpVisAtt = new G4VisAttributes(G4VisAttributes::Invisible);
+                    ^
+src/WCSimConstructCylinder.cc:1344:26: warning: declaration of 'tmpVisAtt' shadows a previous local [-Wshadow]
+         G4VisAttributes* tmpVisAtt = new G4VisAttributes(G4Colour(1.,0.5,0.5));
+                          ^
+src/WCSimConstructCylinder.cc:1255:20: warning: shadowed declaration is here [-Wshadow]
+   G4VisAttributes* tmpVisAtt = new G4VisAttributes(G4VisAttributes::Invisible);
+                    ^
+src/WCSimConstructCylinder.cc:1424:30: warning: unused variable 'WaterBSExtraBorderCellSurface' [-Wunused-variable]
+     G4LogicalBorderSurface * WaterBSExtraBorderCellSurface 
+                              ^
+src/WCSimConstructCylinder.cc:1609:21: warning: declaration of 'WCCapBlackSheetVisAtt' shadows a previous local [-Wshadow]
+    G4VisAttributes* WCCapBlackSheetVisAtt 
+                     ^
+src/WCSimConstructCylinder.cc:1603:21: warning: shadowed declaration is here [-Wshadow]
+    G4VisAttributes* WCCapBlackSheetVisAtt 
+                     ^
+src/WCSimConstructCylinder.cc:1620:21: warning: declaration of 'WCCapBlackSheetVisAtt' shadows a previous local [-Wshadow]
+    G4VisAttributes* WCCapBlackSheetVisAtt 
+                     ^
+src/WCSimConstructCylinder.cc:1603:21: warning: shadowed declaration is here [-Wshadow]
+    G4VisAttributes* WCCapBlackSheetVisAtt 
+                     ^
+src/WCSimConstructCylinder.cc:1664:21: warning: unused variable 'physiCapPMT' [-Wunused-variable]
+  G4VPhysicalVolume* physiCapPMT =
+                     ^
+src/WCSimConstructCylinder.cc:1699:25: warning: unused variable 'physiWCBarrelBorderPMT' [-Wunused-variable]
+      G4VPhysicalVolume* physiWCBarrelBorderPMT =
+                         ^
+src/WCSimConstructCylinder.cc:1722:23: warning: declaration of 'WCPMTRotation' shadows a previous local [-Wshadow]
+     G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                       ^
+src/WCSimConstructCylinder.cc:1686:21: warning: shadowed declaration is here [-Wshadow]
+   G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                     ^
+src/WCSimConstructCylinder.cc:1728:14: warning: declaration of 'horizontalSpacing' shadows a previous local [-Wshadow]
+     G4double horizontalSpacing   = towerWidth/(WCBarrelNumPMTHorizontal-WCBarrelRingNPhi*WCPMTperCellHorizontal);
+              ^
+src/WCSimConstructCylinder.cc:1690:12: warning: shadowed declaration is here [-Wshadow]
+   G4double horizontalSpacing   = barrelCellWidth/WCPMTperCellHorizontal;
+            ^
+src/WCSimConstructCylinder.cc:1729:14: warning: declaration of 'verticalSpacing' shadows a previous local [-Wshadow]
+     G4double verticalSpacing     = (barrelCellHeight-WCBorderPMTOffset)/WCPMTperCellVertical;
+              ^
+src/WCSimConstructCylinder.cc:1691:12: warning: shadowed declaration is here [-Wshadow]
+   G4double verticalSpacing     = (barrelCellHeight-WCBorderPMTOffset)/WCPMTperCellVertical;
+            ^
+src/WCSimConstructCylinder.cc:1739:21: warning: unused variable 'physiWCBarrelBorderPMT' [-Wunused-variable]
+  G4VPhysicalVolume* physiWCBarrelBorderPMT =
+                     ^
+src/WCSimConstructCylinder.cc:1805:28: warning: unused variable 'physiWCBarrelWLSPlate' [-Wunused-variable]
+         G4VPhysicalVolume* physiWCBarrelWLSPlate =
+                            ^
+src/WCSimConstructCylinder.cc:1831:16: warning: declaration of 'barrelODCellWidth' shadows a previous local [-Wshadow]
+       G4double barrelODCellWidth   = 2.*WCODRadius*tan(dPhi/2.);
+                ^
+src/WCSimConstructCylinder.cc:1793:14: warning: shadowed declaration is here [-Wshadow]
+     G4double barrelODCellWidth   = 2.*WCODRadius*tan(dPhi/2.);
+              ^
+src/WCSimConstructCylinder.cc:1832:16: warning: declaration of 'barrelODCellHeight' shadows a previous local [-Wshadow]
+       G4double barrelODCellHeight  = barrelCellHeight * (barrelODCellWidth/barrelCellWidth);
+                ^
+src/WCSimConstructCylinder.cc:1794:14: warning: shadowed declaration is here [-Wshadow]
+     G4double barrelODCellHeight  = barrelCellHeight * (barrelODCellWidth/barrelCellWidth);
+              ^
+src/WCSimConstructCylinder.cc:1834:25: warning: declaration of 'WCPMTRotation' shadows a previous local [-Wshadow]
+       G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                         ^
+src/WCSimConstructCylinder.cc:1686:21: warning: shadowed declaration is here [-Wshadow]
+   G4RotationMatrix* WCPMTRotation = new G4RotationMatrix;
+                     ^
+src/WCSimConstructCylinder.cc:1842:16: warning: declaration of 'horizontalODSpacing' shadows a previous local [-Wshadow]
+       G4double horizontalODSpacing   = towerWidthOD/(double)WCPMTODperCellHorizontalExtra;
+                ^
+src/WCSimConstructCylinder.cc:1795:14: warning: shadowed declaration is here [-Wshadow]
+     G4double horizontalODSpacing = barrelODCellWidth/WCPMTODperCellHorizontal;
+              ^
+src/WCSimConstructCylinder.cc:1843:16: warning: declaration of 'verticalODSpacing' shadows a previous local [-Wshadow]
+       G4double verticalODSpacing   = barrelODCellHeight/WCPMTODperCellVertical;
+                ^
+src/WCSimConstructCylinder.cc:1796:14: warning: shadowed declaration is here [-Wshadow]
+     G4double verticalODSpacing   = barrelODCellHeight / WCPMTODperCellVertical;
+              ^
+src/WCSimConstructCylinder.cc:1853:30: warning: unused variable 'physiWCBarrelPMT' [-Wunused-variable]
+           G4VPhysicalVolume* physiWCBarrelPMT =
+                              ^
+src/WCSimConstructCylinder.cc:1822:26: warning: unused variable 'physiWCExtraBorderODTyvek' [-Wunused-variable]
+       G4VPhysicalVolume* physiWCExtraBorderODTyvek =
+                          ^
+src/WCSimConstructCylinder.cc:1775:24: warning: unused variable 'physiWCBarrelBorderCellODTyvek' [-Wunused-variable]
+     G4VPhysicalVolume* physiWCBarrelBorderCellODTyvek =
+                        ^
+src/WCSimConstructCylinder.cc:1283:22: warning: unused variable 'physiWCBarrelBorderRing' [-Wunused-variable]
+   G4VPhysicalVolume* physiWCBarrelBorderRing =
+                      ^
+src/WCSimConstructCylinder.cc:1365:28: warning: unused variable 'WaterBSBarrelBorderCellSurface' [-Wunused-variable]
+   G4LogicalBorderSurface * WaterBSBarrelBorderCellSurface
+                            ^
+src/WCSimConstructCylinder.cc:1373:20: warning: unused variable 'logicWCExtraTowerCell' [-Wunused-variable]
+   G4LogicalVolume* logicWCExtraTowerCell;
+                    ^
+src/WCSimConstructCylinder.cc:1598:29: warning: unused variable 'WaterBSBottomCapSurface' [-Wunused-variable]
+    G4LogicalBorderSurface * WaterBSBottomCapSurface 
+                             ^
+src/WCSimConstructCylinder.cc:1603:21: warning: unused variable 'WCCapBlackSheetVisAtt' [-Wunused-variable]
+    G4VisAttributes* WCCapBlackSheetVisAtt 
+                     ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructGeometryTables.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimSteppingAction.cc ...
+In file included from /opt/HyperK/root/include/TClass.h:26:0,
+                 from /opt/HyperK/root/include/TBuffer.h:26,
+                 from /opt/HyperK/root/include/TDirectory.h:24,
+                 from /opt/HyperK/root/include/TDirectoryFile.h:25,
+                 from /opt/HyperK/root/include/TFile.h:27,
+                 from include/WCSimRunAction.hh:8,
+                 from include/WCSimSteppingAction.hh:9,
+                 from src/WCSimSteppingAction.cc:7:
+/opt/HyperK/root/include/TObjString.h: In constructor 'TObjString::TObjString(const char*)':
+/opt/HyperK/root/include/TObjString.h:34:35: warning: declaration of 's' shadows a global declaration [-Wshadow]
+    TObjString(const char *s = "") : fString(s) { }
+                                   ^
+In file included from src/WCSimSteppingAction.cc:4:0:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4SIunits.hh:150:22: warning: shadowed declaration is here [-Wshadow]
+ static const double  s = second;
+                      ^
+In file included from /opt/HyperK/root/include/TClass.h:26:0,
+                 from /opt/HyperK/root/include/TBuffer.h:26,
+                 from /opt/HyperK/root/include/TDirectory.h:24,
+                 from /opt/HyperK/root/include/TDirectoryFile.h:25,
+                 from /opt/HyperK/root/include/TFile.h:27,
+                 from include/WCSimRunAction.hh:8,
+                 from include/WCSimSteppingAction.hh:9,
+                 from src/WCSimSteppingAction.cc:7:
+/opt/HyperK/root/include/TObjString.h: In member function 'void TObjString::SetString(const char*)':
+/opt/HyperK/root/include/TObjString.h:45:41: warning: declaration of 's' shadows a global declaration [-Wshadow]
+    void        SetString(const char *s) { fString = s; }
+                                         ^
+In file included from src/WCSimSteppingAction.cc:4:0:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4SIunits.hh:150:22: warning: shadowed declaration is here [-Wshadow]
+ static const double  s = second;
+                      ^
+In file included from /opt/HyperK/root/include/TDirectory.h:24:0,
+                 from /opt/HyperK/root/include/TDirectoryFile.h:25,
+                 from /opt/HyperK/root/include/TFile.h:27,
+                 from include/WCSimRunAction.hh:8,
+                 from include/WCSimSteppingAction.hh:9,
+                 from src/WCSimSteppingAction.cc:7:
+/opt/HyperK/root/include/TBuffer.h: In member function 'virtual void TBuffer::ReadStdString(std::string&)':
+/opt/HyperK/root/include/TBuffer.h:291:54: warning: declaration of 's' shadows a global declaration [-Wshadow]
+    virtual inline void ReadStdString(std::string &s) { ReadStdString(&s); }
+                                                      ^
+In file included from src/WCSimSteppingAction.cc:4:0:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4SIunits.hh:150:22: warning: shadowed declaration is here [-Wshadow]
+ static const double  s = second;
+                      ^
+In file included from /opt/HyperK/root/include/TDirectory.h:24:0,
+                 from /opt/HyperK/root/include/TDirectoryFile.h:25,
+                 from /opt/HyperK/root/include/TFile.h:27,
+                 from include/WCSimRunAction.hh:8,
+                 from include/WCSimSteppingAction.hh:9,
+                 from src/WCSimSteppingAction.cc:7:
+/opt/HyperK/root/include/TBuffer.h: In member function 'virtual void TBuffer::WriteStdString(std::string&)':
+/opt/HyperK/root/include/TBuffer.h:311:55: warning: declaration of 's' shadows a global declaration [-Wshadow]
+    virtual inline void WriteStdString(std::string &s) { WriteStdString(&s); }
+                                                       ^
+In file included from src/WCSimSteppingAction.cc:4:0:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4SIunits.hh:150:22: warning: shadowed declaration is here [-Wshadow]
+ static const double  s = second;
+                      ^
+In file included from /opt/HyperK/root/include/TDirectory.h:24:0,
+                 from /opt/HyperK/root/include/TDirectoryFile.h:25,
+                 from /opt/HyperK/root/include/TFile.h:27,
+                 from include/WCSimRunAction.hh:8,
+                 from include/WCSimSteppingAction.hh:9,
+                 from src/WCSimSteppingAction.cc:7:
+/opt/HyperK/root/include/TBuffer.h: In function 'TBuffer& operator>>(TBuffer&, Short_t&)':
+/opt/HyperK/root/include/TBuffer.h:347:52: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TBuffer &operator>>(TBuffer &buf, Short_t &s)  { buf.ReadShort(s);  return buf; }
+                                                    ^
+In file included from src/WCSimSteppingAction.cc:4:0:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4SIunits.hh:150:22: warning: shadowed declaration is here [-Wshadow]
+ static const double  s = second;
+                      ^
+In file included from /opt/HyperK/root/include/TDirectory.h:24:0,
+                 from /opt/HyperK/root/include/TDirectoryFile.h:25,
+                 from /opt/HyperK/root/include/TFile.h:27,
+                 from include/WCSimRunAction.hh:8,
+                 from include/WCSimSteppingAction.hh:9,
+                 from src/WCSimSteppingAction.cc:7:
+/opt/HyperK/root/include/TBuffer.h: In function 'TBuffer& operator>>(TBuffer&, UShort_t&)':
+/opt/HyperK/root/include/TBuffer.h:348:53: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TBuffer &operator>>(TBuffer &buf, UShort_t &s) { buf.ReadUShort(s); return buf; }
+                                                     ^
+In file included from src/WCSimSteppingAction.cc:4:0:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4SIunits.hh:150:22: warning: shadowed declaration is here [-Wshadow]
+ static const double  s = second;
+                      ^
+In file included from /opt/HyperK/root/include/TDirectory.h:24:0,
+                 from /opt/HyperK/root/include/TDirectoryFile.h:25,
+                 from /opt/HyperK/root/include/TFile.h:27,
+                 from include/WCSimRunAction.hh:8,
+                 from include/WCSimSteppingAction.hh:9,
+                 from src/WCSimSteppingAction.cc:7:
+/opt/HyperK/root/include/TBuffer.h: In function 'TBuffer& operator>>(TBuffer&, TString&)':
+/opt/HyperK/root/include/TBuffer.h:358:52: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TBuffer &operator>>(TBuffer &buf, TString &s)  { buf.ReadTString(s);return buf; }
+                                                    ^
+In file included from src/WCSimSteppingAction.cc:4:0:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4SIunits.hh:150:22: warning: shadowed declaration is here [-Wshadow]
+ static const double  s = second;
+                      ^
+In file included from /opt/HyperK/root/include/TDirectory.h:24:0,
+                 from /opt/HyperK/root/include/TDirectoryFile.h:25,
+                 from /opt/HyperK/root/include/TFile.h:27,
+                 from include/WCSimRunAction.hh:8,
+                 from include/WCSimSteppingAction.hh:9,
+                 from src/WCSimSteppingAction.cc:7:
+/opt/HyperK/root/include/TBuffer.h: In function 'TBuffer& operator<<(TBuffer&, Short_t)':
+/opt/HyperK/root/include/TBuffer.h:363:51: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TBuffer &operator<<(TBuffer &buf, Short_t s)  { buf.WriteShort(s);  return buf; }
+                                                   ^
+In file included from src/WCSimSteppingAction.cc:4:0:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4SIunits.hh:150:22: warning: shadowed declaration is here [-Wshadow]
+ static const double  s = second;
+                      ^
+In file included from /opt/HyperK/root/include/TDirectory.h:24:0,
+                 from /opt/HyperK/root/include/TDirectoryFile.h:25,
+                 from /opt/HyperK/root/include/TFile.h:27,
+                 from include/WCSimRunAction.hh:8,
+                 from include/WCSimSteppingAction.hh:9,
+                 from src/WCSimSteppingAction.cc:7:
+/opt/HyperK/root/include/TBuffer.h: In function 'TBuffer& operator<<(TBuffer&, UShort_t)':
+/opt/HyperK/root/include/TBuffer.h:364:52: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TBuffer &operator<<(TBuffer &buf, UShort_t s) { buf.WriteUShort(s); return buf; }
+                                                    ^
+In file included from src/WCSimSteppingAction.cc:4:0:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4SIunits.hh:150:22: warning: shadowed declaration is here [-Wshadow]
+ static const double  s = second;
+                      ^
+In file included from /opt/HyperK/root/include/TDirectory.h:24:0,
+                 from /opt/HyperK/root/include/TDirectoryFile.h:25,
+                 from /opt/HyperK/root/include/TFile.h:27,
+                 from include/WCSimRunAction.hh:8,
+                 from include/WCSimSteppingAction.hh:9,
+                 from src/WCSimSteppingAction.cc:7:
+/opt/HyperK/root/include/TBuffer.h: In function 'TBuffer& operator<<(TBuffer&, const TString&)':
+/opt/HyperK/root/include/TBuffer.h:374:58: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TBuffer &operator<<(TBuffer &buf, const TString &s) { buf.WriteTString(s);return buf; }
+                                                          ^
+In file included from src/WCSimSteppingAction.cc:4:0:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4SIunits.hh:150:22: warning: shadowed declaration is here [-Wshadow]
+ static const double  s = second;
+                      ^
+In file included from /opt/HyperK/root/include/TMap.h:29:0,
+                 from /opt/HyperK/root/include/TFile.h:28,
+                 from include/WCSimRunAction.hh:8,
+                 from include/WCSimSteppingAction.hh:9,
+                 from src/WCSimSteppingAction.cc:7:
+/opt/HyperK/root/include/THashTable.h: In member function 'Int_t THashTable::GetHashValue(TString&) const':
+/opt/HyperK/root/include/THashTable.h:47:47: warning: declaration of 's' shadows a global declaration [-Wshadow]
+    Int_t       GetHashValue(TString &s) const { return s.Hash() % fSize; }
+                                               ^
+In file included from src/WCSimSteppingAction.cc:4:0:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4SIunits.hh:150:22: warning: shadowed declaration is here [-Wshadow]
+ static const double  s = second;
+                      ^
+In file included from include/WCSimDetectorConstruction.hh:5:0,
+                 from include/WCSimRunAction.hh:14,
+                 from include/WCSimSteppingAction.hh:9,
+                 from src/WCSimSteppingAction.cc:7:
+include/WCSimPMTObject.hh: In member function 'void WCSimBasicPMTObject::SetgQE(TGraph*)':
+include/WCSimPMTObject.hh:322:25: warning: declaration of 'g' shadows a global declaration [-Wshadow]
+   void SetgQE(TGraph *g){ gQE=g;};
+                         ^
+In file included from src/WCSimSteppingAction.cc:4:0:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4SIunits.hh:162:23: warning: shadowed declaration is here [-Wshadow]
+ static const double   g = gram;
+                       ^
+src/WCSimSteppingAction.cc: In member function 'virtual void WCSimSteppingAction::UserSteppingAction(const G4Step*)':
+src/WCSimSteppingAction.cc:35:22: warning: unused variable 'volume' [-Wunused-variable]
+   G4VPhysicalVolume* volume  = track->GetVolume();
+                      ^
+src/WCSimSteppingAction.cc:38:16: warning: unused variable 'SDman' [-Wunused-variable]
+   G4SDManager* SDman   = G4SDManager::GetSDMpointer();
+                ^
+src/WCSimSteppingAction.cc:39:20: warning: unused variable 'HCE' [-Wunused-variable]
+   G4HCofThisEvent* HCE = evt->GetHCofThisEvent();
+                    ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimVisManager.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimDarkRateMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRandomMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCDigi.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootOptions.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructMaterials.cc ...
+src/WCSimConstructMaterials.cc: In member function 'void WCSimDetectorConstruction::ConstructMaterials()':
+src/WCSimConstructMaterials.cc:30:15: warning: unused variable 'Vacuum' [-Wunused-variable]
+   G4Material* Vacuum = 
+               ^
+src/WCSimConstructMaterials.cc:301:12: warning: unused variable 'PPCKOV' [-Wunused-variable]
+   G4double PPCKOV[NUMENTRIES] =
+            ^
+src/WCSimConstructMaterials.cc:519:13: warning: unused variable 'MIE_water' [-Wunused-variable]
+    G4double MIE_water[NUMENTRIES_water] = {
+             ^
+src/WCSimConstructMaterials.cc:551:13: warning: unused variable 'MIE_water_const' [-Wunused-variable]
+    G4double MIE_water_const[3]={0.4,0.,1};// gforward, gbackward, forward backward ratio
+             ^
+src/WCSimConstructMaterials.cc:717:13: warning: unused variable 'MIE_air' [-Wunused-variable]
+    G4double MIE_air[NUMENTRIES_water] =
+             ^
+src/WCSimConstructMaterials.cc:729:13: warning: unused variable 'MIE_air_const' [-Wunused-variable]
+    G4double MIE_air_const[3]={0.99,0.99,0.8};// gforward, gbackward, forward backward ratio
+             ^
+src/WCSimConstructMaterials.cc:893:10: warning: unused variable 'no_absorption' [-Wunused-variable]
+   double no_absorption = 1000.*m;
+          ^
+src/WCSimConstructMaterials.cc:894:10: warning: unused variable 'immediate_absorption' [-Wunused-variable]
+   double immediate_absorption = 0.*m;
+          ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWLSProperties.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootDict.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTrajectory.cc ...
+In file included from include/WCSimTrajectory.hh:6:0,
+                 from src/WCSimTrajectory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4VTrajectory.hh:91:17: warning: 'virtual void G4VTrajectory::DrawTrajectory() const' was hidden [-Woverloaded-virtual]
+    virtual void DrawTrajectory() const;
+                 ^
+In file included from src/WCSimTrajectory.cc:1:0:
+include/WCSimTrajectory.hh:78:17: warning:   by 'virtual void WCSimTrajectory::DrawTrajectory(G4int) const' [-Woverloaded-virtual]
+    virtual void DrawTrajectory(G4int i_mode=0) const;
+                 ^
+src/WCSimTrajectory.cc:96:6: warning: unused parameter 'i_mode' [-Wunused-parameter]
+ void WCSimTrajectory::DrawTrajectory(G4int i_mode) const
+      ^
+src/WCSimTrajectory.cc: In member function 'virtual std::vector<G4AttValue>* WCSimTrajectory::CreateAttValues() const':
+src/WCSimTrajectory.cc:140:25: warning: declaration of 's' shadows a global declaration [-Wshadow]
+   std::ostringstream s(c);
+                         ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from include/WCSimTrajectory.hh:12,
+                 from src/WCSimTrajectory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTuningParameters.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimDetectorMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootGeom.cc ...
+src/WCSimRootGeom.cc: In copy constructor 'WCSimRootPMT::WCSimRootPMT(const WCSimRootPMT&)':
+src/WCSimRootGeom.cc:79:1: warning: base class 'class TObject' should be explicitly initialized in the copy constructor [-Wextra]
+ WCSimRootPMT::WCSimRootPMT(const WCSimRootPMT & in)
+ ^
+src/WCSimRootGeom.cc: In member function 'void WCSimRootGeom::SetPMT(Int_t, Int_t, Int_t, Double_t*, Double_t*, bool)':
+src/WCSimRootGeom.cc:111:19: warning: unused variable 'jPMT' [-Wunused-variable]
+     WCSimRootPMT *jPMT = new(pmtArray[i]) WCSimRootPMT(tubeno, cyl_loc, rot, pos);
+                   ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCDigitizer.cc ...
+src/WCSimWCDigitizer.cc: In constructor 'WCSimWCDigitizerBase::WCSimWCDigitizerBase(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, DigitizerType_t, G4String)':
+src/WCSimWCDigitizer.cc:26:38: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+              G4String detectorElement)
+                                      ^
+In file included from src/WCSimWCDigitizer.cc:1:0:
+include/WCSimWCDigitizer.hh:70:19: warning: 'WCSimWCDigitizerBase::DigitizerType' will be initialized after [-Wreorder]
+   DigitizerType_t DigitizerType; ///< Enumeration to say which digitizer we've constructed
+                   ^
+include/WCSimWCDigitizer.hh:64:12: warning:   'G4String WCSimWCDigitizerBase::DigitizerClassName' [-Wreorder]
+   G4String DigitizerClassName;    ///< Name of the digitizer class being run
+            ^
+src/WCSimWCDigitizer.cc:22:1: warning:   when initialized here [-Wreorder]
+ WCSimWCDigitizerBase::WCSimWCDigitizerBase(G4String name,
+ ^
+src/WCSimWCDigitizer.cc: In member function 'bool WCSimWCDigitizerBase::AddNewDigit(int, int, double, double, std::vector<int>)':
+src/WCSimWCDigitizer.cc:116:124: warning: declaration of 'peSmeared' shadows a member of 'this' [-Wshadow]
+ bool WCSimWCDigitizerBase::AddNewDigit(int tube, int gate, double digihittime, double peSmeared, std::vector<int> digi_comp)
+                                                                                                                            ^
+src/WCSimWCDigitizer.cc: In constructor 'WCSimWCDigitizerSKI::WCSimWCDigitizerSKI(G4String, WCSimDetectorConstruction*, WCSimWCDAQMessenger*, G4String)':
+src/WCSimWCDigitizer.cc:191:66: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+                                          G4String detectorElement)
+                                                                  ^
+src/WCSimWCDigitizer.cc:191:66: warning: declaration of 'myDetector' shadows a member of 'this' [-Wshadow]
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCPMT.cc ...
+src/WCSimWCPMT.cc: In constructor 'WCSimWCPMT::WCSimWCPMT(G4String, WCSimDetectorConstruction*, G4String)':
+src/WCSimWCPMT.cc:33:48: warning: declaration of 'detectorElement' shadows a member of 'this' [-Wshadow]
+                        G4String detectorElement)
+                                                ^
+src/WCSimWCPMT.cc:33:48: warning: declaration of 'myDetector' shadows a member of 'this' [-Wshadow]
+src/WCSimWCPMT.cc: In member function 'void WCSimWCPMT::MakePeCorrection(WCSimWCHitsCollection*)':
+src/WCSimWCPMT.cc:179:16: warning: declaration of 'peSmeared' shadows a member of 'this' [-Wshadow]
+       G4double peSmeared = 0.0;
+                ^
+src/WCSimWCPMT.cc:148:20: warning: unused variable 'PMT' [-Wunused-variable]
+   WCSimPMTObject * PMT = myDetector->GetPMTPointer(WCCollectionName);
+                    ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootEvent.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCHit.cc ...
+Creating shared library /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/libWCSim.so ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSim.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Using global libraries ...
+Linking WCSim
+... Done!
+g++ -shared -O /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootEvent.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootGeom.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimPmtInfo.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimEnumerations.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootOptions.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootTools.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootDict.o  -o libWCSimRoot.so -L/opt/HyperK/root/lib -lCore -lImt -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lROOTVecOps -lTree -lTreePlayer -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -lMultiProc -lROOTDataFrame -pthread -lm -ldl -rdynamic
+rm -f libWCSim.a
+ar clq libWCSim.a /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootEvent.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootGeom.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimPmtInfo.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimEnumerations.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootOptions.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootTools.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootDict.o  
+cp -f ./src/WCSimRootDict_rdict.pcm .
+cp -f ./src/WCSimRootDict_rdict.pcm /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/
