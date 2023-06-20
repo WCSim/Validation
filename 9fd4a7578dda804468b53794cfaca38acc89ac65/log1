@@ -1,0 +1,905 @@
+Cleaning up ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file WCSim.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCHit.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootEvent.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCPMT.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimDetectorConstruction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/GdNeutronHPCaptureFS.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimLC.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTuningParameters.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTrajectory.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRandomMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWLSProperties.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructMaterials.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootOptions.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCDigi.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimDetectorMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimOpBoundaryProcess.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimDarkRateMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimOpticalPhysics.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimVisManager.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructGeometryTables.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimEnumerations.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/GdCaptureGammas.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimGenerator_Radioactivity.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCDigitizer.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimDetectorConfigs.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/GdNeutronHPCapture.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCSD.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCAddDarkNoise.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructCylinder.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTuningMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRunAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructMultiPMT.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPrimaryGeneratorAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPhysicsListFactory.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimStackingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPMTObject.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTrackingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPMTQE.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/TNRooTrackerVtx.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/TJNuBeamFlux.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimEventAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPrimaryGeneratorMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimOpticalPhysicsMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCDAQMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootGeom.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimWCTrigger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimSteppingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTrackInformation.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructPMT.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimConstructEggShapedHyperK.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimMultiPMTParameterisation.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRunActionMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPmtInfo.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimTrackingMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimPhysicsListFactoryMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Making dependency for file src/WCSimRootTools.cc ...
+rootcint  -f ./WCSimRootDict.cxx -c -I./include -I/opt/HyperK/root/include WCSimRootEvent.hh WCSimRootGeom.hh  WCSimPmtInfo.hh WCSimEnumerations.hh WCSimRootOptions.hh TJNuBeamFlux.hh TNRooTrackerVtx.hh WCSimRootLinkDef.hh
+warning: Please remove the deprecated flag -c.
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootEvent.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootGeom.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPmtInfo.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimEnumerations.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootOptions.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling TNRooTrackerVtx.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling TJNuBeamFlux.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootDict.cxx ...
+g++ -W -Wall -ansi -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-strings -Wpointer-arith -Woverloaded-virtual -pipe -Wshadow -g -fPIC -DGEANT4_7_0 -I/opt/HyperK/root/include -pthread -std=c++11 -m64 -I/opt/HyperK/root/include -DUSE_ROOT -fPIC -std=c++0x -DGIT_HASH="" -DWCSIM_CHECK_GEOMETRY_OVERLAPS=false -DG4DEBUG -Iinclude -I/opt/HyperK/geant4.10.01.p03-install/share/Geant4-10.1.3/geant4make/source/externals/usolids/include -I/opt/HyperK/geant4.10.01.p03-install/share/Geant4-10.1.3/geant4make/source/externals/clhep/include -DG4VERBOSE -DG4_STORE_TRAJECTORY -DG4UI_USE_TCSH -DG4UI_USE -DG4VIS_USE_ASCIITREE -DG4VIS_USE_DAWNFILE -DG4VIS_USE_GMOCRENFILE -DG4VIS_USE_HEPREPFILE -DG4VIS_USE_RAYTRACER -DG4VIS_USE_VRMLFILE -DG4VIS_USE -I/opt/HyperK/geant4.10.01.p03-install/include/Geant4 -c -o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootDict.o WCSimRootDict.cxx
+g++ -shared -O /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootEvent.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootGeom.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimPmtInfo.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimEnumerations.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootOptions.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/TNRooTrackerVtx.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/TJNuBeamFlux.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootDict.o  -o libWCSimRoot.so -L/opt/HyperK/root/lib -lCore -lImt -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lROOTVecOps -lTree -lTreePlayer -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -lMultiProc -lROOTDataFrame -pthread -lm -ldl -rdynamic
+rm -f libWCSim.a
+ar clq libWCSim.a /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootEvent.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootGeom.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimPmtInfo.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimEnumerations.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootOptions.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/TNRooTrackerVtx.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/TJNuBeamFlux.o /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/WCSimRootDict.o  
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRootTools.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPhysicsListFactoryMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTrackingMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRunActionMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimMultiPMTParameterisation.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructEggShapedHyperK.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructPMT.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTrackInformation.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimSteppingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCTrigger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCDAQMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimOpticalPhysicsMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPrimaryGeneratorMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimEventAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPMTQE.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTrackingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPMTObject.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimStackingAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPhysicsListFactory.cc ...
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In copy constructor 'TSubString::TSubString(const TSubString&)':
+/opt/HyperK/root/include/TString.h:100:6: warning: declaration of 's' shadows a global declaration [-Wshadow]
+      : fStr(s.fStr), fBegin(s.fBegin), fExtent(s.fExtent) { }
+      ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In static member function 'static Ssiz_t TString::Align(Ssiz_t)':
+/opt/HyperK/root/include/TString.h:219:35: warning: declaration of 's' shadows a global declaration [-Wshadow]
+    static Ssiz_t  Align(Ssiz_t s) { return (s + (kAlignment-1)) & ~(kAlignment-1); }
+                                   ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In static member function 'static Ssiz_t TString::Recommend(Ssiz_t)':
+/opt/HyperK/root/include/TString.h:220:39: warning: declaration of 's' shadows a global declaration [-Wshadow]
+    static Ssiz_t  Recommend(Ssiz_t s) { return (s < kMinCap ? kMinCap : Align(s+1)) - 1; }
+                                       ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'void TString::SetShortSize(Ssiz_t)':
+/opt/HyperK/root/include/TString.h:226:42: warning: declaration of 's' shadows a global declaration [-Wshadow]
+    void           SetShortSize(Ssiz_t s) { fRep.fShort.fSize = (unsigned char)(s << 1); }
+                                          ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'void TString::SetLongSize(Ssiz_t)':
+/opt/HyperK/root/include/TString.h:232:41: warning: declaration of 's' shadows a global declaration [-Wshadow]
+    void           SetLongSize(Ssiz_t s) { fRep.fLong.fSize = s; }
+                                         ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'void TString::SetSize(Ssiz_t)':
+/opt/HyperK/root/include/TString.h:234:37: warning: declaration of 's' shadows a global declaration [-Wshadow]
+    void           SetSize(Ssiz_t s) { IsLong() ? SetLongSize(s) : SetShortSize(s); }
+                                     ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'void TString::SetLongCap(Ssiz_t)':
+/opt/HyperK/root/include/TString.h:235:40: warning: declaration of 's' shadows a global declaration [-Wshadow]
+    void           SetLongCap(Ssiz_t s) { fRep.fLong.fCap = kLongMask | s; }
+                                        ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In function 'UInt_t Hash(const TString&)':
+/opt/HyperK/root/include/TString.h:481:36: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline UInt_t Hash(const TString &s) { return s.Hash(); }
+                                    ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In function 'UInt_t Hash(const TString*)':
+/opt/HyperK/root/include/TString.h:482:36: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline UInt_t Hash(const TString *s) { return s->Hash(); }
+                                    ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In function 'typename std::enable_if<ROOT::TypeTraits::IsSignedNumeral<T>::value, TString>::type operator+(TString, T)':
+/opt/HyperK/root/include/TString.h:516:25: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ operator+(TString s, T i)
+                         ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In function 'typename std::enable_if<ROOT::TypeTraits::IsUnsignedNumeral<T>::value, TString>::type operator+(TString, T)':
+/opt/HyperK/root/include/TString.h:521:25: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ operator+(TString s, T u)
+                         ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In function 'typename std::enable_if<std::is_floating_point<_Tp>::value, TString>::type operator+(TString, T)':
+/opt/HyperK/root/include/TString.h:526:25: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ operator+(TString s, T f)
+                         ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In function 'typename std::enable_if<ROOT::TypeTraits::IsSignedNumeral<T>::value, TString>::type operator+(T, const TString&)':
+/opt/HyperK/root/include/TString.h:531:32: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ operator+(T i, const TString &s)
+                                ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In function 'typename std::enable_if<ROOT::TypeTraits::IsUnsignedNumeral<T>::value, TString>::type operator+(T, const TString&)':
+/opt/HyperK/root/include/TString.h:541:32: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ operator+(T u, const TString &s)
+                                ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In function 'typename std::enable_if<std::is_floating_point<_Tp>::value, TString>::type operator+(T, const TString&)':
+/opt/HyperK/root/include/TString.h:551:32: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ operator+(T f, const TString &s)
+                                ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'TString& TString::Append(const TString&)':
+/opt/HyperK/root/include/TString.h:565:49: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TString &TString::Append(const TString &s)
+                                                 ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'TString& TString::Append(const TString&, Ssiz_t)':
+/opt/HyperK/root/include/TString.h:568:59: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TString &TString::Append(const TString &s, Ssiz_t n)
+                                                           ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'TString& TString::operator+=(const TString&)':
+/opt/HyperK/root/include/TString.h:574:53: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TString &TString::operator+=(const TString &s)
+                                                     ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'Bool_t TString::BeginsWith(const char*, TString::ECaseCompare) const':
+/opt/HyperK/root/include/TString.h:610:68: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline Bool_t TString::BeginsWith(const char *s, ECaseCompare cmp) const
+                                                                    ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'Bool_t TString::Contains(const char*, TString::ECaseCompare) const':
+/opt/HyperK/root/include/TString.h:619:66: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline Bool_t TString::Contains(const char *s, ECaseCompare cmp) const
+                                                                  ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'Ssiz_t TString::Index(const char*, Ssiz_t, TString::ECaseCompare) const':
+/opt/HyperK/root/include/TString.h:634:73: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline Ssiz_t TString::Index(const char *s, Ssiz_t i, ECaseCompare cmp) const
+                                                                         ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'Ssiz_t TString::Index(const TString&, Ssiz_t, TString::ECaseCompare) const':
+/opt/HyperK/root/include/TString.h:637:76: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline Ssiz_t TString::Index(const TString &s, Ssiz_t i, ECaseCompare cmp) const
+                                                                            ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'TString& TString::Insert(Ssiz_t, const TString&)':
+/opt/HyperK/root/include/TString.h:650:61: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TString &TString::Insert(Ssiz_t pos, const TString &s)
+                                                             ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'TString& TString::Insert(Ssiz_t, const TString&, Ssiz_t)':
+/opt/HyperK/root/include/TString.h:653:71: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TString &TString::Insert(Ssiz_t pos, const TString &s, Ssiz_t n)
+                                                                       ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'TString& TString::Prepend(const TString&)':
+/opt/HyperK/root/include/TString.h:662:50: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TString &TString::Prepend(const TString &s)
+                                                  ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'TString& TString::Prepend(const TString&, Ssiz_t)':
+/opt/HyperK/root/include/TString.h:665:60: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TString &TString::Prepend(const TString &s, Ssiz_t n)
+                                                            ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'TString& TString::Replace(Ssiz_t, Ssiz_t, const TString&)':
+/opt/HyperK/root/include/TString.h:680:72: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TString &TString::Replace(Ssiz_t pos, Ssiz_t n, const TString& s)
+                                                                        ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'TString& TString::Replace(Ssiz_t, Ssiz_t, const TString&, Ssiz_t)':
+/opt/HyperK/root/include/TString.h:684:43: warning: declaration of 's' shadows a global declaration [-Wshadow]
+                                  Ssiz_t n2)
+                                           ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+In file included from /opt/HyperK/root/include/TCollection.h:29:0,
+                 from /opt/HyperK/root/include/TSeqCollection.h:25,
+                 from /opt/HyperK/root/include/TObjArray.h:25,
+                 from /opt/HyperK/root/include/TClonesArray.h:27,
+                 from include/WCSimRootOptions.hh:12,
+                 from include/WCSimPhysicsListFactory.hh:12,
+                 from src/WCSimPhysicsListFactory.cc:11:
+/opt/HyperK/root/include/TString.h: In member function 'TSubString& TSubString::operator=(const TSubString&)':
+/opt/HyperK/root/include/TString.h:747:61: warning: declaration of 's' shadows a global declaration [-Wshadow]
+ inline TSubString &TSubString::operator=(const TSubString &s)
+                                                             ^
+In file included from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/PhysicalConstants.h:42:0,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ParticleDefinition.hh:58,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcTblElement.hh:49,
+                 from /opt/HyperK/geant4.10.01.p03-install/include/Geant4/G4ProcessTable.hh:54,
+                 from src/WCSimPhysicsListFactory.cc:1:
+/opt/HyperK/geant4.10.01.p03-install/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: warning: shadowed declaration is here [-Wshadow]
+   static const double  s = second;
+                        ^
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimPrimaryGeneratorAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructMultiPMT.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRunAction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTuningMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructCylinder.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCAddDarkNoise.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCSD.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling GdNeutronHPCapture.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimDetectorConfigs.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCDigitizer.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimGenerator_Radioactivity.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling GdCaptureGammas.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructGeometryTables.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimVisManager.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimOpticalPhysics.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimDarkRateMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimOpBoundaryProcess.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimDetectorMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCDigi.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimConstructMaterials.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWLSProperties.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimRandomMessenger.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTrajectory.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimTuningParameters.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimLC.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling GdNeutronHPCaptureFS.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimDetectorConstruction.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCPMT.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSimWCHit.cc ...
+Creating shared library /opt/HyperK/WCSim/exe/tmp/Linux-g++/WCSim/libWCSim.so ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Compiling WCSim.cc ...
+fatal: Not a git repository (or any parent up to mount point /__w)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Using global libraries ...
+Linking WCSim
+... Done!
