@@ -17,11 +17,9 @@
 #include <TROOT.h>
 #include <sstream>
 
-#if !defined(__CINT__) || defined(__MAKECINT__)
 #include "WCSimRootEvent.hh"
 #include "WCSimRootGeom.hh"
 #include "WCSimEnumerations.hh"
-#endif
 
 using namespace std;
 
@@ -37,17 +35,6 @@ TString create_filename(const char * prefix, TString& filename_string)
 int daq_readfile(const char *filename=NULL, bool verbose=false, Long64_t max_nevents = 999999999999, int max_ntriggers = -1, bool create_pdfs = false, bool hists_per_event = false)
 {
   gROOT->SetBatch(1);
-#if !defined(__MAKECINT__)
-  // Load the library with class dictionary info
-  // (create with "gmake shared")
-  char* wcsimdirenv;
-  wcsimdirenv = getenv ("WCSIMDIR");
-  if(wcsimdirenv !=  NULL){
-    gSystem->Load("${WCSIMDIR}/libWCSimRoot.so");
-  }else{
-    gSystem->Load("../libWCSimRoot.so");
-  }
-#endif
   //std::cout<<"debug 1"<<std::endl;
   // Open the input file
   TFile *file;
@@ -444,7 +431,7 @@ int daq_readfile(const char *filename=NULL, bool verbose=false, Long64_t max_nev
       const int            trigger_time = wcsimrootevent->GetHeader()->GetDate();
       const TriggerType_t  trigger_type = wcsimrootevent->GetTriggerType();
       //std::cout<<"debug 7"<<std::endl;
-       std::vector<Float_t> trigger_info = wcsimrootevent->GetTriggerInfo();
+       std::vector<Double_t> trigger_info = wcsimrootevent->GetTriggerInfo();
       //std::cout<<"debug 8"<<std::endl;
 
       h1triggertime->Fill(trigger_time);

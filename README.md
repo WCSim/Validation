@@ -17,7 +17,7 @@ Then those tests are not yet complete please wait for output
 
 It is recommended to make the validation plots within a docker container, so that the dependencies are running the same versions that the automated tests will use i.e.
 ```bash
-docker run -it --name=WCSimValid wcsim/wcsim:develop
+docker run -it --name=WCSimValid docker://ghcr.io/hyperk/hk-software:0.0.2
 ```
 Set  GITHUBUSERNAME variable to your github username e.g.
 ```bash
@@ -25,26 +25,25 @@ export GITHUBUSERNAME=tdealtry
 ```
 Then you'll want to run these commands
 ```bash
-#Make sure WCSim is up-to-date
-cd $WCSIMDIR
-git pull origin develop
-make clean
-make
 #Get the Validation package
-cd /opt/HyperK/
+cd /opt/
 git clone git@github.com:WCSim/Validation.git #cloning from WCSim ensures you're up-to-date without conflicts
 cd Validation/
 git remote add me git@github.com:$GITHUBUSERNAME/Validation.git #this is where you'll push to
+
 #Build the Validation tools
-export LD_LIBRARY_PATH=$WCSIMDIR:$LD_LIBRARY_PATH
 make
+
 #Make a new branch
 git checkout -b update_reference
+
 #Update the reference plots
 ./MakeReference.sh
+
 #Commit the new `.root` files
 git add Compare/Reference/analysed_*root Compare/Reference/WCSimSHA
 git ci #write why the reference plots have changed e.g. link to WCSim/WCSim PR number
+
 #Push to your repo
 git push me update_reference
 ```

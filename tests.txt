@@ -9,7 +9,7 @@
 # Name PhysicsValidation generate_script generate_script_arg reference_file
 #
 #
-Build_Test BuildTest /opt/Validation/build.sh /opt/HyperK/WCSim/exe/bin/Linux-g++/WCSim
+Build_Test BuildTest /opt/Validation/build.sh /opt/WCSim/install/bin/WCSim
 100e_SuperK PhysicsValidation /opt/Validation/Generate/Generate.sh /opt/Validation/Generate/macReference/100e_SuperK.mac /opt/Validation/Compare/Reference/analysed_100e_SuperK.root
 10e_HyperK20pc PhysicsValidation /opt/Validation/Generate/Generate.sh /opt/Validation/Generate/macReference/10e_HyperK20pc.mac /opt/Validation/Compare/Reference/analysed_10e_HyperK20pc.root
 100e_HyperK20pc PhysicsValidation /opt/Validation/Generate/Generate.sh /opt/Validation/Generate/macReference/100e_HyperK20pc.mac /opt/Validation/Compare/Reference/analysed_100e_HyperK20pc.root

@@ -6,7 +6,7 @@ cd ../
 if [ ! -d "${ValidationPath}/Webpage" ]; then
     git clone https://github.com/WCSim/Validation.git -b gh-pages ./Webpage
 fi
-cd /opt/HyperK/WCSim
+cd /opt/WCSim
 
 if [[ -z ${TRAVIS_PULL_REQUEST} ]]; then
     TRAVIS_PULL_REQUEST=false
