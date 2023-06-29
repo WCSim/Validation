@@ -56,11 +56,11 @@ def PushToGit(branch_name='new_ref'):
     os.system('git config user.name "Travis CI"')
     os.system('git config user.email "wcsim@wcsim.wcsim"')
     os.system('git fetch origin')
-    os.system(f'git checkout -b {branch_name} origin/{branch_name} --track || git checkout -b {branch_name}'}
+    os.system(f'git checkout -b {branch_name} origin/{branch_name} --track || git checkout -b {branch_name}')
     os.system('git add --all')
     os.system('git commit -m "CI reference update"')
     os.system(f'git pull origin {branch_name}')
-    os.system(f'git push https://tdealtry:$\{GitHubToken\}@github.com/tdealtry/Validation.git {branch_name}')
+    os.system('git push https://tdealtry:${GitHubToken}@github.com/tdealtry/Validation.git ' + branch_name)
     
 if __name__ == "__main__":
     import argparse
