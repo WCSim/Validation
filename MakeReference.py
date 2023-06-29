@@ -5,7 +5,6 @@ import os
 import subprocess
 import shutil
 from pprint import pprint
-import git
 
 validation_dir = os.path.expandvars('$WCSIM_VALIDATION_DIR')
 build_dir = os.path.expandvars("$WCSIM_BUILD_DIR")
