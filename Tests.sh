@@ -267,7 +267,7 @@ git commit -a -m'Travis update'
 #git push
 #> /dev/null 2>/dev/null
 
-git push https://WCSimWeb:${GitHubToken}@github.com/WCSim/Validation.git gh-pages
+git push https://tdealtry:${GitHubToken}@github.com/tdealtry/Validation.git gh-pages
 #> /dev/null 2>/dev/null
 
 

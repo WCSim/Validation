@@ -5,6 +5,7 @@ import os
 import subprocess
 import shutil
 from pprint import pprint
+import git
 
 validation_dir = os.path.expandvars('$WCSIM_VALIDATION_DIR')
 build_dir = os.path.expandvars("$WCSIM_BUILD_DIR")
@@ -50,7 +51,17 @@ def MakeReference(job_num):
             f.write('{bad} {bads[bad]}\n')
     pprint(bads)
 
-
+def PushToGit(branch_name='new_ref'):
+    os.chdir(validation_dir)
+    os.system('git config user.name "Travis CI"')
+    os.system('git config user.email "wcsim@wcsim.wcsim"')
+    os.system('git fetch origin')
+    os.system(f'git checkout -b {branch_name} origin/{branch_name} --track || git checkout -b {branch_name}'}
+    os.system('git add --all')
+    os.system('git commit -m "CI reference update"')
+    os.system(f'git pull origin {branch_name}')
+    os.system(f'git push https://tdealtry:$\{GitHubToken\}@github.com/tdealtry/Validation.git {branch_name}')
+    
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
@@ -63,3 +74,5 @@ if __name__ == "__main__":
         if job == 0:
             GetSHA()
         MakeReference(job)
+    #now all jobs have run, commit to the repo
+    PushToGit()
