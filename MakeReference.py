@@ -6,7 +6,7 @@ import subprocess
 import shutil
 from pprint import pprint
 
-validation_dir = os.path.expandvars('$WCSIM_VALIDATION_DIR')
+validation_dir = os.path.expandvars('$ValidationPath')
 build_dir = os.path.expandvars("$WCSIM_BUILD_DIR")
 macs = sorted(glob.glob(f'{validation_dir}/Generate/macReference/*.mac'))
 macs_short = [x.rsplit('/',1)[-1] for x in macs]
