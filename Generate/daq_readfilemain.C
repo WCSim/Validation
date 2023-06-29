@@ -535,8 +535,12 @@ int daq_readfile(const char *filename=NULL,
 
 int main(int argc, char *argv[]){
 
-  //cout<<argv[1];
-  daq_readfile(argv[1], atoi(argv[2]), argv[3]);
+  //cout<<argv[1]<<endl;
+  string branches[3] = {"wcsimrootevent",
+			"wcsimrootevent2",
+			"wcsimrootevent_OD"};
+  for(int i = 0; i < 3; i++)
+    daq_readfile(argv[1], atoi(argv[2]), branches[i].c_str());
 
   return 0;
 

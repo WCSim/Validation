@@ -1,0 +1,4 @@
+/DarkRate/SetDetectorElement tank
+/DarkRate/SetDarkRate 0 kHz
+/DarkRate/SetDarkMode 1
+/DarkRate/SetDarkWindow 4000

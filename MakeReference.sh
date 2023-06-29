@@ -14,7 +14,7 @@ do
 	continue
     fi
     echo $mac
-    WCSim $mac /opt/Validation/Generate/macReference/tuning_parameters.mac
+    WCSim $mac /opt/Validation/Generate/macReference/tune/tuning_parameters.mac &> ${mac}.out
 done
 
 #Get the relevant histograms from WCSim
