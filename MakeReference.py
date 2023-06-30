@@ -75,7 +75,7 @@ def PushToGit(branch_name='new_ref'):
     os.system('git add --all')
     os.system('git commit -m "CI reference update"')
     os.system(f'git pull origin {branch_name}')
-    os.system('git push https://tdealtry:${GitHubToken}@github.com/tdealtry/Validation.git ' + branch_name)
+    os.system('git push https://tdealtry:${GitHubToken}@github.com/WCSim/Validation.git ' + branch_name)
     
 if __name__ == "__main__":
     import argparse
