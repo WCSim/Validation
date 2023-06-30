@@ -1,0 +1,2 @@
+GeomNav1002 397
+"Optical photon is killed because of missing refractive index" 0
