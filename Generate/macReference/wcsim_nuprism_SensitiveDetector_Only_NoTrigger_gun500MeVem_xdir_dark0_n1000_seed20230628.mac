@@ -39,5 +39,5 @@
 #/WCSimIO/Timer false
 
 /WCSim/random/seed 20230628
-/run/beamOn 1000
+/run/beamOn 800
 #exit
