@@ -52,9 +52,9 @@ def MakeReference(job_num):
     badfile = rootfile.replace('.root', '_bad.txt')
     bads = {}
     with open(f'{validation_dir}/Compare/Reference/{badfile}', 'w') as f:
-        for bad in ['GeomNav1002', '"Optical photon is killed because of missing refractive index"']:
-            bads[bad] = int(subprocess.run(['grep', '-c', bad, logfile], stdout=subprocess.PIPE, text=True).stdout)
-            f.write(f'{bad} {bads[bad]}\n')
+        for bad in ['GeomNav1002', 'Optical photon is killed because of missing refractive index']:
+            bads[bad] = int(subprocess.run(['grep', '-c', f'"{bad}"', logfile], stdout=subprocess.PIPE, text=True).stdout)
+            f.write(f'"{bad}" {bads[bad]}\n')
     pprint(bads)
     #Get the geometry text file
     geofiles = glob.glob('geofile_*.txt')
