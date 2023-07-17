@@ -288,9 +288,10 @@ do
 	    #then compare the output bad.txt with the reference
 	    isubjob=$(expr $isubjob + 1)
 	    badfilename=${var3}_bad.txt
+	    echo "" > $badfilename
 	    for greps in "GeomNav1002" "Optical photon is killed because of missing refractive index"; do
-		grepcount=$( grep -c "\"$greps\"" wcsim_run.out)
-		echo "\"$greps\"" $? >> $badfilename
+		grepcount=$( grep -c "\"$greps\"" wcsim_run.out )
+		echo "\"$greps\"" $grepcount >> $badfilename
 	    done
 	    diff $ValidationPath/Compare/Reference/$badfilename $badfilename > $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/${var3}_bad.diff.txt
 
