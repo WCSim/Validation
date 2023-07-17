@@ -153,7 +153,7 @@ i=0
 while read line
 do
 
-    if [ ${line::1} == "#" ]; then continue; fi
+    if [ "${line::1}" == "#" ]; then continue; fi
 
 
     name=$(echo $line | cut -f1 -d' ')
