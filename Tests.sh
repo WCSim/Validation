@@ -227,26 +227,26 @@ do
     then
 
 	#setup bash arrays to store the result of each subtest
-	time=()
-	pass=()
-	link=()
+	declare -a time
+	declare -a pass
+	declare -a link
+	isubjob=0
 	
 	#first run WCSim with the chosen mac file
 	/usr/bin/time -p --output=timetest $ValidationPath/$var1 $ValidationPath/Generate/macReference/$var2 ${var3}.root |& tee wcsim_run.out
-	link+=""
+	link[$isubjob]=""
 	
 	if [ $? -ne 0 ]; then
-	    pass+=#FF0000
-            time+="Failed to run WCSim"
+	    pass[$isubjob]=#FF0000
+            time[$isubjob]="Failed to run WCSim"
             ret=1
 	else
-	    pass+=#00FF00
-	    time+=`more timetest |grep user |  cut -f2 -d' '`
+	    pass[$isubjob]=#00FF00
+	    time[$isubjob]=`more timetest |grep user |  cut -f2 -d' '`
 
 	    #then compare the output root files with the reference
 	    # Note that there are up to 3 reference files, one for each WCSimRootEvent (PMT type)
 	    wcsim_has_output=0
-	    isubjob=0
 	    for pmttype in wcsimrootevent wcsimrootevent2 wcsimrootevent_OD; do
 		#check if the file exists (and therefore whether the PMT type exists in the current geometry)
 		rootfilename=${var3}_analysed_${pmttype}.root
@@ -254,37 +254,39 @@ do
 		if [ -f "$rootfilename" ]; then
 		    wcsim_has_output=1
 		    $ValidationPath/Compare/compareroot $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/$isubjob/ $ValidationPath/Compare/Reference/$rootfilename $rootfilename
-		    link+=${TRAVIS_COMMIT}/${i}/$isubjob/index.html
+		    link[$isubjob]=${TRAVIS_COMMIT}/${i}/$isubjob/index.html
 		    if [ $? -ne 0 ]; then
-			pass+=#FF0000
-			time+="Failed ${pmttype} plot comparisons"
+			pass[$isubjob]=#FF0000
+			time[$isubjob]="Failed ${pmttype} plot comparisons"
 			ret=1
 		    else
-			pass+=#00FF00
-			time+="${pmttype} plot pass"
+			pass[$isubjob]=#00FF00
+			time[$isubjob]="${pmttype} plot pass"
 		    fi
 		else
-		    pass+=#000000
-		    time+="No ${pmttype} in geometry"
-		    link+=""
+		    pass[$isubjob]=#000000
+		    time[$isubjob]="No ${pmttype} in geometry"
+		    link[$isubjob]=""
 		fi
 	    done
 
 	    #then compare the output geofile.txt with the reference
+	    isubjob=$(expr $isubjob + 1)
 	    diff $ValidationPath/Compare/Reference/$var4 $var4 > $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/${var4}.diff.txt
 
 	    if [ $? -ne 0 ]
 	    then
-		pass+=#FF0000
-		time+="Failed geofile comparisons"
-		link+=${TRAVIS_COMMIT}/${i}/${var4}.diff.txt
+		pass[$isubjob]=#FF0000
+		time[$isubjob]="Failed geofile comparisons"
+		link[$isubjob]=${TRAVIS_COMMIT}/${i}/${var4}.diff.txt
 	    else
-		pass+=#00FF00
-		time+="Geofile diff pass"
-		link+=""
+		pass[$isubjob]=#00FF00
+		time[$isubjob]="Geofile diff pass"
+		link[$isubjob]=""
 	    fi
 
 	    #then compare the output bad.txt with the reference
+	    isubjob=$(expr $isubjob + 1)
 	    badfilename=${var3}_bad.txt
 	    for greps in "GeomNav1002" "Optical photon is killed because of missing refractive index"; do
 		grepcount=$( grep -c "\"$greps\"" wcsim_run.out)
@@ -294,13 +296,13 @@ do
 
 	    if [ $? -ne 0 ]
 	    then
-		pass=#FF0000
-		time=$"Difference in number of stuck tracks or similar"
-		link+=${TRAVIS_COMMIT}/${i}/${var3}_bad.diff.txt
+		pass[$isubjob]=#FF0000
+		time[$isubjob]=$"Difference in number of stuck tracks or similar"
+		link[$isubjob]=${TRAVIS_COMMIT}/${i}/${var3}_bad.diff.txt
 	    else
-		pass+=#00FF00
-		time+="Num stuck track diff pass"
-		link+=""
+		pass[$isubjob]=#00FF00
+		time[$isubjob]="Num stuck track diff pass"
+		link[$isubjob]=""
 	    fi
 	    
 	fi
@@ -314,7 +316,11 @@ do
         cp $ValidationPath/Webpage/results.html $ValidationPath/Webpage/results.html.old
 	for isub in {0..5}; do
             subjobtag=${i}_sub${isub}
-            head -1000000 $ValidationPath/Webpage/results.html.old | sed s:${TRAVIS_COMMIT}"Pass"$subjobtag:${pass[isub]}: | sed s:${TRAVIS_COMMIT}"Text"$subjobtag:${time[isub]}: | sed s:${TRAVIS_COMMIT}"Link"$subjobtag:${link[isub]}: > $ValidationPath/Webpage/results.html.new
+	    echo ${TRAVIS_COMMIT}"Pass"$subjobtag
+	    echo ${pass[isub]}
+	    echo ${time[isub]}
+	    echo ${link[isub]}
+            head -1000000 $ValidationPath/Webpage/results.html.old | sed s:${TRAVIS_COMMIT}"Pass"$subjobtag:${pass[isub]}: | sed s:${TRAVIS_COMMIT}"Text"$subjobtag:"${time[isub]}": | sed s:${TRAVIS_COMMIT}"Link"$subjobtag:${link[isub]}: > $ValidationPath/Webpage/results.html.new
 	done
     fi
     #############################################################
