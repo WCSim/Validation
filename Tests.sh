@@ -59,9 +59,12 @@ then
 
     echo " </tr>
  <tr>
- <td>"${TRAVIS_COMMIT}"</td>
- <td>"${TRAVIS_COMMIT_MESSAGE}"</td>">> $ValidationPath/Webpage/results.html.new;
-
+ <td>"${TRAVIS_COMMIT}"</td>" >> $ValidationPath/Webpage/results.html.new;
+    if [ ${TRAVIS_PULL_REQUEST} -ge 0 ]; then
+	echo "<td><a href=https://github.com/WCSim/WCSim/pulls/"${TRAVIS_PULL_REQUEST}">"${TRAVIS_COMMIT_MESSAGE}"</td>">> $ValidationPath/Webpage/results.html.new;
+    else
+	echo "<td>"${TRAVIS_COMMIT_MESSAGE}"</td>">> $ValidationPath/Webpage/results.html.new;
+    fi
 
     i=0
     while read line
