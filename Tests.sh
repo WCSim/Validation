@@ -156,6 +156,12 @@ fi
 
 ################################### Running tests ######################################
 
+#setup bash arrays to store the result of each (sub)test
+declare -a repl
+declare -a time
+declare -a pass
+declare -a link
+ichange=0
 
 i=0
 
@@ -177,32 +183,29 @@ do
     if [ "$i" -ne "$1" ]; then continue; fi
 
     echo Running test $i with name: $name of type: $test with variables: $var1 $var2 $var3 $var4 $var5
-	
+
 ################## Build Test #######################
 
     if [ $test == "BuildTest"  ]
     then
-
 	#build
 	# the build log is stored to be accessible in the webpage
 	/usr/bin/time -p --output=timetest $var1 |& tee $ValidationPath/Webpage/${TRAVIS_COMMIT}/"log"${i}.txt
 	ret=${?}
-	time=`more timetest |grep user |  cut -f2 -d' '`
+	time[ichange]=`more timetest |grep user |  cut -f2 -d' '`
 
 	#check that the expected binary output is found
 	if [ ! -e $var2 ]
 	then
-            pass=#FF0000
+            pass[ichange]=#FF0000
             ret=1
 	else
-            pass=#00FF00
+            pass[ichange]=#00FF00
             ret=0
 	fi
-
-	#update webpage with result
-	cp $ValidationPath/Webpage/results.html $ValidationPath/Webpage/results.html.old
-	head -1000000 $ValidationPath/Webpage/results.html.old | sed s:${TRAVIS_COMMIT}"Pass"$i:$pass: | sed s:${TRAVIS_COMMIT}"Text"$i:$time: | sed s:${TRAVIS_COMMIT}"Link"$i:${TRAVIS_COMMIT}/log${i}.txt: > $ValidationPath/Webpage/results.html.new
-
+	link[ichange]=0
+	repl[ichange]=$i
+	ichange=$(expr $ichange + 1)
     fi
     #############################################################
 
@@ -213,19 +216,19 @@ do
 
         if [ ! -e $var1 ]
         then
-            pass=#FF0000
-	    text="Not present"
+            pass[ichange]=#FF0000
+	    time[ichange]="Not present"
 	    ret=0
         else
-            pass=#00FF00
-	    text="Present"
+            pass[ichange]=#00FF00
+	    time[ichange]="Present"
 	    ret=1
         fi
+	link[ichange]=0
+	repl[ichange]=$i
+	ichange=$(expr $ichange + 1)
 
 	file="index.html"
-
-        cp $ValidationPath/Webpage/results.html $ValidationPath/Webpage/results.html.old
-        head -1000000 $ValidationPath/Webpage/results.html.old | sed s:${TRAVIS_COMMIT}"Pass"$i:$pass: | sed s:${TRAVIS_COMMIT}"Text"$i:$text: | sed s:${TRAVIS_COMMIT}"Link"$i:$file: > $ValidationPath/Webpage/results.html.new
     fi
     #############################################################
 
@@ -235,23 +238,20 @@ do
     if [ $test == "PhysicsValidation" ]
     then
 
-	#setup bash arrays to store the result of each subtest
-	declare -a time
-	declare -a pass
-	declare -a link
 	isubjob=0
-	
+
 	#first run WCSim with the chosen mac file
 	/usr/bin/time -p --output=timetest $ValidationPath/$var1 $ValidationPath/Generate/macReference/$var2 ${var3}.root |& tee wcsim_run.out
-	link[$isubjob]=""
-	
+	link[$ichange]=""
+	repl[ichange]=${i}_sub${isub}
+
 	if [ $? -ne 0 ]; then
-	    pass[$isubjob]=#FF0000
-            time[$isubjob]="Failed to run WCSim"
+	    pass[$ichange]=#FF0000
+            time[$ichange]="Failed to run WCSim"
             ret=1
 	else
-	    pass[$isubjob]=#00FF00
-	    time[$isubjob]=`more timetest |grep user |  cut -f2 -d' '`" sec"
+	    pass[$ichange]=#00FF00
+	    time[$ichange]=`more timetest |grep user |  cut -f2 -d' '`" sec"
 
 	    #then compare the output root files with the reference
 	    # Note that there are up to 3 reference files, one for each WCSimRootEvent (PMT type)
@@ -260,42 +260,48 @@ do
 		#check if the file exists (and therefore whether the PMT type exists in the current geometry)
 		rootfilename=${var3}_analysed_${pmttype}.root
 		isubjob=$(expr $isubjob + 1)
+		ichange=$(expr $ichange + 1)
+		repl[ichange]=${i}_sub${isub}
 		if [ -f "$rootfilename" ]; then
 		    wcsim_has_output=1
 		    $ValidationPath/Compare/compareroot $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/$isubjob/ $rootfilename $ValidationPath/Compare/Reference/$rootfilename
-		    link[$isubjob]=${TRAVIS_COMMIT}/${i}/$isubjob/index.html
+		    link[$ichange]=${TRAVIS_COMMIT}/${i}/$isubjob/index.html
 		    if [ $? -ne 0 ]; then
-			pass[$isubjob]=#FF0000
-			time[$isubjob]="Failed ${pmttype} plot comparisons"
+			pass[$ichange]=#FF0000
+			time[$ichange]="Failed ${pmttype} plot comparisons"
 			ret=1
 		    else
-			pass[$isubjob]=#00FF00
-			time[$isubjob]="${pmttype} plot pass"
+			pass[$ichange]=#00FF00
+			time[$ichange]="${pmttype} plot pass"
 		    fi
 		else
-		    pass[$isubjob]=#000000
-		    time[$isubjob]="No ${pmttype} in geometry"
-		    link[$isubjob]=""
+		    pass[$ichange]=#000000
+		    time[$ichange]="No ${pmttype} in geometry"
+		    link[$ichange]=""
 		fi
 	    done
 
 	    #then compare the output geofile.txt with the reference
 	    isubjob=$(expr $isubjob + 1)
+	    ichange=$(expr $ichange + 1)
+	    repl[ichange]=${i}_sub${isub}
 	    diff $ValidationPath/Compare/Reference/$var4 $var4 > $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/${var4}.diff.txt
 
 	    if [ $? -ne 0 ]
 	    then
-		pass[$isubjob]=#FF0000
-		time[$isubjob]="Failed geofile comparisons"
-		link[$isubjob]=${TRAVIS_COMMIT}/${i}/${var4}.diff.txt
+		pass[$ichange]=#FF0000
+		time[$ichange]="Failed geofile comparisons"
+		link[$ichange]=${TRAVIS_COMMIT}/${i}/${var4}.diff.txt
 	    else
-		pass[$isubjob]=#00FF00
-		time[$isubjob]="Geofile diff pass"
-		link[$isubjob]=""
+		pass[$ichange]=#00FF00
+		time[$ichange]="Geofile diff pass"
+		link[$ichange]=""
 	    fi
 
 	    #then compare the output bad.txt with the reference
 	    isubjob=$(expr $isubjob + 1)
+	    ichange=$(expr $ichange + 1)
+	    repl[ichange]=${i}_sub${isub}
 	    badfilename=${var3}_bad.txt
 	    if [ -f $badfilename ]; then
 		rm -f $badfilename
@@ -308,34 +314,17 @@ do
 
 	    if [ $? -ne 0 ]
 	    then
-		pass[$isubjob]=#FF0000
-		time[$isubjob]=$"Difference in number of stuck tracks or similar"
-		link[$isubjob]=${TRAVIS_COMMIT}/${i}/${var3}_bad.diff.txt
+		pass[$ichange]=#FF0000
+		time[$ichange]=$"Difference in number of stuck tracks or similar"
+		link[$ichange]=${TRAVIS_COMMIT}/${i}/${var3}_bad.diff.txt
 	    else
-		pass[$isubjob]=#00FF00
-		time[$isubjob]="Num stuck track diff pass"
-		link[$isubjob]=""
+		pass[$ichange]=#00FF00
+		time[$ichange]="Num stuck track diff pass"
+		link[$ichange]=""
 	    fi
-	    
+	    ichange=$(expr $ichange + 1)
 	fi
 
-	#make sure the Webpage is up to date
-	cd $ValidationPath/Webpage
-	git pull
-	cd -
-
-	#now update the Webpage with the result of this test
-        cp $ValidationPath/Webpage/results.html $ValidationPath/Webpage/results.html.old
-	for isub in {0..5}; do
-            subjobtag=${i}_sub${isub}
-	    echo "Saving results with the following:"
-	    echo ${pass[isub]}
-	    echo ${time[isub]}
-	    echo ${link[isub]}
-            head -1000000 $ValidationPath/Webpage/results.html | sed s:${TRAVIS_COMMIT}"Pass"$subjobtag:"${pass[isub]}": | sed s:${TRAVIS_COMMIT}"Text"$subjobtag:"${time[isub]}": | sed s:${TRAVIS_COMMIT}"Link"$subjobtag:"${link[isub]}": > $ValidationPath/Webpage/results.html.new
-	    #copy the new results to the standard results, so that the updated version is available next time through the isub loop
-            cp $ValidationPath/Webpage/results.html.new $ValidationPath/Webpage/results.html
-	done
     fi
     #############################################################
 
@@ -358,26 +347,51 @@ cd $ValidationPath/Webpage
 git config user.name "WCSim CI"
 git config user.email "wcsim@wcsim.wcsim"
 
+#setup a loop here, to prevent clashes when multiple jobs change the webpage at the same time
+# make it a for loop, so there isn't an infinite loop
+#  100 attempts, 15 seconds between = 25 minutes of trying
+for iattempt in {0..100}; do
+    #reset the main webpage files
+    git checkout *.html
 
-#WARNING: clashes are possible here, if two jobs get to the bit between pull & push at the same time
-git pull
+    #get the latest version of the webpage
+    git pull
 
-head -100000000 header.html > index.html
-mv results.html.new results.html
-head -100000000 results.html >> index.html
-head -100000000 footer.html >>index.html
+    #apply the changes to it
+    nchanges=${#pass[@]}
+    nchanges_to_loop=$(expr $nchanges - 1)
+    for ichange in $( seq 0 ${nchanges_to_loop} ); do
+	echo "Saving results with the following:"
+	echo ${repl[ichange]}
+	echo ${pass[ichange]}
+	echo ${time[ichange]}
+	echo ${link[ichange]}
+        head -1000000 $ValidationPath/Webpage/results.html | sed s:${TRAVIS_COMMIT}"Pass"$repl:"${pass[ichange]}": | sed s:${TRAVIS_COMMIT}"Text"$repl:"${time[ichange]}": | sed s:${TRAVIS_COMMIT}"Link"$repl:"${link[ichange]}": > $ValidationPath/Webpage/results.html.new
+	#copy the new results to the standard results, so that the updated version is available next time through the ichange loop
+        cp $ValidationPath/Webpage/results.html.new $ValidationPath/Webpage/results.html
+    done
 
-rm results.html.old
+    #build the new webpage from components
+    head -100000000 header.html > index.html
+    mv results.html.new results.html
+    head -100000000 results.html >> index.html
+    head -100000000 footer.html >>index.html
 
-git add --all
-git commit -a -m'CI update'
-#git push
-#> /dev/null 2>/dev/null
+    #setup the commit
+    git add --all
+    git commit -a -m'CI update'
 
-git push https://tdealtry:${GitHubToken}@github.com/WCSim/Validation.git gh-pages
-#> /dev/null 2>/dev/null
+    #attempt to push
+    git push https://tdealtry:${GitHubToken}@github.com/WCSim/Validation.git gh-pages
+    if [ "$?" -eq 0 ]; then
+	break
+    fi
 
+    #if it didn't work, undo the last commit
+    git reset HEAD~1
 
-#git push "https://${TRAVIS_SECURE_TOKEN_NAME}@${GH_REPO}" gh-pages > /dev/null 2>&1
+    #have a rest before trying again
+    sleep 15
+done
 
 exit $ret
