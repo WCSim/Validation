@@ -37,7 +37,7 @@ then
 
     ##### write the header row
     echo "
-  <tr>
+ <tr>
   <th scope='col'><div align='center'>Commit ID</div></th>
   <th scope='col'><div align='center'>Description</div></th>
 " >$ValidationPath/Webpage/results.html.new;
@@ -332,7 +332,9 @@ do
 	    echo ${pass[isub]}
 	    echo ${time[isub]}
 	    echo ${link[isub]}
-            head -1000000 $ValidationPath/Webpage/results.html.old | sed s:${TRAVIS_COMMIT}"Pass"$subjobtag:${pass[isub]}: | sed s:${TRAVIS_COMMIT}"Text"$subjobtag:"${time[isub]}": | sed s:${TRAVIS_COMMIT}"Link"$subjobtag:${link[isub]}: > $ValidationPath/Webpage/results.html.new
+            head -1000000 $ValidationPath/Webpage/results.html | sed s:${TRAVIS_COMMIT}"Pass"$subjobtag:"${pass[isub]}": | sed s:${TRAVIS_COMMIT}"Text"$subjobtag:"${time[isub]}": | sed s:${TRAVIS_COMMIT}"Link"$subjobtag:"${link[isub]}": > $ValidationPath/Webpage/results.html.new
+	    #copy the new results to the standard results, so that the updated version is available next time through the isub loop
+            cp $ValidationPath/Webpage/results.html.new $ValidationPath/Webpage/results.html
 	done
     fi
     #############################################################
