@@ -11,6 +11,12 @@
 
 using namespace std;
 
+/*
+  argv[1]: path to webpage directory
+  argv[2]: path to new file with TTree(s) to compare with the reference
+  argv[3]: path to reference file with TTree(s)
+ */
+
 int main(int argc,char *argv[]){
   char buff[256];
   
@@ -35,7 +41,7 @@ int main(int argc,char *argv[]){
 
   menu<<"<!doctype html><html><head><base target=\"content\"></head><body>";
 
-  title<<"<!doctype html><html><head></head><body><H1><b><u>"<<argv[2]<<" Plots</u></b></H1><H3>Blue line/marker is from the reference in WCSim/Validation. Black line is from the current code run</H3></body></html>";
+  title<<"<!doctype html><html><head></head><body><H1><b><u>"<<argv[2]<<" Plots</u></b></H1><H3>Red line/marker is from the reference in WCSim/Validation. Dark blue line is from the current code run. It is possible for the dark blue to be completely hidden</H3></body></html>";
   title.close();
 
   content<<"<!doctype html><html><head></head><body><H1><------Click a link in the menu on the left to see the plot.</H1></body></html>";
@@ -147,8 +153,10 @@ int main(int argc,char *argv[]){
 	TH1F *href = (TH1F*)gDirectory->Get("href");
 	hnew->GetXaxis()->SetTitle(obj->GetName());
 	href->GetXaxis()->SetTitle(obj->GetName());
-	hnew->SetLineColor(kBlack);
-	href->SetMarkerColor(602);
+	hnew->SetLineColor(602);
+	hnew->SetMarkerColor(602);
+	href->SetLineColor(kRed);
+	href->SetMarkerColor(kRed);
 	//switch the draw order if required
 	if(href->GetMaximum() > hnew->GetMaximum()) {
 	  href->Draw("*H");
