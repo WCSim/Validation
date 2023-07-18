@@ -251,7 +251,7 @@ do
             ret=1
 	else
 	    pass[$isubjob]=#00FF00
-	    time[$isubjob]=`more timetest |grep user |  cut -f2 -d' '`
+	    time[$isubjob]=`more timetest |grep user |  cut -f2 -d' '`" sec"
 
 	    #then compare the output root files with the reference
 	    # Note that there are up to 3 reference files, one for each WCSimRootEvent (PMT type)
@@ -328,7 +328,7 @@ do
         cp $ValidationPath/Webpage/results.html $ValidationPath/Webpage/results.html.old
 	for isub in {0..5}; do
             subjobtag=${i}_sub${isub}
-	    echo ${TRAVIS_COMMIT}"Pass"$subjobtag
+	    echo "Saving results with the following:"
 	    echo ${pass[isub]}
 	    echo ${time[isub]}
 	    echo ${link[isub]}
