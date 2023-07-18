@@ -262,7 +262,7 @@ do
 		isubjob=$(expr $isubjob + 1)
 		if [ -f "$rootfilename" ]; then
 		    wcsim_has_output=1
-		    $ValidationPath/Compare/compareroot $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/$isubjob/ $ValidationPath/Compare/Reference/$rootfilename $rootfilename
+		    $ValidationPath/Compare/compareroot $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/$isubjob/ $rootfilename $ValidationPath/Compare/Reference/$rootfilename
 		    link[$isubjob]=${TRAVIS_COMMIT}/${i}/$isubjob/index.html
 		    if [ $? -ne 0 ]; then
 			pass[$isubjob]=#FF0000
