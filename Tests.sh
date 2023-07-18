@@ -34,63 +34,69 @@ then
     fi
 
     cp $ValidationPath/Webpage/results.html $ValidationPath/Webpage/results.html.old
+
+    ##### write the header row
     echo "
-            <tr>
-            <th scope='col'><div align='center'>Commit ID</div></th>
-            <th scope='col'><div align='center'>Description</div></th>
+  <tr>
+  <th scope='col'><div align='center'>Commit ID</div></th>
+  <th scope='col'><div align='center'>Description</div></th>
 " >$ValidationPath/Webpage/results.html.new;
 
 
     while read line
     do
-
 	if [ "${line::1}" != "#" ]; then
             name=$(echo $line | cut -f1 -d' ')
 	    test=$(echo $line | cut -f2 -d' ')
-	    if [ "$test" == "PhysicsValidation" ]; then
-		echo "  <th scope='col',colspan='5'><div align='center'>"$name"</div></th>" >> $ValidationPath/Webpage/results.html.new;
-	    else
-		echo "  <th scope='col'><div align='center'>"$name"</div></th>" >> $ValidationPath/Webpage/results.html.new;
-	    fi
-
+	    echo "  <th scope='col'><div align='center'>"$name"</div></th>" >> $ValidationPath/Webpage/results.html.new;
 	fi
-
     done < $ValidationPath/tests.txt
 
-    echo " </tr>
- <tr>
- <td>"${TRAVIS_COMMIT}"</td>" >> $ValidationPath/Webpage/results.html.new;
+    echo " </tr>" >> $ValidationPath/Webpage/results.html.new;
+
+    ##### write the contents row
+    echo " <tr>
+  <td rowspan='6'>"${TRAVIS_COMMIT}"</td>" >> $ValidationPath/Webpage/results.html.new;
     if [ ${TRAVIS_PULL_REQUEST} -ge 0 ]; then
-	echo "<td><a href=https://github.com/WCSim/WCSim/pulls/"${TRAVIS_PULL_REQUEST}">"${TRAVIS_COMMIT_MESSAGE}"</td>">> $ValidationPath/Webpage/results.html.new;
-    else
-	echo "<td>"${TRAVIS_COMMIT_MESSAGE}"</td>">> $ValidationPath/Webpage/results.html.new;
+	TRAVIS_PULL_REQUEST_LINK="<a href=https://github.com/WCSim/WCSim/pulls/"${TRAVIS_PULL_REQUEST}">"
     fi
+    echo "  <td rowspan='6'>"${TRAVIS_PULL_REQUEST_LINK}${TRAVIS_COMMIT_MESSAGE}"</td>">> $ValidationPath/Webpage/results.html.new;
 
-    i=0
-    while read line
-    do
 
-        if [ "${line::1}" != "#" ]
-        then
-	    i=$(expr 1 + $i)
-            name=$(echo $line | cut -f1 -d' ')
-	    test=$(echo $line | cut -f2 -d' ')
-	    if [ "$test" == "PhysicsValidation"  ]; then
-		#note that there are 5 tests, but use an extra (first) column for the time to run WCSim
-		for isub in {0..5}; do
-		    subjobtag=${i}_sub${isub}
-		    echo "  <td bgcolor=\""${TRAVIS_COMMIT}"Pass"$subjobtag"\"><a href='"${TRAVIS_COMMIT}"Link"$subjobtag"'>"${TRAVIS_COMMIT}"Text"$subjobtag$"</td>" >> $ValidationPath/Webpage/results.html.new;
-		done
-	    else
-		echo "  <td bgcolor=\""${TRAVIS_COMMIT}"Pass"$i"\"><a href='"${TRAVIS_COMMIT}"Link"$i"'>"${TRAVIS_COMMIT}"Text"$i$"</td>" >> $ValidationPath/Webpage/results.html.new;
+    ##### loop over the possible subjobs
+    for isub in {0..5}; do
+	if [ "$isub" -ge 1 ]; then
+	    echo " <tr>" >> $ValidationPath/Webpage/results.html.new;
+	fi
+	##### loop over tests.txt jobs list
+	i=0
+	while read line
+	do
+            if [ "${line::1}" != "#" ]; then
+		i=$(expr 1 + $i)
+		name=$(echo $line | cut -f1 -d' ')
+		test=$(echo $line | cut -f2 -d' ')
+		if [ "$test" == "PhysicsValidation"  ]; then
+		    rowspan=""
+		    #note that there are 5 tests, but use an extra (first) column for the time to run WCSim
+		    if [ "$isub" -ge 0 ] && [ "$isub" -le 5 ]; then
+			subjobtag=${i}_sub${isub}
+		    else
+			continue
+		    fi
+		else
+		    rowspan=" rowspan='6'"
+		    if [ "$isub" -ge 1 ]; then
+			continue;
+		    else
+			subjobtag=${i}
+		    fi
+		fi
+		echo "  <td bgcolor=\""${TRAVIS_COMMIT}"Pass"${subjobtag}${rowspan}"\"><a href='"${TRAVIS_COMMIT}"Link"$subjobtag"'>"${TRAVIS_COMMIT}"Text"$subjobtag$"</td>" >> $ValidationPath/Webpage/results.html.new;
 	    fi
-
-        fi
-
-    done < $ValidationPath/tests.txt
-
-    echo " </tr>
- " >> $ValidationPath/Webpage/results.html.new
+	done < $ValidationPath/tests.txt
+	echo " </tr>" >> $ValidationPath/Webpage/results.html.new
+    done
 
 
     head -300 $ValidationPath/Webpage/results.html.old >>$ValidationPath/Webpage/results.html.new
