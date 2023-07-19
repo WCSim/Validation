@@ -94,11 +94,15 @@ def PushToGit(job_str, branch_name='new_ref', callnum=0):
         shutil.move(geofilenew, f'{validation_dir}/Compare/Reference/{geofilenew.rsplit("/",1)[-1]}')
     #now try push
     try:
-        subprocess.run(['git', 'push', 'https://tdealtry:${GitHubToken}@github.com/WCSim/Validation.git', branch_name], check=True)
+        subprocess.run(['git', 'push', f'https://tdealtry:{os.environ["GitHubToken"]}@github.com/WCSim/Validation.git', branch_name], check=True)
+    except KeyError:
+        print("The $GitHubToken environment variable doesn't exist, so we can't git push. Giving up")
+        return True
     except subprocess.CalledProcessError:
         # Don't try forever
         #  100 calls x 15 seconds = 25 minutes
         if callnum > 100:
+            print('Tried to push 100 times without success. Giving up')
             return True
         #if it didn't work, undo the last commit
         os.system('git reset HEAD~1')
