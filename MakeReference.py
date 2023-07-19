@@ -96,6 +96,8 @@ def PushToGit(job_str, branch_name='new_ref'):
     except subprocess.CalledProcessError:
         #if it didn't work, undo the last commit
         os.system('git reset HEAD~1')
+        #clear the geofile changes
+        os.system('git checkout Compare/Reference/geofile_*.txt')
         #have a rest before trying again
         time.sleep(15)
         PushToGit(branch_name)
