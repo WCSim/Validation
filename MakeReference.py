@@ -38,7 +38,9 @@ def MakeReference(job_num):
     rootfile = mac.rsplit('/',1)[-1].replace('_seed20230628.mac', '.root')
     if not os.path.isfile(rootfile):
         print(f'Cannot find expected WCSim output root file: {rootfile}')
-        return False
+        return True
+    else:
+        print(f'Created output root file: {rootfile}')
     #Get the relevant histograms from WCSim
     subprocess.run([f'{validation_dir}/Generate/daq_readfilemain', rootfile, '0'])
     #Move the histogram file to the reference location
@@ -68,7 +70,7 @@ def MakeReference(job_num):
     #return
     return not found_a_histfile
 
-def PushToGit(job_str, branch_name='new_ref'):
+def PushToGit(job_str, branch_name='new_ref', callnum=0):
     os.chdir(validation_dir)
     #setup default names, or git complains
     os.system('git config user.name "WCSim CI"')
@@ -92,15 +94,20 @@ def PushToGit(job_str, branch_name='new_ref'):
         shutil.move(geofilenew, f'{validation_dir}/Compare/Reference/{geofilenew.rsplit("/",1)[-1]}')
     #now try push
     try:
-        subprocess.run(['git', 'push', 'https://tdealtry:${GitHubToken}@github.com/tdealtry/Validation.git', branch_name], check=True)
+        subprocess.run(['git', 'push', 'https://tdealtry:${GitHubToken}@github.com/WCSim/Validation.git', branch_name], check=True)
     except subprocess.CalledProcessError:
+        # Don't try forever
+        #  100 calls x 15 seconds = 25 minutes
+        if callnum > 100:
+            return True
         #if it didn't work, undo the last commit
         os.system('git reset HEAD~1')
         #clear the geofile changes
         os.system('git checkout Compare/Reference/geofile_*.txt')
         #have a rest before trying again
-        time.sleep(15)
-        PushToGit(branch_name)
+            time.sleep(15)
+            PushToGit(job_str, branch_name, callnum=callnum+1)
+    return False
     
 if __name__ == "__main__":
     import argparse
@@ -116,7 +123,7 @@ if __name__ == "__main__":
             GetSHA()
         failure = failure or MakeReference(job)
     #now all jobs have run, commit to the repo
-    PushToGit(','.join([str(x) for x in jobs_to_run]))
+    failure = failure or PushToGit(','.join([str(x) for x in jobs_to_run]))
 
     if failure:
         sys.exit(-1)
