@@ -105,8 +105,8 @@ def PushToGit(job_str, branch_name='new_ref', callnum=0):
         #clear the geofile changes
         os.system('git checkout Compare/Reference/geofile_*.txt')
         #have a rest before trying again
-            time.sleep(15)
-            PushToGit(job_str, branch_name, callnum=callnum+1)
+        time.sleep(15)
+        PushToGit(job_str, branch_name, callnum=callnum+1)
     return False
     
 if __name__ == "__main__":
