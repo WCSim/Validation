@@ -89,7 +89,7 @@ def PushToGit(job_str, branch_name='new_ref'):
     # However all other files are unique to each job
     subprocess.run(['git', 'pull', '--no-rebase', 'origin', branch_name])
     for geofilenew in glob.glob(f'{validation_dir}/geofile_*.txt'):
-        shutil.move(geofilenew, f'{validation_dir}/Compare/Reference/{geofilenew.rsplit("/",1)[-1]')
+        shutil.move(geofilenew, f'{validation_dir}/Compare/Reference/{geofilenew.rsplit("/",1)[-1]}')
     #now try push
     try:
         subprocess.run(['git', 'push', 'https://tdealtry:${GitHubToken}@github.com/tdealtry/Validation.git', branch_name], check=True)
