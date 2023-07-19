@@ -8,6 +8,11 @@ make
 cd $ValidationPath
 if [ ! -d "${ValidationPath}/Webpage" ]; then
     git clone https://github.com/WCSim/Validation.git --single-branch --depth 1 -b gh-pages ./Webpage
+    cd Webpage
+    #add a default user, otherwise git complains
+    git config user.name "WCSim CI"
+    git config user.email "wcsim@wcsim.wcsim"
+    cd -
 fi
 
 #return to the WCSim directory
@@ -100,13 +105,12 @@ then
 
 
     head -300 $ValidationPath/Webpage/results.html.old >>$ValidationPath/Webpage/results.html.new
-    cp $ValidationPath/Webpage/results.html.new $ValidationPath/Webpage/results.html
+    rm $ValidationPath/Webpage/results.html.old
+    mv $ValidationPath/Webpage/results.html.new $ValidationPath/Webpage/results.html
     mkdir $ValidationPath/Webpage/${TRAVIS_COMMIT}
 
-i=0
-   while read line
-    do
-
+    i=0
+    while read line; do
         if [ "${line::1}" != "#" ]
         then
             i=$(expr 1 + $i)
@@ -120,7 +124,6 @@ i=0
 		done
 	    fi
         fi
-
     done < $ValidationPath/tests.txt
 
 
@@ -144,6 +147,22 @@ i=0
 
 ##################
 
+    #push this new table entry now, before anything is filled
+    # Note that there should be no git clashes, because
+    #  - job 1 always happens first, and before all other jobs
+    #  - starting job 1 always stops other jobs from previous CI runs
+
+    cd $ValidationPath/Webpage
+    
+    #setup the commit
+    echo "Adding"
+    git add --all
+    git commit -a -m'CI update'
+
+    #attempt to push
+    git push https://tdealtry:${GitHubToken}@github.com/WCSim/Validation.git gh-pages
+
+    cd -
 fi
 
 
@@ -243,7 +262,7 @@ do
 	#first run WCSim with the chosen mac file
 	/usr/bin/time -p --output=timetest $ValidationPath/$var1 $ValidationPath/Generate/macReference/$var2 ${var3}.root |& tee wcsim_run.out
 	link[$ichange]=""
-	repl[ichange]=${i}_sub${isub}
+	repl[ichange]=${i}_sub${isubjob}
 
 	if [ $? -ne 0 ]; then
 	    pass[$ichange]=#FF0000
@@ -261,7 +280,7 @@ do
 		rootfilename=${var3}_analysed_${pmttype}.root
 		isubjob=$(expr $isubjob + 1)
 		ichange=$(expr $ichange + 1)
-		repl[ichange]=${i}_sub${isub}
+		repl[ichange]=${i}_sub${isubjob}
 		if [ -f "$rootfilename" ]; then
 		    wcsim_has_output=1
 		    $ValidationPath/Compare/compareroot $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/$isubjob/ $rootfilename $ValidationPath/Compare/Reference/$rootfilename
@@ -284,7 +303,7 @@ do
 	    #then compare the output geofile.txt with the reference
 	    isubjob=$(expr $isubjob + 1)
 	    ichange=$(expr $ichange + 1)
-	    repl[ichange]=${i}_sub${isub}
+	    repl[ichange]=${i}_sub${isubjob}
 	    diff $ValidationPath/Compare/Reference/$var4 $var4 > $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/${var4}.diff.txt
 
 	    if [ $? -ne 0 ]
@@ -301,7 +320,7 @@ do
 	    #then compare the output bad.txt with the reference
 	    isubjob=$(expr $isubjob + 1)
 	    ichange=$(expr $ichange + 1)
-	    repl[ichange]=${i}_sub${isub}
+	    repl[ichange]=${i}_sub${isubjob}
 	    badfilename=${var3}_bad.txt
 	    if [ -f $badfilename ]; then
 		rm -f $badfilename
@@ -343,10 +362,6 @@ done < $ValidationPath/tests.txt
 
 cd $ValidationPath/Webpage
 
-#add a default user, otherwise git complains
-git config user.name "WCSim CI"
-git config user.email "wcsim@wcsim.wcsim"
-
 #setup a loop here, to prevent clashes when multiple jobs change the webpage at the same time
 # make it a for loop, so there isn't an infinite loop
 #  100 attempts, 15 seconds between = 25 minutes of trying
@@ -355,31 +370,30 @@ for iattempt in {0..100}; do
     git checkout *.html
 
     #get the latest version of the webpage
-    git pull
+    git pull --no-rebase
 
     #apply the changes to it
     nchanges=${#pass[@]}
     nchanges_to_loop=$(expr $nchanges - 1)
     for ichange in $( seq 0 ${nchanges_to_loop} ); do
-	echo "Saving results with the following:"
-	echo ${repl[ichange]}
+	echo
+	echo Saving results with the following at ${repl[ichange]}:
 	echo ${pass[ichange]}
 	echo ${time[ichange]}
 	echo ${link[ichange]}
-        head -1000000 $ValidationPath/Webpage/results.html | sed s:${TRAVIS_COMMIT}"Pass"$repl:"${pass[ichange]}": | sed s:${TRAVIS_COMMIT}"Text"$repl:"${time[ichange]}": | sed s:${TRAVIS_COMMIT}"Link"$repl:"${link[ichange]}": > $ValidationPath/Webpage/results.html.new
+        head -1000000 results.html | sed s:${TRAVIS_COMMIT}"Pass"${repl[ichange]}:"${pass[ichange]}": | sed s:${TRAVIS_COMMIT}"Text"${repl[ichange]}:"${time[ichange]}": | sed s:${TRAVIS_COMMIT}"Link"${repl[ichange]}:"${link[ichange]}": > results.html.new	
 	#copy the new results to the standard results, so that the updated version is available next time through the ichange loop
-        cp $ValidationPath/Webpage/results.html.new $ValidationPath/Webpage/results.html
+	mv results.html.new results.html
     done
 
     #build the new webpage from components
     head -100000000 header.html > index.html
-    mv results.html.new results.html
     head -100000000 results.html >> index.html
     head -100000000 footer.html >>index.html
 
     #setup the commit
     git add --all
-    git commit -a -m'CI update'
+    git commit -a -m'CI update. Job: '$1
 
     #attempt to push
     git push https://tdealtry:${GitHubToken}@github.com/WCSim/Validation.git gh-pages
