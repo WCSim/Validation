@@ -6,6 +6,7 @@ import os
 import subprocess
 import shutil
 from pprint import pprint
+import time
 
 validation_dir = os.path.expandvars('$ValidationPath')
 build_dir = os.path.expandvars("$WCSIM_BUILD_DIR")
@@ -62,20 +63,42 @@ def MakeReference(job_num):
         geofile_to_move = geofiles[0]
     elif len(geofiles) == 2:
         geofile_to_move = [x for x in geofiles if 'SuperK' not in x][0]
-    shutil.move(geofile_to_move, f'{validation_dir}/Compare/Reference/{geofile_to_move}')
+    #leave it not in the correct place, to account for git pull clashes
+    shutil.move(geofile_to_move, f'{validation_dir}/{geofile_to_move}')
     #return
     return not found_a_histfile
 
-def PushToGit(branch_name='new_ref'):
+def PushToGit(job_str, branch_name='new_ref'):
     os.chdir(validation_dir)
-    os.system('git config user.name "Travis CI"')
+    #setup default names, or git complains
+    os.system('git config user.name "WCSim CI"')
     os.system('git config user.email "wcsim@wcsim.wcsim"')
+    #fetch any changes from the remote
     os.system('git fetch origin')
+    #make sure we're on correct branch
+    # - gets the remote one, if it exists remotely
+    # - otherwise makes a new branch locally, based on the default branch
     os.system(f'git checkout -b {branch_name} origin/{branch_name} --track || git checkout -b {branch_name}')
-    os.system('git add --all')
-    os.system('git commit -m "CI reference update"')
-    os.system(f'git pull origin {branch_name}')
-    os.system('git push https://tdealtry:${GitHubToken}@github.com/WCSim/Validation.git ' + branch_name)
+    #add all our changes
+    os.system('git add Compare/')
+    #commit
+    os.system(f'git commit -m "CI reference update. Job(s): {job_str}"')
+    #pull any remote changes
+    # Need to account for conflicts in the geofile.txt
+    #  This is done by not moving it to the correct place until after the pull
+    # However all other files are unique to each job
+    subprocess.run(['git', 'pull', '--no-rebase', 'origin', branch_name])
+    for geofilenew in glob.glob(f'{validation_dir}/geofile_*.txt'):
+        shutil.move(geofilenew, f'{validation_dir}/Compare/Reference/{geofilenew.rsplit("/",1)[-1]')
+    #now try push
+    try:
+        subprocess.run(['git', 'push', 'https://tdealtry:${GitHubToken}@github.com/tdealtry/Validation.git', branch_name], check=True)
+    except subprocess.CalledProcessError:
+        #if it didn't work, undo the last commit
+        os.system('git reset HEAD~1')
+        #have a rest before trying again
+        time.sleep(15)
+        PushToGit(branch_name)
     
 if __name__ == "__main__":
     import argparse
@@ -91,7 +114,7 @@ if __name__ == "__main__":
             GetSHA()
         failure = failure or MakeReference(job)
     #now all jobs have run, commit to the repo
-    PushToGit()
+    PushToGit(','.join([str(x) for x in jobs_to_run]))
 
     if failure:
         sys.exit(-1)
