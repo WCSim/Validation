@@ -33,7 +33,7 @@
 /WCSimIO/SaveRooTracker 0
 
 ## change the name of the output root file, default = wcsim.root
-/WCSimIO/RootFile wcsim_nuprism_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n1000.root
+/WCSimIO/RootFile wcsim_nuprism_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n800.root
 
 ## set a timer running on WCSimRunAction
 #/WCSimIO/Timer false
