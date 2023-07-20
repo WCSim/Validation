@@ -299,6 +299,9 @@ do
 		    link[$ichange]=""
 		fi
 	    done
+	    if [ $wcsim_has_output -eq 0 ]; then
+		ret=1
+	    fi
 
 	    #then compare the output geofile.txt with the reference
 	    isubjob=$(expr $isubjob + 1)
