@@ -314,6 +314,7 @@ do
 		pass[$ichange]=#FF0000
 		time[$ichange]="Failed geofile comparisons"
 		link[$ichange]=${TRAVIS_COMMIT}/${i}/${var4}.diff.txt
+		ret=1
 	    else
 		pass[$ichange]=#00FF00
 		time[$ichange]="Geofile diff pass"
@@ -339,6 +340,7 @@ do
 		pass[$ichange]=#FF0000
 		time[$ichange]=$"Difference in number of stuck tracks or similar"
 		link[$ichange]=${TRAVIS_COMMIT}/${i}/${var3}_bad.diff.txt
+		ret=1
 	    else
 		pass[$ichange]=#00FF00
 		time[$ichange]="Num stuck track diff pass"
