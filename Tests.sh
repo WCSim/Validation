@@ -63,7 +63,7 @@ then
     echo " <tr>
   <td rowspan='6'>"${TRAVIS_COMMIT}"</td>" >> $ValidationPath/Webpage/results.html.new;
     if [ ${TRAVIS_PULL_REQUEST} -ge 0 ]; then
-	TRAVIS_PULL_REQUEST_LINK="<a href=https://github.com/WCSim/WCSim/pulls/"${TRAVIS_PULL_REQUEST}">"
+	TRAVIS_PULL_REQUEST_LINK="<a href=https://github.com/WCSim/WCSim/pull/"${TRAVIS_PULL_REQUEST}">"
     fi
     echo "  <td rowspan='6'>"${TRAVIS_PULL_REQUEST_LINK}${TRAVIS_COMMIT_MESSAGE}"</td>">> $ValidationPath/Webpage/results.html.new;
 
