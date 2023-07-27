@@ -61,15 +61,15 @@ then
 
     ##### write the contents row
     echo " <tr>
-  <td rowspan='6'>"${TRAVIS_COMMIT}"</td>" >> $ValidationPath/Webpage/results.html.new;
+  <td rowspan='7'>"${TRAVIS_COMMIT}"</td>" >> $ValidationPath/Webpage/results.html.new;
     if [ ${TRAVIS_PULL_REQUEST} -ge 0 ]; then
 	TRAVIS_PULL_REQUEST_LINK="<a href=https://github.com/WCSim/WCSim/pull/"${TRAVIS_PULL_REQUEST}">"
     fi
-    echo "  <td rowspan='6'>"${TRAVIS_PULL_REQUEST_LINK}${TRAVIS_COMMIT_MESSAGE}"</td>">> $ValidationPath/Webpage/results.html.new;
+    echo "  <td rowspan='7'>"${TRAVIS_PULL_REQUEST_LINK}${TRAVIS_COMMIT_MESSAGE}"</td>">> $ValidationPath/Webpage/results.html.new;
 
 
     ##### loop over the possible subjobs
-    for isub in {0..5}; do
+    for isub in {0..6}; do
 	if [ "$isub" -ge 1 ]; then
 	    echo " <tr>" >> $ValidationPath/Webpage/results.html.new;
 	fi
@@ -83,14 +83,14 @@ then
 		test=$(echo $line | cut -f2 -d' ')
 		if [ "$test" == "PhysicsValidation"  ]; then
 		    rowspan=""
-		    #note that there are 5 tests, but use an extra (first) column for the time to run WCSim
-		    if [ "$isub" -ge 0 ] && [ "$isub" -le 5 ]; then
+		    #note that there are 6 tests, but use an extra (first) column for the time to run WCSim
+		    if [ "$isub" -ge 0 ] && [ "$isub" -le 6 ]; then
 			subjobtag=${i}_sub${isub}
 		    else
 			continue
 		    fi
 		else
-		    rowspan=" rowspan='6'"
+		    rowspan=" rowspan='7'"
 		    if [ "$isub" -ge 1 ]; then
 			continue;
 		    else
@@ -118,7 +118,7 @@ then
 	    test=$(echo $line | cut -f2 -d' ')
 	    echo placeholder > $ValidationPath/Webpage/${TRAVIS_COMMIT}/$i/placeholder
 	    if [ "$test" == "PhysicsValidation"  ]; then
-		for isub in {0..5}; do
+		for isub in {0..6}; do
 		    mkdir $ValidationPath/Webpage/${TRAVIS_COMMIT}/$i/$isub
 		    echo placeholder > $ValidationPath/Webpage/${TRAVIS_COMMIT}/$i/$isub/placeholder
 		done
@@ -346,6 +346,31 @@ do
 		time[$ichange]="Num stuck track diff pass"
 		link[$ichange]=""
 	    fi
+
+	    #then just produce a grep of the impossible geometry warnings
+	    isubjob=$(expr $isubjob + 1)
+	    ichange=$(expr $ichange + 1)
+	    repl[ichange]=${i}_sub${isubjob}
+	    impossiblefilename=${var3}_impossible.txt
+	    if [ -f $impossiblefilename ]; then
+		rm -f $impossiblefilename
+	    fi
+	    for greps in "IMPOSSIBLE GEOMETRY"; do
+		grep "$greps" wcsim_run.out >> $impossiblefilename
+	    done
+	    if [ -s $impossiblefilename ]; then
+		pass[$ichange]=#00FF00
+		time[$ichange]="Geometry warnings pass"
+		link[$ichange]=""
+	    else
+		pass[$ichange]=#FF0000
+		time[$ichange]=$"Difference in number of stuck tracks or similar"
+		link[$ichange]=${TRAVIS_COMMIT}/${i}/$impossiblefilename
+		mv $impossiblefilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/$impossiblefilename
+		ret=1
+	    fi
+
+	    #and final increment of $ichange for the next time round the loop
 	    ichange=$(expr $ichange + 1)
 	fi
 
