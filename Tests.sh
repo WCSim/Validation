@@ -31,7 +31,7 @@ ret=0
 
 ##################### Setting up new table entry #############################
 
-if [ $1 -eq 1 ]
+if [ $1 -eq 0 ]
 then
     if [ $TRAVIS_PULL_REQUEST != "false" ]
     then
