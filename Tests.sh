@@ -307,13 +307,15 @@ do
 	    isubjob=$(expr $isubjob + 1)
 	    ichange=$(expr $ichange + 1)
 	    repl[ichange]=${i}_sub${isubjob}
-	    diff $ValidationPath/Compare/Reference/$var4 $var4 > $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/${var4}.diff.txt
+	    geomdifffilename=${var4}.diff.txt
+	    diff $ValidationPath/Compare/Reference/$var4 $var4 > $geomdifffilename
 
-	    if [ $? -ne 0 ]
+	    if [ -s $geomdifffilename ]
 	    then
 		pass[$ichange]=#FF0000
 		time[$ichange]="Failed geofile comparisons"
 		link[$ichange]=${TRAVIS_COMMIT}/${i}/${var4}.diff.txt
+		mv $geomdifffilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/
 		ret=1
 	    else
 		pass[$ichange]=#00FF00
@@ -326,6 +328,7 @@ do
 	    ichange=$(expr $ichange + 1)
 	    repl[ichange]=${i}_sub${isubjob}
 	    badfilename=${var3}_bad.txt
+	    baddifffilename=${var3}_bad.diff.txt
 	    if [ -f $badfilename ]; then
 		rm -f $badfilename
 	    fi
@@ -333,13 +336,14 @@ do
 		grepcount=$( grep -c "$greps" wcsim_run.out )
 		echo "\"$greps\"" $grepcount >> $badfilename
 	    done
-	    diff $ValidationPath/Compare/Reference/$badfilename $badfilename > $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/${var3}_bad.diff.txt
+	    diff $ValidationPath/Compare/Reference/$badfilename $badfilename > $baddifffilename
 
-	    if [ $? -ne 0 ]
+	    if [ -s $baddifffilename ]
 	    then
 		pass[$ichange]=#FF0000
-		time[$ichange]=$"Difference in number of stuck tracks or similar"
+		time[$ichange]="Difference in number of stuck tracks or similar"
 		link[$ichange]=${TRAVIS_COMMIT}/${i}/${var3}_bad.diff.txt
+		mv $baddifffilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/
 		ret=1
 	    else
 		pass[$ichange]=#00FF00
@@ -359,15 +363,15 @@ do
 		grep "$greps" wcsim_run.out >> $impossiblefilename
 	    done
 	    if [ -s $impossiblefilename ]; then
+		pass[$ichange]=#FF0000
+		time[$ichange]="Geoemtry warnings exists"
+		link[$ichange]=${TRAVIS_COMMIT}/${i}/$impossiblefilename
+		mv $impossiblefilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/
+		ret=1
+	    else
 		pass[$ichange]=#00FF00
 		time[$ichange]="Geometry warnings pass"
 		link[$ichange]=""
-	    else
-		pass[$ichange]=#FF0000
-		time[$ichange]=$"Difference in number of stuck tracks or similar"
-		link[$ichange]=${TRAVIS_COMMIT}/${i}/$impossiblefilename
-		mv $impossiblefilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/$impossiblefilename
-		ret=1
 	    fi
 
 	    #and final increment of $ichange for the next time round the loop
