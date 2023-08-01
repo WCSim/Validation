@@ -283,8 +283,8 @@ do
 		repl[ichange]=${i}_sub${isubjob}
 		if [ -f "$rootfilename" ]; then
 		    wcsim_has_output=1
-		    $ValidationPath/Compare/compareroot $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/$isubjob/ $rootfilename $ValidationPath/Compare/Reference/$rootfilename
 		    link[$ichange]=${TRAVIS_COMMIT}/${i}/$isubjob/index.html
+		    $ValidationPath/Compare/compareroot $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/$isubjob/ $rootfilename $ValidationPath/Compare/Reference/$rootfilename
 		    if [ $? -ne 0 ]; then
 			pass[$ichange]=#FF0000
 			time[$ichange]="Failed ${pmttype} plot comparisons"
