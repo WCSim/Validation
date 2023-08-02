@@ -41,7 +41,7 @@ int main(int argc,char *argv[]){
 
   menu<<"<!doctype html><html><head><base target=\"content\"></head><body>";
 
-  title<<"<!doctype html><html><head></head><body><H1><b><u>"<<argv[2]<<" Plots</u></b></H1><H3>Red line/marker is from the reference in WCSim/Validation. Dark blue line is from the current code run. It is possible for the dark blue to be completely hidden</H3></body></html>";
+  title<<"<!doctype html><html><head></head><body><H3><b><u>"<<argv[2]<<" Plots</u></b></H3><p>Red line/marker is from the reference in WCSim/Validation. Dark blue line is from the current code run. It is possible for the dark blue to be completely hidden<p></body></html>";
   title.close();
 
   content<<"<!doctype html><html><head></head><body><H1><------Click a link in the menu on the left to see the plot.</H1></body></html>";
