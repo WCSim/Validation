@@ -38,7 +38,7 @@ TESTWEBPAGE=$TESTDIR/index.html
 mkdir $TESTDIR
 
 #start with the header
-cat $ValidationPath/templates/test/header.html > $TESTWEBPAGE
+cat $ValidationPath/Webpage/templates/test/header.html > $TESTWEBPAGE
 
 # add the details of the job
 echo "
@@ -71,7 +71,6 @@ while read line; do
     
     ################## Physics Validation #######################
     if [ $test == "PhysicsValidation" ]; then
-    then
 
 	#setup the table of tests
 	echo "
@@ -114,7 +113,7 @@ while read line; do
 		rootfilename=${var3}_analysed_${pmttype}.root
 		if [ -f "$rootfilename" ]; then
 		    wcsim_has_output=1
-		    link=${isubjob}/index.html
+		    link="<a href='${isubjob}/index.html'>"
 		    mkdir $TESTDIR/${isubjob}
 		    $ValidationPath/Compare/compareroot $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/$isubjob/ $rootfilename $ValidationPath/Compare/Reference/$rootfilename
 		    if [ $? -ne 0 ]; then
@@ -133,13 +132,13 @@ while read line; do
 
 	    #then compare the output geofile.txt with the reference
 	    isubjob=$(expr $isubjob + 1)
-	    ichange=$(expr $ichange + 1)
 	    geomdifffilename=${var4}.diff.txt
 	    diff $ValidationPath/Compare/Reference/$var4 $var4 > $geomdifffilename
 
 	    if [ -s $geomdifffilename ]
 	    then
-		add_entry "#FF0000" "${var4}.diff.txt" "Failed geofile comparisons"
+		add_entry "#FF0000" "<a href='${var4}.diff.txt'>" "Failed geofile comparisons"
+		mv $geomdifffilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/
 		ret=1
 	    else
 		add_entry "#00FF00" "" "Geofile diff pass"
@@ -147,8 +146,6 @@ while read line; do
 
 	    #then compare the output bad.txt with the reference
 	    isubjob=$(expr $isubjob + 1)
-	    ichange=$(expr $ichange + 1)
-	    repl[ichange]=${i}_sub${isubjob}
 	    badfilename=${var3}_bad.txt
 	    baddifffilename=${var3}_bad.diff.txt
 	    if [ -f $badfilename ]; then
@@ -162,12 +159,11 @@ while read line; do
 
 	    if [ -s $baddifffilename ]
 	    then
-		add_entry "#FF0000" "${var3}_bad.diff.txt" "Difference in number of stuck tracks or similar"
+		add_entry "#FF0000" "<a href='${var3}_bad.diff.txt'>" "Difference in number of stuck tracks or similar"
+		mv $baddifffilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/
 		ret=1
 	    else
-		pass[$ichange]=#00FF00
-		time[$ichange]="Num stuck track diff pass"
-		link[$ichange]=""
+		add_entry "#00FF00" "" "Num stuck track diff pass"
 	    fi
 
 	    #then just produce a grep of the impossible geometry warnings
@@ -182,10 +178,7 @@ while read line; do
 		grep "$greps" wcsim_run.out >> $impossiblefilename
 	    done
 	    if [ -s $impossiblefilename ]; then
-		pass[$ichange]=#FF0000
-		time[$ichange]="Geoemtry warnings exists"
-		link[$ichange]=${TRAVIS_COMMIT}/${i}/$impossiblefilename
-		mv $impossiblefilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/
+		add_entry "#FF0000" "<a href='$impossiblefilename'>" "Geometry warnings exist"
 		ret=1
 	    else
 		add_entry "#00FF00" "" "Geometry warnings pass"
@@ -200,7 +193,7 @@ while read line; do
 done < $ValidationPath/tests.txt
 
 #and add a footer to finish the webpage
-cat $ValidationPath/templates/test/footer.html >> $TESTWEBPAGE
+cat $ValidationPath/Webpage/templates/test/footer.html >> $TESTWEBPAGE
 
 #and a colour code at the bottom, that we can pull for the list of jobs page
 if [ $ret -eq 0 ]; then
@@ -223,7 +216,7 @@ cd $ValidationPath/Webpage
 #setup the commit
 echo "Adding"
 git add --all
-git commit -a -m'CI update'
+git commit -a -m "CI update: add pages for test $1 for ${TRAVIS_COMMIT}"
 
 #attempt to push
 git push https://tdealtry:${GitHubToken}@github.com/WCSim/Validation.git gh-pages

@@ -26,16 +26,17 @@ RUNDIR=$ValidationPath/Webpage/$TRAVIS_COMMIT/
 RUNWEBPAGE=$RUNDIR/index.html
 
 #loop over subjob directories
-for jobnum in {0..100}; do
+for jobnum in {1..100}; do
     if [ ! -d $RUNDIR/$jobnum ]; then
 	break
     fi
     colour=`tail -1 $RUNDIR/$jobnum/index.html`
     echo colour
     #now update the colour of the job
-    cat $RUNWEBPAGE | sed s:"COLOUR"${jobnum}:$colour: > $RUNWEBPAGE.new
+    printf -v jobnumpad "%04d" $jobnum
+    cat $RUNWEBPAGE | sed s:"'#00FFFF'COLOUR"${jobnumpad}:$colour: > $RUNWEBPAGE.new
     mv $RUNWEBPAGE.new $RUNWEBPAGE
-fi
+done
 
 
 #############################################################
@@ -50,7 +51,7 @@ cd $ValidationPath/Webpage
 #setup the commit
 echo "Adding"
 git add --all
-git commit -a -m'CI update'
+git commit -a -m "CI update: finalise pages for ${TRAVIS_COMMIT}"
 
 #attempt to push
 git push https://tdealtry:${GitHubToken}@github.com/WCSim/Validation.git gh-pages

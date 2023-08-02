@@ -78,9 +78,12 @@ while read line; do
     if [ "${line::1}" != "#" ]; then
 	itest=$(expr 1 + $itest)
 	name=$(echo $line | cut -f1 -d' ')
+	#this way we set the default colour (cyan)
+	# and have an unused tag that we can use sed with to fill in the result colour later
+	printf -v itestpad "%04d" $itest
 	echo "
   <tr>
-    <td bgcolor='COLOUR"${itest}"'><a href='"$itest"/index.html'>"${name}"</td>
+    <td bgcolor='#00FFFF'COLOUR"${itestpad}"><a href='"$itest"/index.html'>"${name}"</td>
   </tr>
 " >> $ValidationPath/Webpage/${TRAVIS_COMMIT}/body.html
     fi
@@ -109,11 +112,11 @@ cat $ValidationPath/Webpage/templates/run/footer.html >> $ValidationPath/Webpage
 cd $ValidationPath/Webpage
 
 ##### clean up old folders ####
-# save 30 results. Previous results are available in the git history
+# save 35 results. Previous results are available in the git history
 folder=0
 while read line; do
     folder=$(expr 1 + $folder)
-    if [ $folder -ge 30 ]
+    if [ $folder -ge 35 ]
     then
         git rm -r $line
     fi
@@ -123,7 +126,7 @@ done <  $ValidationPath/Webpage/folderlist
 #setup the commit
 echo "Adding"
 git add --all
-git commit -a -m'CI update'
+git commit -a -m "CI update: new pages for ${TRAVIS_COMMIT}"
 
 #attempt to push
 git push https://tdealtry:${GitHubToken}@github.com/WCSim/Validation.git gh-pages
