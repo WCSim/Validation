@@ -100,14 +100,8 @@ cat $ValidationPath/Webpage/templates/run/footer.html >> $ValidationPath/Webpage
 ############################## update webpage ################
 
 #push this new table entry now
-# There can be clashes, as multiple jobs can run at the same time
-#  (e.g. multiple PRs submitted close together)
-#  but should be rare
-# Clashes should be confined to
-#  ./folderlist
-#  ./body.html
-#  ./index.html
-# TODO: fix clashes
+# There should be no clashes, since only one CI job that calls this script
+#  runs at once due to concurrency settings
 
 cd $ValidationPath/Webpage
 
@@ -122,11 +116,27 @@ while read line; do
     fi
 done <  $ValidationPath/Webpage/folderlist
 
-
 #setup the commit
 echo "Adding"
 git add --all
 git commit -a -m "CI update: new pages for ${TRAVIS_COMMIT}"
 
-#attempt to push
-git push https://tdealtry:${GitHubToken}@github.com/WCSim/Validation.git gh-pages
+#setup a loop here, to prevent clashes when multiple jobs change the webpage at the same time
+# make it a for loop, so there isn't an infinite loop
+#  100 attempts, 15 seconds between = 25 minutes of trying
+#
+#The CI is setup such that files will be touched by one job at once
+# so it's just a matter of keeping pulling until we happen to be at the front of the queue
+for iattempt in {0..100}; do
+    #get the latest version of the webpage
+    git pull --rebase
+
+    #attempt to push
+    git push https://tdealtry:${GitHubToken}@github.com/WCSim/Validation.git gh-pages
+    if [ "$?" -eq 0 ]; then
+	break
+    fi
+
+    #have a rest before trying again
+    sleep 15
+done
