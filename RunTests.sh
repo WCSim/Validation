@@ -141,6 +141,8 @@ while read line; do
 	    if [ -s $geomdifffilename ]
 	    then
 		add_entry "#FF0000" "<a href='${var4}.diff.txt'>" "Failed geofile comparisons"
+		echo "Failed geofile comparisons:"
+		cat $geomdifffilename
 		mv $geomdifffilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/
 		ret=1
 	    else
@@ -163,6 +165,8 @@ while read line; do
 	    if [ -s $baddifffilename ]
 	    then
 		add_entry "#FF0000" "<a href='${var3}_bad.diff.txt'>" "Difference in number of stuck tracks or similar"
+		echo "Difference in number of stuck tracks or similar:"
+		cat $baddifffilename
 		mv $baddifffilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/
 		ret=1
 	    else
@@ -182,6 +186,8 @@ while read line; do
 	    done
 	    if [ -s $impossiblefilename ]; then
 		add_entry "#FF0000" "<a href='$impossiblefilename'>" "Geometry warnings exist"
+		echo "Geometry warnings exist:"
+		cat $impossiblefilename
 		mv $impossiblefilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/
 		ret=1
 	    else
