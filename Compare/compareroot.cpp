@@ -84,19 +84,53 @@ int main(int argc,char *argv[]){
 	long entries2=tree2->GetEntriesFast();
 	
 	//First check if there's a difference on this leaf
+	int branch_type = -1;
+	bool found_non_empty_vector = false;
 	if (entries1==entries2){
 	  for (long i=0;i<entries1;i++){
 	    leaf->GetBranch()->GetEntry(i);
 	    leaf2->GetBranch()->GetEntry(i);
 	    TString type1(leaf ->GetTypeName());
 	    TString type2(leaf2->GetTypeName());
+	    //special cases when the leaf doesn't contain something simple (e.g. double, or double[])
 	    if(type1.EqualTo("vector<double>") && type2.EqualTo("vector<double>")) {
-	      //special case when the leaf doesn't contain something simple (e.g. double, or double[])
-	      // In the case of WCSim/Validation, these are all vector<double>*
+	      branch_type = 1;
 	      vector<double> * vec1 = (vector<double>*)leaf ->GetValuePointer();
 	      vector<double> * vec2 = (vector<double>*)leaf2->GetValuePointer();
 	      const size_t size1 = vec1->size();
 	      const size_t size2 = vec2->size();
+
+	      if(size1 || size2) found_non_empty_vector = true;
+	      if(size1 == size2) {
+		for(size_t j = 0; j < size1; j++) {
+		  same *= vec1->at(j) == vec2->at(j);
+		}//j - loop over vector
+	      }//check vector size
+	      else same=false;
+	    }//TLeafElement
+	    else if(type1.EqualTo("vector<float>") && type2.EqualTo("vector<float>")) {
+	      branch_type = 1;
+	      vector<float> * vec1 = (vector<float>*)leaf ->GetValuePointer();
+	      vector<float> * vec2 = (vector<float>*)leaf2->GetValuePointer();
+	      const size_t size1 = vec1->size();
+	      const size_t size2 = vec2->size();
+
+	      if(size1 || size2) found_non_empty_vector = true;
+	      if(size1 == size2) {
+		for(size_t j = 0; j < size1; j++) {
+		  same *= vec1->at(j) == vec2->at(j);
+		}//j - loop over vector
+	      }//check vector size
+	      else same=false;
+	    }//TLeafElement
+	    else if(type1.EqualTo("vector<int>") && type2.EqualTo("vector<int>")) {
+	      branch_type = 1;
+	      vector<int> * vec1 = (vector<int>*)leaf ->GetValuePointer();
+	      vector<int> * vec2 = (vector<int>*)leaf2->GetValuePointer();
+	      const size_t size1 = vec1->size();
+	      const size_t size2 = vec2->size();
+
+	      if(size1 || size2) found_non_empty_vector = true;
 	      if(size1 == size2) {
 		for(size_t j = 0; j < size1; j++) {
 		  same *= vec1->at(j) == vec2->at(j);
@@ -105,6 +139,7 @@ int main(int argc,char *argv[]){
 	      else same=false;
 	    }//TLeafElement
 	    else {
+	      branch_type = 0;
 	      //"simple" case
 	      if(leaf->GetLen()==leaf2->GetLen()){
 		for(long j=0;j<leaf->GetLen();j++){
@@ -116,6 +151,23 @@ int main(int argc,char *argv[]){
 	  }//i - loop over number of entries
 	}//check number of entries
 	else same=false;
+
+	if(branch_type == -1) {
+	  fullsame = false;
+	  cerr << "Unknown branch type " << leaf->GetTypeName()
+	       << "for leaf " << obj->GetName() << endl
+	       << "Will attempt to draw, but this function will return an error code" << endl;
+	}
+	else if(branch_type == 1) {
+	  //check if we want to skip making the plot
+	  // we do this if we have entirely empty vectors in all tree entries
+	  if(!found_non_empty_vector) {
+	    cout << "No non-empty vector entries for leaf " << obj->GetName() << endl
+		 << "Will skip drawing this plot" << endl;
+	    continue;
+	  }
+	}
+
 	char buff2[256];
 	if (!same){
 	  sprintf(buff2,"%s Error!!!",obj->GetName());
