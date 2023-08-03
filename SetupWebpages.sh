@@ -34,6 +34,7 @@ mv $ValidationPath/Webpage/folderlist.new $ValidationPath/Webpage/folderlist
 #### Update the main page
 if [ ${TRAVIS_PULL_REQUEST} -ge 0 ]; then
     TRAVIS_PULL_REQUEST_LINK="<a href=https://github.com/WCSim/WCSim/pull/"${TRAVIS_PULL_REQUEST}">"
+    TRAVIS_PULL_REQUEST_LINK_CLOSE="</a>"
 fi
 
 #put all on one line, for easy removal
@@ -58,7 +59,7 @@ mkdir $ValidationPath/Webpage/${TRAVIS_COMMIT}
 #first the details of the job
 echo "
 <h2>"${TRAVIS_COMMIT}"</h2>
-<h3>"${TRAVIS_PULL_REQUEST_LINK}${TRAVIS_COMMIT_MESSAGE}"</h3>
+<h3>"${TRAVIS_PULL_REQUEST_LINK}${TRAVIS_COMMIT_MESSAGE}${TRAVIS_PULL_REQUEST_LINK_CLOSE}"</h3>
 " > $ValidationPath/Webpage/${TRAVIS_COMMIT}/body.html
 
 #then the table of tests
