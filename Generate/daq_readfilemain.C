@@ -147,8 +147,8 @@ int daq_readfile(const char *filename=NULL,
   tout->Branch("track_flag", &tvtrack_flag);
   tout->Branch("track_energy", &tvtrack_energy);
   tout->Branch("track_time", &tvtrack_time);
-  tout->Branch("track_startpos", &tvtrack_startpos);
-  tout->Branch("track_stoppos", &tvtrack_stoppos);
+  //tout->Branch("track_startpos", &tvtrack_startpos);
+  //tout->Branch("track_stoppos", &tvtrack_stoppos);
   //per trigger variables
   int ttriggertype;
   int tndigihits, tntubeshitdigi, tndigihitstrigger;
