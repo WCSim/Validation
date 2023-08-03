@@ -41,6 +41,9 @@ mkdir $TESTDIR
 cat $ValidationPath/Webpage/templates/test/header.html > $TESTWEBPAGE
 
 # add the details of the job
+if [ $TRAVIS_PULL_REQUEST != "false" ]; then
+    TRAVIS_COMMIT_MESSAGE=" Pull Request #${TRAVIS_PULL_REQUEST}: ${TRAVIS_PULL_REQUEST_TITLE}"
+fi
 echo "
 <h2>"${TRAVIS_COMMIT}"</h2>
 <h3>"${TRAVIS_PULL_REQUEST_LINK}${TRAVIS_COMMIT_MESSAGE}"</h3>

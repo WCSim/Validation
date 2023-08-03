@@ -21,9 +21,8 @@ echo showing travis pull request
 echo ${TRAVIS_PULL_REQUEST}
 
 ##################### Setting up new table entry #############################
-if [ $TRAVIS_PULL_REQUEST != "false" ]
-then
-    TRAVIS_COMMIT_MESSAGE=" Pull Request #${TRAVIS_PULL_REQUEST}"
+if [ $TRAVIS_PULL_REQUEST != "false" ]; then
+    TRAVIS_COMMIT_MESSAGE=" Pull Request #${TRAVIS_PULL_REQUEST}: ${TRAVIS_PULL_REQUEST_TITLE}"
 fi
 
 ##### First update the list of commits
