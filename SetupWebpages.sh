@@ -67,6 +67,7 @@ echo "
 <p>
 <table  border='1' align='center'>
  <tr>
+  <th scope='col'><div align='center'>Test num</div></th>
   <th scope='col'><div align='center'>Physics test</div></th>
  </tr>
 " >> $ValidationPath/Webpage/${TRAVIS_COMMIT}/body.html
@@ -83,6 +84,7 @@ while read line; do
 	printf -v itestpad "%04d" $itest
 	echo "
   <tr>
+    <td>"$itest"</td>
     <td bgcolor='#00FFFF'COLOUR"${itestpad}"><a href='"$itest"/index.html'>"${name}"</td>
   </tr>
 " >> $ValidationPath/Webpage/${TRAVIS_COMMIT}/body.html
