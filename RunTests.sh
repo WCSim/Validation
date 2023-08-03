@@ -179,6 +179,7 @@ while read line; do
 	    done
 	    if [ -s $impossiblefilename ]; then
 		add_entry "#FF0000" "<a href='$impossiblefilename'>" "Geometry warnings exist"
+		mv $impossiblefilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/
 		ret=1
 	    else
 		add_entry "#00FF00" "" "Geometry warnings pass"
