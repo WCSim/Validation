@@ -490,7 +490,8 @@ int daq_readfile(const char *filename=NULL,
 	}
 	totaldigipe   += digipe;
 	totaldigitime += digitime;
-	float noise_fraction = (float)n_noise_hits / (float)(n_noise_hits + n_photon_hits);
+	float noise_fraction = (float)n_noise_hits / (float)(n_noise_hits + n_photon_hits + n_unknown_hits);
+	noise_fraction = -1;
 	tvdiginoisefrac.push_back(noise_fraction);
 	n_noise_hits_total += n_noise_hits;
 	n_photon_hits_total += n_photon_hits;
@@ -503,8 +504,10 @@ int daq_readfile(const char *filename=NULL,
 	tdigitimeperdigi = timeperdigi;
       }
       float noise_fraction_total = (float)n_noise_hits_total / (float)(n_noise_hits_total + n_photon_hits_total);
+      //well-defined default for events with no digits
+      if(! (n_noise_hits_total + n_photon_hits_total))
+	noise_fraction_total = -1;
       ttotaldiginoisefrac = noise_fraction_total;
-
       //fill the per trigger output tree
       tout_trig->Fill();
     }//itrigger // End of loop over triggers
