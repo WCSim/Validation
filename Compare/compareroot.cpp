@@ -244,6 +244,25 @@ int main(int argc,char *argv[]){
         }//ix
 	hdiv->SetTitle(TString::Format("Division;%s;New / Reference", obj->GetName()));
 	hdiv->Draw();
+	//add text with the mean difference
+	double mean_new  = hnew->GetMean();
+	double mean_ref  = href->GetMean();
+	double mean_diff = 100. * (mean_new - mean_ref) / mean_ref;
+	string mean_diff_unit = "%";
+	//acount for 0 denominator
+	if(TMath::Abs(mean_ref) < 1E-10) {
+	  mean_diff = mean_new - mean_ref;
+	  mean_diff_unit = "";
+	}
+	TText * text = nullptr;
+	if(TMath::Abs(mean_diff) > 1E-6) {
+	  tmp.cd(0);
+	  text = new TText();
+	  text->SetNDC();
+	  //draw it top, middle-ish
+	  text->SetText(0.45, 0.95, TString::Format("%+.4f%s", mean_diff, mean_diff_unit.c_str()));
+	  text->Draw();
+	}
 	//save the canvas results
 	tmp.Write();
 	menu<<" <a href=\""<<buff2<<".gif\" class=\"menu\">"<<buff2<<"</a><br />";
@@ -255,6 +274,8 @@ int main(int argc,char *argv[]){
 	delete href;
 	delete htemp1;
 	delete htemp2;
+	if(text)
+	  delete text;
       }//loop over TLeaf's
       
     }
