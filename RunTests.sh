@@ -145,6 +145,8 @@ while read line; do
 		cat $geomdifffilename
 		mv $geomdifffilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/
 		ret=1
+	    elif [ ! -f $ValidationPath/Compare/Reference/$var4 ]; then
+		add_entry "#FF00FF" "" "Reference geofile not found"
 	    else
 		add_entry "#00FF00" "" "Geofile diff pass"
 	    fi
@@ -162,13 +164,14 @@ while read line; do
 	    done
 	    diff $ValidationPath/Compare/Reference/$badfilename $badfilename > $baddifffilename
 
-	    if [ -s $baddifffilename ]
-	    then
+	    if [ -s $baddifffilename ]; then
 		add_entry "#FF0000" "<a href='${var3}_bad.diff.txt'>" "Difference in number of stuck tracks or similar"
 		echo "Difference in number of stuck tracks or similar:"
 		cat $baddifffilename
 		mv $baddifffilename $ValidationPath/Webpage/${TRAVIS_COMMIT}/${i}/
 		ret=1
+	    elif [ ! -f $ValidationPath/Compare/Reference/$badfilename ]; then
+		add_entry "#FF00FF" "" "Reference stuck tracks file not found"
 	    else
 		add_entry "#00FF00" "" "Num stuck track diff pass"
 	    fi
