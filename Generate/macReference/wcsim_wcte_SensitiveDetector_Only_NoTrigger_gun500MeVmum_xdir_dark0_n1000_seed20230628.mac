@@ -7,6 +7,7 @@
 
 /WCSim/WCgeom nuPRISMBeamTest_16cShort_mPMT
 /WCSim/Geometry/RotateBarrelHalfTower true
+/WCSim/PMT/ReplicaPlacement false
 
 /WCSim/Construct
 
