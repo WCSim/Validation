@@ -97,8 +97,10 @@ while read line; do
 	} #add entry
 
 	#sanity check - ensure the reference file exists
-	# This will purposefully fail jobs when new reference mac files are added, until the reference root/txt files are uploaded
-	rootfilename=${var3}_analysed_${pmttype}.root
+	# This will purposefully fail jobs when new reference mac files are added, until the reference .root files are uploaded
+    # Note that this only checks for the first ID PMT type (i.e. `wcsimrootevent` branch of the tree)
+    #  This should be fine, but will break down if somehow `_2` or `_OD` are the only ones that exist in a future geometry
+	rootfilename=${var3}_analysed_wcsimrootevent.root
 	if [ ! -f $ValidationPath/Compare/Reference/$rootfilename ]; then
 		add_entry "#FF00FF" "" "Reference file does not exist"
 		ret=1
