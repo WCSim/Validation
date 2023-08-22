@@ -92,6 +92,8 @@ def PushToGit(job_str, branch_name='new_ref', callnum=0):
     subprocess.run(['git', 'pull', '--no-rebase', 'origin', branch_name])
     for geofilenew in glob.glob(f'{validation_dir}/geofile_*.txt'):
         shutil.move(geofilenew, f'{validation_dir}/Compare/Reference/{geofilenew.rsplit("/",1)[-1]}')
+    #commit
+    os.system(f'git commit -m "CI reference update. Job(s): {job_str} geofile"')
     #now try push
     try:
         subprocess.run(['git', 'push', f'https://tdealtry:{os.environ["GitHubToken"]}@github.com/WCSim/Validation.git', branch_name], check=True)
