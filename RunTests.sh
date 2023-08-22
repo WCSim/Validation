@@ -96,6 +96,15 @@ while read line; do
 " >> $TESTWEBPAGE
 	} #add entry
 
+	#sanity check - ensure the reference file exists
+	# This will purposefully fail jobs when new reference mac files are added, until the reference root/txt files are uploaded
+	rootfilename=${var3}_analysed_${pmttype}.root
+	if [ ! -f $ValidationPath/Compare/Reference/$rootfilename ]; then
+		add_entry "#FF00FF" "" "Reference file does not exist"
+		ret=1
+		continue
+	fi
+
 	#first run WCSim with the chosen mac file
 	isubjob=0
 	/usr/bin/time -p --output=timetest $ValidationPath/$var1 $ValidationPath/Generate/macReference/$var2 ${var3}.root |& tee wcsim_run.out
