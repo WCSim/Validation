@@ -1,2 +1,0 @@
-IMPOSSIBLE GEOMETRY:  z profile array of WCTopCapBlackSheet should  be monotonic.  Computed values:
-IMPOSSIBLE GEOMETRY:  z profile array of WCBotCapBlackSheet should  be monotonic.  Computed values:
