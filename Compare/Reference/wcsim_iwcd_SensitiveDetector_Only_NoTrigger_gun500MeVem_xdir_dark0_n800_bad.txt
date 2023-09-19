@@ -1,2 +1,2 @@
-"GeomNav1002" 1492209
+"GeomNav1002" 1436788
 "Optical photon is killed because of missing refractive index" 0
