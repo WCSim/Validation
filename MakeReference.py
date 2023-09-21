@@ -77,6 +77,8 @@ def PushToGit(job_str, branch_name='new_ref', callnum=0):
     os.system('git config user.email "wcsim@wcsim.wcsim"')
     #fetch any changes from the remote
     os.system('git fetch origin')
+    #save this hash, in case we need to reset back to it
+    remote_hash = str(subprocess.run(['git', 'rev-parse', 'HEAD'], stdout=subprocess.PIPE, text=True).stdout)
     #make sure we're on correct branch
     # - gets the remote one, if it exists remotely
     # - otherwise makes a new branch locally, based on the default branch
@@ -107,7 +109,7 @@ def PushToGit(job_str, branch_name='new_ref', callnum=0):
             print('Tried to push 100 times without success. Giving up')
             return True
         #if it didn't work, undo the last commit
-        os.system('git reset HEAD~1')
+        os.system(f'git reset --hard {remote_hash}')
         #clear the geofile changes
         os.system('git checkout Compare/Reference/geofile_*.txt')
         #have a rest before trying again
