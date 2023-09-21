@@ -19,7 +19,7 @@
 #100pi0_HyperK20pc PhysicsValidation /opt/Validation/Generate/Generate.sh /opt/Validation/Generate/macReference/100pi0_HyperK20pc.mac /opt/Validation/Compare/Reference/analysed_100pi0_HyperK20pc.root
 ####
 #
-TEST_SK_5MeVem_centre_xdir PhysicsValidation Generate/Generate.sh wcsim_test_seed20230628.mac wcsim_test geofile_SuperK.txt
+TEST_SK_5MeVem_centre_xdir PhysicsValidation Generate/Generate.sh wcsim_test_sk_seed20230628.mac wcsim_test geofile_SuperK.txt
 ####
 # HK FD w/ OD
 ####

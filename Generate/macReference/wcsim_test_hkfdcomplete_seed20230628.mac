@@ -1,0 +1,66 @@
+# Sample setup macro with no visualization
+
+/run/verbose 1
+/tracking/verbose 0
+/hits/verbose 0
+/grdm/verbose 0
+
+/WCSim/SetPMTPercentCoverage  20.2150576375662
+/WCSim/SetPMTPercentCoverage2 10.1075288187831
+/WCSim/WCgeom HyperK_HybridmPMT_WithOD
+
+# HyperK Outer Detector
+/WCSim/HyperKOD/PMTODRadius 3inch # The PMTs to be used in the OD. Options 3inch, 5inch or 8inch
+/WCSim/HyperKOD/ODLateralWaterDepth 1 m # The thickness of the OD in the barrel region
+/WCSim/HyperKOD/ODHeightWaterDepth 2 m # The thickness of the OD in the top and bottom endcap regions
+/WCSim/HyperKOD/ODDeadSpace 600 mm # The deadspace between the ID PMTs and OD PMTs (essentially the thickness of the PMT support structure)
+/WCSim/HyperKOD/ODTyvekSheetThickness 1 mm # The thickness of the Tyvek sheets in the OD
+/WCSim/HyperKOD/ODWLSPlatesThickness 0.6 cm # The thickness of each OD WLS plate.
+/WCSim/HyperKOD/ODWLSPlatesLength 30 cm # The length of each OD WLS plate. 30cm is optimal
+
+# Specify the number of OD PMTs per cell.
+# When the horizontal and vertical values are set to 0 the program will optimise
+# the arrangment based on the input OD PMT coverage
+/WCSim/HyperKOD/PMTODperCellHorizontal 0
+/WCSim/HyperKOD/PMTODperCellVertical 0
+/WCSim/HyperKOD/PMTODPercentCoverage 0.28 # OD PMT coverage as a percentage: 1 equals 1%
+/WCSim/HyperKOD/ODPMTShift 0 m # Offset every other row of OD PMTs by x meters
+#/WCSim/HyperKOD/DeactivateWLS # Uncomment to build the OD without WLS plates
+/WCSim/HyperKOD/BuildODWLSCladding # This places a reflective cladding around each WLS plate
+
+/WCSim/Construct
+
+/WCSim/PMTQEMethod SensitiveDetector_Only
+
+#turn on or off the collection efficiency
+/WCSim/PMTCollEff on
+
+# command to choose save or not save the pi0 info 07/03/10 (XQ)
+/WCSim/SavePi0 false
+
+#choose the Trigger & Digitizer type (and options)
+/DAQ/Digitizer SKI
+/DAQ/Trigger NoTrigger
+
+#grab the other DAQ options (thresholds, timing windows, etc.)
+/control/execute /opt/Validation/Generate/macReference/daq/daq.mac
+
+/control/execute /opt/Validation/Generate/macReference/dark/darktank0.mac
+/control/execute /opt/Validation/Generate/macReference/dark/darkmpmt0.mac
+/control/execute /opt/Validation/Generate/macReference/dark/darkod0.mac
+
+/control/execute /opt/Validation/Generate/macReference/physics/gun5MeVem_xdir.mac
+
+/Tracking/fractionOpticalPhotonsToDraw 0.0
+
+/WCSimIO/SaveRooTracker 0
+
+## change the name of the output root file, default = wcsim.root
+/WCSimIO/RootFile wcsim_hkfdcomplete_test.root
+
+## set a timer running on WCSimRunAction
+#/WCSimIO/Timer false
+
+/WCSim/random/seed 20230628
+/run/beamOn 10
+#exit
