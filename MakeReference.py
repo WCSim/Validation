@@ -38,6 +38,8 @@ def MakeReference(job_num):
     rootfile = mac.rsplit('/',1)[-1].replace('_seed20230628.mac', '.root')
     if not os.path.isfile(rootfile):
         print(f'Cannot find expected WCSim output root file: {rootfile}')
+        with open(logfile) as flog:
+            print(flog.read())
         return True
     else:
         print(f'Created output root file: {rootfile}')
