@@ -125,15 +125,21 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--job-number', '-j', type=int, nargs='+', required=True, choices=range(len(macs)), help='Job numbers to run.' + '\n'.join([f'{a:02d}: {b}' for a,b in zip(range(len(macs)), macs_short)]))
+    parser.add_argument('--only-print-filename', action='store_true', help='Only prints the file number')
     args = parser.parse_args()
 
-    jobs_to_run = set(args.job_number)
+    jobs_to_run = sorted(set(args.job_number))
     failure = False
     for job in jobs_to_run:
-        print(job)
+        print(job, macs[job])
+        if args.only_print_filename:
+            continue
         if job == 0:
             GetSHA()
         failure = failure or MakeReference(job)
+
+    if args.only_print_filename:
+        sys.exit(0)
     #now all jobs have run, commit to the repo
     failure = failure or PushToGit(','.join([str(x) for x in jobs_to_run]))
 
