@@ -52,13 +52,13 @@ def MakeReference(job_num):
     for branch in ['wcsimrootevent', 'wcsimrootevent2', 'wcsimrootevent_OD']:
         histfile = rootfile.replace('.root', f'_analysed_{branch}.root')
         if os.path.isfile(histfile):
-            shutil.move(histfile, f'{validation_dir}/Compare/Reference/{histfile}')
+            shutil.move(histfile, f'{validation_dir}/{histfile}')
             found_a_histfile = True
     #Get the stats of bad printouts
     # including writing the bad printouts information to the reference location
     badfile = rootfile.replace('.root', '_bad.txt')
     bads = {}
-    with open(f'{validation_dir}/Compare/Reference/{badfile}', 'w') as f:
+    with open(f'{validation_dir}/{badfile}', 'w') as f:
         for bad in ['GeomNav1002', 'Optical photon is killed because of missing refractive index']:
             bads[bad] = int(subprocess.run(['grep', '-c', bad, logfile], stdout=subprocess.PIPE, text=True).stdout)
             f.write(f'"{bad}" {bads[bad]}\n')
@@ -87,26 +87,37 @@ def PushToGit(job_str, branch_name='new_ref', callnum=0):
     # - gets the remote one, if it exists remotely
     # - otherwise makes a new branch locally, based on the default branch
     os.system(f'git checkout -b {branch_name} origin/{branch_name} --track || git checkout -b {branch_name}')
+    #copy all our changes (except geofile - this comes later) to the right location
+    for filenew in glob.glob(f'{validation_dir}/*_analysed_wcsimrootevent*.root'):
+        shutil.copyfile(filenew, f'{validation_dir}/Compare/Reference/{filenew.rsplit("/",1)[-1]}')
+    for filenew in glob.glob(f'{validation_dir}/*_analysed_wcsimrootevent*_bad.txt'):
+        shutil.copyfile(filenew, f'{validation_dir}/Compare/Reference/{filenew.rsplit("/",1)[-1]}')
     #add all our changes
     os.system('git add Compare/')
     #commit
+    print('Attempting commit of reference files (except geofiles)')
     os.system(f'git commit -m "CI reference update. Job(s): {job_str}"')
     #pull any remote changes
     # Need to account for conflicts in the geofile.txt
     #  This is done by not moving it to the correct place until after the pull
     # However all other files are unique to each job
+    print('Attempting to git pull')
     subprocess.run(['git', 'pull', '--no-rebase', 'origin', branch_name])
-    for geofilenew in glob.glob(f'{validation_dir}/geofile_*.txt'):
-        shutil.move(geofilenew, f'{validation_dir}/Compare/Reference/{geofilenew.rsplit("/",1)[-1]}')
+    #Finally copy the geofile info to the new place
+    for filenew in glob.glob(f'{validation_dir}/geofile_*.txt'):
+        shutil.copyfile(filenew, f'{validation_dir}/Compare/Reference/{filenew.rsplit("/",1)[-1]}')
     #commit
+    print('Attempting commit of geofile reference files')
     os.system(f'git commit {validation_dir}/Compare/Reference/geofile*.txt -m "CI reference update. Job(s): {job_str} geofile"')
     #now try push
+    print('Attempting to git push')
     try:
         subprocess.run(['git', 'push', f'https://tdealtry:{os.environ["GitHubToken"]}@github.com/WCSim/Validation.git', branch_name], check=True)
     except KeyError:
         print("The $GitHubToken environment variable doesn't exist, so we can't git push. Giving up")
         return True
     except subprocess.CalledProcessError:
+        print('push failed. Waiting 15 seconds before trying again')
         # Don't try forever
         #  100 calls x 15 seconds = 25 minutes
         if callnum > 100:
