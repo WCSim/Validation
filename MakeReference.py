@@ -76,11 +76,14 @@ def MakeReference(job_num):
 
 def PushToGit(job_str, branch_name='new_ref', callnum=0):
     os.chdir(validation_dir)
-    #setup default names, or git complains
-    os.system('git config user.name "WCSim CI"')
-    os.system('git config user.email "wcsim@wcsim.wcsim"')
+    if not callnum:
+        #setup default names, or git complains
+        os.system('git config user.name "WCSim CI"')
+        os.system('git config user.email "wcsim@wcsim.wcsim"')
     #fetch any changes from the remote
     os.system('git fetch origin')
+    #merge in these changes from the remote
+    os.system(f'git merge origin/{new_ref}')
     #save this hash, in case we need to reset back to it
     remote_hash = str(subprocess.run(['git', 'rev-parse', 'HEAD'], stdout=subprocess.PIPE, text=True).stdout)
     #make sure we're on correct branch
