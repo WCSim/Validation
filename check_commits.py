@@ -1,6 +1,7 @@
 import os
 import yaml
 import json
+import sys
 from pprint import pprint
 
 #### GET THE COMMITS FROM THE LATEST PR
@@ -18,9 +19,15 @@ for commit in commits:
         continue
     elif message.startswith('CI reference update. Job(s): '):
         #this will fail if there are (somehow) multiple jobs in a single commit
-        i = int(message.split('CI reference update. Job(s): ')[1])
+        try:
+            i = int(message.split('CI reference update. Job(s): ')[1])
+            jobs_done.append(i)
+        #so catch multiple jobs. Thankfully they are just comma separated (no spaces)
+        except ValueError:
+            js = message.split('CI reference update. Job(s): ')[1].split(',')
+            for j in js:
+                jobs_done.append(int(j))
         print(message)
-        jobs_done.append(i)
     else:
         print('UNKNOWN COMMIT MESSAGE:\n', message)
 print()
@@ -49,5 +56,19 @@ jobs_missing = sorted(list(set(jobs_expected).difference(jobs_done)))
 print(len(jobs_missing), 'jobs missing:', jobs_missing)
 print()
 
+if(not jobs_missing):
+    sys.exit(0)
+
+#### DECIDE TO RUN OR NOT
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--run', action='store_true', help='Run the missing jobs?')
+args = parser.parse_args()
+
 command = 'python3.8 MakeReference.py --job {} --only-print-filename'.format(' '.join(map(str, jobs_missing)))
-os.system(command)
+if args.run:
+    os.system(command)
+else:
+    print('Run this python script again with --run to automatically run MakeReference.py to run the missing jobs')
+    print('Or just copy/paste the command:')
+    print(command)
