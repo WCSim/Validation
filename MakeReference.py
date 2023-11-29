@@ -84,7 +84,7 @@ def PushToGit(job_str, branch_name='new_ref', callnum=0):
     os.system('git fetch origin')
     #merge in these changes from the remote
     print('Attempting to merge')
-    os.system(f'git merge origin/{new_ref}')
+    os.system(f'git merge origin/{branch_name}')
     #save this hash, in case we need to reset back to it
     remote_hash = str(subprocess.run(['git', 'rev-parse', 'HEAD'], stdout=subprocess.PIPE, text=True).stdout)
     #make sure we're on correct branch
