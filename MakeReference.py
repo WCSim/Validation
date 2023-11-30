@@ -94,7 +94,7 @@ def PushToGit(job_str, branch_name='new_ref', callnum=0):
     #copy all our changes (except geofile - this comes later) to the right location
     for filenew in glob.glob(f'{validation_dir}/*_analysed_wcsimrootevent*.root'):
         shutil.copyfile(filenew, f'{validation_dir}/Compare/Reference/{filenew.rsplit("/",1)[-1]}')
-    for filenew in glob.glob(f'{validation_dir}/*_analysed_wcsimrootevent*_bad.txt'):
+    for filenew in glob.glob(f'{validation_dir}/*_bad.txt'):
         shutil.copyfile(filenew, f'{validation_dir}/Compare/Reference/{filenew.rsplit("/",1)[-1]}')
     #add all our changes
     os.system('git add Compare/')
