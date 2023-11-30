@@ -18,7 +18,11 @@ for commit in commits:
     if message.startswith('Merge branch'):
         continue
     elif message.startswith('CI reference update. Job(s): '):
-        #this will fail if there are (somehow) multiple jobs in a single commit
+        #skip the geofile commits
+        if message.endswith('geofile'):
+            continue
+        #this will fail if there are multiple jobs in a single commit
+        # (Shouldn't happen on CI, can happen if running locally)
         try:
             i = int(message.split('CI reference update. Job(s): ')[1])
             jobs_done.append(i)
