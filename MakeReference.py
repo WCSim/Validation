@@ -46,7 +46,8 @@ def MakeReference(job_num):
     else:
         print(f'Created output root file: {rootfile}')
     #Get the relevant histograms from WCSim
-    subprocess.run([f'{validation_dir}/Generate/daq_readfilemain', rootfile, '0'])
+    for ipmttype in range(3):
+        subprocess.run([f'{validation_dir}/Generate/daq_readfilemain', rootfile, '0', ipmttype])
     #Move the histogram file to the reference location
     found_a_histfile = False
     for branch in ['wcsimrootevent', 'wcsimrootevent2', 'wcsimrootevent_OD']:

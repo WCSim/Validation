@@ -543,15 +543,35 @@ int daq_readfile(const char *filename=NULL,
   return 0;
 }
 
-int main(int argc, char *argv[]){
+void usage(string * branches){
+  std::cerr << "Usage: daq_readfilemain <FILENAME> <VERBOSE> <PMTTYPE>" << std::endl
+	    << "    VERBOSE = 0 or 1" << std::endl
+	    << "    PMTTYPE =" << std::endl;
+  for(int i = 0; i < 3; i++)
+    std::cerr << "        " << i << "  " << branches[i] << std::endl;
+}
 
-  //cout<<argv[1]<<endl;
+int main(int argc, char *argv[]){
   string branches[3] = {"wcsimrootevent",
 			"wcsimrootevent2",
 			"wcsimrootevent_OD"};
-  for(int i = 0; i < 3; i++)
-    daq_readfile(argv[1], atoi(argv[2]), branches[i].c_str());
 
+  if(argc != 4) {
+    std::cerr << "Invalid number of arguments: " << argc << std::endl
+	      << std::endl;
+    usage(branches);
+    return 1;
+  }
+    
+  const int jobtodo = atoi(argv[3]);
+  if(jobtodo < 0 || jobtodo >= 3) {
+    std::cerr << "Invalid PMT type " << jobtodo << std::endl
+	      << std::endl;
+    usage(branches);
+    return 1;
+  }
+  daq_readfile(argv[1], atoi(argv[2]), branches[jobtodo].c_str());
+  
   return 0;
 
 }
