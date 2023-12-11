@@ -533,6 +533,13 @@ int daq_readfile(const char *filename=NULL,
   tout_trig->Write();
   fout->Close();
 
+  //cleanup memory
+  //input
+  delete wcsimrootsuperevent;
+  delete file;
+  //output
+  delete fout;
+
   return 0;
 }
 
