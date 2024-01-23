@@ -1,6 +1,0 @@
-1,2c1,2
-< "GeomNav1002" 46976
-< "Optical photon is killed because of missing refractive index" 0
----
-> "GeomNav1002" 47171
-> "Optical photon is killed because of missing refractive index" 4
