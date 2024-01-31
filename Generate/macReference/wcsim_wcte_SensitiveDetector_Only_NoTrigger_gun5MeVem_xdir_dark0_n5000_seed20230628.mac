@@ -9,6 +9,10 @@
 /WCSim/Geometry/RotateBarrelHalfTower true
 /WCSim/PMT/ReplicaPlacement false
 
+/WCSim/PMT/PositionVariation 0 mm
+/WCSim/PMT/TankRadiusChange 0 0 0 mm
+/WCSim/PMT/PositionFile data/mPMT_Position_WCTE.txt
+
 /WCSim/Construct
 
 /WCSim/PMTQEMethod SensitiveDetector_Only
