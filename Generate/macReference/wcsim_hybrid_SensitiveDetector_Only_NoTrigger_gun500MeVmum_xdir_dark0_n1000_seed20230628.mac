@@ -5,11 +5,7 @@
 /hits/verbose 0
 /grdm/verbose 0
 
-/WCSim/SetPMTPercentCoverage  20.2150576375662
-/WCSim/SetPMTPercentCoverage2 10.1075288187831
-/WCSim/WCgeom HyperK_HybridmPMT
-
-/WCSim/Construct
+/control/execute /opt/Validation/Generate/macReference/hkfd_nood.mac
 
 /WCSim/PMTQEMethod SensitiveDetector_Only
 

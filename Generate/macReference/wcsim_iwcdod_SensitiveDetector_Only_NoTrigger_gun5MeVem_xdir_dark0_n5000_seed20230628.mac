@@ -5,9 +5,7 @@
 /hits/verbose 0
 /grdm/verbose 0
 
-/WCSim/WCgeom IWCD_mPMT_WithOD
-
-/WCSim/Construct
+/control/execute /opt/Validation/Generate/macReference/geom/iwcd_withod.mac
 
 /WCSim/PMTQEMethod SensitiveDetector_Only
 
