@@ -5,11 +5,7 @@
 /hits/verbose 0
 /grdm/verbose 0
 
-/WCSim/WCgeom nuPRISMBeamTest_16cShort_mPMT
-/WCSim/Geometry/RotateBarrelHalfTower true
-/WCSim/PMT/ReplicaPlacement false
-
-/WCSim/Construct
+/control/execute /opt/Validation/Generate/macReference/geom/wcte.mac
 
 /WCSim/PMTQEMethod SensitiveDetector_Only
 
