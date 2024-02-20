@@ -106,7 +106,7 @@ Then
 
 
 ----
-For any questions contact
+## Questions
 * Use the issues feature on this repository (preferred)
 * Dr. Benjamin Richards (b.richards@qmul.ac.uk)
 * Dr. Tom Dealtry (t.dealtry@lancaster.ac.uk)
