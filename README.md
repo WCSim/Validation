@@ -92,8 +92,10 @@ Then
  any folders not in the `folderlist`. This ensures that the webpage does not grow expoentially
     * Pushes to
   * `Tests.sh` does the actual tests (one test is done based on the command line option)
-    * Runs WCSim for the specified job, to get the same information as we have in `Compare/Reference/`
+    * Calls `Generate/Generate.sh` for the specified job, to get the same information as we have in `Compare/Reference/`
+      * Runs WCSim, saving the log file (temporarily)
       * Converts the WCSim file to the raw vector/number ROOT file with `Reference/daq_readfilemain`
+    * Gets the other information we have in `Compare/Reference/`
       * Runs the `grep` tests on the log file
     * Performs difference checks with the reference files
       * ROOT comparison done with `Compare/compareroot`
