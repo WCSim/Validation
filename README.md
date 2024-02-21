@@ -3,10 +3,10 @@
 > [!CAUTION]
 > You should clone the repository like this
 >
-> `git clone --depth=1 --single-branch --branch master git@github.com:WCSim/Validation.git`
+> ```git clone --depth=1 --single-branch --branch master git@github.com:WCSim/Validation.git```
 >
-> `--depth=1` gets the current commit
-> `--single-branch --branch master` gets only the `master` branch
+> * `--depth=1` gets the current commit
+> * `--single-branch --branch master` gets only the `master` branch
 >
 > If you don't follow this advice, you will get a massive history (10s of GB)
 
