@@ -1,5 +1,15 @@
 # Validation
 
+> [!CAUTION]
+> You should clone the repository like this
+>
+> `git clone --depth=1 --single-branch --branch master git@github.com:WCSim/Validation.git`
+>
+> `--depth=1` gets the current commit
+> `--single-branch --branch master` gets only the `master` branch
+>
+> If you don't follow this advice, you will get a massive history (10s of GB)
+
 Validation output is displayed here https://wcsim.github.io/Validation/
 
 Note: Initial compilation build and simple excecution tests will run in about 5 mins. The validation tests will take longer (up to 2 hours) with results being updated to the webpage when finished.
