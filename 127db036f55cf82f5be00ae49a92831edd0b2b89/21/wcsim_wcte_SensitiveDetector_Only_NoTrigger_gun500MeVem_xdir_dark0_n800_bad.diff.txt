@@ -1,0 +1,4 @@
+2c2
+< "Optical photon is killed because of missing refractive index" 0
+---
+> "Optical photon is killed because of missing refractive index" 5
