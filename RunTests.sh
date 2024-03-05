@@ -195,7 +195,7 @@ while read line; do
 	    if [ -f $impossiblefilename ]; then
 		rm -f $impossiblefilename
 	    fi
-	    for greps in "IMPOSSIBLE GEOMETRY"; do
+	    for greps in "IMPOSSIBLE GEOMETRY" "*** G4Exception : GeomVol1002"; do
 		grep "$greps" wcsim_run.out >> $impossiblefilename
 	    done
 	    if [ -s $impossiblefilename ]; then
