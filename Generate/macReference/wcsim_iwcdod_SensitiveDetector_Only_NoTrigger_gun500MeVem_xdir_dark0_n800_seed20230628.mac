@@ -23,6 +23,7 @@
 /control/execute /opt/Validation/Generate/macReference/daq/daq.mac
 
 /control/execute /opt/Validation/Generate/macReference/dark/darktank0.mac
+/control/execute /opt/Validation/Generate/macReference/dark/darkod0.mac
 
 /control/execute /opt/Validation/Generate/macReference/physics/gun500MeVem_xdir.mac
 

@@ -85,7 +85,7 @@ Then
 ## More details
 * Tests are defined in `test.txt`
   * These link to WCSim config files in `Generate/macReference/`
-  * Note that `MakeReference.py` labels tests in the range `[0,N-1]`, whilst `Tests.sh` label tests in the range `[1,N]`. Sorry
+  * Note that `MakeReference.py` labels tests in the range `[0,N-1]`, whilst `RunTests.sh` label tests in the range `[1,N]`. Sorry
 * `MakeReference.py` is used to create reference files
   * The output of this is a set of reference files in `Compare/Reference/`
     * Raw vector/number ROOT files, with information extracted from the standard *classed* WCSim ROOT files
@@ -101,7 +101,7 @@ Then
     * Adds an entry to `folderlist` (list of folders = commit hashes) and trims it to 35 entries. Then `git rm`s 
  any folders not in the `folderlist`. This ensures that the webpage does not grow expoentially
     * Pushes to
-  * `Tests.sh` does the actual tests (one test is done based on the command line option)
+  * `RunTests.sh` does the actual tests (one test is done based on the command line option)
     * Calls `Generate/Generate.sh` for the specified job, to get the same information as we have in `Compare/Reference/`
       * Runs WCSim, saving the log file (temporarily)
       * Converts the WCSim file to the raw vector/number ROOT file with `Reference/daq_readfilemain`
