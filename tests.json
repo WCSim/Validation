@@ -1,0 +1,243 @@
+{
+    "TestA": {
+      "name": "Build_Test",
+      "test": "BuildTest",
+      "var1": "/opt/Validation/build.sh",
+      "var2": "/opt/WCSim/install/bin/WCSim",
+      "comment": "Tests defined by letters were commented out in original Tests.txt, they are kept here for comepleteness :)"
+    },
+    "TestB": {
+      "name": "100e_SuperK",
+      "test": "PhysicsValidation",
+      "var1": "/opt/Validation/Generate/Generate.sh",
+      "var2": "/opt/Validation/Generate/macReference/100e_SuperK.mac",
+      "var3": "/opt/Validation/Compare/Reference/analysed_100e_SuperK.root"
+    },
+    "TestC": {
+      "name": "10e_HyperK20pc",
+      "test": "PhysicsValidation",
+      "var1": "/opt/Validation/Generate/Generate.sh",
+      "var2": "/opt/Validation/Generate/macReference/10e_HyperK20pc.mac",
+      "var3": "/opt/Validation/Compare/Reference/analysed_10e_HyperK20pc.root"
+    },
+    "TestD": {
+      "name": "100e_HyperK20pc",
+      "test": "PhysicsValidation",
+      "var1": "/opt/Validation/Generate/Generate.sh",
+      "var2": "/opt/Validation/Generate/macReference/100e_HyperK20pc.mac",
+      "var3": "/opt/Validation/Compare/Reference/analysed_100e_HyperK20pc.root"
+    },
+    "TestE": {
+      "name": "500e_HyperK20pc",
+      "test": "PhysicsValidation",
+      "var1": "/opt/Validation/Generate/Generate.sh",
+      "var2": "/opt/Validation/Generate/macReference/500e_HyperK20pc.mac",
+      "var3": "/opt/Validation/Compare/Reference/analysed_500e_HyperK20pc.root"
+    },
+    "TestF": {
+      "name": "200mu_HyperK20pc",
+      "test": "PhysicsValidation",
+      "var1": "/opt/Validation/Generate/Generate.sh",
+      "var2": "/opt/Validation/Generate/macReference/200mu_HyperK20pc.mac",
+      "var3": "/opt/Validation/Compare/Reference/analysed_200mu_HyperK20pc.root"
+    },
+    "TestG": {
+      "name": "800mu_HyperK20pc",
+      "test": "PhysicsValidation",
+      "var1": "/opt/Validation/Generate/Generate.sh",
+      "var2": "/opt/Validation/Generate/macReference/800mu_HyperK20pc.mac",
+      "var3": "/opt/Validation/Compare/Reference/analysed_800mu_HyperK20pc.root"
+    },
+    "TestH": {
+      "name": "100pi0_HyperK20pc",
+      "test": "PhysicsValidation",
+      "var1": "/opt/Validation/Generate/Generate.sh",
+      "var2": "/opt/Validation/Generate/macReference/100pi0_HyperK20pc.mac",
+      "var3": "/opt/Validation/Compare/Reference/analysed_100pi0_HyperK20pc.root"
+    },
+    "Test1": {
+      "name": "TEST_SK_5MeVem_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_test_sk_seed20230628.mac",
+      "var3": "wcsim_test",
+      "var4": "geofile_SuperK.txt"
+    },
+    "Test2": {
+      "name": "HKFDOD_500MeVem_ODbarrelIn_startX",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelIn_startX_dark0_n200_seed20230628.mac",
+      "var3": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelIn_startX_dark0_n200",
+      "var4": "geofile_HyperK_HybridmPMT_WithOD.txt"
+    },
+    "Test3": {
+      "name": "HKFDOD_500MeVem_ODbarrelIn_startY",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelIn_startY_dark0_n200_seed20230628.mac",
+      "var3": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelIn_startY_dark0_n200",
+      "var4": "geofile_HyperK_HybridmPMT_WithOD.txt"
+    },
+    "Test4": {
+      "name": "HKFDOD_500MeVem_ODbarrelUp_startX",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelUp_startX_dark0_n200_seed20230628.mac",
+      "var3": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelUp_startX_dark0_n200",
+      "var4": "geofile_HyperK_HybridmPMT_WithOD.txt"
+    },
+    "Test5": {
+      "name": "HKFDOD_500MeVem_ODbarrelUp_startY",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelUp_startY_dark0_n200_seed20230628.mac",
+      "var3": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelUp_startY_dark0_n200",
+      "var4": "geofile_HyperK_HybridmPMT_WithOD.txt"
+    },
+    "Test6": {
+      "name": "HKFDOD_500MeVem_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n1000_seed20230628.mac",
+      "var3": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n1000",
+      "var4": "geofile_HyperK_HybridmPMT_WithOD.txt"
+    },
+    "Test7": {
+      "name": "HKFDOD_500MeVmum_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000_seed20230628.mac",
+      "var3": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000",
+      "var4": "geofile_HyperK_HybridmPMT_WithOD.txt"
+    },
+    "Test8": {
+      "name": "HKFDOD_5MeVem_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000_seed20230628.mac",
+      "var3": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000",
+      "var4": "geofile_HyperK_HybridmPMT_WithOD.txt"
+    },
+    "Test9": {
+      "name": "HKFD_500MeVem_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_hybrid_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n1000_seed20230628.mac",
+      "var3": "wcsim_hybrid_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n1000",
+      "var4": "geofile_HyperK_HybridmPMT.txt"
+    },
+    "Test10": {
+      "name": "HKFD_500MeVmum_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_hybrid_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000_seed20230628.mac",
+      "var3": "wcsim_hybrid_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000",
+      "var4": "geofile_HyperK_HybridmPMT.txt"
+    },
+    "Test11": {
+      "name": "HKFD_5MeVem_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_hybrid_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000_seed20230628.mac",
+      "var3": "wcsim_hybrid_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000",
+      "var4": "geofile_HyperK_HybridmPMT.txt"
+    },
+    "Test12": {
+      "name": "IWCD_500MeVem_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_iwcd_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n800_seed20230628.mac",
+      "var3": "wcsim_iwcd_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n800",
+      "var4": "geofile_IWCD_mPMT.txt"
+    },
+    "Test13": {
+      "name": "IWCD_500MeVmum_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_iwcd_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000_seed20230628.mac",
+      "var3": "wcsim_iwcd_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000",
+      "var4": "geofile_IWCD_mPMT.txt"
+    },
+    "Test14": {
+      "name": "IWCD_5MeVem_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_iwcd_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000_seed20230628.mac",
+      "var3": "wcsim_iwcd_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000",
+      "var4": "geofile_IWCD_mPMT.txt"
+    },
+    "Test15": {
+      "name": "IWCDOD_500MeVem_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_iwcdod_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n800_seed20230628.mac",
+      "var3": "wcsim_iwcdod_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n800",
+      "var4": "geofile_IWCD_mPMT_WithOD.txt"
+    },
+    "Test16": {
+      "name": "IWCDOD_500MeVmum_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_iwcdod_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000_seed20230628.mac",
+      "var3": "wcsim_iwcdod_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000",
+      "var4": "geofile_IWCD_mPMT_WithOD.txt"
+    },
+    "Test17": {
+      "name": "IWCDOD_5MeVem_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_iwcdod_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000_seed20230628.mac",
+      "var3": "wcsim_iwcdod_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000",
+      "var4": "geofile_IWCD_mPMT_WithOD.txt"
+    },
+    "Test18": {
+      "name": "SK_500MeVem_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_sk_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n1000_seed20230628.mac",
+      "var3": "wcsim_sk_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n1000",
+      "var4": "geofile_SuperK.txt"
+    },
+    "Test19": {
+      "name": "SK_500MeVmum_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_sk_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000_seed20230628.mac",
+      "var3": "wcsim_sk_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000",
+      "var4": "geofile_SuperK.txt"
+    },
+    "Test20": {
+      "name": "SK_5MeVem_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_sk_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000_seed20230628.mac",
+      "var3": "wcsim_sk_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000",
+      "var4": "geofile_SuperK.txt"
+    },
+    "Test21": {
+      "name": "WCTE_500MeVem_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_wcte_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n800_seed20230628.mac",
+      "var3": "wcsim_wcte_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n800",
+      "var4": "geofile_NuPRISMBeamTest_16cShort_mPMT.txt"
+    },
+    "Test22": {
+      "name": "WCTE_500MeVmum_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_wcte_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000_seed20230628.mac",
+      "var3": "wcsim_wcte_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000",
+      "var4": "geofile_NuPRISMBeamTest_16cShort_mPMT.txt"
+    },
+    "Test23": {
+      "name": "WCTE_5MeVem_centre_xdir",
+      "test": "PhysicsValidation",
+      "var1": "Generate/Generate.sh",
+      "var2": "wcsim_wcte_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000_seed20230628.mac",
+      "var3": "wcsim_wcte_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000",
+      "var4": "geofile_NuPRISMBeamTest_16cShort_mPMT.txt"
+    }
+  }
+  
