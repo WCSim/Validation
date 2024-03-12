@@ -20,7 +20,7 @@ def checkout_validation_webpage_branch(validation_path, travis_pull_request, tra
         os.system("git config user.name 'WCSim CI'")
         os.system("git config user.email 'wcsim@wcsim.wcsim'")
 
-        os.chdir("-")
+        os.chdir(f"{validation_path}")
 
     travis_pull_request = str(travis_pull_request) if travis_pull_request is not None else "false"
     print("Showing travis commit")

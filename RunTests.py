@@ -2,6 +2,7 @@
 import os
 import WebpageFunctions
 import argparse
+import json
 
 #Get a set of arguments
 parser = argparse.ArgumentParser()
@@ -47,45 +48,26 @@ with open(TESTWEBPAGE, 'w') as test_webpage_file:
     """)
 
 # Loop over tests.txt to find the correct job we want to run.
-with open('tests.txt', 'r') as file:
-    lines = file.readlines()
+with open('tests.json', 'r') as json_file:
+    data = json.load(json_file)
 
-i = 0
 
-#This is a big loop and could probably be handled better, look into it.
-for line in lines: 
-    if line.startswith("#"):#
-        continue #i.e. skip over lines with comments.
+#Grab the right test
+values = data[f'Test{args.test_num}']
+name = values['name']
+test = values['test']
+variables = {f'var{i}': values[f'var{i}'] for i in range(1, len(values) - 1)}
 
-    #Since line num in text file starts from 1
-    i += 1
-    #Check if current test is specified by argument
-    if i != args.test_num:
-        continue
+print(f"Running test {args.test_num} with name: {name} of type: {test} with variables: {variables}")
+# Add the details of the test to the TESTWEBPAGE
+with open(TESTWEBPAGE, 'a') as webpage:
+    webpage.write(f"\n<h3>{name}</h3>\n")
 
-    #Split the line into fields.
-    fields = line.split()
-    name, test, *variables = fields
-
-    #Store variables in a dict so they can have variable names:
-    j=0
-    var_dict = {}
-    for variable in variables:
-        j += 1
-        #print(variable)
-        var_dict[f"var{j}"] = variable
-
-    print(f"Running test {i} with name: {name} of type: {test} with variables: {variables}")
-
-    # Add the details of the test to the TESTWEBPAGE
-    with open(TESTWEBPAGE, 'a') as webpage:
-        webpage.write(f"\n<h3>{name}</h3>\n")
-
-    ######### Physics Validation #########
-    if test == "PhysicsValidation":
-        # Set up the table of tests
-        with open(TESTWEBPAGE, 'a') as f:
-            f.write('''
+######### Physics Validation #########
+if test == "PhysicsValidation":
+    # Set up the table of tests
+    with open(TESTWEBPAGE, 'a') as f:
+        f.write('''
         <p>
         <table  border='1' align='center'>
         <tr>
@@ -93,120 +75,120 @@ for line in lines:
         </tr>
         ''')
 
-        # Sanity check - ensure the reference file exists
-        # This will purposefully fail jobs when new reference mac files are added, until the reference .root files are uploaded
-        # Note that this only checks for the first ID PMT type (i.e. `wcsimrootevent` branch of the tree)
-        # This should be fine, but will break down if somehow `_2` or `_OD` are the only ones that exist in a future geometry
-        #print(var_dict)
-        rootfilename = f"{var_dict['var3']}_analysed_wcsimrootevent.root"
-        if not os.path.isfile(os.path.join(ValidationPath, 'Compare', 'Reference', rootfilename)):
-            WebpageFunctions.add_entry(TESTWEBPAGE,"#FF00FF", "", "Reference file does not exist")
+    # Sanity check - ensure the reference file exists
+    # This will purposefully fail jobs when new reference mac files are added, until the reference .root files are uploaded
+    # Note that this only checks for the first ID PMT type (i.e. `wcsimrootevent` branch of the tree)
+    # This should be fine, but will break down if somehow `_2` or `_OD` are the only ones that exist in a future geometry
+    #print(variables)
+    rootfilename = f"{variables['var3']}_analysed_wcsimrootevent.root"
+    if not os.path.isfile(os.path.join(ValidationPath, 'Compare', 'Reference', rootfilename)):
+        WebpageFunctions.add_entry(TESTWEBPAGE,"#FF00FF", "", "Reference file does not exist")
+        ret = 1
+
+    #First run WCSim with the chosen mac file.
+    isubjob = 0
+    wcsim_exit_status = os.system(f"/usr/bin/time -p --output=timetest {ValidationPath}/{variables['var1']} {ValidationPath}/Generate/macReference/{variables['var2']} {variables['var3']}.root |& tee wcsim_run.out")
+
+    # Check the exit status of the previous command
+    if wcsim_exit_status != 0:
+        WebpageFunctions.add_entry(TESTWEBPAGE,"#FF0000", "", "Failed to run WCSim")
+        ret = 1
+    else:
+        with open("timetest", "r") as timetest_file:
+            for line in timetest_file:
+                if "user" in line:
+                    time = line.split()[1] + " sec"
+                    break
+
+        WebpageFunctions.add_entry(TESTWEBPAGE,"#00FF00", "", time)
+
+        # Compare output root files with reference
+        wcsim_has_output = 0
+        isubjob = 0
+        for pmttype in ["wcsimrootevent", "wcsimrootevent2", "wcsimrootevent_OD"]:
+            isubjob += 1
+            root_filename = f"{variables['var3']}_analysed_{pmttype}.root"
+
+            if os.path.isfile(root_filename):
+                wcsim_has_output = 1
+                link = f"<a href='{isubjob}/index.html'>"
+                if not os.path.isdir(f"{TESTDIR}/{isubjob}"):
+                    os.mkdir(f"{TESTDIR}/{isubjob}")
+                
+                compare_exit_status = os.system(f"{ValidationPath}/Compare/compareroot {ValidationPath}/Webpage/{TRAVIS_COMMIT}/{args.test_num}/{isubjob} {root_filename} {ValidationPath}/Compare/Reference/{root_filename}")
+                
+                if compare_exit_status != 0:
+                    WebpageFunctions.add_entry(TESTWEBPAGE,"#FF0000", link, f"Failed {pmttype} plot comparisons")
+                    ret = 1
+                else:
+                    WebpageFunctions.add_entry(TESTWEBPAGE,"#00FF00", link, f"{pmttype} plot pass")
+            else:
+                WebpageFunctions.add_entry(TESTWEBPAGE,"#000000", "", f"No {pmttype} in geometry")
+
+        if wcsim_has_output == 0:
             ret = 1
 
-        #First run WCSim with the chosen mac file.
-        isubjob = 0
-        wcsim_exit_status = os.system(f"/usr/bin/time -p --output=timetest {ValidationPath}/{var_dict['var1']} {ValidationPath}/Generate/macReference/{var_dict['var2']} {var_dict['var3']}.root |& tee wcsim_run.out")
 
-        # Check the exit status of the previous command
-        if wcsim_exit_status != 0:
-            WebpageFunctions.add_entry(TESTWEBPAGE,"#FF0000", "", "Failed to run WCSim")
+        #Compare the grofile.txt output to the reference.
+        #This can almost certainly be streamlined with a function, but just want to make sure it works first :).
+        print("Comparing geofile")
+        isubjob += 1
+        test_file_geo = f"{variables['var4']}"
+        ref_file_geo = f"{ValidationPath}/Compare/Reference/{variables['var4']}"
+        diff_file_geo = f"{variables['var4']}.diff.txt"
+        diff_path = f"{ValidationPath}/Webpage/{TRAVIS_COMMIT}/{args.test_num}/"
+
+        ret = WebpageFunctions.check_diff(TESTWEBPAGE, diff_path, diff_file_geo ,ref_file_geo, test_file_geo, "Geom")
+
+        #Then compare the output bad.txt with the reference.
+        print("Comparing badfile")
+        isubjob += 1
+        test_file_bad = f"{variables['var3']}_bad.txt"
+        ref_file_bad = f"{ValidationPath}/Compare/Reference/{test_file_bad}"
+        diff_file_bad = f"{variables['var3']}_bad.diff.txt"
+
+        # Remove the existing badfilename if it exists
+        if os.path.isfile(test_file_bad):
+            os.remove(test_file_bad)
+
+        # Count occurrences of specified patterns and write to badfilename
+        grep_patterns = ["GeomNav1002", "Optical photon is killed because of missing refractive index"]
+        with open("wcsim_run.out", "r") as wcsim_run_out:
+            with open(test_file_bad, "w") as bad_file:
+                for grep_pattern in grep_patterns:
+                    grep_count = wcsim_run_out.read().count(grep_pattern)
+                    bad_file.write(f"\"{grep_pattern}\" {grep_count}\n")
+
+        # Run the diff command and capture the output
+        ret = WebpageFunctions.check_diff(TESTWEBPAGE, diff_path, diff_file_bad, ref_file_bad, test_file_bad, "bad")
+
+        #Then produce a grep of impossible geometry warnings
+        isubjob += 1
+        impossiblefilename = f"{variables['var3']}_impossible.txt"
+
+        # Remove the existing impossiblefilename if it exists
+        if os.path.isfile(impossiblefilename):
+            os.remove(impossiblefilename)
+
+        # Grep for specified patterns and write to impossiblefilename
+        grep_patterns = ["IMPOSSIBLE GEOMETRY", "*** G4Exception : GeomVol1002"]
+        with open("wcsim_run.out", "r") as wcsim_run_out:
+            with open(impossiblefilename, "w") as impossible_file:
+                for grep_pattern in grep_patterns:
+                    os.popen(f"grep \"{grep_pattern}\" wcsim_run.out >> {impossiblefilename}")
+
+        # Check if the impossiblefilename is not empty
+        if os.path.getsize(impossiblefilename) > 0:
+            # If the file is not empty, there are geometry warnings
+            WebpageFunctions.add_entry(TESTWEBPAGE,"#FF0000", f"<a href='{impossiblefilename}'>", "Geometry warnings exist")
+            print("Geometry warnings exist:")
+            with open(impossiblefilename, "r") as impossible_file:
+                print(impossible_file.read())
+            os.system(f"mv {impossiblefilename} {ValidationPath}/Webpage/{TRAVIS_COMMIT}/{args.test_num}/")
             ret = 1
         else:
-            with open("timetest", "r") as timetest_file:
-                for line in timetest_file:
-                    if "user" in line:
-                        time = line.split()[1] + " sec"
-                        break
-
-            WebpageFunctions.add_entry(TESTWEBPAGE,"#00FF00", "", time)
-
-            # Compare output root files with reference
-            wcsim_has_output = 0
-            isubjob = 0
-            for pmttype in ["wcsimrootevent", "wcsimrootevent2", "wcsimrootevent_OD"]:
-                isubjob += 1
-                root_filename = f"{var_dict['var3']}_analysed_{pmttype}.root"
-
-                if os.path.isfile(root_filename):
-                    wcsim_has_output = 1
-                    link = f"<a href='{isubjob}/index.html'>"
-                    if not os.path.isdir(f"{TESTDIR}/{isubjob}"):
-                        os.mkdir(f"{TESTDIR}/{isubjob}")
-                    
-                    compare_exit_status = os.system(f"{ValidationPath}/Compare/compareroot {ValidationPath}/Webpage/{TRAVIS_COMMIT}/{i}/{isubjob} {root_filename} {ValidationPath}/Compare/Reference/{root_filename}")
-                    
-                    if compare_exit_status != 0:
-                        WebpageFunctions.add_entry(TESTWEBPAGE,"#FF0000", link, f"Failed {pmttype} plot comparisons")
-                        ret = 1
-                    else:
-                        WebpageFunctions.add_entry(TESTWEBPAGE,"#00FF00", link, f"{pmttype} plot pass")
-                else:
-                    WebpageFunctions.add_entry(TESTWEBPAGE,"#000000", "", f"No {pmttype} in geometry")
-
-            if wcsim_has_output == 0:
-                ret = 1
-
-
-            #Compare the grofile.txt output to the reference.
-            #This can almost certainly be streamlined with a function, but just want to make sure it works first :).
-            print("Comparing geofile")
-            isubjob += 1
-            test_file_geo = f"{var_dict['var4']}"
-            ref_file_geo = f"{ValidationPath}/Compare/Reference/{var_dict['var4']}"
-            diff_file_geo = f"{var_dict['var4']}.diff.txt"
-            diff_path = f"{ValidationPath}/Webpage/{TRAVIS_COMMIT}/{i}/"
-
-            ret = WebpageFunctions.check_diff(TESTWEBPAGE, diff_path, diff_file_geo ,ref_file_geo, test_file_geo, "Geom")
-
-            #Then compare the output bad.txt with the reference.
-            print("Comparing badfile")
-            isubjob += 1
-            test_file_bad = f"{var_dict['var3']}_bad.txt"
-            ref_file_bad = f"{ValidationPath}/Compare/Reference/{test_file_bad}"
-            diff_file_bad = f"{var_dict['var3']}_bad.diff.txt"
-
-            # Remove the existing badfilename if it exists
-            if os.path.isfile(test_file_bad):
-                os.remove(test_file_bad)
-
-            # Count occurrences of specified patterns and write to badfilename
-            grep_patterns = ["GeomNav1002", "Optical photon is killed because of missing refractive index"]
-            with open("wcsim_run.out", "r") as wcsim_run_out:
-                with open(test_file_bad, "w") as bad_file:
-                    for grep_pattern in grep_patterns:
-                        grep_count = wcsim_run_out.read().count(grep_pattern)
-                        bad_file.write(f"\"{grep_pattern}\" {grep_count}\n")
-
-            # Run the diff command and capture the output
-            ret = WebpageFunctions.check_diff(TESTWEBPAGE, diff_path, diff_file_bad, ref_file_bad, test_file_bad, "bad")
-
-            #Then produce a grep of impossible geometry warnings
-            isubjob += 1
-            impossiblefilename = f"{var_dict['var3']}_impossible.txt"
-
-            # Remove the existing impossiblefilename if it exists
-            if os.path.isfile(impossiblefilename):
-                os.remove(impossiblefilename)
-
-            # Grep for specified patterns and write to impossiblefilename
-            grep_patterns = ["IMPOSSIBLE GEOMETRY", "*** G4Exception : GeomVol1002"]
-            with open("wcsim_run.out", "r") as wcsim_run_out:
-                with open(impossiblefilename, "w") as impossible_file:
-                    for grep_pattern in grep_patterns:
-                        os.popen(f"grep \"{grep_pattern}\" wcsim_run.out >> {impossiblefilename}")
-
-            # Check if the impossiblefilename is not empty
-            if os.path.getsize(impossiblefilename) > 0:
-                # If the file is not empty, there are geometry warnings
-                WebpageFunctions.add_entry(TESTWEBPAGE,"#FF0000", f"<a href='{impossiblefilename}'>", "Geometry warnings exist")
-                print("Geometry warnings exist:")
-                with open(impossiblefilename, "r") as impossible_file:
-                    print(impossible_file.read())
-                os.system(f"mv {impossiblefilename} {ValidationPath}/Webpage/{TRAVIS_COMMIT}/{i}/")
-                ret = 1
-            else:
-                # If the file is empty, there are no geometry warnings
-                WebpageFunctions.add_entry(TESTWEBPAGE,"#00FF00", "", "Geometry warnings pass")
+            # If the file is empty, there are no geometry warnings
+            WebpageFunctions.add_entry(TESTWEBPAGE,"#00FF00", "", "Geometry warnings pass")
 
 #Out of the loop now, no more lines to read.
 # Add footer to finish the webpage
