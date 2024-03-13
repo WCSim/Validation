@@ -103,7 +103,8 @@ int main(int argc,char *argv[]){
 	      if(size1 || size2) found_non_empty_vector = true;
 	      if(size1 == size2) {
 		for(size_t j = 0; j < size1; j++) {
-		  same *= vec1->at(j) == vec2->at(j);
+		  //same *= vec1->at(j) == vec2->at(j); //In my experience, comparing doubles like this can cause problems.
+		  same *= std::fabs(vec1->at(j)-vec2->at(j)) < 1e-8; //Comparing like this avoids precision problems (Is this precision okay?)
 		}//j - loop over vector
 	      }//check vector size
 	      else same=false;
