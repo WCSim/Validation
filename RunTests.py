@@ -212,4 +212,4 @@ else:
 
 #Update the webpage.
 #This causes all sorts of crazy stuff to happen for me! Doesn't work at the moment
-#WebpageFunctions.update_webpage(ValidationPath,TRAVIS_COMMIT,"")
+WebpageFunctions.update_webpage(ValidationPath, TRAVIS_COMMIT, GITHUBTOKEN)

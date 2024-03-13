@@ -17,23 +17,23 @@ WebpageFunctions.checkout_validation_webpage_branch(ValidationPath,TRAVIS_PULL_R
 
 
 # Do some specific things here. Can this be made into a common function? No way of testing...
-if os.environ.get("TRAVIS_PULL_REQUEST") != "false":
-        travis_commit_message = f" Pull Request #{os.environ.get('TRAVIS_PULL_REQUEST')}: {os.environ.get('TRAVIS_PULL_REQUEST_TITLE')}"
+if TRAVIS_PULL_REQUEST != "false":
+        travis_commit_message = f" Pull Request #{TRAVIS_PULL_REQUEST}: {TRAVIS_PULL_REQUEST_TITLE}"
 
 # First update the list of commits
 with open(f"{ValidationPath}/Webpage/folderlist.new", "w") as f_new:
-    f_new.write(os.environ.get("TRAVIS_COMMIT") + "\n")
+    f_new.write("{TRAVIS_COMMIT} \n")
     with open(f"{ValidationPath}/Webpage/folderlist", "r") as f:
         f_new.write(f.read())
 os.rename(f"{ValidationPath}/Webpage/folderlist.new", f"{ValidationPath}/Webpage/folderlist")
 
-# Update the main page
-if int(os.environ.get("TRAVIS_PULL_REQUEST")) >= 0:
-    travis_pull_request_link = f"<a href=https://github.com/WCSim/WCSim/pull/{os.environ.get('TRAVIS_PULL_REQUEST')}>"
+# Update the main page. This seems a bit silly, is TRAVIS_PULL_REQUEST guaranteed to be an integer If it does not equal false?
+if int(TRAVIS_PULL_REQUEST) >= 0:
+    travis_pull_request_link = f"<a href=https://github.com/WCSim/WCSim/pull/{TRAVIS_PULL_REQUEST}>"
     travis_pull_request_link_close = "</a>"
 
 with open(f"{ValidationPath}/Webpage/body.html.new", "w") as f_new:
-    f_new.write(f"\n<tr> <td><a href='{os.environ.get('TRAVIS_COMMIT')}/index.html'>{os.environ.get('TRAVIS_COMMIT')}</td> <td>{travis_pull_request_link}{travis_commit_message}{travis_pull_request_link_close}</td> </tr>\n")
+    f_new.write(f"\n<tr> <td><a href='{TRAVIS_COMMIT}/index.html'>{TRAVIS_COMMIT}</td> <td>{travis_pull_request_link}{travis_commit_message}{travis_pull_request_link_close}</td> </tr>\n")
     with open(f"{ValidationPath}/Webpage/body.html", "r") as f:
         f_new.write(f.read())
 os.rename(f"{ValidationPath}/Webpage/body.html.new", f"{ValidationPath}/Webpage/body.html")
@@ -48,11 +48,11 @@ with open(f"{ValidationPath}/Webpage/index.html", "w") as f_index:
         f_index.write(f_footer.read())
 
 # Make the test webpage
-commit_dir = os.path.join(ValidationPath, "Webpage", os.environ.get("TRAVIS_COMMIT"))
+commit_dir = os.path.join(ValidationPath, "Webpage", TRAVIS_COMMIT)
 os.makedirs(commit_dir, exist_ok=True)
 
 with open(os.path.join(commit_dir, "body.html"), "w") as f_body:
-    f_body.write(f"<h2>{os.environ.get('TRAVIS_COMMIT')}</h2>\n")
+    f_body.write(f"<h2>{TRAVIS_COMMIT}</h2>\n")
     f_body.write(f"<h3>{travis_pull_request_link}{travis_commit_message}{travis_pull_request_link_close}</h3>\n")
     f_body.write("<p>\n<table  border='1' align='center'>\n <tr>\n  <th scope='col'><div align='center'>Test num</div></th>\n  <th scope='col'><div align='center'>Physics test</div></th>\n </tr>\n")
 
@@ -65,7 +65,7 @@ with open(os.path.join(commit_dir, "body.html"), "w") as f_body:
             itest = key[len("Test"):]
             if key.startswith("Test") and itest.isdigit(): #Make sure last character is a digit.
                 name = value["name"]
-                itestpad = f"{itest:04d}"
+                itestpad = f"{int(itest):04d}"
                 f_body.write(f"  <tr>\n    <td>{itest}</td>\n    <td bgcolor='#00FFFF'COLOUR{itestpad}><a href='{itest}/index.html'>{name}</td>\n  </tr>\n")
 
     f_body.write("</table>\n")
@@ -83,5 +83,4 @@ with open(os.path.join(commit_dir, "index.html"), "w") as f_index:
 #############################################################
 
 ############################## update webpage ################
-
-WebpageFunctions.update_webpage(ValidationPath,TRAVIS_COMMIT,GITHUBTOKEN) 
+WebpageFunctions.update_webpage(ValidationPath, TRAVIS_COMMIT, GITHUBTOKEN) 

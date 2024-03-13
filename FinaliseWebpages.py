@@ -37,4 +37,4 @@ for jobnum in range(1, 101):
         f.write(webpage_content)
 
 
-WebpageFunctions.update_webpage(ValidationPath,TRAVIS_COMMIT,GITHUBTOKEN)
+WebpageFunctions.update_webpage(ValidationPath, TRAVIS_COMMIT, GITHUBTOKEN)
