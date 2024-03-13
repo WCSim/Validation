@@ -4,7 +4,7 @@
       "test": "BuildTest",
       "var1": "/opt/Validation/build.sh",
       "var2": "/opt/WCSim/install/bin/WCSim",
-      "comment": "Tests defined by letters were commented out in original Tests.txt, they are kept here for comepleteness :)"
+      "comment": "Tests defined by suffixed letters were commented out in original tests.txt, they are kept here for comepleteness :)"
     },
     "TestB": {
       "name": "100e_SuperK",

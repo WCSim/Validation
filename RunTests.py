@@ -6,7 +6,7 @@ import json
 
 #Get a set of arguments
 parser = argparse.ArgumentParser()
-parser.add_argument("--test_num", required=True ,help="The test number to run. This is defined by the line in tests.txt. Leaving it blank defaults to zero and all tests are run.",type=int,default=1)
+parser.add_argument("--test_num", required=True ,help="The test number to run. This is defined by the Test number in tests.json. This argument is required.",type=int,default=1)
 args = parser.parse_args()
 
 # build the comparison script
@@ -19,6 +19,7 @@ TRAVIS_PULL_REQUEST = os.getenv("TRAVIS_PULL_REQUEST","false")
 TRAVIS_PULL_REQUEST_TITLE = os.getenv("TRAVIS_PULL_REQUEST_TITLE","")
 TRAVIS_PULL_REQUEST_LINK = os.getenv("TRAVIS_PULL_REQUEST_LINK","")
 TRAVIS_COMMIT = os.getenv("TRAVIS_COMMIT","")
+GITHUBTOKEN = os.getenv("GITHUBTOKEN","")
 
 WebpageFunctions.checkout_validation_webpage_branch(ValidationPath,TRAVIS_PULL_REQUEST,TRAVIS_COMMIT)
 
