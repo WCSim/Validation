@@ -1,21 +1,16 @@
 #!/usr/bin/python3
 
 import os
-import WebpageFunctions
+from common import CommonWebPageFuncs
 
-#Grab environment variables, if not exisiting, replace with default value.
-ValidationPath = os.getenv("ValidationPath")
-TRAVIS_PULL_REQUEST = os.getenv("TRAVIS_PULL_REQUEST","false")
-TRAVIS_PULL_REQUEST_TITLE = os.getenv("TRAVIS_PULL_REQUEST_TITLE","")
-TRAVIS_PULL_REQUEST_LINK = os.getenv("TRAVIS_PULL_REQUEST_LINK","")
-TRAVIS_COMMIT = os.getenv("TRAVIS_COMMIT","")
-GITHUBTOKEN = os.getenv("GITHUBTOKEN","")
+#Initialise the common webpage functions (cw) which in turn initialises all relevant environment variables.
+cw = CommonWebPageFuncs()
 
-#Common function, should add as such.
-WebpageFunctions.checkout_validation_webpage_branch(ValidationPath,TRAVIS_PULL_REQUEST,TRAVIS_COMMIT)
+#Checksout validation webpage branch
+cw.checkout_validation_webpage_branch()
 
 # More specific stuff here
-run_dir = os.path.join(ValidationPath, "Webpage", TRAVIS_COMMIT)
+run_dir = os.path.join(cw.ValidationPath, "Webpage", cw.GIT_COMMIT)
 
 for jobnum in range(1, 101):
     job_dir = os.path.join(run_dir, str(jobnum))
@@ -37,4 +32,4 @@ for jobnum in range(1, 101):
         f.write(webpage_content)
 
 
-WebpageFunctions.update_webpage(ValidationPath, TRAVIS_COMMIT, GITHUBTOKEN)
+cw.update_webpage()

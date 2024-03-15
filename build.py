@@ -23,6 +23,6 @@ def main(option):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Build and install script")
-    parser.add_argument("-o","--option", required=True,type=int, help="Option to pass to the script")
+    parser.add_argument("-o","--option", required=True,type=int, help="Option to pass to the script. Option 0 does nothing. Option 1 sets WCSim_Geometry_Overlaps_CHECK=ON", choices=list(range(2)))
     args = parser.parse_args()
     main(args.option)

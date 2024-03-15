@@ -1,63 +1,58 @@
 #####IMPORTS#####
 import os
-import WebpageFunctions
 import json
+from common import CommonWebPageFuncs
 
-# Grab environment variables - wildly inconsistent variable naming. Will fix at some point.
-ValidationPath = os.getenv("ValidationPath")
-TRAVIS_PULL_REQUEST = os.getenv("TRAVIS_PULL_REQUEST","false")
-TRAVIS_PULL_REQUEST_TITLE = os.getenv("TRAVIS_PULL_REQUEST_TITLE","")
-TRAVIS_PULL_REQUEST_LINK = os.getenv("TRAVIS_PULL_REQUEST_LINK","")
-TRAVIS_COMMIT = os.getenv("TRAVIS_COMMIT","")
-GITHUBTOKEN = os.getenv("GITHUBTOKEN","")
+#Initialise the common object (cw) which in turn initialises all relevant environment variables.
+cw = CommonWebPageFuncs()
 
 
 #Checkout the validation webpage branch - common function, should add as such.
-WebpageFunctions.checkout_validation_webpage_branch(ValidationPath,TRAVIS_PULL_REQUEST,TRAVIS_COMMIT)
+cw.checkout_validation_webpage_branch()
 
 
 # Do some specific things here. Can this be made into a common function? No way of testing...
-if TRAVIS_PULL_REQUEST != "false":
-        travis_commit_message = f" Pull Request #{TRAVIS_PULL_REQUEST}: {TRAVIS_PULL_REQUEST_TITLE}"
+if cw.GIT_PULL_REQUEST != "false":
+        git_commit_message = f" Pull Request #{cw.GIT_PULL_REQUEST}: {cw.GIT_PULL_REQUEST_TITLE}"
 
 # First update the list of commits
-with open(f"{ValidationPath}/Webpage/folderlist.new", "w") as f_new:
-    f_new.write("{TRAVIS_COMMIT} \n")
-    with open(f"{ValidationPath}/Webpage/folderlist", "r") as f:
+with open(f"{cw.ValidationPath}/Webpage/folderlist.new", "w") as f_new:
+    f_new.write(f"{cw.GIT_COMMIT} \n")
+    with open(f"{cw.ValidationPath}/Webpage/folderlist", "r") as f:
         f_new.write(f.read())
-os.rename(f"{ValidationPath}/Webpage/folderlist.new", f"{ValidationPath}/Webpage/folderlist")
+os.rename(f"{cw.ValidationPath}/Webpage/folderlist.new", f"{cw.ValidationPath}/Webpage/folderlist")
 
-# Update the main page. This seems a bit silly, is TRAVIS_PULL_REQUEST guaranteed to be an integer If it does not equal false?
-if int(TRAVIS_PULL_REQUEST) >= 0:
-    travis_pull_request_link = f"<a href=https://github.com/WCSim/WCSim/pull/{TRAVIS_PULL_REQUEST}>"
-    travis_pull_request_link_close = "</a>"
+# Update the main page.
+if int(cw.GIT_PULL_REQUEST) >= 0:
+    git_pull_request_link = f"<a href=https://github.com/WCSim/WCSim/pull/{cw.GIT_PULL_REQUEST}>"
+    git_pull_request_link_close = "</a>"
 
-with open(f"{ValidationPath}/Webpage/body.html.new", "w") as f_new:
-    f_new.write(f"\n<tr> <td><a href='{TRAVIS_COMMIT}/index.html'>{TRAVIS_COMMIT}</td> <td>{travis_pull_request_link}{travis_commit_message}{travis_pull_request_link_close}</td> </tr>\n")
-    with open(f"{ValidationPath}/Webpage/body.html", "r") as f:
+with open(f"{cw.ValidationPath}/Webpage/body.html.new", "w") as f_new:
+    f_new.write(f"\n<tr> <td><a href='{cw.GIT_COMMIT}/index.html'>{cw.GIT_COMMIT}</td> <td>{git_pull_request_link}{git_commit_message}{git_pull_request_link_close}</td> </tr>\n")
+    with open(f"{cw.ValidationPath}/Webpage/body.html", "r") as f:
         f_new.write(f.read())
-os.rename(f"{ValidationPath}/Webpage/body.html.new", f"{ValidationPath}/Webpage/body.html")
+os.rename(f"{cw.ValidationPath}/Webpage/body.html.new", f"{cw.ValidationPath}/Webpage/body.html")
 
 # Build the webpage
-with open(f"{ValidationPath}/Webpage/index.html", "w") as f_index:
-    with open(f"{ValidationPath}/Webpage/templates/main/header.html", "r") as f_header:
+with open(f"{cw.ValidationPath}/Webpage/index.html", "w") as f_index:
+    with open(f"{cw.ValidationPath}/Webpage/templates/main/header.html", "r") as f_header:
         f_index.write(f_header.read())
-    with open(f"{ValidationPath}/Webpage/body.html", "r") as f_body:
+    with open(f"{cw.ValidationPath}/Webpage/body.html", "r") as f_body:
         f_index.write(f_body.read())
-    with open(f"{ValidationPath}/Webpage/templates/main/footer.html", "r") as f_footer:
+    with open(f"{cw.ValidationPath}/Webpage/templates/main/footer.html", "r") as f_footer:
         f_index.write(f_footer.read())
 
 # Make the test webpage
-commit_dir = os.path.join(ValidationPath, "Webpage", TRAVIS_COMMIT)
+commit_dir = os.path.join(cw.ValidationPath, "Webpage", cw.GIT_COMMIT)
 os.makedirs(commit_dir, exist_ok=True)
 
 with open(os.path.join(commit_dir, "body.html"), "w") as f_body:
-    f_body.write(f"<h2>{TRAVIS_COMMIT}</h2>\n")
-    f_body.write(f"<h3>{travis_pull_request_link}{travis_commit_message}{travis_pull_request_link_close}</h3>\n")
+    f_body.write(f"<h2>{cw.GIT_COMMIT}</h2>\n")
+    f_body.write(f"<h3>{git_pull_request_link}{git_commit_message}{git_pull_request_link_close}</h3>\n")
     f_body.write("<p>\n<table  border='1' align='center'>\n <tr>\n  <th scope='col'><div align='center'>Test num</div></th>\n  <th scope='col'><div align='center'>Physics test</div></th>\n </tr>\n")
 
     # Load in tests.json
-    with open(os.path.join(ValidationPath,'tests.json'), 'r') as json_file:
+    with open(os.path.join(cw.ValidationPath,'tests.json'), 'r') as json_file:
         data = json.load(json_file)
         # Loop over relevant tests i.e. those with numbers and not letters.
         for key, value in data.items():
@@ -72,15 +67,15 @@ with open(os.path.join(commit_dir, "body.html"), "w") as f_body:
 
 # Is there a better way to do this? 
 with open(os.path.join(commit_dir, "index.html"), "w") as f_index:
-    with open(f"{ValidationPath}/Webpage/templates/run/header.html", "r") as f_header:
+    with open(f"{cw.ValidationPath}/Webpage/templates/run/header.html", "r") as f_header:
         f_index.write(f_header.read())
     with open(os.path.join(commit_dir, "body.html"), "r") as f_body:
         f_index.write(f_body.read())
-    with open(f"{ValidationPath}/Webpage/templates/run/footer.html", "r") as f_footer:
+    with open(f"{cw.ValidationPath}/Webpage/templates/run/footer.html", "r") as f_footer:
         f_index.write(f_footer.read())
 
 
 #############################################################
 
 ############################## update webpage ################
-WebpageFunctions.update_webpage(ValidationPath, TRAVIS_COMMIT, GITHUBTOKEN) 
+cw.update_webpage() 
