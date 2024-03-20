@@ -14,6 +14,8 @@ cw.checkout_validation_webpage_branch()
 # Do some specific things here. Can this be made into a common function? No way of testing...
 if cw.GIT_PULL_REQUEST != "false":
         git_commit_message = f" Pull Request #{cw.GIT_PULL_REQUEST}: {cw.GIT_PULL_REQUEST_TITLE}"
+else:
+        git_commit_message = ""
 
 # First update the list of commits
 with open(f"{cw.ValidationPath}/Webpage/folderlist.new", "w") as f_new:
