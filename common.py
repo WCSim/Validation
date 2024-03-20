@@ -82,13 +82,14 @@ class CommonWebPageFuncs:
         folder = 0
         folderlist_filename = os.path.join(self.ValidationPath, "Webpage", "folderlist")
         new_folderlist_filename = folderlist_filename + '_new'
-        with open(folderlist_filename, 'r'), open(new_folderlist_filename, 'w') as folderlist_file, new_folderlist_file:
-            for line in folderlist_file:
-                folder += 1
-                if folder >= 35:
-                    os.system(f"git rm -r {line.strip()}")
-                else:
-                    new_folderlist_file.write(line)
+        with open(folderlist_filename, 'r') as folderlist_file:
+            with open(new_folderlist_filename, 'w') as new_folderlist_file:
+                for line in folderlist_file:
+                    folder += 1
+                    if folder >= 35:
+                        os.system(f"git rm -r {line.strip()}")
+                    else:
+                        new_folderlist_file.write(line)
         os.system(f'/bin/cp -f {new_folderlist_filename} {folderlist_filename}')
 
         # Setup the commit
