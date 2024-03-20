@@ -13,7 +13,7 @@ cw.checkout_validation_webpage_branch()
 # More specific stuff here
 run_dir = os.path.join(cw.ValidationPath, "Webpage", cw.GIT_COMMIT)
 
-for job_dir in glob.glob(f"{run_dir}/[0-9]*/'"):
+for job_dir in glob.glob(f"{run_dir}/[0-9]*/"):
     try:
         jobnum = int(job_dir.rsplit('/', 2)[-2])
     except:
