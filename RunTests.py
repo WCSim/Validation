@@ -62,7 +62,7 @@ with open(TESTWEBPAGE, 'a') as webpage:
     webpage.write(f"\n<h3>{name}</h3>\n")
 
 ######### Physics Validation #########
-if test == f"{cw.VALIDATION_SOFTWARE}PhysicsValidation":
+if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
     # Set up the table of tests
     with open(TESTWEBPAGE, 'a') as f:
         f.write('''

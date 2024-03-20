@@ -1,0 +1,21 @@
+{   
+    "Validation": {
+      "Path": "github.com/WCSim/Validation.git",
+      "CodeBranch": "master",
+      "WebPageBranch": "gh-pages",
+      "WebPageFolder": "./Webpage",
+      "Comment": "The list of things in this file is non-exhaustive, should discuss what can go in here."
+    },
+    "Software": {
+      "Name": "WCSim",
+      "Path": "github.com/WCSim/WCSim.git",
+      "Branch": "master"
+    },
+    "Commit": {
+      "Username": "Test",
+      "Email": "Test@test.ac.uk",
+      "Token": "SomeToken"
+    }
+    
+  }
+  

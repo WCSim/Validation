@@ -1,17 +1,36 @@
 #####IMPORTS######
 import os
 import time
+import json
 
 class CommonWebPageFuncs:
     def __init__(self):
+        #Could these come from a config? Also, inconsistent naming scheme. Please change.
         self.ValidationPath = os.getenv("ValidationPath")
         self.GIT_PULL_REQUEST = os.getenv("GIT_PULL_REQUEST", "false")
         self.GIT_PULL_REQUEST_TITLE = os.getenv("GIT_PULL_REQUEST_TITLE", "")
         self.GIT_PULL_REQUEST_LINK = os.getenv("GIT_PULL_REQUEST_LINK", "")
         self.GIT_COMMIT = os.getenv("GIT_COMMIT", "")
-        self.GITHUBTOKEN = os.getenv("GITHUBTOKEN", "")
-        self.VALIDATION_SOFTWARE = os.getenv("VALIDATION_SOFTWARE", "")
 
+        #Some variables to read from a config file - this is set up as an example. May want to expand this later.
+        with open("git_setup.json") as config_file: #THis config file can be passed as an argument to the class init, do we want to do this?
+            data = json.load(config_file)
+
+        #Git config
+        self.GIT_USER = data["Commit"]["Username"]
+        self.GIT_EMAIL = data["Commit"]["Email"]
+        self.GIT_TOKEN = data["Commit"]["Token"]
+        #Validation setup
+        self.WEBPAGE_BRANCH = data["Validation"]["WebPageBranch"]
+        self.WEBPAGE_FOLDER = data["Validation"]["WebPageFolder"]
+        self.VALIDATION_GIT_PATH = data["Validation"]["Path"]
+        self.VALIDATION_GIT_BRANCH = data["Validation"]["CodeBranch"]
+        #Software setup
+        self.SOFTWARE_NAME = data["Software"]["Name"]
+        self.SOFTWARE_GIT_PATH = data["Software"]["Path"]
+        self.SOFTWARE_GIT_BRANCH = data["Software"]["Branch"]
+        
+        
     def checkout_validation_webpage_branch(self):
         """
         Function that checks out the validation webpage branch from git.
@@ -30,7 +49,7 @@ class CommonWebPageFuncs:
         webpage_path = os.path.join(self.ValidationPath, "Webpage")
 
         if not os.path.isdir(webpage_path):
-            os.system(f"git clone https://github.com/WCSim/Validation.git --single-branch --depth 1 -b gh-pages ./Webpage")
+            os.system(f"git clone https://{self.VALIDATION_GIT_PATH} --single-branch --depth 1 -b {self.WEBPAGE_BRANCH} {self.WEBPAGE_FOLDER}")
             os.chdir("Webpage")
 
             # Add a default user, otherwise git complains
@@ -55,7 +74,7 @@ class CommonWebPageFuncs:
         Arguments:
         - self.ValidationPath: The path to the WCSim validation directory.
         - self.GIT_COMMIT: The commit ID of the GIT CI build.
-        - self.GITHUBTOKEN: The GitHub token for authentication.
+        - self.GIT_TOKEN: The GitHub token for authentication.
         """
 
         os.chdir(os.path.join(self.ValidationPath, "Webpage"))
@@ -83,7 +102,7 @@ class CommonWebPageFuncs:
             os.system("git pull --rebase")
 
             # Attempt to push
-            push_command = f"git push https://tdealtry:{self.GITHUBTOKEN}@github.com/WCSim/Validation.git gh-pages"
+            push_command = f"git push https://{self.GIT_USER}:{self.GIT_TOKEN}@{self.VALIDATION_GIT_PATH} {self.WEBPAGE_BRANCH}"
             if os.system(push_command) == 0:
                 break
 
