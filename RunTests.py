@@ -86,7 +86,8 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
     #First run WCSim with the chosen mac file.
     isubjob = 0
     wcsim_exit_status = os.system(f"/usr/bin/time -p --output=timetest {ValidationPath}/{variables['ScriptName']} {ValidationPath}/Generate/macReference/{variables['WCSimMacName']} {variables['FileTag']}.root |& tee wcsim_run.out")
-
+    print('wcsim_exit_status', wcsim_exit_status, type(wcsim_exit_status))
+    
     # Check the exit status of the previous command
     if wcsim_exit_status != 0:
         cw.add_entry(TESTWEBPAGE,"#FF0000", "", "Failed to run WCSim")
@@ -114,7 +115,7 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
                     os.mkdir(f"{TESTDIR}/{isubjob}")
                 
                 compare_exit_status = os.system(f"{ValidationPath}/Compare/compareroot {ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}/{isubjob} {root_filename} {ValidationPath}/Compare/Reference/{root_filename}")
-                
+                print('compare_exit_status', compare_exit_status, type(compare_exit_status))
                 if compare_exit_status != 0:
                     cw.add_entry(TESTWEBPAGE,"#FF0000", link, f"Failed {pmttype} plot comparisons")
                     ret = 1
@@ -123,6 +124,7 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
             else:
                 cw.add_entry(TESTWEBPAGE,"#000000", "", f"No {pmttype} in geometry")
 
+        print('wcsim_has_output, ret after loop over diffing root files', wcsim_has_output, ret)
         if wcsim_has_output == 0:
             ret = 1
 
@@ -136,7 +138,7 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
         diff_file_geo = f"{variables['GeoFileName']}.diff.txt"
         diff_path = f"{ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}/"
 
-        ret = cw.check_diff(TESTWEBPAGE, diff_path, diff_file_geo ,ref_file_geo, test_file_geo, "Geom")
+        ret += cw.check_diff(TESTWEBPAGE, diff_path, diff_file_geo ,ref_file_geo, test_file_geo, "Geom")
 
         #Then compare the output bad.txt with the reference.
         print("Comparing badfile")
