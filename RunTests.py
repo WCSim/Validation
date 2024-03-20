@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import os
+import subprocess
 from common import CommonWebPageFuncs
 import argparse
 import json
@@ -85,7 +86,14 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
 
     #First run WCSim with the chosen mac file.
     isubjob = 0
-    wcsim_exit_status = os.system(f"/usr/bin/time -p --output=timetest {ValidationPath}/{variables['ScriptName']} {ValidationPath}/Generate/macReference/{variables['WCSimMacName']} {variables['FileTag']}.root |& tee wcsim_run.out")
+    wcsim_exit = subprocess.run(["/usr/bin/time", "-p", "--output=timetest", f"{ValidationPath}/{variables['ScriptName']}", "{ValidationPath}/Generate/macReference/{variables['WCSimMacName']}", "{variables['FileTag']}.root"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+    print(wcsim_exit)
+    wcsim_exit_status = wcsim_exit.returncode
+    logfile = open('wcsim_run.out', 'w')
+    while wcsim_exit.poll() is None:
+        line = wcsim_exit.stdout.readline()
+        logfile.write(line)
+    #wcsim_exit_status = os.system(f"/usr/bin/time -p --output=timetest {ValidationPath}/{variables['ScriptName']} {ValidationPath}/Generate/macReference/{variables['WCSimMacName']} {variables['FileTag']}.root |& tee wcsim_run.out")
     print('wcsim_exit_status', wcsim_exit_status, type(wcsim_exit_status))
     
     # Check the exit status of the previous command
@@ -129,7 +137,7 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
             ret = 1
 
 
-        #Compare the grofile.txt output to the reference.
+        #Compare the geofile.txt output to the reference.
         #This can almost certainly be streamlined with a function, but just want to make sure it works first :).
         print("Comparing geofile")
         isubjob += 1
