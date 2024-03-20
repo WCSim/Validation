@@ -10,13 +10,13 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--test_num", required=True ,help="The test number to run. This is defined by the Test number in tests.json. This argument is required.",type=int,default=1)
 args = parser.parse_args()
 
-# build the comparison script
-ValidationPath = os.getenv("ValidationPath")
-os.chdir(ValidationPath)
-os.system("make")
-
 #Initialise the common object (cw) which in turn initialises all relevant environment variables.
 cw = CommonWebPageFuncs()
+
+# build the comparison script
+os.chdir(cw.ValidationPath)
+os.system("make")
+
 
 cw.checkout_validation_webpage_branch()
 
@@ -26,7 +26,7 @@ ret = 0
 os.chdir('/opt/WCSim/install')
 
 # Each test has it's own webpage, so lets just build it as we go
-TESTDIR=f"{ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}"
+TESTDIR=f"{cw.ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}"
 
 TESTWEBPAGE = f"{TESTDIR}/index.html"
 # First make the directory
@@ -35,7 +35,7 @@ if not os.path.isdir(f"{TESTDIR}"):
     os.mkdir(f"{TESTDIR}")  
 
 #Start with the header
-with open(f"{ValidationPath}/Webpage/templates/test/header.html", 'r') as header_file:
+with open(f"{cw.ValidationPath}/Webpage/templates/test/header.html", 'r') as header_file:
     header_content = header_file.read()
 
 if cw.GIT_PULL_REQUEST != "false":
@@ -51,7 +51,7 @@ with open(TESTWEBPAGE, 'w') as test_webpage_file:
     """)
 
 # Loop over tests.txt to find the correct job we want to run.
-with open(os.path.join(ValidationPath, 'tests.json'), 'r') as json_file:
+with open(os.path.join(cw.ValidationPath, 'tests.json'), 'r') as json_file:
     data = json.load(json_file)
 
 
@@ -83,13 +83,13 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
     # This should be fine, but will break down if somehow `_2` or `_OD` are the only ones that exist in a future geometry
     #print(variables)
     rootfilename = f"{variables['FileTag']}_analysed_wcsimrootevent.root"
-    if not os.path.isfile(os.path.join(ValidationPath, 'Compare', 'Reference', rootfilename)):
+    if not os.path.isfile(os.path.join(cw.ValidationPath, 'Compare', 'Reference', rootfilename)):
         cw.add_entry(TESTWEBPAGE,"#FF00FF", "", "Reference file does not exist")
         ret = 1
 
     #First run WCSim with the chosen mac file.
     isubjob = 0
-    wcsim_exit = subprocess.run(["/usr/bin/time", "-p", "--output=timetest", f"{ValidationPath}/{variables['ScriptName']}", f"{ValidationPath}/Generate/macReference/{variables['WCSimMacName']}", f"{variables['FileTag']}.root"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    wcsim_exit = subprocess.run(["/usr/bin/time", "-p", "--output=timetest", f"{cw.ValidationPath}/{variables['ScriptName']}", f"{cw.ValidationPath}/Generate/macReference/{variables['WCSimMacName']}", f"{variables['FileTag']}.root"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     wcsim_exit_status = wcsim_exit.returncode
     with open('wcsim_run.out', 'w') as logfile:
         logfile.write(wcsim_exit.stdout)
@@ -122,7 +122,7 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
                 if not os.path.isdir(f"{TESTDIR}/{isubjob}"):
                     os.mkdir(f"{TESTDIR}/{isubjob}")
                 
-                compare_exit_status = os.system(f"{ValidationPath}/Compare/compareroot {ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}/{isubjob} {root_filename} {ValidationPath}/Compare/Reference/{root_filename}")
+                compare_exit_status = os.system(f"{cw.ValidationPath}/Compare/compareroot {cw.ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}/{isubjob} {root_filename} {cw.ValidationPath}/Compare/Reference/{root_filename}")
                 print('compare_exit_status', compare_exit_status, type(compare_exit_status))
                 if compare_exit_status != 0:
                     cw.add_entry(TESTWEBPAGE,"#FF0000", link, f"Failed {pmttype} plot comparisons")
@@ -142,9 +142,9 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
         print("Comparing geofile")
         isubjob += 1
         test_file_geo = f"{variables['GeoFileName']}"
-        ref_file_geo = f"{ValidationPath}/Compare/Reference/{variables['GeoFileName']}"
+        ref_file_geo = f"{cw.ValidationPath}/Compare/Reference/{variables['GeoFileName']}"
         diff_file_geo = f"{variables['GeoFileName']}.diff.txt"
-        diff_path = f"{ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}/"
+        diff_path = f"{cw.ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}/"
 
         ret += cw.check_diff(TESTWEBPAGE, diff_path, diff_file_geo ,ref_file_geo, test_file_geo, "Geom")
 
@@ -152,7 +152,7 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
         print("Comparing badfile")
         isubjob += 1
         test_file_bad = f"{variables['FileTag']}_bad.txt"
-        ref_file_bad = f"{ValidationPath}/Compare/Reference/{test_file_bad}"
+        ref_file_bad = f"{cw.ValidationPath}/Compare/Reference/{test_file_bad}"
         diff_file_bad = f"{variables['FileTag']}_bad.diff.txt"
 
         # Remove the existing badfilename if it exists
@@ -192,7 +192,7 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
             print("Geometry warnings exist:")
             with open(impossiblefilename, "r") as impossible_file:
                 print(impossible_file.read())
-            os.system(f"mv {impossiblefilename} {ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}/")
+            os.system(f"mv {impossiblefilename} {cw.ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}/")
             ret = 1
         else:
             # If the file is empty, there are no geometry warnings
@@ -201,7 +201,7 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
 #Out of the loop now, no more lines to read.
 # Add footer to finish the webpage
 # A lot of IO here, can it be reduced? (Files aren't large so not a massive problem).
-with open(f"{ValidationPath}/Webpage/templates/test/footer.html", "r") as footer_template:
+with open(f"{cw.ValidationPath}/Webpage/templates/test/footer.html", "r") as footer_template:
     footer_content = footer_template.read()
 
 with open(TESTWEBPAGE, "a") as webpage_file:
