@@ -11,6 +11,7 @@ class CommonWebPageFuncs:
         self.GIT_PULL_REQUEST_TITLE = os.getenv("GIT_PULL_REQUEST_TITLE", "")
         self.GIT_PULL_REQUEST_LINK = os.getenv("GIT_PULL_REQUEST_LINK", "")
         self.GIT_COMMIT = os.getenv("GIT_COMMIT", "")
+        self.GIT_TOKEN = os.getenv("GitHubToken", "")
 
         #Some variables to read from a config file - this is set up as an example. May want to expand this later.
         with open("git_setup.json") as config_file: #THis config file can be passed as an argument to the class init, do we want to do this?
@@ -19,7 +20,6 @@ class CommonWebPageFuncs:
         #Git config
         self.GIT_USER = data["Commit"]["Username"]
         self.GIT_EMAIL = data["Commit"]["Email"]
-        self.GIT_TOKEN = data["Commit"]["Token"]
         #Validation setup
         self.WEBPAGE_BRANCH = data["Validation"]["WebPageBranch"]
         self.WEBPAGE_FOLDER = data["Validation"]["WebPageFolder"]
@@ -28,7 +28,6 @@ class CommonWebPageFuncs:
         #Software setup
         self.SOFTWARE_NAME = data["Software"]["Name"]
         self.SOFTWARE_GIT_PATH = data["Software"]["Path"]
-        self.SOFTWARE_GIT_BRANCH = data["Software"]["Branch"]
         
         
     def checkout_validation_webpage_branch(self):

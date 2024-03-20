@@ -8,8 +8,7 @@
     },
     "Software": {
       "Name": "WCSim",
-      "Path": "github.com/WCSim/WCSim.git",
-      "Branch": "master"
+      "Path": "github.com/WCSim/WCSim.git"
     },
     "Commit": {
       "Username": "Test",
