@@ -28,7 +28,8 @@ try:
         git_pull_request_link = f"<a href=https://github.com/WCSim/WCSim/pull/{cw.GIT_PULL_REQUEST}>"
         git_pull_request_link_close = "</a>"
 except ValueError:
-    pass
+    git_pull_request_link = ""
+    git_pull_request_link_close = ""
 
 with open(f"{cw.ValidationPath}/Webpage/body.html.new", "w") as f_new:
     f_new.write(f"\n<tr> <td><a href='{cw.GIT_COMMIT}/index.html'>{cw.GIT_COMMIT}</td> <td>{git_pull_request_link}{git_commit_message}{git_pull_request_link_close}</td> </tr>\n")
