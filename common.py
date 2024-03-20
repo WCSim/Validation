@@ -14,7 +14,7 @@ class CommonWebPageFuncs:
         self.GIT_TOKEN = os.getenv("GitHubToken", "")
 
         #Some variables to read from a config file - this is set up as an example. May want to expand this later.
-        with open("git_setup.json") as config_file: #THis config file can be passed as an argument to the class init, do we want to do this?
+        with open(f"{self.ValidationPath}/git_setup.json") as config_file: #THis config file can be passed as an argument to the class init, do we want to do this?
             data = json.load(config_file)
 
         #Git config
