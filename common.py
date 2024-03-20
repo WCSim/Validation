@@ -90,7 +90,7 @@ class CommonWebPageFuncs:
                         os.system(f"git rm -r {line.strip()}")
                     else:
                         new_folderlist_file.write(line)
-        os.system(f'/bin/cp -f {new_folderlist_filename} {folderlist_filename}')
+        os.system(f'/bin/mv -f {new_folderlist_filename} {folderlist_filename}')
 
         # Setup the commit
         print("Adding")
