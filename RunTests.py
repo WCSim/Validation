@@ -158,7 +158,7 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
                     bad_file.write(f"\"{grep_pattern}\" {grep_count}\n")
 
         # Run the diff command and capture the output
-        ret = cw.check_diff(TESTWEBPAGE, diff_path, diff_file_bad, ref_file_bad, test_file_bad, "bad")
+        ret += cw.check_diff(TESTWEBPAGE, diff_path, diff_file_bad, ref_file_bad, test_file_bad, "bad")
 
         #Then produce a grep of impossible geometry warnings
         isubjob += 1
