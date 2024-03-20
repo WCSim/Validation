@@ -51,7 +51,7 @@ with open(TESTWEBPAGE, 'w') as test_webpage_file:
     """)
 
 # Loop over tests.txt to find the correct job we want to run.
-with open('tests.json', 'r') as json_file:
+with open(os.path.join(ValidationPath, 'tests.json'), 'r') as json_file:
     data = json.load(json_file)
 
 
