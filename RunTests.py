@@ -86,7 +86,7 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
 
     #First run WCSim with the chosen mac file.
     isubjob = 0
-    wcsim_exit = subprocess.run(["/usr/bin/time", "-p", "--output=timetest", f"{ValidationPath}/{variables['ScriptName']}", "{ValidationPath}/Generate/macReference/{variables['WCSimMacName']}", "{variables['FileTag']}.root"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    wcsim_exit = subprocess.run(["/usr/bin/time", "-p", "--output=timetest", f"{ValidationPath}/{variables['ScriptName']}", f"{ValidationPath}/Generate/macReference/{variables['WCSimMacName']}", f"{variables['FileTag']}.root"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     wcsim_exit_status = wcsim_exit.returncode
     with open('wcsim_run.out', 'w') as logfile:
         logfile.write(wcsim_exit.stdout)
