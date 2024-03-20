@@ -22,6 +22,9 @@ cw.checkout_validation_webpage_branch()
 
 ret = 0
 ####### Running tests #######
+# run from the software location, in order to get the relevant data files (if required)
+os.chdir('/opt/WCSim/install')
+
 # Each test has it's own webpage, so lets just build it as we go
 TESTDIR=f"{ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}"
 
