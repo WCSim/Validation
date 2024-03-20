@@ -86,14 +86,11 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
 
     #First run WCSim with the chosen mac file.
     isubjob = 0
-    wcsim_exit = subprocess.run(["/usr/bin/time", "-p", "--output=timetest", f"{ValidationPath}/{variables['ScriptName']}", "{ValidationPath}/Generate/macReference/{variables['WCSimMacName']}", "{variables['FileTag']}.root"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
-    print(wcsim_exit)
+    wcsim_exit = subprocess.run(["/usr/bin/time", "-p", "--output=timetest", f"{ValidationPath}/{variables['ScriptName']}", "{ValidationPath}/Generate/macReference/{variables['WCSimMacName']}", "{variables['FileTag']}.root"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     wcsim_exit_status = wcsim_exit.returncode
-    logfile = open('wcsim_run.out', 'w')
-    while wcsim_exit.poll() is None:
-        line = wcsim_exit.stdout.readline()
-        logfile.write(line)
-    #wcsim_exit_status = os.system(f"/usr/bin/time -p --output=timetest {ValidationPath}/{variables['ScriptName']} {ValidationPath}/Generate/macReference/{variables['WCSimMacName']} {variables['FileTag']}.root |& tee wcsim_run.out")
+    with open('wcsim_run.out', 'w') as logfile:
+        logfile.write(wcsim_exit.stdout)
+    print(wcsim_exit.stdout)
     print('wcsim_exit_status', wcsim_exit_status, type(wcsim_exit_status))
     
     # Check the exit status of the previous command
