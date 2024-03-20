@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import os
+import glob
 from common import CommonWebPageFuncs
 
 #Initialise the common webpage functions (cw) which in turn initialises all relevant environment variables.
@@ -12,8 +13,12 @@ cw.checkout_validation_webpage_branch()
 # More specific stuff here
 run_dir = os.path.join(cw.ValidationPath, "Webpage", cw.GIT_COMMIT)
 
-for jobnum in range(1, 101):
-    job_dir = os.path.join(run_dir, str(jobnum))
+for job_dir in glob.glob(f"{run_dir}/[0-9]*/'"):
+    try:
+        jobnum = int(job_dir.rsplit('/', 2)[-2])
+    except:
+        #this happens if we have a directory that starts with a number, but has letters in it
+        continue
     #If the job directory doesn't exist, die.
     if not os.path.isdir(job_dir):
         break # Changed from boolean as 'break' makes code easier to use imo.
