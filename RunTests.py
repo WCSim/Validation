@@ -4,6 +4,7 @@ import subprocess
 from common import CommonWebPageFuncs
 import argparse
 import json
+import sys
 
 #Get a set of arguments
 parser = argparse.ArgumentParser()
@@ -220,3 +221,6 @@ else:
 #Update the webpage.
 #This causes all sorts of crazy stuff to happen for me! Doesn't work at the moment
 cw.update_webpage()
+
+if ret != 0:
+    sys.exit(-1)
