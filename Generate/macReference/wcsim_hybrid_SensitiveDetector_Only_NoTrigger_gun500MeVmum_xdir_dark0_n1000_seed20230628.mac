@@ -5,7 +5,7 @@
 /hits/verbose 0
 /grdm/verbose 0
 
-/control/execute /opt/Validation/Generate/macReference/hkfd_nood.mac
+/control/execute /opt/Validation/Generate/macReference/geom/hkfd_nood.mac
 
 /WCSim/PMTQEMethod SensitiveDetector_Only
 
