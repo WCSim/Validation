@@ -164,8 +164,9 @@ if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
         grep_patterns = ["GeomNav1002", "Optical photon is killed because of missing refractive index"]
         with open("wcsim_run.out", "r") as wcsim_run_out:
             with open(test_file_bad, "w") as bad_file:
+                wcsim_run_out_str = wcsim_run_out.read()
                 for grep_pattern in grep_patterns:
-                    grep_count = wcsim_run_out.read().count(grep_pattern)
+                    grep_count = wcsim_run_out_str.count(grep_pattern)
                     bad_file.write(f"\"{grep_pattern}\" {grep_count}\n")
 
         # Run the diff command and capture the output
