@@ -1,227 +1,255 @@
 #!/usr/bin/python3
 import os
 import subprocess
-from common import CommonWebPageFuncs
 import argparse
 import json
 import sys
+from common import CommonWebPageFuncs
 
-#Get a set of arguments
-parser = argparse.ArgumentParser()
-parser.add_argument("--test_num", required=True ,help="The test number to run. This is defined by the Test number in tests.json. This argument is required.",type=int,default=1)
-args = parser.parse_args()
+def create_test_webpage_header(ValidationPath):
+    try:
+        with open(f"{ValidationPath}/Webpage/templates/test/header.html", 'r') as header_file:
+            header_content = header_file.read()
+    except FileNotFoundError:
+            raise FileNotFoundError(f" File {ValidationPath}/Webpage/templates/test/header.html could not be found")
+    return header_content
 
-#Initialise the common object (cw) which in turn initialises all relevant environment variables.
-cw = CommonWebPageFuncs()
+def create_test_webpage_footer(ValidationPath):
+    try: 
+        with open(f"{ValidationPath}/Webpage/templates/test/footer.html", "r") as footer_template:
+            footer_content = footer_template.read()
+    except FileNotFoundError:
+        raise FileNotFoundError(f" File {ValidationPath}/Webpage/templates/test/footer.html not found")
+    return footer_content
 
-# build the comparison script
-os.chdir(cw.ValidationPath)
-os.system("make")
+def create_test_webpage(test_dir, header_content, GIT_COMMIT_MESSAGE, GIT_COMMIT, GIT_PULL_REQUEST_LINK):
+    try:
+        test_webpage = os.path.join(test_dir, "index.html")
+        with open(test_webpage, 'w') as test_webpage_file:
+            test_webpage_file.write(header_content)
+            test_webpage_file.write(f"""
+            <h2>{GIT_COMMIT}</h2>
+            <h3>{GIT_PULL_REQUEST_LINK}{GIT_COMMIT_MESSAGE}</h3>
+            """)
+    except Exception:
+        raise Exception("Failed to create test webpage")
 
+    return test_webpage
 
-cw.checkout_validation_webpage_branch()
+def check_reference_file(common_funcs, test_webpage, test_variables): 
+    rootfilename = f"{test_variables['FileTag']}_analysed_wcsimrootevent.root"
+    if not os.path.isfile(rootfilename):
+        common_funcs.add_entry(test_webpage, "#FF00FF", "", "Reference file does not exist") #Not clear with this, seems like it still needs to run even if reference file not found.
+        return 1
+    return 0
 
-ret = 0
-####### Running tests #######
-# run from the software location, in order to get the relevant data files (if required)
-os.chdir('/opt/WCSim/install')
+def run_wcsim(variables, common_funcs, test_webpage):
+    try:
+        wcsim_exit = subprocess.run(["/usr/bin/time", "-p", "--output=timetest", f"{common_funcs.ValidationPath}/{variables['ScriptName']}", f"{common_funcs.ValidationPath}/Generate/macReference/{variables['WCSimMacName']}", f"{variables['FileTag']}.root"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=True)
+        
+        # Write the command and its output to a log file
+        with open('wcsim_run.out', 'w') as logfile:
+            logfile.write(wcsim_exit.stdout.decode())
 
-# Each test has it's own webpage, so lets just build it as we go
-TESTDIR=f"{cw.ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}"
+        print(wcsim_exit.stdout.decode())
 
-TESTWEBPAGE = f"{TESTDIR}/index.html"
-# First make the directory
-if not os.path.isdir(f"{TESTDIR}"):
-    print(f"{TESTDIR} already exists. Continue without creating.")
-    os.mkdir(f"{TESTDIR}")  
-
-#Start with the header
-with open(f"{cw.ValidationPath}/Webpage/templates/test/header.html", 'r') as header_file:
-    header_content = header_file.read()
-
-if cw.GIT_PULL_REQUEST != "false":
-    GIT_COMMIT_MESSAGE = f" Pull Request #{cw.GIT_PULL_REQUEST}: {cw.GIT_PULL_REQUEST_TITLE}"
-else:
-    GIT_COMMIT_MESSAGE = ""
-
-with open(TESTWEBPAGE, 'w') as test_webpage_file:
-    test_webpage_file.write(header_content)
-    test_webpage_file.write(f"""
-    <h2>{cw.GIT_COMMIT}</h2>
-    <h3>{cw.GIT_PULL_REQUEST_LINK}{GIT_COMMIT_MESSAGE}</h3>
-    """)
-
-# Loop over tests.txt to find the correct job we want to run.
-with open(os.path.join(cw.ValidationPath, 'tests.json'), 'r') as json_file:
-    data = json.load(json_file)
-
-
-#Grab the right test
-values = data[f'Test{args.test_num}']
-name = values['name']
-test = values['test']
-variables = {key: value for key, value in values.items() if key not in ['name', 'test']}
-print(f"Running test {args.test_num} with name: {name} of type: {test} with variables: {variables}")
-# Add the details of the test to the TESTWEBPAGE
-with open(TESTWEBPAGE, 'a') as webpage:
-    webpage.write(f"\n<h3>{name}</h3>\n")
-
-######### Physics Validation #########
-if test == f"{cw.SOFTWARE_NAME}PhysicsValidation":
-    # Set up the table of tests
-    with open(TESTWEBPAGE, 'a') as f:
-        f.write('''
-        <p>
-        <table  border='1' align='center'>
-        <tr>
-        <th scope='col'><div align='center'>Tests</div></th>
-        </tr>
-        ''')
-
-    # Sanity check - ensure the reference file exists
-    # This will purposefully fail jobs when new reference mac files are added, until the reference .root files are uploaded
-    # Note that this only checks for the first ID PMT type (i.e. `wcsimrootevent` branch of the tree)
-    # This should be fine, but will break down if somehow `_2` or `_OD` are the only ones that exist in a future geometry
-    #print(variables)
-    rootfilename = f"{variables['FileTag']}_analysed_wcsimrootevent.root"
-    if not os.path.isfile(os.path.join(cw.ValidationPath, 'Compare', 'Reference', rootfilename)):
-        cw.add_entry(TESTWEBPAGE,"#FF00FF", "", "Reference file does not exist")
-        ret = 1
-
-    #First run WCSim with the chosen mac file.
-    isubjob = 0
-    wcsim_exit = subprocess.run(["/usr/bin/time", "-p", "--output=timetest", f"{cw.ValidationPath}/{variables['ScriptName']}", f"{cw.ValidationPath}/Generate/macReference/{variables['WCSimMacName']}", f"{variables['FileTag']}.root"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-    wcsim_exit_status = wcsim_exit.returncode
-    with open('wcsim_run.out', 'w') as logfile:
-        logfile.write(wcsim_exit.stdout)
-    print(wcsim_exit.stdout)
-    print('wcsim_exit_status', wcsim_exit_status, type(wcsim_exit_status))
-    
-    # Check the exit status of the previous command
-    if wcsim_exit_status != 0:
-        cw.add_entry(TESTWEBPAGE,"#FF0000", "", "Failed to run WCSim")
-        ret = 1
-    else:
+        # Parse the timing information
         with open("timetest", "r") as timetest_file:
             for line in timetest_file:
                 if "user" in line:
                     time = line.split()[1] + " sec"
                     break
 
-        cw.add_entry(TESTWEBPAGE,"#00FF00", "", time)
+        common_funcs.add_entry(test_webpage, "#00FF00", "", time)
+        return 0
 
-        # Compare output root files with reference
+    except subprocess.CalledProcessError as e:
+        # If the subprocess call fails, handle the exception
+        common_funcs.add_entry(test_webpage, "#FF0000", "", "Failed to run WCSim")
+        raise subprocess.CalledProcessError(f"Failed to run WCSim. Return code: {e.returncode}.\nOutput: {e.output.decode()}")
+
+
+
+def compare_root_files(common_funcs, test_webpage, test_dir, variables, test_num):
+    '''
+    Compare output root file with the reference file
+    '''
+    try:
+        ret = 0
         wcsim_has_output = 0
         isubjob = 0
         for pmttype in ["wcsimrootevent", "wcsimrootevent2", "wcsimrootevent_OD"]:
             isubjob += 1
             root_filename = f"{variables['FileTag']}_analysed_{pmttype}.root"
-
             if os.path.isfile(root_filename):
                 wcsim_has_output = 1
                 link = f"<a href='{isubjob}/index.html'>"
-                if not os.path.isdir(f"{TESTDIR}/{isubjob}"):
-                    os.mkdir(f"{TESTDIR}/{isubjob}")
-                
-                compare_exit_status = os.system(f"{cw.ValidationPath}/Compare/compareroot {cw.ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}/{isubjob} {root_filename} {cw.ValidationPath}/Compare/Reference/{root_filename}")
+                if not os.path.isdir(f"{test_dir}/{isubjob}"):
+                    os.mkdir(f"{test_dir}/{isubjob}")
+                compare_exit_status = os.system(f"{common_funcs.ValidationPath}/Compare/compareroot {common_funcs.ValidationPath}/Webpage/{common_funcs.GIT_COMMIT}/{test_num}/{isubjob} {root_filename} {common_funcs.ValidationPath}/Compare/Reference/{root_filename}")
                 print('compare_exit_status', compare_exit_status, type(compare_exit_status))
                 if compare_exit_status != 0:
-                    cw.add_entry(TESTWEBPAGE,"#FF0000", link, f"Failed {pmttype} plot comparisons")
+                    common_funcs.add_entry(test_webpage, "#FF0000", link, f"Failed {pmttype} plot comparisons")
                     ret = 1
                 else:
-                    cw.add_entry(TESTWEBPAGE,"#00FF00", link, f"{pmttype} plot pass")
+                    common_funcs.add_entry(test_webpage, "#00FF00", link, f"{pmttype} plot pass")
             else:
-                cw.add_entry(TESTWEBPAGE,"#000000", "", f"No {pmttype} in geometry")
+                common_funcs.add_entry(test_webpage, "#000000", "", f"No {pmttype} in geometry")
 
         print('wcsim_has_output, ret after loop over diffing root files', wcsim_has_output, ret)
         if wcsim_has_output == 0:
             ret = 1
+    except Exception:
+        raise Exception("Failed to compare the root files")
+    return ret
 
+def compare_geofile(common_funcs, test_webpage, variables, test_num):
+    ret = 0
+    test_file_geo = f"{variables['GeoFileName']}"
+    ref_file_geo = f"{common_funcs.ValidationPath}/Compare/Reference/{variables['GeoFileName']}"
+    diff_file_geo = f"{variables['GeoFileName']}.diff.txt"
+    diff_path = f"{common_funcs.ValidationPath}/Webpage/{common_funcs.GIT_COMMIT}/{test_num}/"
+    ret += common_funcs.check_diff(test_webpage, diff_path, diff_file_geo, ref_file_geo, test_file_geo, "Geom")
+    return ret
 
-        #Compare the geofile.txt output to the reference.
-        #This can almost certainly be streamlined with a function, but just want to make sure it works first :).
-        print("Comparing geofile")
-        isubjob += 1
-        test_file_geo = f"{variables['GeoFileName']}"
-        ref_file_geo = f"{cw.ValidationPath}/Compare/Reference/{variables['GeoFileName']}"
-        diff_file_geo = f"{variables['GeoFileName']}.diff.txt"
-        diff_path = f"{cw.ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}/"
+def compare_badfile(common_funcs, test_webpage, variables, test_num):
+    ret = 0
+    test_file_bad = f"{variables['FileTag']}_bad.txt"
+    ref_file_bad = f"{common_funcs.ValidationPath}/Compare/Reference/{test_file_bad}"
+    diff_file_bad = f"{variables['FileTag']}_bad.diff.txt"
+    diff_path = f"{common_funcs.ValidationPath}/Webpage/{common_funcs.GIT_COMMIT}/{test_num}/"
 
-        ret += cw.check_diff(TESTWEBPAGE, diff_path, diff_file_geo ,ref_file_geo, test_file_geo, "Geom")
+    if os.path.isfile(test_file_bad):
+        os.remove(test_file_bad)
 
-        #Then compare the output bad.txt with the reference.
-        print("Comparing badfile")
-        isubjob += 1
-        test_file_bad = f"{variables['FileTag']}_bad.txt"
-        ref_file_bad = f"{cw.ValidationPath}/Compare/Reference/{test_file_bad}"
-        diff_file_bad = f"{variables['FileTag']}_bad.diff.txt"
+    grep_patterns = ["GeomNav1002", "Optical photon is killed because of missing refractive index"]
+    with open("wcsim_run.out", "r") as wcsim_run_out:
+        with open(test_file_bad, "w") as bad_file:
+            wcsim_run_out_str = wcsim_run_out.read()
+            for grep_pattern in grep_patterns:
+                grep_count = wcsim_run_out_str.count(grep_pattern)
+                bad_file.write(f"\"{grep_pattern}\" {grep_count}\n")
+    ret += common_funcs.check_diff(test_webpage, diff_path, diff_file_bad, ref_file_bad, test_file_bad, "bad")
+    return ret
 
-        # Remove the existing badfilename if it exists
-        if os.path.isfile(test_file_bad):
-            os.remove(test_file_bad)
+def check_impossible_geometry(common_funcs, test_webpage, variables, test_num):
+    ret = 0
+    impossiblefilename = f"{variables['FileTag']}_impossible.txt"
+    if os.path.isfile(impossiblefilename):
+        os.remove(impossiblefilename)
 
-        # Count occurrences of specified patterns and write to badfilename
-        grep_patterns = ["GeomNav1002", "Optical photon is killed because of missing refractive index"]
-        with open("wcsim_run.out", "r") as wcsim_run_out:
-            with open(test_file_bad, "w") as bad_file:
-                wcsim_run_out_str = wcsim_run_out.read()
-                for grep_pattern in grep_patterns:
-                    grep_count = wcsim_run_out_str.count(grep_pattern)
-                    bad_file.write(f"\"{grep_pattern}\" {grep_count}\n")
+    grep_patterns = ["IMPOSSIBLE GEOMETRY", "*** G4Exception : GeomVol1002"]
+    with open("wcsim_run.out", "r") as wcsim_run_out:
+        with open(impossiblefilename, "w") as impossible_file:
+            for grep_pattern in grep_patterns:
+                os.popen(f"grep \"{grep_pattern}\" wcsim_run.out >> {impossiblefilename}")
 
-        # Run the diff command and capture the output
-        ret += cw.check_diff(TESTWEBPAGE, diff_path, diff_file_bad, ref_file_bad, test_file_bad, "bad")
+    if os.path.getsize(impossiblefilename) > 0:
+        common_funcs.add_entry(test_webpage, "#FF0000", f"<a href='{impossiblefilename}'>", "Geometry warnings exist")
+        print("Geometry warnings exist:")
+        with open(impossiblefilename, "r") as impossible_file:
+            print(impossible_file.read())
+        os.system(f"mv {impossiblefilename} {common_funcs.ValidationPath}/Webpage/{common_funcs.GIT_COMMIT}/{test_num}/")
+        ret = 1
+    else:
+        common_funcs.add_entry(test_webpage, "#00FF00", "", "Geometry warnings pass")
+    return ret
 
-        #Then produce a grep of impossible geometry warnings
-        isubjob += 1
-        impossiblefilename = f"{variables['FileTag']}_impossible.txt"
+def main():
+    try:
+        parser = argparse.ArgumentParser()
+        parser.add_argument("--test_num", required=True, help="The test number to run.", type=int, default=1)
+        args = parser.parse_args()
 
-        # Remove the existing impossiblefilename if it exists
-        if os.path.isfile(impossiblefilename):
-            os.remove(impossiblefilename)
+        common_funcs = CommonWebPageFuncs()
+        logger = common_funcs.logger
+        test_dir = f"{common_funcs.ValidationPath}/Webpage/{common_funcs.GIT_COMMIT}/{args.test_num}"
 
-        # Grep for specified patterns and write to impossiblefilename
-        grep_patterns = ["IMPOSSIBLE GEOMETRY", "*** G4Exception : GeomVol1002"]
-        with open("wcsim_run.out", "r") as wcsim_run_out:
-            with open(impossiblefilename, "w") as impossible_file:
-                for grep_pattern in grep_patterns:
-                    os.popen(f"grep \"{grep_pattern}\" wcsim_run.out >> {impossiblefilename}")
+        # Checkout validation repository
+        common_funcs.checkout_validation_webpage_branch()
 
-        # Check if the impossiblefilename is not empty
-        if os.path.getsize(impossiblefilename) > 0:
-            # If the file is not empty, there are geometry warnings
-            cw.add_entry(TESTWEBPAGE,"#FF0000", f"<a href='{impossiblefilename}'>", "Geometry warnings exist")
-            print("Geometry warnings exist:")
-            with open(impossiblefilename, "r") as impossible_file:
-                print(impossible_file.read())
-            os.system(f"mv {impossiblefilename} {cw.ValidationPath}/Webpage/{cw.GIT_COMMIT}/{args.test_num}/")
-            ret = 1
+        # build the comparison script
+        try:
+            subprocess.run(["make"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=True)
+        except subprocess.CalledProcessError as e:
+            raise subprocess.CalledProcessError(f"Failed to build the comparison script. Return code: {e.returncode}.\nOutput: {e.output.decode()}")
+        
+        # run from the software location, in order to get the relevant data files (if required)
+        #os.chdir('/opt/WCSim/install')
+
+        if common_funcs.GIT_PULL_REQUEST != "false":
+            GIT_COMMIT_MESSAGE = f" Pull Request #{common_funcs.GIT_PULL_REQUEST}: {common_funcs.GIT_PULL_REQUEST_TITLE}"
         else:
-            # If the file is empty, there are no geometry warnings
-            cw.add_entry(TESTWEBPAGE,"#00FF00", "", "Geometry warnings pass")
+            GIT_COMMIT_MESSAGE = ""
 
-#Out of the loop now, no more lines to read.
-# Add footer to finish the webpage
-# A lot of IO here, can it be reduced? (Files aren't large so not a massive problem).
-with open(f"{cw.ValidationPath}/Webpage/templates/test/footer.html", "r") as footer_template:
-    footer_content = footer_template.read()
+        if not os.path.isdir(test_dir):
+            os.makedirs(test_dir)
 
-with open(TESTWEBPAGE, "a") as webpage_file:
-    webpage_file.write(footer_content)
+        header_content = create_test_webpage_header(common_funcs.ValidationPath)
+        footer_content = create_test_webpage_footer(common_funcs.ValidationPath)
+        test_webpage = create_test_webpage(test_dir, header_content, GIT_COMMIT_MESSAGE, common_funcs.GIT_COMMIT, common_funcs.GIT_PULL_REQUEST_LINK)
 
-# Add color code at the bottom for the list of jobs page
-if ret == 0:
-    print("Finishing writing webpage file. Nothing failed!")
-    with open(TESTWEBPAGE, "a") as webpage_file:
-        webpage_file.write("#00FF00\n")
-else:
-    print("Finishing writing webpage file. Something failed!")
-    with open(TESTWEBPAGE, "a") as webpage_file:
-        webpage_file.write("#FF0000\n")
+        with open(os.path.join(common_funcs.ValidationPath, 'tests.json'), 'r') as json_file:
+            data = json.load(json_file)
 
-#Update the webpage.
-#This causes all sorts of crazy stuff to happen for me! Doesn't work at the moment
-cw.update_webpage()
+        values = data[f'Test{args.test_num}']
+        test_name = values['name']
+        test_type = values['test']
+        test_variables = {key: value for key, value in values.items() if key not in ['name', 'test']}
 
-if ret != 0:
-    sys.exit(-1)
+        print(f"Running test {args.test_num} with name: {test_name} of type: {test_type} with variables: {test_variables}")
+
+        with open(test_webpage, 'a') as webpage:
+            webpage.write(f"\n<h3>{test_name}</h3>\n")
+
+
+        #Setup the table of tests
+        with open(test_webpage, 'a') as f:
+            f.write('''
+            <p>
+            <table  border='1' align='center'>
+            <tr>
+            <th scope='col'><div align='center'>Tests</div></th>
+            </tr>
+            ''')
+
+        #Run all of the physics validation tests in order. The order of tests is important, WCSim should be run before other checks.
+        if test_type == f"{common_funcs.SOFTWARE_NAME}PhysicsValidation":
+            ret = check_reference_file(common_funcs, test_webpage, test_variables)
+            ret += run_wcsim(test_variables, common_funcs, test_webpage)
+            ret += compare_root_files(common_funcs, test_webpage, test_dir, test_variables, args.test_num,)
+            ret += compare_geofile(common_funcs, test_webpage, test_variables, args.test_num)
+            ret += compare_badfile(common_funcs, test_webpage, test_variables, args.test_num)
+            ret += check_impossible_geometry(common_funcs, test_webpage, test_variables, args.test_num)
+
+
+
+        # Add the footer and...
+        # Add color code at the bottom for the list of jobs page
+        if ret == 0:
+            print("Finishing writing webpage file. Nothing failed!")
+            with open(test_webpage, "a") as webpage_file:
+                webpage_file.write(footer_content)
+                webpage_file.write("#00FF00\n")
+        else:
+            print("Finishing writing webpage file. Something failed!")
+            with open(test_webpage, "a") as webpage_file:
+                webpage_file.write(footer_content)
+                webpage_file.write("#FF0000\n")
+
+        common_funcs.update_webpage()
+        
+        if ret != 0:
+            sys.exit(-1)
+    
+    except FileNotFoundError as e:
+        logger.error(f"File not found error in RunTests: {e}")
+        sys.exit(1)
+    except subprocess.CalledProcessError as e:
+        logger.error(f"Error running subprocess in RunTests: Return code {e.returncode}, Output: {e.output.decode()}")
+        sys.exit(1)
+    except Exception as e:
+        logger.error(f"An unexpected error occurred in RunTests: {e}")
+        sys.exit(1)
+if __name__ == "__main__":
+    main()
