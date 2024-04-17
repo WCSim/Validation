@@ -2,6 +2,7 @@
 
 import os
 import glob
+import sys
 from common import CommonWebPageFuncs
 
 # Get the logger from CommonWebPageFuncs
@@ -48,5 +49,7 @@ try:
 
 except FileNotFoundError as e:
     logger.error(f"An unexpected FileNotFoundError occured: {e}")
+    sys.exit(1)
 except Exception as e:
     logger.error(f"An unexpected error occurred: {e}")
+    sys.exit(1)

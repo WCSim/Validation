@@ -2,7 +2,8 @@
 import os
 import time
 import json
-import logging 
+import logging
+import subprocess
 
 class CommonWebPageFuncs:
     def __init__(self):
@@ -75,12 +76,12 @@ class CommonWebPageFuncs:
 
             webpage_path = os.path.join(self.ValidationPath, "Webpage")
             if not os.path.isdir(webpage_path):
-                os.system(f"git clone https://{self.VALIDATION_GIT_PATH} --single-branch --depth 1 -b {self.WEBPAGE_BRANCH} {self.WEBPAGE_FOLDER}")
+                subprocess.run(["git", "clone", f"https://{self.VALIDATION_GIT_PATH}", "--single-branch", "--depth", "1", "-b", self.WEBPAGE_BRANCH, self.WEBPAGE_FOLDER])
                 os.chdir("Webpage")
 
                 # Add a default user, otherwise git complains
-                os.system("git config user.name 'WCSim CI'")
-                os.system("git config user.email 'wcsim@wcsim.wcsim'")
+                subprocess.run(["git", "config", "user.name", "WCSim CI"])
+                subprocess.run(["git", "config", "user.email", "wcsim@wcsim.wcsim"])
 
                 os.chdir(f"{self.ValidationPath}")
 
@@ -91,7 +92,7 @@ class CommonWebPageFuncs:
             self.logger.info(self.GIT_PULL_REQUEST)
 
         except Exception as e:
-            self.logger.error(f"Unexpected error occured in checkout_validation_webpage_branch: {e}")
+            self.logger.error(f"Unexpected error occured in checkout_validation_webpage_branch in common functions: {e}")
 
     def update_webpage(self):
         """
@@ -117,42 +118,37 @@ class CommonWebPageFuncs:
                     for line in folderlist_file:
                         folder += 1
                         if folder >= 35:
-                            os.system(f"git rm -r {line.strip()}")
+                            subprocess.run(["git", "rm", "-r", line.strip()])
                         else:
                             new_folderlist_file.write(line)
-            os.system(f'/bin/mv -f {new_folderlist_filename} {folderlist_filename}')
+            subprocess.run(['/bin/mv', '-f', new_folderlist_filename, folderlist_filename])
 
             # Setup the commit
             self.logger.info("Adding")
-            os.system("git add --all")
-            os.system(f"git commit -a -m 'CI update: new pages for {self.GIT_COMMIT}'")
+            subprocess.run(["git", "add", "--all"])
+            subprocess.run(["git", "commit", "-a", "-m", f"CI update: new pages for {self.GIT_COMMIT}"])
 
             # Setup a loop to prevent clashes when multiple jobs change the webpage at the same time
-            # Make it a for loop, so there isn't an infinite loop
-            # 100 attempts, 15 seconds between = 25 minutes of trying
-            # TJ - Shortened this to 5 for debugging, this should be changed back when PR is made!!
-            # The CI is set up such that files will be touched by one job at once,
-            # so it's just a matter of keeping pulling until we happen to be at the front of the queue 
             for iattempt in range(self.MAX_PUSH_ATTEMPTS):
                 # Get the latest version of the webpage
-                os.system("git pull --rebase")
+                subprocess.run(["git", "pull", "--rebase"])
 
-                # Attempt to push - does this definitely return non-0 if push attempt fails? (Should check!)
+                # Attempt to push
                 push_command = f"git push https://{self.GIT_USER}:{self.GIT_TOKEN}@{self.VALIDATION_GIT_PATH} {self.WEBPAGE_BRANCH}"
-                
-                if os.system(push_command) == 0:
+                push_process = subprocess.run(push_command.split())
+
+                if push_process.returncode == 0:
                     break
-                
+
                 #If have just finished the last push attempt and not successfully pushed...
                 if iattempt == self.MAX_PUSH_ATTEMPTS - 1:
-                    raise RuntimeError(f"Failed to push changed to remote repository after {self.MAX_PUSH_ATTEMPTS} attempts")
-
+                    raise RuntimeError(f"Failed to push changes to remote repository after {self.MAX_PUSH_ATTEMPTS} attempts")
 
                 # Have a rest before trying again
                 time.sleep(15)
 
         except Exception as e:
-            self.logger.error(f"Unexpected error occured in update_webpage: {e}")
+            self.logger.error(f"Unexpected error occured in update_webpage in common functions: {e}")
 
 
     def add_entry(self, TESTWEBPAGE, color, link, text):
@@ -175,7 +171,7 @@ class CommonWebPageFuncs:
                         </tr>
                         ''')
         except Exception as e:
-            self.logger.error(f"An unexpected error has occured in add_entry: {e}")
+            self.logger.error(f"An unexpected error has occured in add_entry in common functions: {e}")
             
     def check_diff(self, TESTWEBPAGE, diff_path, diff_file, ref_file, test_file, file_type):
         """
@@ -220,4 +216,4 @@ class CommonWebPageFuncs:
             return 0 #Exit with no diff found
         
         except Exception as e:
-            self.logger.error(f"An unexpected error has occured during check_diff: {e}")
+            self.logger.error(f"An unexpected error has occured during check_diff in common functions: {e}")

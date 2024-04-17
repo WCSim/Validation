@@ -5,10 +5,6 @@ import json
 from common import CommonWebPageFuncs
 
 #Putting some things in functions so that the main code doesn't look a mess :)
-def check_file(file_path):
-    if not os.path.isfile(file_path):
-        raise FileNotFoundError(f"The file '{file_path}' does not exist")
-
 def update_file(old_path, new_path, content):
     with open(new_path, "w") as f_new:
         f_new.write(content)
@@ -66,7 +62,8 @@ def main():
             run_footer_path
         ]
         for file_path in paths_to_check:
-            check_file(file_path)
+            if not os.path.isfile(file_path):
+                raise FileNotFoundError(f"The file '{file_path}' does not exist")
 
         # Update folderlist
         new_folderlist_path = f"{folderlist_path}.new"
