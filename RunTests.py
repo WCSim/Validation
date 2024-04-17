@@ -345,7 +345,7 @@ def main():
             raise subprocess.CalledProcessError(f"Failed to build the comparison script. Return code: {e.returncode}.\nOutput: {e.output.decode()}")
         
         # run from the software location, in order to get the relevant data files (if required)
-        #os.chdir('/opt/WCSim/install')
+        os.chdir('/opt/WCSim/install')
 
         if common_funcs.GIT_PULL_REQUEST != "false":
             GIT_COMMIT_MESSAGE = f" Pull Request #{common_funcs.GIT_PULL_REQUEST}: {common_funcs.GIT_PULL_REQUEST_TITLE}"
