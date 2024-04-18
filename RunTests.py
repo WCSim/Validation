@@ -77,7 +77,7 @@ def create_test_webpage(test_dir, header_content, GIT_COMMIT_MESSAGE, GIT_COMMIT
 
     return test_webpage
 
-def check_reference_file(common_funcs, test_webpage, test_variables):
+def check_reference_file(common_funcs, test_webpage, test_variables, debug):
     '''
     First test.
     Checks if a reference file exists. Returns 1 if it does not i.e. the test has failed.
@@ -94,13 +94,16 @@ def check_reference_file(common_funcs, test_webpage, test_variables):
         This function does not catch errors explicitly, but it could be extended to do so.
         The current implementation logs the absence of the reference file as a test failure, which was the previous behavior.
     '''
+    ret = 0
     rootfilename = f"{test_variables['FileTag']}_analysed_wcsimrootevent.root"
     if not os.path.isfile(rootfilename):
         common_funcs.add_entry(test_webpage, "#FF00FF", "", "Reference file does not exist")
-        return 1
-    return 0
+        ret = 1
+    if debug:
+        print(f"Return value after check_reference_file: {ret}")
+    return ret
 
-def run_wcsim(variables, common_funcs, test_webpage):
+def run_wcsim(variables, common_funcs, test_webpage, debug):
     '''
     Second test.
     Runs WCSim, checks if it has ran successfully and writes the output to a log file for use in later tests.
@@ -134,6 +137,8 @@ def run_wcsim(variables, common_funcs, test_webpage):
                     break
 
         common_funcs.add_entry(test_webpage, "#00FF00", "", time)
+        if debug:
+            print(f"Return value after wcsim_exit: 0")
         return 0
 
     except subprocess.CalledProcessError as e:
@@ -143,7 +148,7 @@ def run_wcsim(variables, common_funcs, test_webpage):
 
 
 
-def compare_root_files(common_funcs, test_webpage, test_dir, variables, test_num):
+def compare_root_files(common_funcs, test_webpage, test_dir, variables, test_num, debug):
     '''
     Third test.
     Compares the output root files with the reference root files using a custom comparer tool.
@@ -190,9 +195,11 @@ def compare_root_files(common_funcs, test_webpage, test_dir, variables, test_num
             ret = 1
     except Exception as e:
         raise Exception(f"Unxpected error occured when comparing the root files: {e}")
+    if debug:
+        print(f"Return value after compare_root_files: {ret}")
     return ret
 
-def compare_geofile(common_funcs, test_webpage, variables, test_num):
+def compare_geofile(common_funcs, test_webpage, variables, test_num, debug):
     '''
     Fourth test.
     Compares the output geometry file from WCSim with the reference geometry file.
@@ -220,9 +227,11 @@ def compare_geofile(common_funcs, test_webpage, variables, test_num):
         ret += common_funcs.check_diff(test_webpage, diff_path, diff_file_geo, ref_file_geo, test_file_geo, "Geom")
     except Exception as e:
         raise Exception(f"Unexpected error occured when comparing the geometry files: {e}")
+    if debug:
+        print(f"Return value after compare_geofile: {ret}")
     return ret
 
-def compare_badfile(common_funcs, test_webpage, variables, test_num):
+def compare_badfile(common_funcs, test_webpage, variables, test_num, debug):
     '''
     Fifth test.
     Creates a 'bad' file containing specific patterns extracted from wcsim_run.out.
@@ -270,9 +279,11 @@ def compare_badfile(common_funcs, test_webpage, variables, test_num):
         raise FileNotFoundError(f"Unexpected FileNotFoundError when comparing bad files: {e}")
     except Exception as e:
         raise Exception(f"Unexpected error when comparing bad files: {e}")
+    if debug:
+        print(f"Return value after compare_badfile: {ret}")
     return ret
 
-def check_impossible_geometry(common_funcs, test_webpage, variables, test_num):
+def check_impossible_geometry(common_funcs, test_webpage, variables, test_num, debug):
     '''
     Sixth test.
     Creates an 'impossible' geometry file containing specific patterns extracted from wcsim_run.out.
@@ -322,13 +333,15 @@ def check_impossible_geometry(common_funcs, test_webpage, variables, test_num):
         raise FileNotFoundError(f"Unexpected FileNotFoundError when checking impossible geometry: {e}")
     except Exception as e:
         raise Exception(f"Unexpected error occurred when checking impossible geometry: {e}")
-        
+    if debug:
+        print(f"Return value after check_impossible_geometry: {ret}")
     return ret
 
 def main():
     try:
         parser = argparse.ArgumentParser()
         parser.add_argument("--test_num", required=True, help="The test number to run.", type=int, default=1)
+        parser.add_argument("--debug", help="Debug tag that prints out debug statements in the script.", action="store_true")
         args = parser.parse_args()
 
         common_funcs = CommonWebPageFuncs()
@@ -345,7 +358,7 @@ def main():
             raise subprocess.CalledProcessError(f"Failed to build the comparison script. Return code: {e.returncode}.\nOutput: {e.output.decode()}")
         
         # run from the software location, in order to get the relevant data files (if required)
-        os.chdir('/opt/WCSim/install')
+        #os.chdir('/opt/WCSim/install')
 
         if common_funcs.GIT_PULL_REQUEST != "false":
             GIT_COMMIT_MESSAGE = f" Pull Request #{common_funcs.GIT_PULL_REQUEST}: {common_funcs.GIT_PULL_REQUEST_TITLE}"
@@ -382,15 +395,16 @@ def main():
             <th scope='col'><div align='center'>Tests</div></th>
             </tr>
             ''')
-
-        #Run all of the physics validation tests in order. The order of tests is important, WCSim should be run before other checks.
+        
+        #Run all of the physics validation tests in order. The order of tests is important, WCSim should be run before file tests.
         if test_type == f"{common_funcs.SOFTWARE_NAME}PhysicsValidation":
-            ret = check_reference_file(common_funcs, test_webpage, test_variables)
-            ret += run_wcsim(test_variables, common_funcs, test_webpage)
-            ret += compare_root_files(common_funcs, test_webpage, test_dir, test_variables, args.test_num,)
-            ret += compare_geofile(common_funcs, test_webpage, test_variables, args.test_num)
-            ret += compare_badfile(common_funcs, test_webpage, test_variables, args.test_num)
-            ret += check_impossible_geometry(common_funcs, test_webpage, test_variables, args.test_num)
+            ret = check_reference_file(common_funcs, test_webpage, test_variables, args.debug)
+            ret += run_wcsim(test_variables, common_funcs, test_webpage, args.debug)
+            ret += compare_root_files(common_funcs, test_webpage, test_dir, test_variables, args.test_num, args.debug)
+            ret += compare_geofile(common_funcs, test_webpage, test_variables, args.test_num, args.debug)
+            ret += compare_badfile(common_funcs, test_webpage, test_variables, args.test_num, args.debug)
+            ret += check_impossible_geometry(common_funcs, test_webpage, test_variables, args.test_num, args.debug)
+
 
 
 
@@ -406,7 +420,7 @@ def main():
             with open(test_webpage, "a") as webpage_file:
                 webpage_file.write(footer_content)
                 webpage_file.write("#FF0000\n")
-
+        
         common_funcs.update_webpage()
         
         if ret != 0:
