@@ -121,7 +121,7 @@ def run_wcsim(variables, common_funcs, test_webpage, debug):
         subprocess.CalledProcessError: If the subprocess call to run WCSim fails.
     '''
     try:
-        wcsim_exit = common_funcs.run_command(["/usr/bin/time", "-p", "--output=timetest", f"{common_funcs.ValidationPath}/{variables['ScriptName']}", f"{common_funcs.ValidationPath}/Generate/macReference/{variables['WCSimMacName']}", f"{variables['FileTag']}.root"])
+        wcsim_exit = common_funcs.run_command(f"/usr/bin/time -p --output=timetest {common_funcs.ValidationPath}/{variables['ScriptName']} {common_funcs.ValidationPath}/Generate/macReference/{variables['WCSimMacName']}  {variables['FileTag']}.root")
         
         # Write the command and its output to a log file
         with open('wcsim_run.out', 'w') as logfile:
@@ -181,7 +181,7 @@ def compare_root_files(common_funcs, test_webpage, test_dir, variables, test_num
                 if not os.path.isdir(f"{test_dir}/{isubjob}"):
                     os.mkdir(f"{test_dir}/{isubjob}")
                 compare_exit_status = os.system(f"{common_funcs.ValidationPath}/Compare/compareroot {common_funcs.ValidationPath}/Webpage/{common_funcs.GIT_COMMIT}/{test_num}/{isubjob} {root_filename} {common_funcs.ValidationPath}/Compare/Reference/{root_filename}")
-                common_funcs.logger.info('compare_exit_status', compare_exit_status, type(compare_exit_status))
+                common_funcs.logger.info(f'compare_exit_status {compare_exit_status}')
                 if compare_exit_status != 0:
                     common_funcs.add_entry(test_webpage, "#FF0000", link, f"Failed {pmttype} plot comparisons")
                     ret = 1
@@ -190,7 +190,7 @@ def compare_root_files(common_funcs, test_webpage, test_dir, variables, test_num
             else:
                 common_funcs.add_entry(test_webpage, "#000000", "", f"No {pmttype} in geometry")
 
-        common_funcs.logger.info('wcsim_has_output, ret after loop over diffing root files', wcsim_has_output, ret)
+        common_funcs.logger.info(f'wcsim_has_output, ret after loop over diffing root files: {wcsim_has_output}, {ret}')
         if wcsim_has_output == 0:
             ret = 1
     except Exception as e:
