@@ -2,15 +2,18 @@
 
 import os
 import argparse
+from common import CommonWebPageFuncs
 
 def main(option):
+
+    cw = CommonWebPageFuncs()
     extra_options = ""
 
     if option == 1:
         extra_options = "WCSim_Geometry_Overlaps_CHECK=ON"
 
-    os.makedirs("build", exist_ok=True)
-    os.makedirs("install", exist_ok=True)
+    cw.create_directory("build")
+    cw.create_directory("install")
     os.chdir("build")
 
     cmake_command = f"cmake -DWCSim_DEBUG_COMPILE_FLAG=ON {extra_options} -DCMAKE_INSTALL_PREFIX=../install/ ../src/"
@@ -19,9 +22,9 @@ def main(option):
         make_command += " -j`nproc`" 
     make_install_command = "make install"
 
-    os.system(cmake_command)
-    os.system(make_command)
-    os.system(make_install_command)
+    cw.run_command(cmake_command)
+    cw.run_command(make_command)
+    cw.run_command(make_install_command)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Build and install script")

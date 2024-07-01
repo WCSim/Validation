@@ -2,34 +2,93 @@
 import os
 import time
 import json
+import logging
+import subprocess
 
 class CommonWebPageFuncs:
     def __init__(self):
-        #Could these come from a config? Also, inconsistent naming scheme. Please change.
-        self.ValidationPath = os.getenv("ValidationPath")
-        self.GIT_PULL_REQUEST = os.getenv("GIT_PULL_REQUEST", "false")
-        self.GIT_PULL_REQUEST_TITLE = os.getenv("GIT_PULL_REQUEST_TITLE", "")
-        self.GIT_PULL_REQUEST_LINK = os.getenv("GIT_PULL_REQUEST_LINK", "")
-        self.GIT_COMMIT = os.getenv("GIT_COMMIT", "")
-        self.GIT_TOKEN = os.getenv("GitHubToken", "")
 
-        #Some variables to read from a config file - this is set up as an example. May want to expand this later.
-        with open(f"{self.ValidationPath}/git_setup.json") as config_file: #THis config file can be passed as an argument to the class init, do we want to do this?
-            data = json.load(config_file)
+        #Set up logging. A more useful print that allows us to define errors, warnings, normal messages and what level these printouts happen.
+        #i.e. Since this script is used as an import to the run scripts, the logger will report that the error happened in Common.
+        self.logger = logging.getLogger(__name__) #default formatting is fine.
+        self.logger.setLevel(logging.INFO)
+        #For some strange reason, this is needed to set the right output level:
+        ch = logging.StreamHandler()
+        ch.setLevel(logging.INFO)
+        self.logger.addHandler(ch)
 
-        #Git config
-        self.GIT_USER = data["Commit"]["Username"]
-        self.GIT_EMAIL = data["Commit"]["Email"]
-        #Validation setup
-        self.WEBPAGE_BRANCH = data["Validation"]["WebPageBranch"]
-        self.WEBPAGE_FOLDER = data["Validation"]["WebPageFolder"]
-        self.VALIDATION_GIT_PATH = data["Validation"]["Path"]
-        self.VALIDATION_GIT_BRANCH = data["Validation"]["CodeBranch"]
-        #Software setup
-        self.SOFTWARE_NAME = data["Software"]["Name"]
-        self.SOFTWARE_GIT_PATH = data["Software"]["Path"]
-        
-        
+        try:
+            # Check required environment variables
+            self.ValidationPath = os.getenv("ValidationPath")
+            if not self.ValidationPath:
+                raise ValueError("ValidationPath environment variable is not set")
+
+            # Load config file
+            config_file_path = f"{self.ValidationPath}/git_setup.json"
+            if not os.path.isfile(config_file_path):
+                raise FileNotFoundError(f"Config file not found: {config_file_path}")
+
+            with open(config_file_path) as config_file: 
+                data = json.load(config_file)
+
+            # Check for required fields in the config file
+            required_fields = ["Commit", "Validation", "Software"]
+            for field in required_fields:
+                if field not in data:
+                    raise ValueError(f"Missing required field '{field}' in config file")
+
+            # Assign config values
+            self.GIT_USER = data["Commit"].get("Username", "")
+            self.GIT_EMAIL = data["Commit"].get("Email", "")
+            self.WEBPAGE_BRANCH = data["Validation"].get("WebPageBranch", "")
+            self.WEBPAGE_FOLDER = data["Validation"].get("WebPageFolder", "")
+            self.VALIDATION_GIT_PATH = data["Validation"].get("Path", "")
+            self.VALIDATION_GIT_BRANCH = data["Validation"].get("CodeBranch", "")
+            self.SOFTWARE_NAME = data["Software"].get("Name", "")
+            self.SOFTWARE_GIT_CLONE_PATH = data["Software"].get("ClonePath", "")
+            self.SOFTWARE_GIT_WEB_PATH = data["Software"].get("WebPath", "")
+            self.MAX_PUSH_ATTEMPTS = 5
+
+            # Handle optional environment variables
+            self.GIT_PULL_REQUEST = os.getenv("GIT_PULL_REQUEST", "false")
+            self.GIT_PULL_REQUEST_TITLE = os.getenv("GIT_PULL_REQUEST_TITLE", "")
+            self.GIT_PULL_REQUEST_LINK = os.getenv("GIT_PULL_REQUEST_LINK", "")
+            self.GIT_COMMIT = os.getenv("GIT_COMMIT", "")
+            self.GIT_TOKEN = os.getenv("GitHubToken", "")
+
+        except FileNotFoundError as e:
+            self.logger.error(f"Config file not found: {e}")
+        except (ValueError, KeyError) as e:
+            self.logger.error(f"Error in configuration: {e}")
+        except Exception as e:
+            self.logger.error(f"Unexpected error in class CommonWebPageFuncs initialization: {e}")
+    
+    def run_command(self,command):
+        """
+        Function that runs a shell command using subprocess and catches a non-zero exit status from the command.
+
+        Arguments:
+        - command: String of the command to be run.
+        """
+        try:
+            exit_status = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            return exit_status
+
+        except subprocess.CalledProcessError as e:
+            print(f"Unexpected error in common: Command '{e.cmd}' returned non-zero exit status {e.returncode}")
+
+    def create_directory(self,directory):
+        """
+        Function that creates a directory.
+
+        Arguments:
+        - directory: The absolute path of the directory to be created
+        """
+        try:
+            os.makedirs(directory, exist_ok=True)
+        except OSError as e:
+            print(f"Unexpected error in common: Failed to create directory '{directory}': {e}")
+    
     def checkout_validation_webpage_branch(self):
         """
         Function that checks out the validation webpage branch from git.
@@ -42,26 +101,28 @@ class CommonWebPageFuncs:
         - self.GIT_PULL_REQUEST: The state of the GIT CI pull request ("true" or "false").
         - self.GIT_COMMIT: The commit ID of the GIT CI build.
         """
+        try:
+            os.chdir(self.ValidationPath)
 
-        os.chdir(self.ValidationPath)
+            webpage_path = os.path.join(self.ValidationPath, "Webpage")
+            if not os.path.isdir(webpage_path):
+                self.run_command(f"git clone https://{self.VALIDATION_GIT_PATH} --single_branch --depth 1 -b self.WEBPAGE_BRANCH self.WEBPAGE_FOLDER")
+                os.chdir("Webpage")
 
-        webpage_path = os.path.join(self.ValidationPath, "Webpage")
+                # Add a default user, otherwise git complains
+                self.run_command(f"git config user.name {self.GIT_USER}")
+                self.run_command(f"git config user.email {self.GIT_EMAIL}")
 
-        if not os.path.isdir(webpage_path):
-            os.system(f"git clone https://{self.VALIDATION_GIT_PATH} --single-branch --depth 1 -b {self.WEBPAGE_BRANCH} {self.WEBPAGE_FOLDER}")
-            os.chdir("Webpage")
+                os.chdir(f"{self.ValidationPath}")
 
-            # Add a default user, otherwise git complains
-            os.system("git config user.name 'WCSim CI'")
-            os.system("git config user.email 'wcsim@wcsim.wcsim'")
+            self.GIT_PULL_REQUEST = str(self.GIT_PULL_REQUEST) if self.GIT_PULL_REQUEST is not None else "false"
+            self.logger.info("Showing GIT commit")
+            self.logger.info(self.GIT_COMMIT)
+            self.logger.info("Showing GIT pull request")
+            self.logger.info(self.GIT_PULL_REQUEST)
 
-            os.chdir(f"{self.ValidationPath}")
-
-        self.GIT_PULL_REQUEST = str(self.GIT_PULL_REQUEST) if self.GIT_PULL_REQUEST is not None else "false"
-        print("Showing GIT commit")
-        print(self.GIT_COMMIT)
-        print("Showing GIT pull request")
-        print(self.GIT_PULL_REQUEST)
+        except Exception as e:
+            self.logger.error(f"Unexpected error occured in checkout_validation_webpage_branch in common functions: {e}")
 
     def update_webpage(self):
         """
@@ -75,44 +136,50 @@ class CommonWebPageFuncs:
         - self.GIT_COMMIT: The commit ID of the GIT CI build.
         - self.GIT_TOKEN: The GitHub token for authentication.
         """
+        try:
+            os.chdir(os.path.join(self.ValidationPath, "Webpage"))
 
-        os.chdir(os.path.join(self.ValidationPath, "Webpage"))
+            # Clean up old folders
+            folder = 0
+            folderlist_filename = os.path.join(self.ValidationPath, "Webpage", "folderlist")
+            new_folderlist_filename = folderlist_filename + '_new'
+            with open(folderlist_filename, 'r') as folderlist_file:
+                with open(new_folderlist_filename, 'w') as new_folderlist_file:
+                    for line in folderlist_file:
+                        folder += 1
+                        if folder >= 35:
+                            self.run_command(f"git rm -r {line.strip()}")
+                        else:
+                            new_folderlist_file.write(line)
+            os.rename(new_folderlist_filename,folderlist_filename)
 
-        # Clean up old folders
-        folder = 0
-        folderlist_filename = os.path.join(self.ValidationPath, "Webpage", "folderlist")
-        new_folderlist_filename = folderlist_filename + '_new'
-        with open(folderlist_filename, 'r') as folderlist_file:
-            with open(new_folderlist_filename, 'w') as new_folderlist_file:
-                for line in folderlist_file:
-                    folder += 1
-                    if folder >= 35:
-                        os.system(f"git rm -r {line.strip()}")
-                    else:
-                        new_folderlist_file.write(line)
-        os.system(f'/bin/mv -f {new_folderlist_filename} {folderlist_filename}')
+            # Setup the commit
+            self.logger.info("Adding")
+            self.run_command("git add --all")
+            self.run_command(f"git commit -a -m CI update: new pages for {self.GIT_COMMIT}")
 
-        # Setup the commit
-        print("Adding")
-        os.system("git add --all")
-        os.system(f"git commit -a -m 'CI update: new pages for {self.GIT_COMMIT}'")
+            # Setup a loop to prevent clashes when multiple jobs change the webpage at the same time
+            for iattempt in range(self.MAX_PUSH_ATTEMPTS):
+                # Get the latest version of the webpage
+                self.run_command("git pull --rebase")
 
-        # Setup a loop to prevent clashes when multiple jobs change the webpage at the same time
-        # Make it a for loop, so there isn't an infinite loop
-        # 100 attempts, 15 seconds between = 25 minutes of trying
-        # The CI is set up such that files will be touched by one job at once,
-        # so it's just a matter of keeping pulling until we happen to be at the front of the queue
-        for iattempt in range(101):
-            # Get the latest version of the webpage
-            os.system("git pull --rebase")
+                # Attempt to push
+                push_command = f"git push https://{self.GIT_USER}:{self.GIT_TOKEN}@{self.VALIDATION_GIT_PATH} {self.WEBPAGE_BRANCH}"
+                push_process = self.run_command(push_command)
 
-            # Attempt to push
-            push_command = f"git push https://{self.GIT_USER}:{self.GIT_TOKEN}@{self.VALIDATION_GIT_PATH} {self.WEBPAGE_BRANCH}"
-            if os.system(push_command) == 0:
-                break
+                if push_process.returncode == 0:
+                    break
 
-            # Have a rest before trying again
-            time.sleep(15)
+                #If have just finished the last push attempt and not successfully pushed...
+                if iattempt == self.MAX_PUSH_ATTEMPTS - 1:
+                    raise RuntimeError(f"Failed to push changes to remote repository after {self.MAX_PUSH_ATTEMPTS} attempts")
+
+                # Have a rest before trying again
+                time.sleep(15)
+
+        except Exception as e:
+            self.logger.error(f"Unexpected error occured in update_webpage in common functions: {e}")
+
 
     def add_entry(self, TESTWEBPAGE, color, link, text):
         """
@@ -126,12 +193,15 @@ class CommonWebPageFuncs:
         - link: The hyperlink to be inserted in the table cell.
         - text: The text content of the table cell.
         """
-        with open(TESTWEBPAGE, 'a') as f:
-            f.write(f'''
-                    <tr>
-                        <td bgcolor="{color}">{link}{text}</td>
-                    </tr>
-                    ''')
+        try:
+            with open(TESTWEBPAGE, 'a') as f:
+                f.write(f'''
+                        <tr>
+                            <td bgcolor="{color}">{link}{text}</td>
+                        </tr>
+                        ''')
+        except Exception as e:
+            self.logger.error(f"An unexpected error has occured in add_entry in common functions: {e}")
             
     def check_diff(self, TESTWEBPAGE, diff_path, diff_file, ref_file, test_file, file_type):
         """
@@ -152,20 +222,44 @@ class CommonWebPageFuncs:
         Returns:
         - 1 if differences are found between the files.
         - 0 if no differences are found between the files.
-        """
-        diff_command = f"diff {ref_file} {test_file}"
-        diff_output = os.popen(diff_command).read()
 
-        if diff_output:
-            self.add_entry(TESTWEBPAGE, "#FF0000", f"<a href='{diff_file}'>", file_type)
-            print(f"{file_type}:")
-            print(diff_output)
-            with open(f"{diff_file}", "w") as df:
-                df.write(diff_output)
-            os.system(f"mv {diff_file} {diff_path}")
-            return 1 #Exit with a diff found
-        elif not os.path.isfile(f"{ref_file}"):
-            self.add_entry(TESTWEBPAGE, "#FF00FF", "", f"Reference {file_type} not found")
-        else:
-            self.add_entry(TESTWEBPAGE, "#00FF00", "", f"{file_type} pass")
-        return 0 #Exit with no diff found
+        Comment:
+        - The exit with diff found I have kept as a return rather than within the error handling.
+        - I think this make sense as if a diff is found it is not strictly an error in the validation code.
+        """
+        try:
+            diffEntryAdded = False
+            #Check if the reference file and test file exist
+            if not os.path.isfile(f"{ref_file}"):
+                self.add_entry(TESTWEBPAGE, "#FF00FF", "", f"Reference {file_type} not found")
+                diffEntryAdded = True
+                return 1
+            if not os.path.isfile(f"{test_file}"):
+                self.add_entry(TESTWEBPAGE, "#FF00FF", "", f"Reference {file_type} not found")
+                diffEntryAdded = True
+                return 1
+
+
+            diff_command = f"diff {ref_file} {test_file}"
+            diff_output = os.popen(diff_command).read()
+
+            if diff_output:
+                self.add_entry(TESTWEBPAGE, "#FF0000", f"<a href='{diff_file}'>", file_type)
+                diffEntryAdded = True
+                self.logger.info(f"{file_type}:")
+                self.logger.info(diff_output)
+                with open(f"{diff_file}", "w") as df:
+                    df.write(diff_output)
+                os.rename(diff_file,diff_path)
+                return 1 #Exit with a diff found
+            else:
+                self.add_entry(TESTWEBPAGE, "#00FF00", "", f"{file_type} pass")
+                diffEntryAdded = True
+
+            return 0 #Exit with no diff found
+        
+        except Exception as e:
+            self.logger.error(f"An unexpected error has occured during check_diff in common functions: {e}")
+            if diffEntryAdded == False:
+                self.add_entry(TESTWEBPAGE, "#FF0000", f"An unexpected error has occured during check_diff in common functions: {e}")
+            return 1

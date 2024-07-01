@@ -7,8 +7,9 @@
       "Comment": "The list of things in this file is non-exhaustive, should discuss what can go in here."
     },
     "Software": {
-      "Name": "WCSim",
-      "Path": "github.com/WCSim/WCSim.git"
+      "Name":      "WCSim",
+      "ClonePath": "github.com/WCSim/WCSim.git",
+      "WebPath":   "github.com/WCSim/WCSim/"
     },
     "Commit": {
       "Username": "Test",

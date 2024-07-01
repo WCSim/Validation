@@ -1,87 +1,109 @@
-#####IMPORTS#####
+#!/usr/bin/python3
+
 import os
 import json
 from common import CommonWebPageFuncs
 
-#Initialise the common object (cw) which in turn initialises all relevant environment variables.
-cw = CommonWebPageFuncs()
+#Putting some things in functions so that the main code doesn't look a mess :)
+def prepend_to_file(old_path, new_path, content):
+    with open(new_path, "w") as f_new:
+        f_new.write(content)
+        with open(old_path, "r") as f:
+            f_new.write(f.read())
+    os.rename(new_path, old_path)
 
+def create_main_webpage(header_path, body_path, footer_path, index_path):
+    with open(index_path, "w") as f_index:
+        with open(header_path, "r") as f_header:
+            f_index.write(f_header.read())
+        with open(body_path, "r") as f_body:
+            f_index.write(f_body.read())
+        with open(footer_path, "r") as f_footer:
+            f_index.write(f_footer.read())
 
-#Checkout the validation webpage branch - common function, should add as such.
-cw.checkout_validation_webpage_branch()
+def create_commit_webpage(commit_dir, commit_body_content, run_header_path, run_footer_path):
+    os.makedirs(commit_dir, exist_ok=True)
+    commit_body_path = os.path.join(commit_dir, "body.html")
+    with open(commit_body_path, "w") as f_body:
+        f_body.write(commit_body_content)
+    with open(os.path.join(commit_dir, "index.html"), "w") as f_index:
+        with open(run_header_path, "r") as f_header:
+            f_index.write(f_header.read())
+        with open(commit_body_path, "r") as f_body:
+            f_index.write(f_body.read())
+        with open(run_footer_path, "r") as f_footer:
+            f_index.write(f_footer.read())
 
+def main():
+    try:
+        # Initialize CommonWebPageFuncs
+        cw = CommonWebPageFuncs()
+        logger = cw.logger
 
-# Do some specific things here. Can this be made into a common function? No way of testing...
-if cw.GIT_PULL_REQUEST != "false":
-        git_commit_message = f" Pull Request #{cw.GIT_PULL_REQUEST}: {cw.GIT_PULL_REQUEST_TITLE}"
-else:
-        git_commit_message = ""
+        # Checkout the validation webpage branch
+        cw.checkout_validation_webpage_branch()
 
-# First update the list of commits
-with open(f"{cw.ValidationPath}/Webpage/folderlist.new", "w") as f_new:
-    f_new.write(f"{cw.GIT_COMMIT} \n")
-    with open(f"{cw.ValidationPath}/Webpage/folderlist", "r") as f:
-        f_new.write(f.read())
-os.rename(f"{cw.ValidationPath}/Webpage/folderlist.new", f"{cw.ValidationPath}/Webpage/folderlist")
+        # Define file paths - looks nicer this way, in my opinion.
+        validation_path = cw.ValidationPath
+        folderlist_path = os.path.join(validation_path, "Webpage", "folderlist")
+        body_path = os.path.join(validation_path, "Webpage", "body.html")
+        header_path = os.path.join(validation_path, "Webpage", "templates", "main", "header.html")
+        footer_path = os.path.join(validation_path, "Webpage", "templates", "main", "footer.html")
+        run_header_path = os.path.join(validation_path, "Webpage", "templates", "run", "header.html")
+        run_footer_path = os.path.join(validation_path, "Webpage", "templates", "run", "footer.html")
 
-# Update the main page.
-try:
-    if int(cw.GIT_PULL_REQUEST) >= 0:
-        git_pull_request_link = f"<a href=https://github.com/WCSim/WCSim/pull/{cw.GIT_PULL_REQUEST}>"
-        git_pull_request_link_close = "</a>"
-except ValueError:
-    git_pull_request_link = ""
-    git_pull_request_link_close = ""
+        # Check file existence
+        paths_to_check = [
+            folderlist_path,
+            body_path,
+            header_path,
+            footer_path,
+            run_header_path,
+            run_footer_path
+        ]
+        for file_path in paths_to_check:
+            if not os.path.isfile(file_path):
+                raise FileNotFoundError(f"The file '{file_path}' does not exist")
 
-with open(f"{cw.ValidationPath}/Webpage/body.html.new", "w") as f_new:
-    f_new.write(f"\n<tr> <td><a href='{cw.GIT_COMMIT}/index.html'>{cw.GIT_COMMIT}</td> <td>{git_pull_request_link}{git_commit_message}{git_pull_request_link_close}</td> </tr>\n")
-    with open(f"{cw.ValidationPath}/Webpage/body.html", "r") as f:
-        f_new.write(f.read())
-os.rename(f"{cw.ValidationPath}/Webpage/body.html.new", f"{cw.ValidationPath}/Webpage/body.html")
+        # Update folderlist
+        new_folderlist_path = f"{folderlist_path}.new"
+        prepend_to_file(folderlist_path, new_folderlist_path, f"{cw.GIT_COMMIT} \n")
 
-# Build the webpage
-with open(f"{cw.ValidationPath}/Webpage/index.html", "w") as f_index:
-    with open(f"{cw.ValidationPath}/Webpage/templates/main/header.html", "r") as f_header:
-        f_index.write(f_header.read())
-    with open(f"{cw.ValidationPath}/Webpage/body.html", "r") as f_body:
-        f_index.write(f_body.read())
-    with open(f"{cw.ValidationPath}/Webpage/templates/main/footer.html", "r") as f_footer:
-        f_index.write(f_footer.read())
+        # Update body
+        git_commit_message = f" Pull Request #{cw.GIT_PULL_REQUEST}: {cw.GIT_PULL_REQUEST_TITLE}" if cw.GIT_PULL_REQUEST != "false" else ""
+        git_pull_request_link = f"<a href=https://{cw.SOFTWARE_GIT_WEB_PATH}/pull/{cw.GIT_PULL_REQUEST}>"
+        git_pull_request_link_close = "</a>" if not cw.GIT_PULL_REQUEST.isdigit() else ""
+        new_body_path = f"{body_path}.new"
+        prepend_to_file(body_path, new_body_path, f"\n<tr> <td><a href='{cw.GIT_COMMIT}/index.html'>{cw.GIT_COMMIT}</td> <td>{git_pull_request_link}{git_commit_message}{git_pull_request_link_close}</td> </tr>\n")
 
-# Make the test webpage
-commit_dir = os.path.join(cw.ValidationPath, "Webpage", cw.GIT_COMMIT)
-os.makedirs(commit_dir, exist_ok=True)
+        # Build webpage
+        create_main_webpage(header_path, body_path, footer_path, os.path.join(validation_path, "Webpage", "index.html"))
 
-with open(os.path.join(commit_dir, "body.html"), "w") as f_body:
-    f_body.write(f"<h2>{cw.GIT_COMMIT}</h2>\n")
-    f_body.write(f"<h3>{git_pull_request_link}{git_commit_message}{git_pull_request_link_close}</h3>\n")
-    f_body.write("<p>\n<table  border='1' align='center'>\n <tr>\n  <th scope='col'><div align='center'>Test num</div></th>\n  <th scope='col'><div align='center'>Physics test</div></th>\n </tr>\n")
+        # Make the test webpage
+        commit_dir = os.path.join(validation_path, "Webpage", cw.GIT_COMMIT)
+        commit_body_content = "<h2>{cw.GIT_COMMIT}</h2>\n" + \
+                            f"<h3>{git_pull_request_link}{git_commit_message}{git_pull_request_link_close}</h3>\n" + \
+                            "<p>\n<table  border='1' align='center'>\n <tr>\n  <th scope='col'><div align='center'>Test num</div></th>\n  <th scope='col'><div align='center'>Physics test</div></th>\n </tr>\n"
+        
+        with open(os.path.join(validation_path,'tests.json'), 'r') as json_file:
+            data = json.load(json_file)
+            for key, value in data.items():
+                itest = key[len("Test"):]
+                if key.startswith("Test") and itest.isdigit():
+                    name = value["name"]
+                    itestpad = f"{int(itest):04d}"
+                    commit_body_content += f"  <tr>\n    <td>{itest}</td>\n    <td bgcolor='#00FFFF'COLOUR{itestpad}><a href='{itest}/index.html'>{name}</td>\n  </tr>\n"
+            commit_body_content += "</table>\n"
 
-    # Load in tests.json
-    with open(os.path.join(cw.ValidationPath,'tests.json'), 'r') as json_file:
-        data = json.load(json_file)
-        # Loop over relevant tests i.e. those with numbers and not letters.
-        for key, value in data.items():
-            # Check if test is relevant.
-            itest = key[len("Test"):]
-            if key.startswith("Test") and itest.isdigit(): #Make sure last character is a digit.
-                name = value["name"]
-                itestpad = f"{int(itest):04d}"
-                f_body.write(f"  <tr>\n    <td>{itest}</td>\n    <td bgcolor='#00FFFF'COLOUR{itestpad}><a href='{itest}/index.html'>{name}</td>\n  </tr>\n")
+        create_commit_webpage(commit_dir, commit_body_content, run_header_path, run_footer_path)
 
-    f_body.write("</table>\n")
+        # Update webpage
+        cw.update_webpage()
 
-# Is there a better way to do this? 
-with open(os.path.join(commit_dir, "index.html"), "w") as f_index:
-    with open(f"{cw.ValidationPath}/Webpage/templates/run/header.html", "r") as f_header:
-        f_index.write(f_header.read())
-    with open(os.path.join(commit_dir, "body.html"), "r") as f_body:
-        f_index.write(f_body.read())
-    with open(f"{cw.ValidationPath}/Webpage/templates/run/footer.html", "r") as f_footer:
-        f_index.write(f_footer.read())
+    except FileNotFoundError as e:
+        logger.error(f"An unexpected FileNotFoundError has occurred in SetupWebpages: {e}")
+    except Exception as e:
+        logger.error(f"An unexpected error occurred in SetupWebpages: {e}")
 
-
-#############################################################
-
-############################## update webpage ################
-cw.update_webpage() 
+if __name__ == "__main__":
+    main()
