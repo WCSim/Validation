@@ -106,7 +106,7 @@ class CommonWebPageFuncs:
 
             webpage_path = os.path.join(self.ValidationPath, "Webpage")
             if not os.path.isdir(webpage_path):
-                self.run_command(f"git clone https://{self.VALIDATION_GIT_PATH} --single_branch --depth 1 -b self.WEBPAGE_BRANCH self.WEBPAGE_FOLDER")
+                self.run_command(f"git clone https://{self.VALIDATION_GIT_PATH} --depth 1 -b {self.WEBPAGE_BRANCH} --single-branch {self.WEBPAGE_FOLDER}")
                 os.chdir("Webpage")
 
                 # Add a default user, otherwise git complains
@@ -165,6 +165,7 @@ class CommonWebPageFuncs:
 
                 # Attempt to push
                 push_command = f"git push https://{self.GIT_USER}:{self.GIT_TOKEN}@{self.VALIDATION_GIT_PATH} {self.WEBPAGE_BRANCH}"
+                print(push_command)
                 push_process = self.run_command(push_command)
 
                 if push_process.returncode == 0:
@@ -241,6 +242,8 @@ class CommonWebPageFuncs:
 
 
             diff_command = f"diff {ref_file} {test_file}"
+            print(ref_file)
+            print(test_file)
             diff_output = os.popen(diff_command).read()
 
             if diff_output:
@@ -250,7 +253,7 @@ class CommonWebPageFuncs:
                 self.logger.info(diff_output)
                 with open(f"{diff_file}", "w") as df:
                     df.write(diff_output)
-                os.rename(diff_file,diff_path)
+                os.rename(diff_file,f"{diff_path}{diff_file}") #Horrible concatenation of strings to make it work
                 return 1 #Exit with a diff found
             else:
                 self.add_entry(TESTWEBPAGE, "#00FF00", "", f"{file_type} pass")
