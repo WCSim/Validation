@@ -100,7 +100,7 @@ def check_reference_file(common_funcs, test_webpage, test_variables, debug):
         common_funcs.add_entry(test_webpage, "#FF00FF", "", "Reference file does not exist")
         ret = 1
     if debug:
-        print(f"Return value after check_reference_file: {ret}")
+        common_funcs.logger.info(f"Return value after check_reference_file: {ret}")
     return ret
 
 def run_wcsim(variables, common_funcs, test_webpage, debug):
@@ -121,13 +121,13 @@ def run_wcsim(variables, common_funcs, test_webpage, debug):
         subprocess.CalledProcessError: If the subprocess call to run WCSim fails.
     '''
     try:
-        wcsim_exit = subprocess.run(["/usr/bin/time", "-p", "--output=timetest", f"{common_funcs.ValidationPath}/{variables['ScriptName']}", f"{common_funcs.ValidationPath}/Generate/macReference/{variables['WCSimMacName']}", f"{variables['FileTag']}.root"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=True)
+        wcsim_exit = common_funcs.run_command(["/usr/bin/time", "-p", "--output=timetest", f"{common_funcs.ValidationPath}/{variables['ScriptName']}", f"{common_funcs.ValidationPath}/Generate/macReference/{variables['WCSimMacName']}", f"{variables['FileTag']}.root"])
         
         # Write the command and its output to a log file
         with open('wcsim_run.out', 'w') as logfile:
             logfile.write(wcsim_exit.stdout.decode())
 
-        print(wcsim_exit.stdout.decode())
+        common_funcs.logger.info(wcsim_exit.stdout.decode())
 
         # Parse the timing information
         with open("timetest", "r") as timetest_file:
@@ -138,7 +138,7 @@ def run_wcsim(variables, common_funcs, test_webpage, debug):
 
         common_funcs.add_entry(test_webpage, "#00FF00", "", time)
         if debug:
-            print(f"Return value after wcsim_exit: 0")
+            common_funcs.logger.info(f"Return value after wcsim_exit: 0")
         return 0
 
     except subprocess.CalledProcessError as e:
@@ -181,7 +181,7 @@ def compare_root_files(common_funcs, test_webpage, test_dir, variables, test_num
                 if not os.path.isdir(f"{test_dir}/{isubjob}"):
                     os.mkdir(f"{test_dir}/{isubjob}")
                 compare_exit_status = os.system(f"{common_funcs.ValidationPath}/Compare/compareroot {common_funcs.ValidationPath}/Webpage/{common_funcs.GIT_COMMIT}/{test_num}/{isubjob} {root_filename} {common_funcs.ValidationPath}/Compare/Reference/{root_filename}")
-                print('compare_exit_status', compare_exit_status, type(compare_exit_status))
+                common_funcs.logger.info('compare_exit_status', compare_exit_status, type(compare_exit_status))
                 if compare_exit_status != 0:
                     common_funcs.add_entry(test_webpage, "#FF0000", link, f"Failed {pmttype} plot comparisons")
                     ret = 1
@@ -190,13 +190,13 @@ def compare_root_files(common_funcs, test_webpage, test_dir, variables, test_num
             else:
                 common_funcs.add_entry(test_webpage, "#000000", "", f"No {pmttype} in geometry")
 
-        print('wcsim_has_output, ret after loop over diffing root files', wcsim_has_output, ret)
+        common_funcs.logger.info('wcsim_has_output, ret after loop over diffing root files', wcsim_has_output, ret)
         if wcsim_has_output == 0:
             ret = 1
     except Exception as e:
         raise Exception(f"Unxpected error occured when comparing the root files: {e}")
     if debug:
-        print(f"Return value after compare_root_files: {ret}")
+        common_funcs.logger.info(f"Return value after compare_root_files: {ret}")
     return ret
 
 def compare_geofile(common_funcs, test_webpage, variables, test_num, debug):
@@ -228,7 +228,7 @@ def compare_geofile(common_funcs, test_webpage, variables, test_num, debug):
     except Exception as e:
         raise Exception(f"Unexpected error occured when comparing the geometry files: {e}")
     if debug:
-        print(f"Return value after compare_geofile: {ret}")
+        common_funcs.logger.info(f"Return value after compare_geofile: {ret}")
     return ret
 
 def compare_badfile(common_funcs, test_webpage, variables, test_num, debug):
@@ -280,7 +280,7 @@ def compare_badfile(common_funcs, test_webpage, variables, test_num, debug):
     except Exception as e:
         raise Exception(f"Unexpected error when comparing bad files: {e}")
     if debug:
-        print(f"Return value after compare_badfile: {ret}")
+        common_funcs.logger.info(f"Return value after compare_badfile: {ret}")
     return ret
 
 def check_impossible_geometry(common_funcs, test_webpage, variables, test_num, debug):
@@ -322,9 +322,9 @@ def check_impossible_geometry(common_funcs, test_webpage, variables, test_num, d
 
         if os.path.getsize(impossiblefilename) > 0:
             common_funcs.add_entry(test_webpage, "#FF0000", f"<a href='{impossiblefilename}'>", "Geometry warnings exist")
-            print("Geometry warnings exist:")
+            common_funcs.logger.info("Geometry warnings exist:")
             with open(impossiblefilename, "r") as impossible_file:
-                print(impossible_file.read())
+                common_funcs.logger.info(impossible_file.read())
             os.system(f"mv {impossiblefilename} {common_funcs.ValidationPath}/Webpage/{common_funcs.GIT_COMMIT}/{test_num}/")
             ret = 1
         else:
@@ -334,7 +334,7 @@ def check_impossible_geometry(common_funcs, test_webpage, variables, test_num, d
     except Exception as e:
         raise Exception(f"Unexpected error occurred when checking impossible geometry: {e}")
     if debug:
-        print(f"Return value after check_impossible_geometry: {ret}")
+        common_funcs.logger.info(f"Return value after check_impossible_geometry: {ret}")
     return ret
 
 def main():
@@ -348,12 +348,27 @@ def main():
         logger = common_funcs.logger
         test_dir = f"{common_funcs.ValidationPath}/Webpage/{common_funcs.GIT_COMMIT}/{args.test_num}"
 
+        #Check if the test number is correct, kill if not.
+
+        with open(os.path.join(common_funcs.ValidationPath, 'tests.json'), 'r') as json_file:
+            data = json.load(json_file)
+
+        values = data[f'Test{args.test_num}']
+        test_name = values['name']
+        test_type = values['test']
+        test_variables = {key: value for key, value in values.items() if key not in ['name', 'test']}
+
+
+
+        common_funcs.logger.info(f"Running test {args.test_num} with name: {test_name} of type: {test_type} with variables: {test_variables}")
+
+
         # Checkout validation repository
         common_funcs.checkout_validation_webpage_branch()
 
         # build the comparison script
         try:
-            subprocess.run(["make"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=True)
+            common_funcs.run_command("make")
         except subprocess.CalledProcessError as e:
             raise subprocess.CalledProcessError(f"Failed to build the comparison script. Return code: {e.returncode}.\nOutput: {e.output.decode()}")
         
@@ -371,16 +386,6 @@ def main():
         header_content = create_test_webpage_header(common_funcs.ValidationPath)
         footer_content = create_test_webpage_footer(common_funcs.ValidationPath)
         test_webpage = create_test_webpage(test_dir, header_content, GIT_COMMIT_MESSAGE, common_funcs.GIT_COMMIT, common_funcs.GIT_PULL_REQUEST_LINK)
-
-        with open(os.path.join(common_funcs.ValidationPath, 'tests.json'), 'r') as json_file:
-            data = json.load(json_file)
-
-        values = data[f'Test{args.test_num}']
-        test_name = values['name']
-        test_type = values['test']
-        test_variables = {key: value for key, value in values.items() if key not in ['name', 'test']}
-
-        print(f"Running test {args.test_num} with name: {test_name} of type: {test_type} with variables: {test_variables}")
 
         with open(test_webpage, 'a') as webpage:
             webpage.write(f"\n<h3>{test_name}</h3>\n")
@@ -411,12 +416,12 @@ def main():
         # Add the footer and...
         # Add color code at the bottom for the list of jobs page
         if ret == 0:
-            print("Finishing writing webpage file. Nothing failed!")
+            common_funcs.logger.info("Finishing writing webpage file. Nothing failed!")
             with open(test_webpage, "a") as webpage_file:
                 webpage_file.write(footer_content)
                 webpage_file.write("#00FF00\n")
         else:
-            print("Finishing writing webpage file. Something failed!")
+            common_funcs.logger.info("Finishing writing webpage file. Something failed!")
             with open(test_webpage, "a") as webpage_file:
                 webpage_file.write(footer_content)
                 webpage_file.write("#FF0000\n")
@@ -427,13 +432,14 @@ def main():
             sys.exit(-1)
     
     except FileNotFoundError as e:
-        logger.error(f"File not found error in RunTests: {e}")
+        logger.error(f"File not found error in RunTests: {type(e).__name__}: {e}")
         sys.exit(1)
     except subprocess.CalledProcessError as e:
+        #Maybe this needs changing?
         logger.error(f"Error running subprocess in RunTests: Return code {e.returncode}, Output: {e.output.decode()}")
         sys.exit(1)
     except Exception as e:
-        logger.error(f"An unexpected error occurred in RunTests: {e}")
+        logger.error(f"An unexpected error occurred in RunTests: {type(e).__name__}: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

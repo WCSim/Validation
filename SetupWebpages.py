@@ -5,14 +5,14 @@ import json
 from common import CommonWebPageFuncs
 
 #Putting some things in functions so that the main code doesn't look a mess :)
-def update_file(old_path, new_path, content):
+def prepend_to_file(old_path, new_path, content):
     with open(new_path, "w") as f_new:
         f_new.write(content)
         with open(old_path, "r") as f:
             f_new.write(f.read())
     os.rename(new_path, old_path)
 
-def build_webpage(header_path, body_path, footer_path, index_path):
+def create_main_webpage(header_path, body_path, footer_path, index_path):
     with open(index_path, "w") as f_index:
         with open(header_path, "r") as f_header:
             f_index.write(f_header.read())
@@ -67,17 +67,17 @@ def main():
 
         # Update folderlist
         new_folderlist_path = f"{folderlist_path}.new"
-        update_file(folderlist_path, new_folderlist_path, f"{cw.GIT_COMMIT} \n")
+        prepend_to_file(folderlist_path, new_folderlist_path, f"{cw.GIT_COMMIT} \n")
 
         # Update body
         git_commit_message = f" Pull Request #{cw.GIT_PULL_REQUEST}: {cw.GIT_PULL_REQUEST_TITLE}" if cw.GIT_PULL_REQUEST != "false" else ""
-        git_pull_request_link = f"<a href=https://github.com/WCSim/WCSim/pull/{cw.GIT_PULL_REQUEST}>"
+        git_pull_request_link = f"<a href=https://{cw.SOFTWARE_GIT_WEB_PATH}/pull/{cw.GIT_PULL_REQUEST}>"
         git_pull_request_link_close = "</a>" if not cw.GIT_PULL_REQUEST.isdigit() else ""
         new_body_path = f"{body_path}.new"
-        update_file(body_path, new_body_path, f"\n<tr> <td><a href='{cw.GIT_COMMIT}/index.html'>{cw.GIT_COMMIT}</td> <td>{git_pull_request_link}{git_commit_message}{git_pull_request_link_close}</td> </tr>\n")
+        prepend_to_file(body_path, new_body_path, f"\n<tr> <td><a href='{cw.GIT_COMMIT}/index.html'>{cw.GIT_COMMIT}</td> <td>{git_pull_request_link}{git_commit_message}{git_pull_request_link_close}</td> </tr>\n")
 
         # Build webpage
-        build_webpage(header_path, body_path, footer_path, os.path.join(validation_path, "Webpage", "index.html"))
+        create_main_webpage(header_path, body_path, footer_path, os.path.join(validation_path, "Webpage", "index.html"))
 
         # Make the test webpage
         commit_dir = os.path.join(validation_path, "Webpage", cw.GIT_COMMIT)

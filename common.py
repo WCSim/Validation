@@ -8,11 +8,14 @@ import subprocess
 class CommonWebPageFuncs:
     def __init__(self):
 
-        #Set up logging. A more useful print that allows us to define errors, warnings, normal messages and what level these pintouts happen.
+        #Set up logging. A more useful print that allows us to define errors, warnings, normal messages and what level these printouts happen.
         #i.e. Since this script is used as an import to the run scripts, the logger will report that the error happened in Common.
-        self.logger = logging.getLogger(__name__)
-        self.logger.setLevel(logging.DEBUG)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        self.logger = logging.getLogger(__name__) #default formatting is fine.
+        self.logger.setLevel(logging.INFO)
+        #For some strange reason, this is needed to set the right output level:
+        ch = logging.StreamHandler()
+        ch.setLevel(logging.INFO)
+        self.logger.addHandler(ch)
 
         try:
             # Check required environment variables
@@ -42,7 +45,8 @@ class CommonWebPageFuncs:
             self.VALIDATION_GIT_PATH = data["Validation"].get("Path", "")
             self.VALIDATION_GIT_BRANCH = data["Validation"].get("CodeBranch", "")
             self.SOFTWARE_NAME = data["Software"].get("Name", "")
-            self.SOFTWARE_GIT_PATH = data["Software"].get("Path", "")
+            self.SOFTWARE_GIT_CLONE_PATH = data["Software"].get("ClonePath", "")
+            self.SOFTWARE_GIT_WEB_PATH = data["Software"].get("WebPath", "")
             self.MAX_PUSH_ATTEMPTS = 5
 
             # Handle optional environment variables
@@ -58,7 +62,33 @@ class CommonWebPageFuncs:
             self.logger.error(f"Error in configuration: {e}")
         except Exception as e:
             self.logger.error(f"Unexpected error in class CommonWebPageFuncs initialization: {e}")
-        
+    
+    def run_command(self,command):
+        """
+        Function that runs a shell command using subprocess and catches a non-zero exit status from the command.
+
+        Arguments:
+        - command: String of the command to be run.
+        """
+        try:
+            exit_status = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            return exit_status
+
+        except subprocess.CalledProcessError as e:
+            print(f"Unexpected error in common: Command '{e.cmd}' returned non-zero exit status {e.returncode}")
+
+    def create_directory(self,directory):
+        """
+        Function that creates a directory.
+
+        Arguments:
+        - directory: The absolute path of the directory to be created
+        """
+        try:
+            os.makedirs(directory, exist_ok=True)
+        except OSError as e:
+            print(f"Unexpected error in common: Failed to create directory '{directory}': {e}")
+    
     def checkout_validation_webpage_branch(self):
         """
         Function that checks out the validation webpage branch from git.
@@ -76,12 +106,12 @@ class CommonWebPageFuncs:
 
             webpage_path = os.path.join(self.ValidationPath, "Webpage")
             if not os.path.isdir(webpage_path):
-                subprocess.run(["git", "clone", f"https://{self.VALIDATION_GIT_PATH}", "--single-branch", "--depth", "1", "-b", self.WEBPAGE_BRANCH, self.WEBPAGE_FOLDER])
+                self.run_command(f"git clone https://{self.VALIDATION_GIT_PATH} --single_branch --depth 1 -b self.WEBPAGE_BRANCH self.WEBPAGE_FOLDER")
                 os.chdir("Webpage")
 
                 # Add a default user, otherwise git complains
-                subprocess.run(["git", "config", "user.name", "WCSim CI"])
-                subprocess.run(["git", "config", "user.email", "wcsim@wcsim.wcsim"])
+                self.run_command(f"git config user.name {self.GIT_USER}")
+                self.run_command(f"git config user.email {self.GIT_EMAIL}")
 
                 os.chdir(f"{self.ValidationPath}")
 
@@ -118,24 +148,24 @@ class CommonWebPageFuncs:
                     for line in folderlist_file:
                         folder += 1
                         if folder >= 35:
-                            subprocess.run(["git", "rm", "-r", line.strip()])
+                            self.run_command(f"git rm -r {line.strip()}")
                         else:
                             new_folderlist_file.write(line)
-            subprocess.run(['/bin/mv', '-f', new_folderlist_filename, folderlist_filename])
+            os.rename(new_folderlist_filename,folderlist_filename)
 
             # Setup the commit
             self.logger.info("Adding")
-            subprocess.run(["git", "add", "--all"])
-            subprocess.run(["git", "commit", "-a", "-m", f"CI update: new pages for {self.GIT_COMMIT}"])
+            self.run_command("git add --all")
+            self.run_command(f"git commit -a -m CI update: new pages for {self.GIT_COMMIT}")
 
             # Setup a loop to prevent clashes when multiple jobs change the webpage at the same time
             for iattempt in range(self.MAX_PUSH_ATTEMPTS):
                 # Get the latest version of the webpage
-                subprocess.run(["git", "pull", "--rebase"])
+                self.run_command("git pull --rebase")
 
                 # Attempt to push
                 push_command = f"git push https://{self.GIT_USER}:{self.GIT_TOKEN}@{self.VALIDATION_GIT_PATH} {self.WEBPAGE_BRANCH}"
-                push_process = subprocess.run(push_command.split())
+                push_process = self.run_command(push_command)
 
                 if push_process.returncode == 0:
                     break
@@ -198,22 +228,38 @@ class CommonWebPageFuncs:
         - I think this make sense as if a diff is found it is not strictly an error in the validation code.
         """
         try:
+            diffEntryAdded = False
+            #Check if the reference file and test file exist
+            if not os.path.isfile(f"{ref_file}"):
+                self.add_entry(TESTWEBPAGE, "#FF00FF", "", f"Reference {file_type} not found")
+                diffEntryAdded = True
+                return 1
+            if not os.path.isfile(f"{test_file}"):
+                self.add_entry(TESTWEBPAGE, "#FF00FF", "", f"Reference {file_type} not found")
+                diffEntryAdded = True
+                return 1
+
+
             diff_command = f"diff {ref_file} {test_file}"
             diff_output = os.popen(diff_command).read()
 
             if diff_output:
                 self.add_entry(TESTWEBPAGE, "#FF0000", f"<a href='{diff_file}'>", file_type)
+                diffEntryAdded = True
                 self.logger.info(f"{file_type}:")
                 self.logger.info(diff_output)
                 with open(f"{diff_file}", "w") as df:
                     df.write(diff_output)
-                os.system(f"mv {diff_file} {diff_path}")
+                os.rename(diff_file,diff_path)
                 return 1 #Exit with a diff found
-            elif not os.path.isfile(f"{ref_file}"):
-                self.add_entry(TESTWEBPAGE, "#FF00FF", "", f"Reference {file_type} not found")
             else:
                 self.add_entry(TESTWEBPAGE, "#00FF00", "", f"{file_type} pass")
+                diffEntryAdded = True
+
             return 0 #Exit with no diff found
         
         except Exception as e:
             self.logger.error(f"An unexpected error has occured during check_diff in common functions: {e}")
+            if diffEntryAdded == False:
+                self.add_entry(TESTWEBPAGE, "#FF0000", f"An unexpected error has occured during check_diff in common functions: {e}")
+            return 1
