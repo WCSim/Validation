@@ -106,7 +106,7 @@ class CommonWebPageFuncs:
 
             webpage_path = os.path.join(self.ValidationPath, "Webpage")
             if not os.path.isdir(webpage_path):
-                self.run_command(f"git clone https://{self.VALIDATION_GIT_PATH} --single_branch --depth 1 -b self.WEBPAGE_BRANCH self.WEBPAGE_FOLDER")
+                self.run_command(f"git clone https://{self.VALIDATION_GIT_PATH} --single_branch --depth 1 -b {self.WEBPAGE_BRANCH} {self.WEBPAGE_FOLDER}")
                 os.chdir("Webpage")
 
                 # Add a default user, otherwise git complains
