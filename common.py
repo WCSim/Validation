@@ -156,7 +156,8 @@ class CommonWebPageFuncs:
             # Setup the commit
             self.logger.info("Adding")
             self.run_command("git add --all")
-            self.run_command(f"git commit -a -m CI update: new pages for {self.GIT_COMMIT}")
+            #Inconsistent quotations used as speech marks needed for commit message.
+            self.run_command(f'git commit -a -m "CI update: new pages for {self.GIT_COMMIT}"')
 
             # Setup a loop to prevent clashes when multiple jobs change the webpage at the same time
             for iattempt in range(self.MAX_PUSH_ATTEMPTS):
