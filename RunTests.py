@@ -95,7 +95,7 @@ def check_reference_file(common_funcs, test_webpage, test_variables, debug):
         The current implementation logs the absence of the reference file as a test failure, which was the previous behavior.
     '''
     ret = 0
-    rootfilename = f"{test_variables['FileTag']}_analysed_wcsimrootevent.root"
+    rootfilename = f"{common_funcs.ValidationPath}/Compare/Reference/{test_variables['FileTag']}_analysed_wcsimrootevent.root"
     if not os.path.isfile(rootfilename):
         common_funcs.add_entry(test_webpage, "#FF00FF", "", "Reference file does not exist")
         ret = 1
