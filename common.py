@@ -167,7 +167,9 @@ class CommonWebPageFuncs:
                 # Attempt to push
                 push_command = f"git push https://{self.GIT_USER}:{self.GIT_TOKEN}@{self.VALIDATION_GIT_PATH} {self.WEBPAGE_BRANCH}"
                 print(push_command)
-                push_process = self.run_command(push_command)
+                #push_process = self.run_command(push_command)
+                #Clunky fix to get around run_command's own error handling... should be fixed so that run_command can be used.
+                push_process = subprocess.run(push_command,shell=True)
 
                 if push_process.returncode == 0:
                     break
