@@ -41,7 +41,7 @@ assert(len(jobs_done) == len(set(jobs_done)))
 
 
 #### GET THE EXPECTED JOB NUMS
-wcsimdir = os.environ['WCSIMDIR']
+wcsimdir = os.environ['WCSIM_SOURCE_DIR']
 assert(os.path.isdir(wcsimdir))
 wcsimfile = wcsimdir + '/.github/workflows/on_tag.yml'
 assert(os.path.isfile(wcsimfile))
