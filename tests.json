@@ -13,7 +13,7 @@
       "ScriptName": "Generate/Generate.sh",
       "WCSimMacName": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelIn_startX_dark0_n200_seed20230628.mac",
       "FileTag": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelIn_startX_dark0_n200",
-      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD.txt"
+      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD_Realistic.txt"
     },
     "Test3": {
       "name": "HKFDOD_500MeVem_ODbarrelIn_startY",
@@ -21,7 +21,7 @@
       "ScriptName": "Generate/Generate.sh",
       "WCSimMacName": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelIn_startY_dark0_n200_seed20230628.mac",
       "FileTag": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelIn_startY_dark0_n200",
-      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD.txt"
+      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD_Realistic.txt"
     },
     "Test4": {
       "name": "HKFDOD_500MeVem_ODbarrelUp_startX",
@@ -29,7 +29,7 @@
       "ScriptName": "Generate/Generate.sh",
       "WCSimMacName": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelUp_startX_dark0_n200_seed20230628.mac",
       "FileTag": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelUp_startX_dark0_n200",
-      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD.txt"
+      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD_Realistic.txt"
     },
     "Test5": {
       "name": "HKFDOD_500MeVem_ODbarrelUp_startY",
@@ -37,7 +37,7 @@
       "ScriptName": "Generate/Generate.sh",
       "WCSimMacName": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelUp_startY_dark0_n200_seed20230628.mac",
       "FileTag": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVemODbarrelUp_startY_dark0_n200",
-      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD.txt"
+      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD_Realistic.txt"
     },
     "Test6": {
       "name": "HKFDOD_500MeVem_centre_xdir",
@@ -45,7 +45,7 @@
       "ScriptName": "Generate/Generate.sh",
       "WCSimMacName": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n1000_seed20230628.mac",
       "FileTag": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n1000",
-      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD.txt"
+      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD_Realistic.txt"
     },
     "Test7": {
       "name": "HKFDOD_500MeVmum_centre_xdir",
@@ -53,7 +53,7 @@
       "ScriptName": "Generate/Generate.sh",
       "WCSimMacName": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000_seed20230628.mac",
       "FileTag": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000",
-      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD.txt"
+      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD_Realistic.txt"
     },
     "Test8": {
       "name": "HKFDOD_5MeVem_centre_xdir",
@@ -61,7 +61,7 @@
       "ScriptName": "Generate/Generate.sh",
       "WCSimMacName": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000_seed20230628.mac",
       "FileTag": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000",
-      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD.txt"
+      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD_Realistic.txt"
     },
     "Test9": {
       "name": "HKFD_500MeVem_centre_xdir",
@@ -69,7 +69,7 @@
       "ScriptName": "Generate/Generate.sh",
       "WCSimMacName": "wcsim_hybrid_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n1000_seed20230628.mac",
       "FileTag": "wcsim_hybrid_SensitiveDetector_Only_NoTrigger_gun500MeVem_xdir_dark0_n1000",
-      "GeoFileName": "geofile_HyperK_HybridmPMT.txt"
+      "GeoFileName": "geofile_HyperK_HybridmPMT_IDonly_Realistic.txt"
     },
     "Test10": {
       "name": "HKFD_500MeVmum_centre_xdir",
@@ -77,7 +77,7 @@
       "ScriptName": "Generate/Generate.sh",
       "WCSimMacName": "wcsim_hybrid_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000_seed20230628.mac",
       "FileTag": "wcsim_hybrid_SensitiveDetector_Only_NoTrigger_gun500MeVmum_xdir_dark0_n1000",
-      "GeoFileName": "geofile_HyperK_HybridmPMT.txt"
+      "GeoFileName": "geofile_HyperK_HybridmPMT_IDonly_Realistic.txt"
     },
     "Test11": {
       "name": "HKFD_5MeVem_centre_xdir",
@@ -85,7 +85,7 @@
       "ScriptName": "Generate/Generate.sh",
       "WCSimMacName": "wcsim_hybrid_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000_seed20230628.mac",
       "FileTag": "wcsim_hybrid_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000",
-      "GeoFileName": "geofile_HyperK_HybridmPMT.txt"
+      "GeoFileName": "geofile_HyperK_HybridmPMT_IDonly_Realistic.txt"
     },
     "Test12": {
       "name": "IWCD_500MeVem_centre_xdir",
