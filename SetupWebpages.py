@@ -81,7 +81,7 @@ def main():
 
         # Make the test webpage
         commit_dir = os.path.join(validation_path, "Webpage", cw.GIT_COMMIT)
-        commit_body_content = "<h2>{cw.GIT_COMMIT}</h2>\n" + \
+        commit_body_content = f"<h2>{cw.GIT_COMMIT}</h2>\n" + \
                             f"<h3>{git_pull_request_link}{git_commit_message}{git_pull_request_link_close}</h3>\n" + \
                             "<p>\n<table  border='1' align='center'>\n <tr>\n  <th scope='col'><div align='center'>Test num</div></th>\n  <th scope='col'><div align='center'>Physics test</div></th>\n </tr>\n"
         
