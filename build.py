@@ -10,7 +10,7 @@ def main(option):
     extra_options = ""
 
     if option == 1:
-        extra_options = "WCSim_Geometry_Overlaps_CHECK=ON"
+        extra_options = "-DWCSim_Geometry_Overlaps_CHECK=ON"
 
     cw.create_directory("build")
     cw.create_directory("install")
