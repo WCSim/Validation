@@ -182,7 +182,7 @@
       "WCSimMacName": "wcsim_wcte_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000_seed20230628.mac",
       "FileTag": "wcsim_wcte_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000",
       "GeoFileName": "geofile_NuPRISMBeamTest_16cShort_mPMT.txt"
-    }
+    },
     "Test24": {
       "name": "HKFDOD_OVERLAP",
       "test": "WCSimPhysicsValidation",
