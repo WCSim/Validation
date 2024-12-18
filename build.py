@@ -4,12 +4,12 @@ import os
 import argparse
 from common import CommonWebPageFuncs
 
-def main(option):
+def main(args):
 
     cw = CommonWebPageFuncs()
     extra_options = ""
 
-    if option == 1:
+    if args.overlap_check:
         extra_options = "-DWCSim_Geometry_Overlaps_CHECK=ON"
 
     cw.create_directory("build")
@@ -18,7 +18,7 @@ def main(option):
 
     cmake_command = f"cmake -DWCSim_DEBUG_COMPILE_FLAG=ON {extra_options} -DCMAKE_INSTALL_PREFIX=../install/ ../src/"
     make_command = "make"
-    if option == 1:
+    if args.parallel:
         make_command += " -j`nproc`" 
     make_install_command = "make install"
 
@@ -28,6 +28,7 @@ def main(option):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Build and install script")
-    parser.add_argument("-o","--option", required=True,type=int, help="Option to pass to the script. Option 0 does nothing. Option 1 sets WCSim_Geometry_Overlaps_CHECK=ON & compiles with multiple threads", choices=list(range(2)))
+    parser.add_argument("--parallel", action='store_true', help="Build code in parallel?")
+    parser.add_argument("--overlap-check", action='store_true', help="Build with overlap checking on? WARNING! Running with this is very slow!")
     args = parser.parse_args()
-    main(args.option)
+    main(args)
