@@ -16,6 +16,7 @@
 
 #include "WCSimRootEvent.hh"
 #include "WCSimRootGeom.hh"
+#include "WCSimRootOptions.hh"
 #include "WCSimEnumerations.hh"
 
 using namespace std;
@@ -30,7 +31,7 @@ TString create_filename(const char * suffix, TString& filename_string, const cha
 }
 
 // Simple example of reading a generated Root file
-int daq_readfile(const char *filename=NULL,
+int daq_readfilemain(const char *filename=NULL,
 		 bool verbose=false,
 		 const char * inbranch="wcsimrootevent",
 		 Long64_t max_nevents = 999999999999,
@@ -90,6 +91,27 @@ int daq_readfile(const char *filename=NULL,
       exit(9);
   }
   geotree->GetEntry(0);
+
+  // Options tree - only need 1 "event"
+  TTree *opttree = (TTree*)file->Get("wcsimRootOptionsT");
+  WCSimRootOptions *opt = 0; 
+  opttree->SetBranchAddress("wcsimrootoptions", &opt);
+  if(verbose) std::cout << "Options tree has: " << opttree->GetEntries() << " entries (1 expected)" << std::endl;
+  if (opttree->GetEntries() == 0) {
+    exit(9);
+  }
+  opttree->GetEntry(0);
+  opt->Print();
+  string detector = opt->GetDetectorName();
+  //detector boundaries, in cm, for determining
+  //These are setup for HyperK_HybridmPMT_WithOD_Realistic only
+  const float detIDR = 3240;
+  const float detODRin = 3302.1;
+  const float detODRout = 3402.1;
+  const float detIDhalfZ = 6579.1 / 2;
+  const float detODhalfZin = 6699.3 / 2;
+  const float detODhalfZout = 7099.5 / 2;
+
   // start with the main "subevent", as it contains most of the info
   // and always exists.
   WCSimRootTrigger* wcsimrootevent;
@@ -133,6 +155,7 @@ int daq_readfile(const char *filename=NULL,
   vector<float> tvtrack_energy;
   vector<double> tvtrack_time;
   vector<TVector3> tvtrack_startpos, tvtrack_stoppos;
+  int true_particles_in_od, true_particles_in_id;
   tout->Branch("vtx0", &tvtx0);
   tout->Branch("vtx1", &tvtx1);
   tout->Branch("vtx2", &tvtx2);
@@ -147,6 +170,8 @@ int daq_readfile(const char *filename=NULL,
   tout->Branch("track_flag", &tvtrack_flag);
   tout->Branch("track_energy", &tvtrack_energy);
   tout->Branch("track_time", &tvtrack_time);
+  tout->Branch("true_particles_in_od_NOT_CHERENKOV_OR_ELECTRON", &true_particles_in_od);
+  tout->Branch("true_particles_in_id_NOT_CHERENKOV_OR_ELECTRON", &true_particles_in_id);
   //tout->Branch("track_startpos", &tvtrack_startpos);
   //tout->Branch("track_stoppos", &tvtrack_stoppos);
   //per trigger variables
@@ -194,6 +219,8 @@ int daq_readfile(const char *filename=NULL,
     tvtx0                 = -999999;
     tvtx1                 = -999999;
     tvtx2                 = -999999;
+    true_particles_in_id  = -1;
+    true_particles_in_od  = -1;
     tntriggers            = -1;
     tntracks              = -1;
     tnrawhits             = -1;
@@ -256,6 +283,10 @@ int daq_readfile(const char *filename=NULL,
     tntracks = ntracks;
 
     // Loop through elements in the TClonesArray of WCSimTracks
+    if(detector == "HyperK_HybridmPMT_WithOD_Realistic") {
+      true_particles_in_id = 0;
+      true_particles_in_od = 0;
+    }
     for (int itrack = 0; itrack < ntracks; itrack++)
     {
       TObject *element = (wcsimrootevent->GetTracks())->At(itrack);      
@@ -270,6 +301,23 @@ int daq_readfile(const char *filename=NULL,
       tvtrack_stoppos.push_back(TVector3(wcsimroottrack->GetStop(0),
 					 wcsimroottrack->GetStop(1),
 					 wcsimroottrack->GetStop(2)));
+      if(detector == "HyperK_HybridmPMT_WithOD_Realistic"
+	 && wcsimroottrack->GetIpnu() != 11 // ignore electrons
+	 && wcsimroottrack->GetIpnu() != 0 // ignore optical photons
+	 && wcsimroottrack->GetFlag() != -2 //ignore fake nuclei tracks
+	 ) {
+	float trueRstart = TMath::Sqrt(wcsimroottrack->GetStart(0) * wcsimroottrack->GetStart(0) + wcsimroottrack->GetStart(1) * wcsimroottrack->GetStart(1));
+	float trueZstart = wcsimroottrack->GetStart(2);
+	float trueRstop = TMath::Sqrt(wcsimroottrack->GetStop(0) * wcsimroottrack->GetStop(0) + wcsimroottrack->GetStop(1) * wcsimroottrack->GetStop(1));
+	float trueZstop = wcsimroottrack->GetStop(2);
+	if((trueRstart <= detIDR && abs(trueZstart) <= detIDhalfZ) ||
+	   (trueRstop <= detIDR && abs(trueZstop) <= detIDhalfZ)) {
+	  true_particles_in_id++;
+	}
+	if((trueRstart <= detODRout && abs(trueZstart) <= detODhalfZout && trueRstart >= detODRin && abs(trueZstart) >= detODhalfZin) ||
+	   (trueRstop <= detODRout && abs(trueZstop) <= detODhalfZout && trueRstop >= detODRin && abs(trueZstop) >= detODhalfZin))
+	  true_particles_in_od++;
+      }
       if(verbose){
 	printf("Track ipnu: %d\n",wcsimroottrack->GetIpnu());
 	printf("Track parent ID: %d\n",wcsimroottrack->GetParenttype());
@@ -277,6 +325,11 @@ int daq_readfile(const char *filename=NULL,
 	  printf("Track dir: %d %f\n", j, wcsimroottrack->GetDir(j));
       }
     }  //itrack // End of loop over tracks
+    if(detector == "HyperK_HybridmPMT_WithOD_Realistic") {
+      //treat as a bools
+      if(true_particles_in_id > 0) true_particles_in_id = 1;
+      if(true_particles_in_od > 0) true_particles_in_od = 1;
+    }
     
     //get number of hits and digits
     const int ncherenkovhits      = wcsimrootevent->GetNcherenkovhits();
@@ -570,7 +623,7 @@ int main(int argc, char *argv[]){
     usage(branches);
     return 1;
   }
-  daq_readfile(argv[1], atoi(argv[2]), branches[jobtodo].c_str());
+  daq_readfilemain(argv[1], atoi(argv[2]), branches[jobtodo].c_str());
   
   return 0;
 
