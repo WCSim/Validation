@@ -25,7 +25,8 @@ int main(int argc,char *argv[]){
   ofstream content;
   ofstream menu;
   ofstream title;
-
+  ofstream info;
+  
   sprintf(buff,"%s/index.html",argv[1]);
   index.open(buff);
   sprintf(buff,"%s/content.html",argv[1]);
@@ -34,7 +35,8 @@ int main(int argc,char *argv[]){
   menu.open(buff);
   sprintf(buff,"%s/title.html",argv[1]);
   title.open(buff);
-
+  sprintf(buff,"%s/info.html",argv[1]);
+  info.open(buff);
 
   index<<"<!doctype html><html><head><title>Index Page</title></head><frameset rows=\"15%,*\"><frame name=\"title\" src=\"title.html\"scrolling=\"no\" noresize><frameset cols=\"18%,*\"><frame name=\"menu\" src=\"menu.html\"scrolling=\"auto\" noresize><frame name=\"content\" src=\"content.html\"scrolling=\"yes\" noresize></frameset><body></body></html>" ;
   index.close();
@@ -291,6 +293,40 @@ int main(int argc,char *argv[]){
   Plots.Write();
   Plots.Close();
 
+  menu<<" <a href=\"info.html\" class=\"menu\">Extra text info</a><br />";
+
+  // Some hacky thing at the end to print whether there is some light leak between ID/OD
+  // "tree" corresponds to the new code run in a typical call of this function
+  file.GetObject("validation_per_event", tree);
+  info<<"<!doctype html><html><head></head><body><H3><b><u>Extra Text Info</u></b></H3><H4>Light leakage debugging</H4>"
+      << "<p>Using the start & stop position of all non-electron/Cherenkov photon/initial state nuclei tracks to determine whether it starts in the ID or OD, and therefore if we expect hits in the ID/OD. <br>If we see hits without true tracks in the detector, we should be concerned</p>"
+      << "<p>WARNING: this only works for HK FD with 20inch hits only</p>"
+      << "<p>" << tree->GetEntries("true_particles_in_od_NOT_CHERENKOV_OR_ELECTRON==0")
+      << " entries with no true particles (except potentially electrons/Cherenkov photons) in the OD. Of these:<ul>"
+      << "<li> " << tree->GetEntries("true_particles_in_od_NOT_CHERENKOV_OR_ELECTRON==0&&nrawhits==0")
+      << " have no true hits</li>"
+      << "<li> " << tree->GetEntries("true_particles_in_od_NOT_CHERENKOV_OR_ELECTRON==0&&nrawhits>0")
+      << " have true hits</li></ul></p>"
+      << "<p>" << tree->GetEntries("true_particles_in_od_NOT_CHERENKOV_OR_ELECTRON==1")
+      << " entries with true particles in the OD. Of these:<ul>"
+      << "<li> " << tree->GetEntries("true_particles_in_od_NOT_CHERENKOV_OR_ELECTRON==1&&nrawhits==0")
+      << " have no true hits</li>"
+      << "<li> " << tree->GetEntries("true_particles_in_od_NOT_CHERENKOV_OR_ELECTRON==1&&nrawhits>0")
+      << " have true hits</li></ul></p>"
+      << "<p>" << tree->GetEntries("true_particles_in_id_NOT_CHERENKOV_OR_ELECTRON==0")
+      << " entries with no true particles (except potentially electrons/Cherenkov photons) in the ID. Of these:<ul>"
+      << "<li> " << tree->GetEntries("true_particles_in_id_NOT_CHERENKOV_OR_ELECTRON==0&&nrawhits==0")
+      << " have no true hits</li>"
+      << "<li> " << tree->GetEntries("true_particles_in_id_NOT_CHERENKOV_OR_ELECTRON==0&&nrawhits>0")
+      << " have true hits</li></ul></p>"
+      << "<p>" << tree->GetEntries("true_particles_in_id_NOT_CHERENKOV_OR_ELECTRON==1")
+      << " entries with true particles in the ID. Of these:<ul>"
+      << "<li> " << tree->GetEntries("true_particles_in_id_NOT_CHERENKOV_OR_ELECTRON==1&&nrawhits==0")
+      << " have no true hits</li>"
+      << "<li> " << tree->GetEntries("true_particles_in_id_NOT_CHERENKOV_OR_ELECTRON==1&&nrawhits>0")
+      << " have true hits</li></ul></p>"
+      << "</body></html>";
+  title.close();
 
   menu<<" </body></html>";
   menu.close();

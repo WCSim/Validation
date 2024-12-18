@@ -261,7 +261,7 @@ def compare_badfile(common_funcs, test_webpage, variables, test_num, debug):
         if os.path.isfile(test_file_bad):
             os.remove(test_file_bad)
 
-        grep_patterns = ["GeomNav1002", "Optical photon is killed because of missing refractive index"]
+        grep_patterns = ["GeomNav1002", "Optical photon is killed because of missing refractive index", "GeomVol1002"]
 
         #Check if wcsim_run.out exists
         if not os.path.isfile("wcsim_run.out"):

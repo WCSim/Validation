@@ -63,19 +63,25 @@ class CommonWebPageFuncs:
         except Exception as e:
             self.logger.error(f"Unexpected error in class CommonWebPageFuncs initialization: {e}")
     
-    def run_command(self,command):
+    def run_command(self,command, verbose=True):
         """
         Function that runs a shell command using subprocess and catches a non-zero exit status from the command.
 
         Arguments:
         - command: String of the command to be run.
+        - verbose: If True, will send the combined stdout & stderr of the command to the logger. If False, this information will be lost
         """
+        if verbose:
+            print(f"Running command: {command}")
         try:
             exit_status = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            if verbose:
+                self.logger.info(exit_status.stdout.decode())
             return exit_status
 
         except subprocess.CalledProcessError as e:
             print(f"Unexpected error in common: Command '{e.cmd}' returned non-zero exit status {e.returncode}")
+            print(e.output)
 
     def create_directory(self,directory):
         """
