@@ -183,5 +183,37 @@
       "FileTag": "wcsim_wcte_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n5000",
       "GeoFileName": "geofile_NuPRISMBeamTest_16cShort_mPMT.txt"
     }
+    "Test24": {
+      "name": "HKFDOD_OVERLAP",
+      "test": "WCSimPhysicsValidation",
+      "ScriptName": "Generate/Generate.sh",
+      "WCSimMacName": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n1_seed20230628.mac",
+      "FileTag": "wcsim_hkfdcomplete_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n1",
+      "GeoFileName": "geofile_HyperK_HybridmPMT_WithOD_Realistic.txt"
+    },
+    "Test25": {
+      "name": "IWCD_OVERLAP",
+      "test": "WCSimPhysicsValidation",
+      "ScriptName": "Generate/Generate.sh",
+      "WCSimMacName": "wcsim_iwcd_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n1_seed20230628.mac",
+      "FileTag": "wcsim_iwcd_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n1",
+      "GeoFileName": "geofile_IWCD_mPMT.txt"
+    },
+    "Test26": {
+      "name": "IWCDOD_OVERLAP",
+      "test": "WCSimPhysicsValidation",
+      "ScriptName": "Generate/Generate.sh",
+      "WCSimMacName": "wcsim_iwcdod_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n1_seed20230628.mac",
+      "FileTag": "wcsim_iwcdod_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n1",
+      "GeoFileName": "geofile_IWCD_mPMT_WithOD.txt"
+    },
+    "Test27": {
+      "name": "WCTE_OVERLAP",
+      "test": "WCSimPhysicsValidation",
+      "ScriptName": "Generate/Generate.sh",
+      "WCSimMacName": "wcsim_wcte_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n1_seed20230628.mac",
+      "FileTag": "wcsim_wcte_SensitiveDetector_Only_NoTrigger_gun5MeVem_xdir_dark0_n1",
+      "GeoFileName": "geofile_NuPRISMBeamTest_16cShort_mPMT.txt"
+    }
   }
   
