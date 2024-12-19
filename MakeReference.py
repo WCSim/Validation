@@ -5,13 +5,13 @@ import glob
 import os
 import subprocess
 import shutil
+import json
 from pprint import pprint
 import time
 
 validation_dir = os.path.expandvars('$ValidationPath')
 build_dir = os.path.expandvars("$WCSIM_BUILD_DIR")
 macs = sorted(glob.glob(f'{validation_dir}/Generate/macReference/*.mac'))
-macs_short = [x.rsplit('/',1)[-1] for x in macs]
 assert(os.path.isdir(validation_dir))
 assert(os.path.isdir(build_dir))
 assert(len(macs))
@@ -25,11 +25,27 @@ def GetSHA():
     with open(f'{validation_dir}/Compare/Reference/WCSimSHA') as f:
         print(f'Using WCSim SHA: {f.readline()}')
     
-def MakeReference(job_num):
+def MakeReference(job_num, only_print_filename):
     os.chdir(f'{build_dir}')
+
+    #get the job info from the JSON
+    with open(os.path.join(validation_dir, 'tests.json'), 'r') as json_file:
+        data = json.load(json_file)
+
+    try:
+        values = data[f'Test{job_num}']
+    except KeyError:
+        print(f'Test{job_num} does not exist in tests.json. Cannot run this test')
+        return True
+    test_name = values['name']
+    test_type = values['test']
+    test_variables = {key: value for key, value in values.items() if key not in ['name', 'test']}
+
     #Run WCSim
-    mac = macs[job_num]
+    mac = test_variables['WCSimMacName']
     print(f'Running job: {job_num}, file: {mac}')
+    if only_print_filename:
+        return False
     logfile = f'{job_num}.out'
     f = open(logfile, 'w')
     subprocess.run(['WCSim', mac, f'{validation_dir}/Generate/macReference/tune/tuning_parameters.mac'], stderr=subprocess.STDOUT, stdout=f, text=True)
@@ -140,19 +156,17 @@ def PushToGit(job_str, branch_name='new_ref', callnum=0):
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--job-number', '-j', type=int, nargs='+', required=True, choices=range(len(macs)), help='Job numbers to run.' + '\n'.join([f'{a:02d}: {b}' for a,b in zip(range(len(macs)), macs_short)]))
+    parser.add_argument('--job-number', '-j', type=int, nargs='+', required=True, help='The test number(s) you want to run from the Validation package tests.json')
     parser.add_argument('--only-print-filename', action='store_true', help='Only prints the file number')
     args = parser.parse_args()
 
     jobs_to_run = sorted(set(args.job_number))
     failure = False
     for job in jobs_to_run:
-        print(job, macs[job])
-        if args.only_print_filename:
-            continue
+        print('Job', job)
         if job == 0:
             GetSHA()
-        failure = failure or MakeReference(job)
+        failure = failure or MakeReference(job, args.only_print_filename)
 
     if args.only_print_filename:
         sys.exit(0)
