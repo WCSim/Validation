@@ -76,7 +76,7 @@ def MakeReference(job_num, only_print_filename):
     badfile = rootfile.replace('.root', '_bad.txt')
     bads = {}
     with open(f'{validation_dir}/{badfile}', 'w') as f:
-        for bad in ['GeomNav1002', 'Optical photon is killed because of missing refractive index']:
+        for bad in ['GeomNav1002', 'Optical photon is killed because of missing refractive index', 'GeomVol1002']:
             bads[bad] = int(subprocess.run(['grep', '-c', bad, logfile], stdout=subprocess.PIPE, text=True).stdout)
             f.write(f'"{bad}" {bads[bad]}\n')
     pprint(bads)
