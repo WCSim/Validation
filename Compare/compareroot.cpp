@@ -81,6 +81,10 @@ int main(int argc,char *argv[]){
 	
 	TLeaf *leaf=(TLeaf*)obj;
 	TLeaf *leaf2=tree2->GetLeaf(obj->GetName());
+	if(leaf2 == nullptr) {
+	  cerr << "Branch not found in tree2. Continuing, with drawing the results from tree twice" << endl;
+	  leaf2 = leaf;
+	}
 	
 	long entries1=tree->GetEntriesFast();
 	long entries2=tree2->GetEntriesFast();
@@ -183,6 +187,9 @@ int main(int argc,char *argv[]){
 	  sprintf(buff2,"%s Error!!!",obj->GetName());
 	  fullsame*=same;
 	}
+	else if(leaf == leaf2) {
+	  sprintf(buff2,"%s MISSING IN REF FILE!!!",obj->GetName());
+	}
 	else {sprintf(buff2,"%s",obj->GetName());}
 
 	//Now start drawing
@@ -191,7 +198,7 @@ int main(int argc,char *argv[]){
 	tmp.Divide(2, 1);
 	//first get the histogram ranges
 	tree ->Draw(TString::Format("%s>>htemp1", obj->GetName()), "", "goff");
-	tree2->Draw(TString::Format("%s>>htemp2", obj->GetName()), "", "goff");
+	(leaf2 == leaf ? tree : tree2)->Draw(TString::Format("%s>>htemp2", obj->GetName()), "", "goff");
 	TH1F *htemp1 = (TH1F*)gDirectory->Get("htemp1");
 	const int n1 = htemp1->GetNbinsX();
 	const float lo1 = htemp1->GetXaxis()->GetBinLowEdge(1);
@@ -210,7 +217,7 @@ int main(int argc,char *argv[]){
 	//now actually draw the histograms
 	tmp.cd(1);
 	tree ->Draw(TString::Format("%s>>hnew(%d,%f,%f)", obj->GetName(), nbins, lo, hi));
-	tree2->Draw(TString::Format("%s>>href(%d,%f,%f)", obj->GetName(), nbins, lo, hi),"","sames *H");
+	(leaf2 == leaf ? tree : tree2)->Draw(TString::Format("%s>>href(%d,%f,%f)", obj->GetName(), nbins, lo, hi),"","sames *H");
 	TH1F *hnew = (TH1F*)gDirectory->Get("hnew");
 	TH1F *href = (TH1F*)gDirectory->Get("href");
 	hnew->GetXaxis()->SetTitle(obj->GetName());
@@ -298,7 +305,7 @@ int main(int argc,char *argv[]){
   // Some hacky thing at the end to print whether there is some light leak between ID/OD
   // "tree" corresponds to the new code run in a typical call of this function
   file.GetObject("validation_per_event", tree);
-  info<<"<!doctype html><html><head></head><body><H3><b><u>Extra Text Info</u></b></H3><H4>Light leakage debugging</H4>"
+  info<<"<!doctype html><html><head></head><body><H3><b><u>Extra Text Info</u></b></H3><H4>Light leakage debugging (results from latest code run)</H4>"
       << "<p>Using the start & stop position of all non-electron/Cherenkov photon/initial state nuclei tracks to determine whether it starts in the ID or OD, and therefore if we expect hits in the ID/OD. <br>If we see hits without true tracks in the detector, we should be concerned</p>"
       << "<p>WARNING: this only works for HK FD with 20inch hits only</p>"
       << "<p>" << tree->GetEntries("true_particles_in_od_NOT_CHERENKOV_OR_ELECTRON==0")
