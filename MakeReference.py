@@ -42,7 +42,8 @@ def MakeReference(job_num, only_print_filename):
     test_variables = {key: value for key, value in values.items() if key not in ['name', 'test']}
 
     #Run WCSim
-    mac = test_variables['WCSimMacName']
+    mac_short = test_variables['WCSimMacName']
+    mac = os.path.join(validation_dir, 'Generate/macReference/', mac_short)
     print(f'Running job: {job_num}, file: {mac}')
     if only_print_filename:
         return False
