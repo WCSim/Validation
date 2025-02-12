@@ -48,7 +48,7 @@ assert(os.path.isfile(wcsimfile))
 print('Taking expected jobs from:', wcsimfile)
 with open(wcsimfile) as job:
     data = yaml.safe_load(job)
-jobs_expected = sorted(data['jobs']['physics']['strategy']['matrix']['physics_job'])
+jobs_expected = sorted(data['jobs']['physics']['strategy']['matrix']['physics_job'] + data['jobs']['overlap']['strategy']['matrix']['physics_job'])
 
 #### PRINT STUFF
 print()
