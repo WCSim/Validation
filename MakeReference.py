@@ -165,7 +165,7 @@ if __name__ == "__main__":
     failure = False
     for job in jobs_to_run:
         print('Job', job)
-        if job == 0:
+        if job == 1:
             GetSHA()
         failure = failure or MakeReference(job, args.only_print_filename)
 
