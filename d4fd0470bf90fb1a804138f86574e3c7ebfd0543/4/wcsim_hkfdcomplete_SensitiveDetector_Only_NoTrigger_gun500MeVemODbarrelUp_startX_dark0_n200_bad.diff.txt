@@ -1,4 +1,0 @@
-2c2
-< "Optical photon is killed because of missing refractive index" 964104
----
-> "Optical photon is killed because of missing refractive index" 863768
