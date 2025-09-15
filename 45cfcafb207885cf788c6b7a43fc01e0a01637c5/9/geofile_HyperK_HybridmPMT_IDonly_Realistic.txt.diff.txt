@@ -1,0 +1,4 @@
+4c4
+< OD PMT number & size                 0  101.60
+---
+> OD PMT number & size                 0   40.00
